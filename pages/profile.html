@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil - E2E-Commerce</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/profile.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <h1>E2E-Commerce</h1>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../pages/products.html">Produtos</a></li>
+                    <li><a href="../pages/cart.html">Carrinho</a></li>
+                    <li class="admin-link" style="display: none;"><a href="../pages/admin.html">Gestão de Produtos</a></li>
+                </ul>
+            </nav>
+            <div class="user-actions">
+                <span class="user-info" id="user-name">Usuário</span>
+                <button id="logout-btn" class="btn">Sair</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="profile-container">
+                <h1>Meu Perfil</h1>
+                
+                <div class="profile-form">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" id="name" name="name" required>
+                        <span class="error-message" id="name-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                        <span class="error-message" id="email-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="profile-type">Tipo de Perfil</label>
+                        <select id="profile-type" name="profile-type" disabled>
+                            <option value="customer">Cliente</option>
+                            <option value="seller">Vendedor</option>
+                        </select>
+                        <p class="help-text">O tipo de perfil não pode ser alterado.</p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="current-password">Senha Atual</label>
+                        <div class="password-input">
+                            <input type="password" id="current-password" name="current-password">
+                            <button type="button" class="toggle-password">
+                                <span class="show-password">👁️</span>
+                            </button>
+                        </div>
+                        <span class="error-message" id="current-password-error"></span>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="new-password">Nova Senha (opcional)</label>
+                        <div class="password-input">
+                            <input type="password" id="new-password" name="new-password">
+                            <button type="button" class="toggle-password">
+                                <span class="show-password">👁️</span>
+                            </button>
+                        </div>
+                        <span class="error-message" id="new-password-error"></span>
+                        <p class="password-requirements">
+                            A senha deve ter no mínimo 10 caracteres, incluindo letras, números e caracteres especiais.
+                        </p>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="confirm-password">Confirmar Nova Senha</label>
+                        <div class="password-input">
+                            <input type="password" id="confirm-password" name="confirm-password">
+                            <button type="button" class="toggle-password">
+                                <span class="show-password">👁️</span>
+                            </button>
+                        </div>
+                        <span class="error-message" id="confirm-password-error"></span>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" id="save-profile" class="btn primary">Salvar Alterações</button>
+                        <button type="button" id="delete-account" class="btn danger">Excluir Conta</button>
+                    </div>
+                    
+                    <div class="form-message" id="form-message"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Modal de confirmação para exclusão de conta -->
+    <div id="delete-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Confirmar Exclusão</h2>
+            <p>Tem certeza que deseja excluir sua conta? Esta ação não pode ser desfeita.</p>
+            <div class="modal-actions">
+                <button id="confirm-delete" class="btn danger">Sim, Excluir</button>
+                <button id="cancel-delete" class="btn">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 E2E-Commerce. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../js/profile.js"></script>
+</body>
+</html>

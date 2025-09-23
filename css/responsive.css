@@ -1,0 +1,460 @@
+/* Estilos responsivos para o E2E-Commerce */
+
+/* Tablets e dispositivos menores */
+@media (max-width: 992px) {
+    /* Layout geral */
+    .container {
+        width: 95%;
+    }
+    
+    /* Header */
+    .header-top {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .logo {
+        margin-bottom: 10px;
+    }
+    
+    .search-form {
+        width: 100%;
+        margin: 10px 0;
+    }
+    
+    .user-actions {
+        width: 100%;
+        justify-content: center;
+        margin-top: 10px;
+    }
+    
+    /* Navegação */
+    .main-nav ul {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .main-nav li {
+        margin: 5px;
+    }
+    
+    /* Página inicial */
+    .featured-products {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .categories-section .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Página de produto */
+    .product-details {
+        flex-direction: column;
+    }
+    
+    .product-gallery {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .product-info-container {
+        width: 100%;
+    }
+    
+    /* Página de carrinho */
+    .cart-container {
+        flex-direction: column;
+    }
+    
+    .cart-items {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .cart-summary {
+        width: 100%;
+    }
+    
+    /* Página de busca */
+    .search-container {
+        flex-direction: column;
+    }
+    
+    .search-sidebar {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+    
+    .search-results-area {
+        width: 100%;
+    }
+    
+    .search-results {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Página de login */
+    .login-container {
+        width: 90%;
+    }
+}
+
+/* Dispositivos móveis */
+@media (max-width: 768px) {
+    /* Layout geral */
+    .container {
+        width: 100%;
+        padding: 0 10px;
+    }
+    
+    /* Header */
+    .header-top {
+        padding: 10px;
+    }
+    
+    .search-form {
+        flex-direction: column;
+    }
+    
+    .search-input {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+    
+    .search-button {
+        width: 100%;
+    }
+    
+    .user-actions {
+        justify-content: space-around;
+    }
+    
+    .user-actions a {
+        font-size: 0.9rem;
+    }
+    
+    /* Navegação */
+    .main-nav {
+        overflow-x: auto;
+        white-space: nowrap;
+        padding: 10px 0;
+    }
+    
+    .main-nav ul {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+    }
+    
+    /* Página inicial */
+    .hero-section {
+        padding: 20px 10px;
+    }
+    
+    .hero-content h1 {
+        font-size: 1.8rem;
+    }
+    
+    .featured-products {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .categories-section .category-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+    
+    .product-card {
+        margin-bottom: 15px;
+    }
+    
+    /* Página de produto */
+    .breadcrumbs {
+        padding: 10px;
+        font-size: 0.8rem;
+    }
+    
+    .product-gallery-main img {
+        height: auto;
+    }
+    
+    .product-gallery-thumbs {
+        flex-wrap: wrap;
+    }
+    
+    .product-gallery-thumb {
+        width: 60px;
+        height: 60px;
+    }
+    
+    .product-name {
+        font-size: 1.5rem;
+    }
+    
+    .product-price {
+        font-size: 1.3rem;
+    }
+    
+    .quantity-selector {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .quantity-selector label {
+        margin-bottom: 5px;
+    }
+    
+    .product-actions {
+        flex-direction: column;
+    }
+    
+    .product-actions button {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    /* Página de carrinho */
+    .cart-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .cart-item-image {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    
+    .cart-item-details {
+        width: 100%;
+    }
+    
+    .cart-item-actions {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+    
+    /* Página de busca */
+    .search-results {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    
+    .search-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .search-sort {
+        width: 100%;
+        margin-top: 10px;
+    }
+    
+    .filter-section {
+        margin-bottom: 15px;
+    }
+    
+    /* Filtros móveis */
+    .search-sidebar {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 80%;
+        height: 100%;
+        background-color: white;
+        z-index: 1000;
+        overflow-y: auto;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    }
+    
+    .filter-toggle {
+        display: block;
+        margin-bottom: 15px;
+        padding: 10px;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        width: 100%;
+        text-align: center;
+    }
+    
+    .filter-close {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+    
+    .search-sidebar.active {
+        display: block;
+    }
+    
+    .overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+    
+    .overlay.active {
+        display: block;
+    }
+    
+    /* Página de login */
+    .login-container {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    .login-tabs button {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .social-login-buttons {
+        flex-direction: column;
+    }
+    
+    .social-login-button {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}
+
+/* Dispositivos muito pequenos */
+@media (max-width: 480px) {
+    /* Página inicial */
+    .featured-products {
+        grid-template-columns: 1fr;
+    }
+    
+    .categories-section .category-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Footer */
+    .footer-content {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .footer-column {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .footer-bottom {
+        flex-direction: column;
+    }
+    
+    .footer-bottom p {
+        margin-bottom: 10px;
+    }
+    
+    /* Notificações */
+    .notification {
+        width: 90%;
+        left: 5%;
+    }
+}
+
+/* Ajustes para telas grandes */
+@media (min-width: 1200px) {
+    .container {
+        width: 1140px;
+    }
+    
+    .featured-products {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    
+    .categories-section .category-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+    
+    .search-results {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Estilos para o menu mobile */
+.mobile-menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: block;
+        position: absolute;
+        top: 15px;
+        right: 15px;
+    }
+    
+    .main-nav {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 80%;
+        height: 100%;
+        background-color: white;
+        z-index: 1000;
+        overflow-y: auto;
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    }
+    
+    .main-nav.active {
+        display: block;
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .main-nav li {
+        width: 100%;
+        margin: 0;
+        padding: 10px 0;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .nav-close {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 1.5rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+}

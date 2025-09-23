@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Produtos - E2E-Commerce</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <h1>E2E-Commerce</h1>
+                </a>
+            </div>
+            <div class="user-actions">
+                <span class="user-info" id="user-name">Operador</span>
+                <button id="logout-btn" class="btn">Sair</button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Gestão de Produtos</h1>
+            
+            <div class="admin-controls">
+                <div class="search-filters">
+                    <div class="search-box">
+                        <input type="text" id="product-search" placeholder="Buscar por nome...">
+                        <button id="search-btn" class="btn primary">Buscar</button>
+                    </div>
+                    
+                    <div class="filter-options">
+                        <div class="filter-group">
+                            <label for="category-filter">Categoria:</label>
+                            <select id="category-filter">
+                                <option value="">Todas</option>
+                                <option value="eletrônicos">Eletrônicos</option>
+                                <option value="móveis">Móveis</option>
+                                <option value="roupas">Roupas</option>
+                                <option value="acessórios">Acessórios</option>
+                            </select>
+                        </div>
+                        
+                        <div class="filter-group">
+                            <label for="sort-by">Ordenar por:</label>
+                            <select id="sort-by">
+                                <option value="name-asc">Nome (A-Z)</option>
+                                <option value="name-desc">Nome (Z-A)</option>
+                                <option value="price-asc">Preço (menor-maior)</option>
+                                <option value="price-desc">Preço (maior-menor)</option>
+                                <option value="stock-asc">Estoque (menor-maior)</option>
+                                <option value="stock-desc">Estoque (maior-menor)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="products-table-container">
+                <table class="products-table">
+                    <thead>
+                        <tr>
+                            <th>Imagem</th>
+                            <th>Nome</th>
+                            <th>Categoria</th>
+                            <th>Preço</th>
+                            <th>Estoque</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="products-list">
+                        <!-- Produtos serão inseridos aqui via JavaScript -->
+                    </tbody>
+                </table>
+                
+                <div id="no-products" class="no-results" style="display: none;">
+                    <p>Nenhum produto encontrado.</p>
+                </div>
+            </div>
+            
+            <div class="pagination" id="pagination">
+                <!-- Paginação será inserida aqui via JavaScript -->
+            </div>
+        </div>
+    </main>
+    
+    <!-- Modal para adicionar estoque -->
+    <div id="stock-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Adicionar Estoque</h2>
+            <div class="product-info">
+                <h3 id="modal-product-name"></h3>
+                <p>Estoque atual: <span id="modal-current-stock"></span></p>
+            </div>
+            <div class="stock-selection">
+                <label for="stock-amount">Selecione a quantidade a adicionar:</label>
+                <select id="stock-amount">
+                    <option value="10">+10</option>
+                    <option value="20">+20</option>
+                    <option value="30">+30</option>
+                    <option value="40">+40</option>
+                    <option value="50">+50</option>
+                </select>
+            </div>
+            <div class="modal-actions">
+                <button id="confirm-add-stock" class="btn primary">Confirmar</button>
+                <button id="cancel-add-stock" class="btn">Cancelar</button>
+            </div>
+            <div id="stock-error-message" class="error-message"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 E2E-Commerce. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../js/products.js"></script>
+    <script src="../js/admin.js"></script>
+</body>
+</html>
