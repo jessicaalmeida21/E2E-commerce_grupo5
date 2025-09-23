@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho de Compras | E2E-Commerce</title>
+    <title>Meus Pedidos | E2E-Commerce</title>
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/orders.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -19,10 +19,6 @@
                         <h1>E2E-Commerce</h1>
                     </a>
                 </div>
-                <div class="search-bar">
-                    <input type="text" placeholder="Buscar produtos, marcas e muito mais...">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
                 <div class="user-actions">
                     <div id="logged-out-actions">
                         <a href="login.html"><i class="fas fa-user"></i> Entre ou cadastre-se</a>
@@ -33,7 +29,7 @@
                         <a href="admin.html" id="admin-link" style="display: none;"><i class="fas fa-cogs"></i> Gestão</a>
                         <button id="logout-btn-header" class="btn-link"><i class="fas fa-sign-out-alt"></i> Sair</button>
                     </div>
-                    <a href="cart.html" class="cart-link active"><i class="fas fa-shopping-cart"></i> Carrinho <span id="cart-count" class="badge">0</span></a>
+                    <a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> Carrinho <span id="cart-count" class="badge">0</span></a>
                 </div>
             </div>
             <nav class="main-nav">
@@ -44,53 +40,68 @@
                     <li><a href="sellers.html">Fornecedores</a></li>
                     <li><a href="contact.html">Contato</a></li>
                 </ul>
-            </nav>
+            </div>
         </div>
     </header>
 
     <!-- Conteúdo Principal -->
     <main class="container">
-        <div class="cart-header">
-            <h1><i class="fas fa-shopping-cart"></i> Carrinho de Compras</h1>
-            <div class="cart-info">
-                <span id="cart-items-count">0 itens</span>
+        <div class="orders-header">
+            <h1><i class="fas fa-shopping-bag"></i> Meus Pedidos</h1>
+            <div class="orders-filters">
+                <select id="status-filter">
+                    <option value="">Todos os status</option>
+                    <option value="Aguardando Pagamento">Aguardando Pagamento</option>
+                    <option value="Pago">Pago</option>
+                    <option value="Em Transporte">Em Transporte</option>
+                    <option value="Entregue">Entregue</option>
+                    <option value="Cancelado">Cancelado</option>
+                    <option value="Devolvido">Devolvido</option>
+                </select>
             </div>
         </div>
 
-        <div class="cart-content">
-            <div class="cart-items" id="cart-items">
-                <!-- Itens do carrinho serão carregados via JavaScript -->
+        <div class="orders-content">
+            <div id="orders-list">
+                <!-- Pedidos serão carregados via JavaScript -->
             </div>
 
-            <div class="cart-summary">
-                <div class="summary-card">
-                    <h3>Resumo do Pedido</h3>
-                    <div class="summary-line">
-                        <span>Subtotal:</span>
-                        <span id="subtotal">R$ 0,00</span>
-                    </div>
-                    <div class="summary-line">
-                        <span>Frete:</span>
-                        <span id="shipping">R$ 0,00</span>
-                    </div>
-                    <div class="summary-line total">
-                        <span>Total:</span>
-                        <span id="total">R$ 0,00</span>
-                    </div>
-                    <a href="checkout.html" class="btn checkout-btn" id="checkout-btn">
-                        <i class="fas fa-credit-card"></i> Finalizar Compra
-                    </a>
-                </div>
+            <div class="empty-orders" id="empty-orders" style="display: none;">
+                <i class="fas fa-shopping-bag"></i>
+                <h2>Nenhum pedido encontrado</h2>
+                <p>Você ainda não realizou nenhuma compra.</p>
+                <a href="../index.html" class="btn">Começar a Comprar</a>
             </div>
-        </div>
-
-        <div class="empty-cart" id="empty-cart" style="display: none;">
-            <i class="fas fa-shopping-cart"></i>
-            <h2>Seu carrinho está vazio</h2>
-            <p>Que tal adicionar alguns produtos?</p>
-            <a href="../index.html" class="btn">Continuar Comprando</a>
         </div>
     </main>
+
+    <!-- Modal de Cancelamento -->
+    <div id="cancel-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Cancelar Pedido</h2>
+            <p>Informe o motivo do cancelamento:</p>
+            <textarea id="cancel-reason" placeholder="Digite o motivo do cancelamento (mínimo 10 caracteres)"></textarea>
+            <div class="modal-actions">
+                <button id="confirm-cancel" class="btn danger">Confirmar Cancelamento</button>
+                <button id="cancel-cancel" class="btn-secondary">Voltar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Devolução -->
+    <div id="return-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Solicitar Devolução</h2>
+            <p>Informe o motivo da devolução:</p>
+            <textarea id="return-reason" placeholder="Digite o motivo da devolução"></textarea>
+            <div class="modal-actions">
+                <button id="confirm-return" class="btn danger">Solicitar Devolução</button>
+                <button id="cancel-return" class="btn-secondary">Voltar</button>
+            </div>
+        </div>
+    </div>
 
     <!-- Rodapé -->
     <footer>
@@ -135,7 +146,8 @@
     </footer>
 
     <script src="../js/products.js"></script>
+    <script src="../js/orders.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/cart.js"></script>
+    <script src="../js/orders-page.js"></script>
 </body>
 </html>

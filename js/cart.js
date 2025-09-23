@@ -87,22 +87,17 @@ function setupEventListeners() {
         }
     });
     
-    // Botão de finalizar compra
+    // Botão de finalizar compra - redireciona para checkout
     const checkoutBtn = document.getElementById('checkout-btn');
     if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', function() {
-            if (this.disabled) return;
-            
+        checkoutBtn.addEventListener('click', function(e) {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            if (cart.length === 0) return;
-            
-            // Simular finalização de compra
-            alert('Compra finalizada com sucesso! (Simulação)');
-            
-            // Limpar carrinho
-            localStorage.removeItem('cart');
-            loadCartItems();
-            updateCartCounter();
+            if (cart.length === 0) {
+                e.preventDefault();
+                alert('Seu carrinho está vazio. Adicione produtos antes de finalizar a compra.');
+                return;
+            }
+            // Redireciona para checkout.html
         });
     }
 }
