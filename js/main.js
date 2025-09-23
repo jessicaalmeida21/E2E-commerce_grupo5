@@ -59,6 +59,12 @@ function loadFeaturedProducts() {
     const featuredContainer = document.getElementById('featured-products-container');
     if (!featuredContainer) return;
     
+    // Verificar se productsModule está disponível
+    if (typeof productsModule === 'undefined' || !productsModule.products) {
+        console.error('productsModule não está carregado');
+        return;
+    }
+    
     // Pega 4 produtos aleatórios para mostrar como destaque
     const shuffled = [...productsModule.products].sort(() => 0.5 - Math.random());
     const featured = shuffled.slice(0, 4);
@@ -157,17 +163,34 @@ function setupSearchForm() {
     const searchForm = document.querySelector('.search-bar');
     if (!searchForm) return;
     
-    searchForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        const searchInput = this.querySelector('input');
+    // Buscar por input e button
+    const searchInput = searchForm.querySelector('input');
+    const searchButton = searchForm.querySelector('button');
+    
+    if (searchButton) {
+        searchButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            performSearch();
+        });
+    }
+    
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                performSearch();
+            }
+        });
+    }
+    
+    function performSearch() {
         const query = searchInput.value.trim();
         
         if (query) {
             // Redireciona para a página de resultados de busca
-            window.location.href = `pages/search.html?q=${encodeURIComponent(query)}`;
+            window.location.href = `./pages/search.html?q=${encodeURIComponent(query)}`;
         }
-    });
+    }
 }
 
 // Função para configurar eventos de categorias
