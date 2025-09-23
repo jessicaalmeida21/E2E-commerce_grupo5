@@ -260,8 +260,21 @@ function confirmAddStock() {
     
     const amountToAdd = parseInt(document.getElementById('stock-amount').value);
     
-    if (isNaN(amountToAdd) || amountToAdd <= 0) {
-        document.getElementById('stock-error-message').textContent = 'Quantidade inválida.';
+    // Regras: apenas múltiplos de 10
+    if (isNaN(amountToAdd) || amountToAdd <= 0 || amountToAdd % 10 !== 0) {
+        document.getElementById('stock-error-message').textContent = 'Acréscimo deve ser em lotes de 10 (10, 20, 30...).';
+        return;
+    }
+    
+    // Bloquear produto inativo
+    if (product.active === false || product.stock === 0 && product.allowRestock === false) {
+        document.getElementById('stock-error-message').textContent = 'Produto inativo: não é possível ajustar estoque';
+        return;
+    }
+    
+    // Confirmação
+    const confirmed = confirm(`Adicionar +${amountToAdd} ao estoque do produto "${product.name}"?`);
+    if (!confirmed) {
         return;
     }
     

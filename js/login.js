@@ -59,11 +59,20 @@ document.addEventListener('DOMContentLoaded', function() {
         localStorage.setItem('users', JSON.stringify(users));
     }
     
-    // Função para criptografar senha (simulação)
-    function encryptPassword(password) {
-        // Em um ambiente real, usaríamos bcrypt ou outra biblioteca segura
-        // Esta é apenas uma simulação básica para demonstração
-        return btoa(password + 'salt_for_demo');
+    // Hash seguro de senha (SHA-256) com salt simples para demonstração
+    async function hashPassword(password) {
+        try {
+            const salt = 'e2e_demo_salt_v1';
+            const encoder = new TextEncoder();
+            const data = encoder.encode(password + salt);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            return hashHex;
+        } catch (e) {
+            // Fallback simples caso SubtleCrypto não esteja disponível
+            return btoa(password + 'salt_for_demo');
+        }
     }
     
     // Gerenciamento de sessão
@@ -85,39 +94,37 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }
     
-    // Verificar timeout de sessão (30 minutos)
+    // Verificar timeout de sessão (30 minutos) via localStorage
     function checkSessionTimeout() {
-        const sessionStart = sessionStorage.getItem('sessionStart');
-        if (sessionStart) {
-            const currentTime = Date.now();
-            const sessionDuration = currentTime - parseInt(sessionStart);
-            
-            // 30 minutos = 1800000 ms
-            if (sessionDuration > 1800000) {
-                // Encerrar sessão
-                sessionStorage.removeItem('currentUser');
-                sessionStorage.removeItem('sessionStart');
-                alert('Sua sessão expirou por inatividade. Por favor, faça login novamente.');
-                window.location.href = '../pages/login.html';
-            }
+        const timeout = localStorage.getItem('sessionTimeout');
+        if (!timeout) return;
+        const timeoutDate = new Date(parseInt(timeout, 10));
+        if (Date.now() > timeoutDate.getTime()) {
+            localStorage.removeItem('currentUser');
+            localStorage.removeItem('sessionTimeout');
+            alert('Sua sessão expirou por inatividade. Por favor, faça login novamente.');
+            window.location.href = '../pages/login.html';
         }
     }
     
     // Verificar timeout a cada minuto
     setInterval(checkSessionTimeout, 60000);
     
-    // Resetar timer de sessão em cada interação do usuário
+    // Renovar timeout da sessão em cada interação do usuário
+    function renewSessionTimeout() {
+        const currentUser = localStorage.getItem('currentUser');
+        if (currentUser) {
+            const newTimeout = Date.now() + 30 * 60 * 1000;
+            localStorage.setItem('sessionTimeout', newTimeout);
+        }
+    }
     ['click', 'keypress', 'scroll', 'mousemove'].forEach(event => {
-        document.addEventListener(event, () => {
-            if (sessionStorage.getItem('currentUser')) {
-                sessionStorage.setItem('sessionStart', Date.now());
-            }
-        });
+        document.addEventListener(event, renewSessionTimeout);
     });
     
     // Formulário de login
     if (loginForm) {
-        loginForm.addEventListener('submit', function(e) {
+        loginForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const email = document.getElementById('login-email').value;
@@ -142,7 +149,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Verificar credenciais
-            const encryptedPassword = encryptPassword(password);
+            const encryptedPassword = await hashPassword(password);
             const user = users.find(u => u.email === email);
             
             if (!user || user.password !== encryptedPassword) {
@@ -162,7 +169,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Formulário de cadastro
     if (registerForm) {
-        registerForm.addEventListener('submit', function(e) {
+        registerForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             
             const name = document.getElementById('register-name').value;
@@ -222,13 +229,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 return;
             }
             
+            // Normalizar perfil para o backend/uso interno
+            const normalizedProfile = profile === 'vendedor' ? 'seller' : 'customer';
+
             // Criar novo usuário
             const newUser = {
                 id: Date.now().toString(),
                 name,
                 email,
-                password: encryptPassword(password),
-                profile,
+                password: await hashPassword(password),
+                profile: normalizedProfile,
                 createdAt: new Date().toISOString()
             };
             
