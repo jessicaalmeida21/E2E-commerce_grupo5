@@ -123,9 +123,59 @@ class ApiService {
 
     // Gerar URL da imagem do produto
     getProductImage(product) {
-        // Usar placeholder ou gerar imagem baseada no ID
+        // Usar imagens reais baseadas na categoria e características do produto
         const imageId = product.id.replace('PROD-', '');
-        return `https://picsum.photos/300/300?random=${imageId}`;
+        const imageNumber = parseInt(imageId) % 1000;
+        
+        // Mapear categorias para palavras-chave de busca
+        const categoryKeywords = {
+            'eletrônicos': 'electronics,technology,gadget,device',
+            'eletrodomésticos': 'appliance,home,kitchen,household',
+            'móveis': 'furniture,home,decor,interior',
+            'roupas': 'fashion,clothing,apparel,style',
+            'esportes': 'sports,fitness,exercise,athletic',
+            'casa': 'home,house,interior,decor',
+            'beleza': 'beauty,cosmetics,skincare,makeup',
+            'livros': 'books,reading,literature,education',
+            'brinquedos': 'toys,children,kids,play',
+            'automotivo': 'car,automotive,vehicle,transport'
+        };
+        
+        const keywords = categoryKeywords[product.category] || 'product,item,goods';
+        const brand = product.brand ? product.brand.toLowerCase() : '';
+        
+        // Usar Unsplash para imagens reais baseadas em categorias
+        const searchTerms = `${keywords},${brand}`.replace(/[^a-zA-Z0-9,]/g, '');
+        
+        // Gerar URL consistente baseada no ID
+        const seed = imageNumber + product.title.length;
+        return `https://source.unsplash.com/400x400/?${searchTerms}&sig=${seed}`;
+    }
+
+    // Obter palavras-chave para busca de imagens
+    getImageKeywords(product) {
+        const keywords = [];
+        
+        // Adicionar categoria
+        if (product.category) {
+            keywords.push(product.category);
+        }
+        
+        // Adicionar marca
+        if (product.brand) {
+            keywords.push(product.brand);
+        }
+        
+        // Adicionar palavras do título
+        const titleWords = product.title.toLowerCase()
+            .replace(/[^\w\s]/g, '')
+            .split(' ')
+            .filter(word => word.length > 3)
+            .slice(0, 2);
+        
+        keywords.push(...titleWords);
+        
+        return keywords.join(',');
     }
 
     // Formatar preço

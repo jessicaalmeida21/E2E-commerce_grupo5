@@ -40,13 +40,13 @@ const productsModule = (function() {
                 title: "Smartphone Galaxy S23",
                 description: "Smartphone Samsung Galaxy S23 com 128GB, tela de 6.1 polegadas e câmera de 50MP.",
                 price: 2999.99,
-                originalPrice: 3299.99,
+        originalPrice: 3299.99,
                 discount: 9,
                 image: "https://images.samsung.com/is/image/samsung/p6pim/br/sm-s911bzkkzto/gallery/galaxy-s23-ultra-5g-sm-s911b-421866-sm-s911bzkkzto-537406421?$650_519_PNG$",
                 category: "eletrônicos",
                 brand: "Samsung",
                 stock: 15,
-                rating: 4.5,
+        rating: 4.5,
                 ratingCount: 128,
                 sku: "SM-S911BZKKZTO",
                 warehouse: "SP"
@@ -174,12 +174,12 @@ const productsModule = (function() {
     }
 
     // Formatar preço
-    function formatPrice(price) {
-        return price.toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-        });
-    }
+function formatPrice(price) {
+    return price.toLocaleString('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    });
+}
 
     // Calcular desconto
     function calculateDiscount(originalPrice, finalPrice) {
@@ -223,7 +223,7 @@ const productsModule = (function() {
             throw new Error('Quantidade solicitada maior que o estoque disponível');
         }
 
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
         const existingItem = cart.find(item => item.id === productId);
 
         if (existingItem) {
@@ -238,13 +238,13 @@ const productsModule = (function() {
                 stock: product.stock
             });
         }
-
+        
         localStorage.setItem('cart', JSON.stringify(cart));
         updateCartCounter();
         
         return true;
     }
-
+    
     // Remover produto do carrinho
     function removeFromCart(productId) {
         let cart = JSON.parse(localStorage.getItem('cart')) || [];
@@ -254,8 +254,8 @@ const productsModule = (function() {
     }
 
     // Atualizar contador do carrinho
-    function updateCartCounter() {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+function updateCartCounter() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
         const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
         
         const counter = document.getElementById('cart-count');
