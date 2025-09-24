@@ -13,24 +13,26 @@ const productsModule = (() => {
     }
 
     // Carregar produtos da API
-    async function loadProducts() {
+    async function loadProducts(page = 1, pageSize = 100) {
         try {
             if (!apiService) {
                 init();
             }
             
-            const response = await apiService.getProducts(1, 100);
+            console.log('Carregando produtos da API...');
+            const response = await apiService.getProducts(page, pageSize);
             products = response.products || [];
-            console.log('Produtos carregados:', products.length);
+            console.log('Produtos carregados da API:', products.length);
             return products;
         } catch (error) {
-            console.error('Erro ao carregar produtos:', error);
+            console.error('Erro ao carregar produtos da API:', error);
             return loadLocalProducts();
         }
     }
 
     // Carregar produtos locais como fallback
     function loadLocalProducts() {
+        console.log('Carregando produtos locais como fallback...');
         products = [
             {
                 id: 'PROD-001',
@@ -39,11 +41,11 @@ const productsModule = (() => {
                 price: 2500.00,
                 originalPrice: 3000.00,
                 discount: 17,
-                image: 'https://picsum.photos/400/400?random=1',
+                image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center',
                 category: 'eletrônicos',
                 brand: 'Samsung',
                 stock: 50,
-        rating: 4.5,
+                rating: 4.5,
                 ratingCount: 120
             },
             {
@@ -52,8 +54,8 @@ const productsModule = (() => {
                 description: 'Notebook para trabalho e estudos',
                 price: 3500.00,
                 originalPrice: 4000.00,
-        discount: 13,
-                image: 'https://picsum.photos/400/400?random=2',
+                discount: 13,
+                image: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center',
                 category: 'eletrônicos',
                 brand: 'Dell',
                 stock: 25,
@@ -107,7 +109,16 @@ const productsModule = (() => {
     }
 
     // Obter categorias
-    function getCategories() {
+    async function getCategories() {
+        try {
+            if (apiService) {
+                return await apiService.getCategories();
+            }
+        } catch (error) {
+            console.error('Erro ao carregar categorias:', error);
+        }
+        
+        // Fallback para categorias locais
         const categories = [...new Set(products.map(product => product.category))];
         return categories.sort();
     }
@@ -124,7 +135,7 @@ const productsModule = (() => {
         getProducts,
         getProductById,
         getFeaturedProducts,
-    searchProducts,
+        searchProducts,
         getProductsByCategory,
         getCategories
     };

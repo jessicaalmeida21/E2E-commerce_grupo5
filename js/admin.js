@@ -32,8 +32,12 @@ const productsPerPage = 10;
 // Carregar produtos da API
 async function loadProducts() {
     try {
-        // Carregar produtos usando o módulo products
-        allProducts = await productsModule.loadProducts();
+        console.log('Iniciando carregamento de produtos...');
+        
+        // Carregar produtos usando o módulo products (buscar mais produtos)
+        allProducts = await productsModule.loadProducts(1, 200);
+        
+        console.log('Produtos carregados:', allProducts.length);
         
         // Garantir que todos os produtos tenham estoque
         allProducts = allProducts.map(product => ({
@@ -58,7 +62,7 @@ async function loadProducts() {
                 price: 2500.00,
                 originalPrice: 3000.00,
                 discount: 17,
-                image: 'https://picsum.photos/400/400?random=1',
+                image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center',
                 category: 'eletrônicos',
                 brand: 'Samsung',
                 stock: 50,
@@ -72,7 +76,7 @@ async function loadProducts() {
                 price: 3500.00,
                 originalPrice: 4000.00,
                 discount: 13,
-                image: 'https://picsum.photos/400/400?random=2',
+                image: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center',
                 category: 'eletrônicos',
                 brand: 'Dell',
                 stock: 25,
