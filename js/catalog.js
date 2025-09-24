@@ -87,15 +87,15 @@ async function loadProducts(page = 1) {
         
         // Aplicar filtros locais
         if (currentCategory) {
-            products = products.filter(p => p.category.toLowerCase() === currentCategory.toLowerCase());
+            products = products.filter(p => p.category && p.category.toLowerCase() === currentCategory.toLowerCase());
         }
         
         if (currentSearch) {
             const searchTerm = currentSearch.toLowerCase();
             products = products.filter(p => 
-                p.title.toLowerCase().includes(searchTerm) ||
-                p.description.toLowerCase().includes(searchTerm) ||
-                p.brand.toLowerCase().includes(searchTerm)
+                (p.title && p.title.toLowerCase().includes(searchTerm)) ||
+                (p.description && p.description.toLowerCase().includes(searchTerm)) ||
+                (p.brand && p.brand.toLowerCase().includes(searchTerm))
             );
         }
         

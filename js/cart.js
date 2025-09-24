@@ -87,7 +87,7 @@ function setupEventListeners() {
     document.addEventListener('click', function(e) {
         if (e.target.closest('.quantity-btn')) {
             const btn = e.target.closest('.quantity-btn');
-            const productId = parseInt(btn.getAttribute('data-id'));
+            const productId = btn.getAttribute('data-id');
             const isPlus = btn.classList.contains('plus');
             
             updateQuantity(productId, isPlus ? 1 : -1);
@@ -96,7 +96,7 @@ function setupEventListeners() {
         // Botão de remover
         if (e.target.closest('.remove-btn')) {
             const btn = e.target.closest('.remove-btn');
-            const productId = parseInt(btn.getAttribute('data-id'));
+            const productId = btn.getAttribute('data-id');
             removeFromCart(productId);
         }
     });

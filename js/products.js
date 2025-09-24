@@ -174,9 +174,46 @@ const productsModule = (() => {
             throw new Error('Produto fora de estoque');
         }
         
-        // Implementar lógica do carrinho aqui
-        console.log('Adicionando ao carrinho:', product.title);
+        // Obter carrinho atual
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Verificar se o produto já está no carrinho
+        const existingItem = cart.find(item => item.id === productId);
+        
+        if (existingItem) {
+            // Incrementar quantidade
+            existingItem.quantity += 1;
+        } else {
+            // Adicionar novo item
+            cart.push({
+                id: productId,
+                title: product.title,
+                price: product.price,
+                image: product.image,
+                quantity: 1
+            });
+        }
+        
+        // Salvar carrinho
+        localStorage.setItem('cart', JSON.stringify(cart));
+        
+        // Atualizar contador do carrinho
+        updateCartCounter();
+        
+        console.log('Produto adicionado ao carrinho:', product.title);
         return true;
+    }
+    
+    // Atualizar contador do carrinho
+    function updateCartCounter() {
+        const cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+        
+        const cartCounters = document.querySelectorAll('#cart-count, .cart-count, .cart-counter');
+        cartCounters.forEach(counter => {
+            counter.textContent = totalItems;
+            counter.style.display = totalItems > 0 ? 'flex' : 'none';
+        });
     }
     
     // Inicializar quando o DOM estiver pronto

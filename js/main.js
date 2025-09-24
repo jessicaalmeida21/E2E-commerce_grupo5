@@ -186,13 +186,18 @@ function createProductCard(product) {
     
     // Adiciona evento para o botão de adicionar ao carrinho
     card.querySelector('.add-to-cart').addEventListener('click', function() {
-        const productId = parseInt(this.getAttribute('data-id'));
-        productsModule.addToCart(productId);
+        const productId = this.getAttribute('data-id');
+        try {
+            productsModule.addToCart(productId);
+            showNotification('Produto adicionado ao carrinho!', 'success');
+        } catch (error) {
+            showNotification('Erro: ' + error.message, 'error');
+        }
     });
     
     // Adiciona evento para o botão de favoritos
     card.querySelector('.wishlist-btn').addEventListener('click', function() {
-        const productId = parseInt(this.getAttribute('data-id'));
+        const productId = this.getAttribute('data-id');
         toggleWishlist(productId);
     });
     
@@ -226,7 +231,7 @@ function updateWishlistIcons() {
     const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
     
     document.querySelectorAll('.wishlist-btn').forEach(button => {
-        const productId = parseInt(button.getAttribute('data-id'));
+        const productId = button.getAttribute('data-id');
         const icon = button.querySelector('i');
         
         if (wishlist.includes(productId)) {
