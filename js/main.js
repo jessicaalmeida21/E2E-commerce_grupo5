@@ -213,8 +213,8 @@ function setupSearchForm() {
         const query = searchInput.value.trim();
         
         if (query) {
-            // Redireciona para a página de resultados de busca
-            window.location.href = `./pages/search.html?q=${encodeURIComponent(query)}`;
+            // Redireciona para a página de catálogo com busca
+            window.location.href = `./pages/catalog.html?search=${encodeURIComponent(query)}`;
         }
     }
 }
@@ -226,7 +226,7 @@ function setupCategoryEvents() {
     categoryCards.forEach(card => {
         card.addEventListener('click', function() {
             const category = this.querySelector('h3').textContent;
-            window.location.href = `pages/categories.html?category=${encodeURIComponent(category)}`;
+            window.location.href = `pages/catalog.html?category=${encodeURIComponent(category)}`;
         });
     });
 }

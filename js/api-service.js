@@ -121,61 +121,61 @@ class ApiService {
         };
     }
 
-    // Gerar URL da imagem do produto
+    // Gerar URL da imagem do produto com imagens reais
     getProductImage(product) {
-        // Usar imagens reais baseadas na categoria e características do produto
+        // Usar imagens reais baseadas no ID do produto
         const imageId = product.id.replace('PROD-', '');
-        const imageNumber = parseInt(imageId) % 1000;
+        const imageNumber = parseInt(imageId) % 1000; // Garantir que seja um número válido
         
-        // Mapear categorias para palavras-chave de busca
-        const categoryKeywords = {
-            'eletrônicos': 'electronics,technology,gadget,device',
-            'eletrodomésticos': 'appliance,home,kitchen,household',
-            'móveis': 'furniture,home,decor,interior',
-            'roupas': 'fashion,clothing,apparel,style',
-            'esportes': 'sports,fitness,exercise,athletic',
-            'casa': 'home,house,interior,decor',
-            'beleza': 'beauty,cosmetics,skincare,makeup',
-            'livros': 'books,reading,literature,education',
-            'brinquedos': 'toys,children,kids,play',
-            'automotivo': 'car,automotive,vehicle,transport'
+        // Mapear categorias para imagens específicas
+        const categoryImages = {
+            'eletrônicos': [
+                'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop'
+            ],
+            'eletrodomésticos': [
+                'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop'
+            ],
+            'móveis': [
+                'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'
+            ],
+            'roupas': [
+                'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1445205170230-053b83016050?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1445205170230-053b83016050?w=400&h=400&fit=crop'
+            ],
+            'esportes': [
+                'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop'
+            ]
         };
         
-        const keywords = categoryKeywords[product.category] || 'product,item,goods';
-        const brand = product.brand ? product.brand.toLowerCase() : '';
+        // Obter imagens da categoria ou usar fallback
+        const categoryImageList = categoryImages[product.category] || [
+            'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop',
+            'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop'
+        ];
         
-        // Usar Unsplash para imagens reais baseadas em categorias
-        const searchTerms = `${keywords},${brand}`.replace(/[^a-zA-Z0-9,]/g, '');
-        
-        // Gerar URL consistente baseada no ID
-        const seed = imageNumber + product.title.length;
-        return `https://source.unsplash.com/400x400/?${searchTerms}&sig=${seed}`;
-    }
-
-    // Obter palavras-chave para busca de imagens
-    getImageKeywords(product) {
-        const keywords = [];
-        
-        // Adicionar categoria
-        if (product.category) {
-            keywords.push(product.category);
-        }
-        
-        // Adicionar marca
-        if (product.brand) {
-            keywords.push(product.brand);
-        }
-        
-        // Adicionar palavras do título
-        const titleWords = product.title.toLowerCase()
-            .replace(/[^\w\s]/g, '')
-            .split(' ')
-            .filter(word => word.length > 3)
-            .slice(0, 2);
-        
-        keywords.push(...titleWords);
-        
-        return keywords.join(',');
+        // Escolher imagem baseada no ID para consistência
+        const imageIndex = imageNumber % categoryImageList.length;
+        return categoryImageList[imageIndex];
     }
 
     // Formatar preço

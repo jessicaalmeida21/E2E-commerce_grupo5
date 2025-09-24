@@ -15,6 +15,9 @@ async function initializeCatalog() {
         // Carregar categorias
         await loadCategories();
         
+        // Processar parâmetros da URL
+        processUrlParams();
+        
         // Carregar produtos iniciais
         await loadProducts();
         
@@ -22,6 +25,25 @@ async function initializeCatalog() {
         setupEventListeners();
     } catch (error) {
         console.error('Erro ao inicializar catálogo:', error);
+    }
+}
+
+// Processar parâmetros da URL
+function processUrlParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    
+    // Processar busca
+    const search = urlParams.get('search');
+    if (search) {
+        currentSearch = search;
+        document.getElementById('search-input').value = search;
+    }
+    
+    // Processar categoria
+    const category = urlParams.get('category');
+    if (category) {
+        currentCategory = category;
+        document.getElementById('category-filter').value = category;
     }
 }
 
