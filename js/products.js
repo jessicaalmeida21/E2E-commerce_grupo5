@@ -43,7 +43,7 @@ const productsModule = (() => {
                 category: 'eletrônicos',
                 brand: 'Samsung',
                 stock: 50,
-                rating: 4.5,
+        rating: 4.5,
                 ratingCount: 120
             },
             {
@@ -52,7 +52,7 @@ const productsModule = (() => {
                 description: 'Notebook para trabalho e estudos',
                 price: 3500.00,
                 originalPrice: 4000.00,
-                discount: 13,
+        discount: 13,
                 image: 'https://picsum.photos/400/400?random=2',
                 category: 'eletrônicos',
                 brand: 'Dell',
@@ -124,7 +124,7 @@ const productsModule = (() => {
         getProducts,
         getProductById,
         getFeaturedProducts,
-        searchProducts,
+    searchProducts,
         getProductsByCategory,
         getCategories
     };

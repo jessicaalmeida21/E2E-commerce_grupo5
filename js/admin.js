@@ -29,18 +29,81 @@ let filteredProducts = [];
 let currentPage = 1;
 const productsPerPage = 10;
 
-// Carregar produtos
-function loadProducts() {
-    // Usar os produtos do arquivo products.js
-    allProducts = products.map(product => {
-        return {
+// Carregar produtos da API
+async function loadProducts() {
+    try {
+        // Carregar produtos usando o módulo products
+        allProducts = await productsModule.loadProducts();
+        
+        // Garantir que todos os produtos tenham estoque
+        allProducts = allProducts.map(product => ({
             ...product,
-            stock: product.stock || Math.floor(Math.random() * 50) + 1 // Garantir que todos os produtos tenham estoque
-        };
-    });
-    
-    filteredProducts = [...allProducts];
-    applyFiltersAndSort();
+            stock: product.stock || Math.floor(Math.random() * 50) + 1
+        }));
+        
+        filteredProducts = [...allProducts];
+        applyFiltersAndSort();
+        
+        // Carregar categorias dinamicamente
+        loadCategories();
+        
+    } catch (error) {
+        console.error('Erro ao carregar produtos:', error);
+        // Fallback para produtos locais
+        allProducts = [
+            {
+                id: 'PROD-001',
+                title: 'Smartphone Galaxy S21',
+                description: 'Smartphone com tela de 6.2 polegadas',
+                price: 2500.00,
+                originalPrice: 3000.00,
+                discount: 17,
+                image: 'https://picsum.photos/400/400?random=1',
+                category: 'eletrônicos',
+                brand: 'Samsung',
+                stock: 50,
+                rating: 4.5,
+                ratingCount: 120
+            },
+            {
+                id: 'PROD-002',
+                title: 'Notebook Dell Inspiron',
+                description: 'Notebook para trabalho e estudos',
+                price: 3500.00,
+                originalPrice: 4000.00,
+                discount: 13,
+                image: 'https://picsum.photos/400/400?random=2',
+                category: 'eletrônicos',
+                brand: 'Dell',
+                stock: 25,
+                rating: 4.2,
+                ratingCount: 85
+            }
+        ];
+        filteredProducts = [...allProducts];
+        applyFiltersAndSort();
+    }
+}
+
+// Carregar categorias dinamicamente
+async function loadCategories() {
+    try {
+        const categories = await productsModule.getCategories();
+        const categoryFilter = document.getElementById('category-filter');
+        
+        // Limpar opções existentes (exceto "Todas")
+        categoryFilter.innerHTML = '<option value="">Todas</option>';
+        
+        // Adicionar categorias da API
+        categories.forEach(category => {
+            const option = document.createElement('option');
+            option.value = category;
+            option.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+            categoryFilter.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Erro ao carregar categorias:', error);
+    }
 }
 
 // Configurar event listeners
@@ -74,7 +137,7 @@ function applyFiltersAndSort() {
     
     // Filtrar produtos
     filteredProducts = allProducts.filter(product => {
-        const matchesSearch = product.name.toLowerCase().includes(searchTerm) || 
+        const matchesSearch = product.title.toLowerCase().includes(searchTerm) || 
                              product.description.toLowerCase().includes(searchTerm);
         const matchesCategory = categoryFilter === '' || product.category.toLowerCase() === categoryFilter;
         
@@ -85,9 +148,9 @@ function applyFiltersAndSort() {
     filteredProducts.sort((a, b) => {
         switch(sortBy) {
             case 'name-asc':
-                return a.name.localeCompare(b.name);
+                return a.title.localeCompare(b.title);
             case 'name-desc':
-                return b.name.localeCompare(a.name);
+                return b.title.localeCompare(a.title);
             case 'price-asc':
                 return a.price - b.price;
             case 'price-desc':
@@ -143,15 +206,15 @@ function renderProducts() {
         const statusClass = product.stock > 0 ? 'status-active' : 'status-inactive';
         
         row.innerHTML = `
-            <td><img src="${product.image}" alt="${product.name}"></td>
-            <td>${product.name}</td>
+            <td><img src="${product.image}" alt="${product.title}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;"></td>
+            <td>${product.title}</td>
             <td>${product.category}</td>
             <td>${formattedPrice}</td>
             <td>${product.stock}</td>
             <td><span class="product-status ${statusClass}">${status}</span></td>
             <td class="product-actions">
-                <button class="action-btn view-btn" onclick="viewProduct(${product.id})">Ver</button>
-                <button class="action-btn stock-btn" onclick="openStockModal(${product.id})">Estoque</button>
+                <button class="action-btn view-btn" onclick="viewProduct('${product.id}')">Ver</button>
+                <button class="action-btn stock-btn" onclick="openStockModal('${product.id}')">Estoque</button>
             </td>
         `;
         
@@ -238,7 +301,7 @@ function openStockModal(productId) {
     
     currentProductId = productId;
     
-    document.getElementById('modal-product-name').textContent = product.name;
+    document.getElementById('modal-product-name').textContent = product.title;
     document.getElementById('modal-current-stock').textContent = product.stock;
     document.getElementById('stock-error-message').textContent = '';
     
@@ -267,13 +330,13 @@ function confirmAddStock() {
     }
     
     // Bloquear produto inativo
-    if (product.active === false || product.stock === 0 && product.allowRestock === false) {
+    if (product.stock === 0) {
         document.getElementById('stock-error-message').textContent = 'Produto inativo: não é possível ajustar estoque';
         return;
     }
     
     // Confirmação
-    const confirmed = confirm(`Adicionar +${amountToAdd} ao estoque do produto "${product.name}"?`);
+    const confirmed = confirm(`Adicionar +${amountToAdd} ao estoque do produto "${product.title}"?`);
     if (!confirmed) {
         return;
     }
@@ -287,20 +350,12 @@ function confirmAddStock() {
         filteredProduct.stock += amountToAdd;
     }
     
-    // Salvar no localStorage para persistência
-    saveProductsToLocalStorage();
-    
     // Fechar modal e atualizar a tabela
     closeModal();
     renderProducts();
     
     // Mostrar mensagem de sucesso
-    alert(`Estoque do produto "${product.name}" aumentado em ${amountToAdd} unidades.`);
-}
-
-// Salvar produtos no localStorage
-function saveProductsToLocalStorage() {
-    localStorage.setItem('products', JSON.stringify(allProducts));
+    alert(`Estoque do produto "${product.title}" aumentado em ${amountToAdd} unidades.`);
 }
 
 // Verificar timeout da sessão
