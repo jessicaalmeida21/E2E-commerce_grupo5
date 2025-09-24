@@ -127,8 +127,15 @@ class ApiService {
         const imageId = product.id.replace('PROD-', '');
         const imageNumber = parseInt(imageId) % 1000; // Garantir que seja um número válido
         
-        // Mapear categorias para imagens específicas
+        // Mapear categorias para imagens específicas do Unsplash
         const categoryImages = {
+            'casa': [
+                'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop',
+                'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'
+            ],
             'eletrônicos': [
                 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop',
                 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop',
