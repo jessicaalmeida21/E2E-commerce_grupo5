@@ -57,6 +57,7 @@ class ApiService {
             if (response && response.products && Array.isArray(response.products)) {
                 const convertedProducts = response.products.map(product => this.convertProduct(product));
                 console.log('Produtos convertidos:', convertedProducts.length);
+                console.log('Primeiro produto convertido:', convertedProducts[0]);
                 return {
                     products: convertedProducts,
                     pagination: response.meta || { total: response.products.length, page: page, pageSize: pageSize }

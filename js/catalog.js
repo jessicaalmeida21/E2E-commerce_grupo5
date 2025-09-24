@@ -83,6 +83,7 @@ async function loadProducts(page = 1) {
         // Carregar produtos da API (buscar mais produtos)
         let products = await productsModule.loadProducts(1, 200);
         console.log('Produtos carregados:', products.length);
+        console.log('Primeiros 3 produtos:', products.slice(0, 3));
         
         // Aplicar filtros locais
         if (currentCategory) {

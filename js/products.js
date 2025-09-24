@@ -26,9 +26,11 @@ const productsModule = (() => {
             if (response && response.products && Array.isArray(response.products)) {
                 products = response.products;
                 console.log('Produtos carregados da API:', products.length);
+                console.log('Primeiro produto da API:', products[0]);
                 return products;
             } else {
                 console.log('Resposta da API inválida, usando fallback...');
+                console.log('Resposta recebida:', response);
                 return loadLocalProducts();
             }
         } catch (error) {

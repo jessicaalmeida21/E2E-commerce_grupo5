@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Redirecionar com base no perfil
         if (user.profile === 'seller') {
-            window.location.href = '../pages/admin.html';
+            window.location.href = './admin.html';
         } else {
             window.location.href = '../index.html';
         }
