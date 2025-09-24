@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Carregar itens do carrinho
-function loadCartItems() {
+async function loadCartItems() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartItemsContainer = document.getElementById('cart-items');
     const emptyCart = document.getElementById('empty-cart');
@@ -23,10 +23,24 @@ function loadCartItems() {
     
     cartItemsContainer.innerHTML = '';
     
-    cart.forEach(item => {
+    // Carregar dados completos dos produtos da API
+    for (const item of cart) {
+        try {
+            const product = await productsModule.getProductById(item.id);
+            if (product) {
+                // Atualizar dados do item com informações da API
+                item.title = product.title;
+                item.price = product.price;
+                item.image = product.image;
+                item.stock = product.stock;
+            }
+        } catch (error) {
+            console.error('Erro ao carregar produto:', error);
+        }
+        
         const cartItem = createCartItem(item);
         cartItemsContainer.appendChild(cartItem);
-    });
+    }
     
     updateCartSummary();
 }

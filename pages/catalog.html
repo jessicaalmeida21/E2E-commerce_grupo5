@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho de Compras | E2E-Commerce</title>
+    <title>Catálogo de Produtos | E2E-Commerce</title>
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/catalog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -19,10 +19,6 @@
                         <h1>E2E-Commerce</h1>
                     </a>
                 </div>
-                <div class="search-bar">
-                    <input type="text" placeholder="Buscar produtos, marcas e muito mais...">
-                    <button><i class="fas fa-search"></i></button>
-                </div>
                 <div class="user-actions">
                     <div id="logged-out-actions">
                         <a href="login.html"><i class="fas fa-user"></i> Entre ou cadastre-se</a>
@@ -33,62 +29,64 @@
                         <a href="admin.html" id="admin-link" style="display: none;"><i class="fas fa-cogs"></i> Gestão</a>
                         <button id="logout-btn-header" class="btn-link"><i class="fas fa-sign-out-alt"></i> Sair</button>
                     </div>
-                    <a href="cart.html" class="cart-link active"><i class="fas fa-shopping-cart"></i> Carrinho <span id="cart-count" class="badge">0</span></a>
+                    <a href="cart.html" class="cart-link"><i class="fas fa-shopping-cart"></i> Carrinho <span id="cart-count" class="badge">0</span></a>
                 </div>
             </div>
             <nav class="main-nav">
                 <ul>
                     <li><a href="../index.html">Início</a></li>
-                    <li><a href="categories.html">Categorias</a></li>
+                    <li><a href="catalog.html" class="active">Catálogo</a></li>
                     <li><a href="offers.html">Ofertas</a></li>
                     <li><a href="sellers.html">Fornecedores</a></li>
                     <li><a href="contact.html">Contato</a></li>
                 </ul>
-            </nav>
+            </div>
         </div>
     </header>
 
     <!-- Conteúdo Principal -->
     <main class="container">
-        <div class="cart-header">
-            <h1><i class="fas fa-shopping-cart"></i> Carrinho de Compras</h1>
-            <div class="cart-info">
-                <span id="cart-items-count">0 itens</span>
-            </div>
-        </div>
-
-        <div class="cart-content">
-            <div class="cart-items" id="cart-items">
-                <!-- Itens do carrinho serão carregados via JavaScript -->
-            </div>
-
-            <div class="cart-summary">
-                <div class="summary-card">
-                    <h3>Resumo do Pedido</h3>
-                    <div class="summary-line">
-                        <span>Subtotal:</span>
-                        <span id="subtotal">R$ 0,00</span>
-                    </div>
-                    <div class="summary-line">
-                        <span>Frete:</span>
-                        <span id="shipping">R$ 0,00</span>
-                    </div>
-                    <div class="summary-line total">
-                        <span>Total:</span>
-                        <span id="total">R$ 0,00</span>
-                    </div>
-                    <a href="checkout.html" class="btn checkout-btn" id="checkout-btn">
-                        <i class="fas fa-credit-card"></i> Finalizar Compra
-                    </a>
+        <div class="catalog-header">
+            <h1><i class="fas fa-th-large"></i> Catálogo de Produtos</h1>
+            <div class="catalog-filters">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Buscar produtos...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
                 </div>
+                <select id="category-filter">
+                    <option value="">Todas as categorias</option>
+                </select>
+                <select id="sort-filter">
+                    <option value="">Ordenar por</option>
+                    <option value="name-asc">Nome A-Z</option>
+                    <option value="name-desc">Nome Z-A</option>
+                    <option value="price-asc">Menor preço</option>
+                    <option value="price-desc">Maior preço</option>
+                    <option value="rating-desc">Melhor avaliação</option>
+                    <option value="discount-desc">Maior desconto</option>
+                </select>
             </div>
         </div>
 
-        <div class="empty-cart" id="empty-cart" style="display: none;">
-            <i class="fas fa-shopping-cart"></i>
-            <h2>Seu carrinho está vazio</h2>
-            <p>Que tal adicionar alguns produtos?</p>
-            <a href="../index.html" class="btn">Continuar Comprando</a>
+        <div class="catalog-content">
+            <div class="products-grid" id="products-grid">
+                <!-- Produtos serão carregados via JavaScript -->
+            </div>
+
+            <div class="loading" id="loading" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i>
+                <span>Carregando produtos...</span>
+            </div>
+
+            <div class="empty-catalog" id="empty-catalog" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h2>Nenhum produto encontrado</h2>
+                <p>Tente ajustar os filtros ou fazer uma nova busca.</p>
+            </div>
+
+            <div class="pagination" id="pagination">
+                <!-- Paginação será carregada via JavaScript -->
+            </div>
         </div>
     </main>
 
@@ -137,6 +135,6 @@
     <script src="../js/api-service.js"></script>
     <script src="../js/products.js"></script>
     <script src="../js/main.js"></script>
-    <script src="../js/cart.js"></script>
+    <script src="../js/catalog.js"></script>
 </body>
 </html>

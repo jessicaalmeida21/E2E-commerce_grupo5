@@ -55,28 +55,37 @@ function setupHeaderUserActions() {
 }
 
 // Função para carregar produtos em destaque na página inicial
-function loadFeaturedProducts() {
+async function loadFeaturedProducts() {
     const featuredContainer = document.getElementById('featured-products-container');
     if (!featuredContainer) return;
     
-    // Verificar se productsModule está disponível
-    if (typeof productsModule === 'undefined' || !productsModule.products) {
-        console.error('productsModule não está carregado');
-        return;
+    try {
+        // Carregar produtos em destaque da API
+        const featured = await productsModule.getFeaturedProducts(4);
+        
+        // Limpa o container
+        featuredContainer.innerHTML = '';
+        
+        // Adiciona os produtos ao container
+        featured.forEach(product => {
+            const productCard = createProductCard(product);
+            featuredContainer.appendChild(productCard);
+        });
+    } catch (error) {
+        console.error('Erro ao carregar produtos em destaque:', error);
+        // Fallback para produtos locais
+        const products = productsModule.getProducts();
+        if (products.length > 0) {
+            const shuffled = [...products].sort(() => 0.5 - Math.random());
+            const featured = shuffled.slice(0, 4);
+            
+            featuredContainer.innerHTML = '';
+            featured.forEach(product => {
+                const productCard = createProductCard(product);
+                featuredContainer.appendChild(productCard);
+            });
+        }
     }
-    
-    // Pega 4 produtos aleatórios para mostrar como destaque
-    const shuffled = [...productsModule.products].sort(() => 0.5 - Math.random());
-    const featured = shuffled.slice(0, 4);
-    
-    // Limpa o container
-    featuredContainer.innerHTML = '';
-    
-    // Adiciona os produtos ao container
-    featured.forEach(product => {
-        const productCard = createProductCard(product);
-        featuredContainer.appendChild(productCard);
-    });
 }
 
 // Função para criar um card de produto
@@ -84,14 +93,31 @@ function createProductCard(product) {
     const card = document.createElement('div');
     card.className = 'product-card';
     
+    const discountBadge = product.discount > 0 ? 
+        `<div class="discount-badge">-${product.discount}%</div>` : '';
+    
+    const originalPrice = product.originalPrice && product.originalPrice > product.price ? 
+        `<div class="original-price">${productsModule.formatPrice(product.originalPrice)}</div>` : '';
+    
+    const rating = product.rating ? 
+        `<div class="product-rating">
+            <span class="stars">${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5 - Math.floor(product.rating))}</span>
+            <span class="rating-count">(${product.ratingCount || 0})</span>
+        </div>` : '';
+
     card.innerHTML = `
         <div class="product-image">
             <img src="${product.image}" alt="${product.title}">
+            ${discountBadge}
         </div>
         <div class="product-info">
-            <div class="product-price">${productsModule.formatPrice(product.price)}</div>
+            <div class="product-price">
+                ${originalPrice}
+                <span class="current-price">${productsModule.formatPrice(product.price)}</span>
+            </div>
             <h3 class="product-title">${product.title}</h3>
-            <p class="product-seller">Vendido por: ${product.seller}</p>
+            <p class="product-brand">${product.brand || 'Marca'}</p>
+            ${rating}
             <div class="product-actions">
                 <button class="add-to-cart" data-id="${product.id}">
                     <i class="fas fa-shopping-cart"></i> Adicionar
