@@ -164,7 +164,7 @@ const productsModule = (() => {
     }
 
     // Adicionar ao carrinho
-    function addToCart(productId) {
+function addToCart(productId) {
         const product = products.find(p => p.id === productId);
         if (!product) {
             throw new Error('Produto não encontrado');
@@ -175,7 +175,7 @@ const productsModule = (() => {
         }
         
         // Obter carrinho atual
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
         
         // Verificar se o produto já está no carrinho
         const existingItem = cart.find(item => item.id === productId);
@@ -205,10 +205,10 @@ const productsModule = (() => {
     }
     
     // Atualizar contador do carrinho
-    function updateCartCounter() {
-        const cart = JSON.parse(localStorage.getItem('cart')) || [];
-        const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-        
+function updateCartCounter() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    
         const cartCounters = document.querySelectorAll('#cart-count, .cart-count, .cart-counter');
         cartCounters.forEach(counter => {
             counter.textContent = totalItems;
