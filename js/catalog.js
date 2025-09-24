@@ -78,16 +78,42 @@ async function loadProducts(page = 1) {
     showLoading(true);
     
     try {
-        const result = await productsModule.loadProducts(page, 12, currentCategory, currentSearch);
+        console.log('Carregando produtos da API...');
+        
+        // Carregar produtos da API (buscar mais produtos)
+        let products = await productsModule.loadProducts(1, 200);
+        console.log('Produtos carregados:', products.length);
+        
+        // Aplicar filtros locais
+        if (currentCategory) {
+            products = products.filter(p => p.category.toLowerCase() === currentCategory.toLowerCase());
+        }
+        
+        if (currentSearch) {
+            const searchTerm = currentSearch.toLowerCase();
+            products = products.filter(p => 
+                p.title.toLowerCase().includes(searchTerm) ||
+                p.description.toLowerCase().includes(searchTerm) ||
+                p.brand.toLowerCase().includes(searchTerm)
+            );
+        }
         
         // Aplicar ordenação se necessário
-        let products = result.products;
         if (currentSort) {
             products = productsModule.sortProducts(products, currentSort);
         }
         
         displayProducts(products);
-        updatePagination(result.meta);
+        
+        // Criar meta de paginação
+        const totalPages = Math.ceil(products.length / 12);
+        const meta = {
+            page: page,
+            totalPages: totalPages,
+            total: products.length
+        };
+        
+        updatePagination(meta);
         
         currentPage = page;
     } catch (error) {

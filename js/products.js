@@ -13,7 +13,7 @@ const productsModule = (() => {
     }
 
     // Carregar produtos da API
-    async function loadProducts(page = 1, pageSize = 100) {
+    async function loadProducts(page = 1, pageSize = 200) {
         try {
             if (!apiService) {
                 init();
@@ -21,11 +21,19 @@ const productsModule = (() => {
             
             console.log('Carregando produtos da API...');
             const response = await apiService.getProducts(page, pageSize);
-            products = response.products || [];
-            console.log('Produtos carregados da API:', products.length);
-            return products;
+            console.log('Resposta da API:', response);
+            
+            if (response && response.products && Array.isArray(response.products)) {
+                products = response.products;
+                console.log('Produtos carregados da API:', products.length);
+                return products;
+            } else {
+                console.log('Resposta da API inválida, usando fallback...');
+                return loadLocalProducts();
+            }
         } catch (error) {
             console.error('Erro ao carregar produtos da API:', error);
+            console.log('Usando produtos locais como fallback...');
             return loadLocalProducts();
         }
     }
@@ -45,7 +53,7 @@ const productsModule = (() => {
                 category: 'eletrônicos',
                 brand: 'Samsung',
                 stock: 50,
-                rating: 4.5,
+        rating: 4.5,
                 ratingCount: 120
             },
             {
@@ -54,7 +62,7 @@ const productsModule = (() => {
                 description: 'Notebook para trabalho e estudos',
                 price: 3500.00,
                 originalPrice: 4000.00,
-                discount: 13,
+        discount: 13,
                 image: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center',
                 category: 'eletrônicos',
                 brand: 'Dell',
@@ -93,7 +101,7 @@ const productsModule = (() => {
     // Buscar produtos por termo
     function searchProducts(term) {
         const searchTerm = term.toLowerCase();
-        return products.filter(product => 
+    return products.filter(product => 
             product.title.toLowerCase().includes(searchTerm) ||
             product.description.toLowerCase().includes(searchTerm) ||
             product.category.toLowerCase().includes(searchTerm) ||
@@ -123,6 +131,52 @@ const productsModule = (() => {
         return categories.sort();
     }
 
+    // Ordenar produtos
+    function sortProducts(products, sortBy) {
+        const sortedProducts = [...products];
+        
+        switch(sortBy) {
+            case 'name-asc':
+                return sortedProducts.sort((a, b) => a.title.localeCompare(b.title));
+            case 'name-desc':
+                return sortedProducts.sort((a, b) => b.title.localeCompare(a.title));
+            case 'price-asc':
+                return sortedProducts.sort((a, b) => a.price - b.price);
+            case 'price-desc':
+                return sortedProducts.sort((a, b) => b.price - a.price);
+            case 'rating-asc':
+                return sortedProducts.sort((a, b) => (a.rating || 0) - (b.rating || 0));
+            case 'rating-desc':
+                return sortedProducts.sort((a, b) => (b.rating || 0) - (a.rating || 0));
+            default:
+                return sortedProducts;
+        }
+    }
+
+    // Formatar preço
+    function formatPrice(price) {
+        return new Intl.NumberFormat('pt-BR', {
+            style: 'currency',
+            currency: 'BRL'
+        }).format(price);
+    }
+
+    // Adicionar ao carrinho
+    function addToCart(productId) {
+        const product = products.find(p => p.id === productId);
+        if (!product) {
+            throw new Error('Produto não encontrado');
+        }
+        
+        if (product.stock === 0) {
+            throw new Error('Produto fora de estoque');
+        }
+        
+        // Implementar lógica do carrinho aqui
+        console.log('Adicionando ao carrinho:', product.title);
+        return true;
+    }
+    
     // Inicializar quando o DOM estiver pronto
     if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', init);
@@ -137,6 +191,9 @@ const productsModule = (() => {
         getFeaturedProducts,
         searchProducts,
         getProductsByCategory,
-        getCategories
+        getCategories,
+        sortProducts,
+    formatPrice,
+        addToCart
     };
 })();

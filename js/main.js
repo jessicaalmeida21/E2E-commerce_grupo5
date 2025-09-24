@@ -60,8 +60,10 @@ async function loadFeaturedProducts() {
     if (!featuredContainer) return;
     
     try {
+        console.log('Carregando produtos em destaque...');
         // Carregar produtos em destaque da API
         const featured = await productsModule.getFeaturedProducts(4);
+        console.log('Produtos carregados:', featured);
         
         // Limpa o container
         featuredContainer.innerHTML = '';
@@ -74,17 +76,70 @@ async function loadFeaturedProducts() {
     } catch (error) {
         console.error('Erro ao carregar produtos em destaque:', error);
         // Fallback para produtos locais
-        const products = productsModule.getProducts();
-        if (products.length > 0) {
-            const shuffled = [...products].sort(() => 0.5 - Math.random());
-            const featured = shuffled.slice(0, 4);
-            
-            featuredContainer.innerHTML = '';
-            featured.forEach(product => {
-                const productCard = createProductCard(product);
-                featuredContainer.appendChild(productCard);
-            });
-        }
+        const fallbackProducts = [
+            {
+                id: 'PROD-001',
+                title: 'Smartphone Galaxy S21',
+                description: 'Smartphone com tela de 6.2 polegadas',
+                price: 2500.00,
+                originalPrice: 3000.00,
+                discount: 17,
+                image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center',
+                category: 'eletrônicos',
+                brand: 'Samsung',
+                stock: 50,
+                rating: 4.5,
+                ratingCount: 120
+            },
+            {
+                id: 'PROD-002',
+                title: 'Notebook Dell Inspiron',
+                description: 'Notebook para trabalho e estudos',
+                price: 3500.00,
+                originalPrice: 4000.00,
+                discount: 13,
+                image: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center',
+                category: 'eletrônicos',
+                brand: 'Dell',
+                stock: 25,
+                rating: 4.2,
+                ratingCount: 85
+            },
+            {
+                id: 'PROD-003',
+                title: 'Air Fryer Electrolux',
+                description: 'Fritadeira sem óleo 4L',
+                price: 399.00,
+                originalPrice: 499.00,
+                discount: 20,
+                image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
+                category: 'casa',
+                brand: 'Electrolux',
+                stock: 30,
+                rating: 4.3,
+                ratingCount: 95
+            },
+            {
+                id: 'PROD-004',
+                title: 'Tênis Nike Air Max',
+                description: 'Tênis esportivo confortável',
+                price: 299.00,
+                originalPrice: 399.00,
+                discount: 25,
+                image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&crop=center',
+                category: 'moda',
+                brand: 'Nike',
+                stock: 40,
+                rating: 4.6,
+                ratingCount: 150
+            }
+        ];
+        
+        featuredContainer.innerHTML = '';
+        fallbackProducts.forEach(product => {
+            const productCard = createProductCard(product);
+            featuredContainer.appendChild(productCard);
+        });
     }
 }
 
