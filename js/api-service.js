@@ -34,48 +34,42 @@ class ApiService {
 
             const data = await response.json();
             
-            // Salvar no cache
+            // Armazenar no cache
             this.cache.set(cacheKey, {
-                data: data,
+                data,
                 timestamp: Date.now()
             });
 
             return data;
         } catch (error) {
-            console.error('Erro na requisição:', error);
+            console.error('API request failed:', error);
             throw error;
         }
     }
 
-    // Listar produtos com paginação
-    async getProducts(page = 1, pageSize = 12, category = null, search = null) {
-        let endpoint = `/products?page=${page}&pageSize=${pageSize}`;
-        
-        if (category) {
-            endpoint += `&category=${encodeURIComponent(category)}`;
+    // Buscar produtos com paginação
+    async getProducts(page = 1, limit = 20) {
+        try {
+            const response = await this.request(`/products?page=${page}&limit=${limit}`);
+            return {
+                products: response.data.map(product => this.convertProduct(product)),
+                pagination: response.pagination
+            };
+        } catch (error) {
+            console.error('Erro ao buscar produtos:', error);
+            return { products: [], pagination: { page: 1, limit: 20, total: 0, pages: 0 } };
         }
-        
-        if (search) {
-            endpoint += `&search=${encodeURIComponent(search)}`;
-        }
-
-        return await this.request(endpoint);
     }
 
     // Buscar produto por ID
-    async getProductById(productId) {
-        const products = await this.getProducts(1, 500); // Buscar todos para encontrar por ID
-        return products.products.find(p => p.id === productId);
-    }
-
-    // Buscar produtos por categoria
-    async getProductsByCategory(category, page = 1, pageSize = 12) {
-        return await this.getProducts(page, pageSize, category);
-    }
-
-    // Buscar produtos
-    async searchProducts(query, page = 1, pageSize = 12) {
-        return await this.getProducts(page, pageSize, null, query);
+    async getProductById(id) {
+        try {
+            const response = await this.request(`/products/${id}`);
+            return this.convertProduct(response.data);
+        } catch (error) {
+            console.error('Erro ao buscar produto:', error);
+            return null;
+        }
     }
 
     // Obter categorias disponíveis
@@ -123,86 +117,40 @@ class ApiService {
 
     // Gerar URL da imagem do produto com imagens reais
     getProductImage(product) {
-        // Usar imagens reais baseadas no ID do produto
+        // Usar Picsum para imagens reais baseadas no ID do produto
         const imageId = product.id.replace('PROD-', '');
-        const imageNumber = parseInt(imageId) % 1000; // Garantir que seja um número válido
+        const imageNumber = parseInt(imageId) % 1000;
         
-        // Mapear categorias para imagens específicas do Unsplash
-        const categoryImages = {
-            'casa': [
-                'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'
-            ],
-            'eletrônicos': [
-                'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop'
-            ],
-            'eletrodomésticos': [
-                'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop'
-            ],
-            'móveis': [
-                'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop'
-            ],
-            'roupas': [
-                'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1445205170230-053b83016050?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1469334031218-e382a71b716b?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1445205170230-053b83016050?w=400&h=400&fit=crop'
-            ],
-            'esportes': [
-                'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop',
-                'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop'
-            ]
+        // Usar Picsum que é mais confiável
+        return `https://picsum.photos/400/400?random=${imageNumber}`;
+    }
+
+    // Obter palavras-chave para imagens baseadas na categoria
+    getImageKeywords(category) {
+        const keywords = {
+            'casa': 'home,house,interior',
+            'eletrônicos': 'electronics,technology,gadgets',
+            'eletrodomésticos': 'appliances,home,kitchen',
+            'móveis': 'furniture,home,decor',
+            'roupas': 'fashion,clothing,style',
+            'esportes': 'sports,fitness,exercise',
+            'livros': 'books,reading,education',
+            'beleza': 'beauty,cosmetics,skincare',
+            'saúde': 'health,medical,wellness',
+            'automotivo': 'car,automotive,vehicle'
         };
         
-        // Obter imagens da categoria ou usar fallback
-        const categoryImageList = categoryImages[product.category] || [
-            'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop',
-            'https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop'
-        ];
-        
-        // Escolher imagem baseada no ID para consistência
-        const imageIndex = imageNumber % categoryImageList.length;
-        return categoryImageList[imageIndex];
+        return keywords[category.toLowerCase()] || 'product,item,shopping';
     }
 
     // Formatar preço
     formatPrice(price) {
-        return price.toLocaleString('pt-BR', {
+        return new Intl.NumberFormat('pt-BR', {
             style: 'currency',
             currency: 'BRL'
-        });
-    }
-
-    // Verificar se produto está em promoção
-    isOnSale(product) {
-        return product.discount > 0;
-    }
-
-    // Calcular preço com desconto
-    calculateDiscountedPrice(originalPrice, discountPercent) {
-        return originalPrice * (1 - discountPercent / 100);
+        }).format(price);
     }
 }
 
-// Instância global
-window.apiService = new ApiService();
+// Instância global do serviço
+const apiService = new ApiService();
