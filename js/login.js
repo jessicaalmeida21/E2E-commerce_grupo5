@@ -77,19 +77,28 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Gerenciamento de sessão
     function startSession(user) {
+        console.log('Iniciando sessão para usuário:', user);
+        
         // Remover senha do objeto de usuário antes de armazenar na sessão
         const sessionUser = {...user};
         delete sessionUser.password;
+        
+        console.log('Usuário da sessão (sem senha):', sessionUser);
         
         // Armazenar dados do usuário e timestamp
         localStorage.setItem('currentUser', JSON.stringify(sessionUser));
         const timeout = new Date().getTime() + (30 * 60 * 1000); // 30 minutos
         localStorage.setItem('sessionTimeout', timeout);
         
+        console.log('Sessão salva no localStorage');
+        console.log('Perfil do usuário:', user.profile);
+        
         // Redirecionar com base no perfil
         if (user.profile === 'seller') {
+            console.log('Redirecionando para admin.html');
             window.location.href = './admin.html';
         } else {
+            console.log('Redirecionando para index.html');
             window.location.href = '../index.html';
         }
     }
@@ -154,6 +163,11 @@ document.addEventListener('DOMContentLoaded', function() {
             
             console.log('Tentativa de login:', { email, hasUser: !!user });
             console.log('Usuários cadastrados:', users.length);
+            console.log('Lista de usuários:', users.map(u => ({ email: u.email, profile: u.profile })));
+            console.log('Senha criptografada:', encryptedPassword);
+            if (user) {
+                console.log('Usuário encontrado:', { email: user.email, profile: user.profile, passwordMatch: user.password === encryptedPassword });
+            }
             
             if (!user || user.password !== encryptedPassword) {
                 messageElement.textContent = 'E-mail ou senha incorretos';
@@ -246,9 +260,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 createdAt: new Date().toISOString()
             };
             
+            console.log('Novo usuário criado:', newUser);
+            console.log('Usuários antes de adicionar:', users.length);
+            
             // Adicionar à lista e salvar
             users.push(newUser);
             saveUsers();
+            
+            console.log('Usuários após adicionar:', users.length);
+            console.log('Usuários salvos no localStorage:', JSON.parse(localStorage.getItem('users') || '[]').length);
             
             // Cadastro bem-sucedido
             messageElement.textContent = 'Cadastro realizado com sucesso! Você já pode fazer login.';
