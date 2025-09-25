@@ -1,27 +1,52 @@
 // Verificação de autenticação e perfil
 document.addEventListener('DOMContentLoaded', function() {
-    // Verificar se o usuário está logado e é um vendedor
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    if (!currentUser || currentUser.profile !== 'seller') {
-        alert('Acesso restrito. Você precisa estar logado como vendedor.');
+    checkUserPermissions();
+    loadProducts();
+    loadCategories();
+    setupEventListeners();
+    setupHeader();
+});
+
+// Verificar permissões do usuário
+function checkUserPermissions() {
+    const currentUserData = JSON.parse(localStorage.getItem('currentUser'));
+    
+    if (!currentUserData) {
+        alert('Você precisa estar logado para acessar esta página.');
         window.location.href = '../pages/login.html';
         return;
     }
 
-    // Exibir nome do usuário
-    document.getElementById('user-name').textContent = currentUser.name;
+    // Apenas vendedores podem gerenciar produtos
+    if (currentUserData.profile !== 'seller') {
+        alert('Você não tem permissão para acessar esta página.');
+        window.location.href = '../index.html';
+        return;
+    }
+    
+    currentUser = currentUserData;
+}
 
-    // Configurar logout
-    document.getElementById('logout-btn').addEventListener('click', function() {
+// Configurar header
+function setupHeader() {
+    const userName = document.getElementById('user-name');
+    const logoutBtn = document.getElementById('logout-btn');
+    
+    if (userName) {
+        userName.textContent = currentUser.name;
+    }
+    
+    if (logoutBtn) {
+        logoutBtn.addEventListener('click', logout);
+    }
+}
+
+// Logout
+function logout() {
         localStorage.removeItem('currentUser');
         localStorage.removeItem('sessionTimeout');
         window.location.href = '../pages/login.html';
-    });
-
-    // Inicializar a página
-    loadProducts();
-    setupEventListeners();
-});
+}
 
 // Variáveis globais
 let allProducts = [];
@@ -44,9 +69,9 @@ async function loadProducts() {
             ...product,
             stock: product.stock || Math.floor(Math.random() * 50) + 1
         }));
-        
-        filteredProducts = [...allProducts];
-        applyFiltersAndSort();
+    
+    filteredProducts = [...allProducts];
+    applyFiltersAndSort();
         
         // Carregar categorias dinamicamente
         loadCategories();
@@ -128,9 +153,19 @@ function setupEventListeners() {
     document.getElementById('sort-by').addEventListener('change', applyFiltersAndSort);
     
     // Modal de estoque
-    document.querySelector('.close-modal').addEventListener('click', closeModal);
+    document.getElementById('close-stock-modal').addEventListener('click', closeModal);
     document.getElementById('cancel-add-stock').addEventListener('click', closeModal);
     document.getElementById('confirm-add-stock').addEventListener('click', confirmAddStock);
+    
+    // Preview do estoque
+    document.getElementById('stock-amount').addEventListener('change', updateStockPreview);
+    
+    // Fechar modal clicando fora
+    document.getElementById('stock-modal').addEventListener('click', (e) => {
+        if (e.target.id === 'stock-modal') {
+            closeModal();
+        }
+    });
 }
 
 // Aplicar filtros e ordenação
@@ -209,16 +244,37 @@ function renderProducts() {
         const status = product.stock > 0 ? 'Ativo' : 'Inativo';
         const statusClass = product.stock > 0 ? 'status-active' : 'status-inactive';
         
+        // Status do produto (ativo/inativo)
+        const isActive = product.stock > 0;
+        const statusText = isActive ? 'Ativo' : 'Inativo';
+        const statusClass = isActive ? 'status-active' : 'status-inactive';
+        
+        // Botão de acréscimo de estoque
+        const stockButton = isActive ? 
+            `<button class="action-btn stock-btn" onclick="openStockModal('${product.id}')" title="Adicionar estoque">
+                <i class="fas fa-plus"></i> +10
+            </button>` :
+            `<button class="action-btn stock-btn" disabled title="Produto inativo">
+                <i class="fas fa-ban"></i> Inativo
+            </button>`;
+        
         row.innerHTML = `
             <td><img src="${product.image}" alt="${product.title}" style="width: 50px; height: 50px; object-fit: cover; border-radius: 4px;"></td>
-            <td>${product.title}</td>
-            <td>${product.category}</td>
-            <td>${formattedPrice}</td>
-            <td>${product.stock}</td>
-            <td><span class="product-status ${statusClass}">${status}</span></td>
+            <td>
+                <div class="product-info">
+                    <strong>${product.title}</strong>
+                    <small>${product.brand || 'Marca'}</small>
+                </div>
+            </td>
+            <td><span class="category-badge">${product.category}</span></td>
+            <td><strong>${formattedPrice}</strong></td>
+            <td><span class="stock-value">${product.stock}</span></td>
+            <td><span class="product-status ${statusClass}">${statusText}</span></td>
+            <td>${stockButton}</td>
             <td class="product-actions">
-                <button class="action-btn view-btn" onclick="viewProduct('${product.id}')">Ver</button>
-                <button class="action-btn stock-btn" onclick="openStockModal('${product.id}')">Estoque</button>
+                <button class="action-btn view-btn" onclick="viewProduct('${product.id}')" title="Ver detalhes">
+                    <i class="fas fa-eye"></i>
+                </button>
             </td>
         `;
         
@@ -292,7 +348,87 @@ function renderPagination() {
 
 // Ver detalhes do produto
 function viewProduct(productId) {
-    window.location.href = `../pages/product.html?id=${productId}`;
+    const product = allProducts.find(p => p.id === productId);
+    if (!product) return;
+    
+    // Criar modal de detalhes do produto
+    const modal = document.createElement('div');
+    modal.className = 'modal show';
+    modal.innerHTML = `
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-info-circle"></i> Detalhes do Produto</h2>
+                <button class="close-modal" onclick="this.closest('.modal').remove()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="product-details-full">
+                    <div class="product-image-large">
+                        <img src="${product.image}" alt="${product.title}">
+                    </div>
+                    <div class="product-info-full">
+                        <h3>${product.title}</h3>
+                        <p class="product-brand">Marca: ${product.brand || 'N/A'}</p>
+                        <p class="product-category">Categoria: ${product.category}</p>
+                        <p class="product-price">Preço: ${new Intl.NumberFormat('pt-BR', {
+                            style: 'currency',
+                            currency: 'BRL'
+                        }).format(product.price)}</p>
+                        <p class="product-stock">Estoque atual: <strong>${product.stock}</strong></p>
+                        <p class="product-description">${product.description || 'Sem descrição disponível.'}</p>
+                        ${product.rating ? `<p class="product-rating">Avaliação: ${'★'.repeat(Math.floor(product.rating))}${'☆'.repeat(5 - Math.floor(product.rating))} (${product.ratingCount || 0} avaliações)</p>` : ''}
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn secondary" onclick="this.closest('.modal').remove()">Fechar</button>
+                ${product.stock > 0 ? `<button class="btn primary" onclick="openStockModal('${product.id}'); this.closest('.modal').remove();">Adicionar Estoque</button>` : ''}
+            </div>
+        </div>
+    `;
+    
+    document.body.appendChild(modal);
+}
+
+// Mostrar notificação
+function showNotification(message, type = 'info') {
+    const notification = document.createElement('div');
+    notification.className = `notification notification-${type}`;
+    notification.innerHTML = `
+        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
+        <span>${message}</span>
+    `;
+    
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 15px 20px;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        z-index: 1001;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        background: ${type === 'success' ? '#4CAF50' : type === 'error' ? '#f44336' : '#2196F3'};
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    `;
+    
+    document.body.appendChild(notification);
+    
+    setTimeout(() => {
+        notification.style.opacity = '1';
+    }, 100);
+    
+    setTimeout(() => {
+        notification.style.opacity = '0';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    }, 4000);
 }
 
 // Variável para armazenar o ID do produto atual no modal
@@ -303,19 +439,58 @@ function openStockModal(productId) {
     const product = allProducts.find(p => p.id === productId);
     if (!product) return;
     
+    // Verificar se produto está ativo
+    if (product.stock === 0) {
+        showNotification('Produto inativo: não é possível ajustar estoque', 'error');
+        return;
+    }
+    
     currentProductId = productId;
     
+    // Preencher informações do produto
+    document.getElementById('modal-product-image').src = product.image;
+    document.getElementById('modal-product-image').alt = product.title;
     document.getElementById('modal-product-name').textContent = product.title;
+    document.getElementById('modal-product-category').textContent = product.category;
+    document.getElementById('modal-product-price').textContent = new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    }).format(product.price);
     document.getElementById('modal-current-stock').textContent = product.stock;
-    document.getElementById('stock-error-message').textContent = '';
     
-    document.getElementById('stock-modal').style.display = 'block';
+    // Limpar mensagens de erro
+    document.getElementById('stock-error-message').textContent = '';
+    document.getElementById('stock-error-message').classList.remove('show');
+    
+    // Resetar seleção de estoque
+    document.getElementById('stock-amount').value = '10';
+    updateStockPreview();
+    
+    // Mostrar modal
+    document.getElementById('stock-modal').classList.add('show');
 }
 
 // Fechar modal
 function closeModal() {
-    document.getElementById('stock-modal').style.display = 'none';
+    document.getElementById('stock-modal').classList.remove('show');
     currentProductId = null;
+}
+
+// Atualizar preview do novo estoque
+function updateStockPreview() {
+    if (currentProductId === null) return;
+    
+    const product = allProducts.find(p => p.id === currentProductId);
+    if (!product) return;
+    
+    const amountToAdd = parseInt(document.getElementById('stock-amount').value) || 0;
+    const newStock = product.stock + amountToAdd;
+    
+    document.getElementById('new-stock-preview').textContent = newStock;
+    
+    // Atualizar mensagem de confirmação
+    const confirmationText = `Adicionar +${amountToAdd} unidades ao estoque do produto "${product.title}"?`;
+    document.getElementById('confirmation-text').textContent = confirmationText;
 }
 
 // Confirmar adição de estoque
@@ -327,24 +502,34 @@ function confirmAddStock() {
     
     const amountToAdd = parseInt(document.getElementById('stock-amount').value);
     
-    // Regras: apenas múltiplos de 10
+    // Limpar mensagens de erro anteriores
+    const errorMessage = document.getElementById('stock-error-message');
+    errorMessage.textContent = '';
+    errorMessage.classList.remove('show');
+    
+    // Validação: apenas múltiplos de 10
     if (isNaN(amountToAdd) || amountToAdd <= 0 || amountToAdd % 10 !== 0) {
-        document.getElementById('stock-error-message').textContent = 'Acréscimo deve ser em lotes de 10 (10, 20, 30...).';
+        errorMessage.textContent = 'Acréscimo deve ser em lotes de 10 (10, 20, 30...).';
+        errorMessage.classList.add('show');
         return;
     }
     
-    // Bloquear produto inativo
+    // Verificar se produto está ativo
     if (product.stock === 0) {
-        document.getElementById('stock-error-message').textContent = 'Produto inativo: não é possível ajustar estoque';
+        errorMessage.textContent = 'Produto inativo: não é possível ajustar estoque';
+        errorMessage.classList.add('show');
         return;
     }
     
-    // Confirmação
-    const confirmed = confirm(`Adicionar +${amountToAdd} ao estoque do produto "${product.title}"?`);
-    if (!confirmed) {
+    // Verificar limite máximo de estoque (opcional - 1000 unidades)
+    const maxStock = 1000;
+    if (product.stock + amountToAdd > maxStock) {
+        errorMessage.textContent = `Operação ultrapassa o limite de estoque (máx. ${maxStock}).`;
+        errorMessage.classList.add('show');
         return;
     }
     
+    try {
     // Adicionar estoque ao produto
     product.stock += amountToAdd;
     
@@ -359,7 +544,13 @@ function confirmAddStock() {
     renderProducts();
     
     // Mostrar mensagem de sucesso
-    alert(`Estoque do produto "${product.title}" aumentado em ${amountToAdd} unidades.`);
+        showNotification(`Estoque do produto "${product.title}" aumentado em ${amountToAdd} unidades. Novo estoque: ${product.stock}`, 'success');
+        
+    } catch (error) {
+        console.error('Erro ao atualizar estoque:', error);
+        errorMessage.textContent = 'Falha ao atualizar estoque. Tente novamente.';
+        errorMessage.classList.add('show');
+    }
 }
 
 // Verificar timeout da sessão

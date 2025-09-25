@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Logística - E2E-Commerce</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/admin.css">
+    <link rel="stylesheet" href="../css/logistics.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <a href="../index.html">
+                    <div class="logo-icon"></div>
+                    <h1>E2E-Commerce</h1>
+                </a>
+            </div>
+            <div class="user-actions">
+                <span class="user-info" id="user-name">Administrador</span>
+                <a href="admin.html" class="btn-link"><i class="fas fa-cogs"></i> Produtos</a>
+                <a href="users.html" class="btn-link"><i class="fas fa-users"></i> Usuários</a>
+                <a href="logistics-admin.html" class="btn-link active"><i class="fas fa-truck"></i> Logística</a>
+                <button id="logout-btn" class="btn">Sair</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="page-header">
+            <div class="header-info">
+                <h1><i class="fas fa-truck"></i> Gestão de Logística</h1>
+                <p class="info-text">Gerencie o status logístico dos pedidos</p>
+            </div>
+        </div>
+
+        <!-- Estatísticas -->
+        <div class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon warning">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="stats-awaiting">0</h3>
+                        <p>Aguardando Envio</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon primary">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="stats-transit">0</h3>
+                        <p>Em Transporte</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon success">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="stats-delivered">0</h3>
+                        <p>Entregues</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon info">
+                        <i class="fas fa-box"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3 id="stats-total">0</h3>
+                        <p>Total de Pedidos</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Controles -->
+        <div class="admin-controls">
+            <div class="search-filters">
+                <div class="filter-options">
+                    <select id="status-filter">
+                        <option value="">Todos os Status</option>
+                        <option value="aguardando-envio">Aguardando Envio</option>
+                        <option value="em-transporte">Em Transporte</option>
+                        <option value="entregue">Entregue</option>
+                    </select>
+                    
+                    <button class="btn secondary" id="refresh-btn">
+                        <i class="fas fa-sync-alt"></i> Atualizar
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lista de Pedidos -->
+        <div class="logistics-table-container">
+            <table class="logistics-table">
+                <thead>
+                    <tr>
+                        <th>Pedido</th>
+                        <th>Cliente</th>
+                        <th>Data</th>
+                        <th>Código de Rastreamento</th>
+                        <th>Status Logístico</th>
+                        <th>Última Atualização</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="logistics-table-body">
+                    <!-- Linhas serão carregadas via JavaScript -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Estado vazio -->
+        <div class="empty-state" id="empty-logistics" style="display: none;">
+            <i class="fas fa-truck"></i>
+            <h3>Nenhum pedido encontrado</h3>
+            <p>Não há pedidos para gerenciar no momento.</p>
+        </div>
+    </main>
+
+    <!-- Modal de Atualização de Status -->
+    <div class="modal" id="update-status-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-edit"></i> Atualizar Status Logístico</h2>
+                <button class="close-modal" id="close-update-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="order-info">
+                    <h3 id="update-order-number"></h3>
+                    <p>Código de rastreamento: <span id="update-tracking-code"></span></p>
+                    <p>Status atual: <span id="update-current-status"></span></p>
+                </div>
+                
+                <div class="form-group">
+                    <label for="new-status">Novo Status *</label>
+                    <select id="new-status" required>
+                        <option value="">Selecione o novo status</option>
+                        <option value="aguardando-envio">Aguardando Envio</option>
+                        <option value="em-transporte">Em Transporte</option>
+                        <option value="entregue">Entregue</option>
+                    </select>
+                </div>
+                
+                <div class="form-group" id="reason-group" style="display: none;">
+                    <label for="status-reason">Motivo da Alteração</label>
+                    <textarea id="status-reason" rows="3" placeholder="Explique o motivo desta alteração de status..."></textarea>
+                    <small class="help-text">Obrigatório quando não seguir a sequência normal</small>
+                </div>
+                
+                <div class="status-flow-info">
+                    <h4>Fluxo Normal:</h4>
+                    <div class="flow-steps">
+                        <span class="flow-step">Aguardando Envio</span>
+                        <i class="fas fa-arrow-right"></i>
+                        <span class="flow-step">Em Transporte</span>
+                        <i class="fas fa-arrow-right"></i>
+                        <span class="flow-step">Entregue</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn secondary" id="cancel-update-status">Cancelar</button>
+                <button class="btn primary" id="confirm-update-status">Atualizar Status</button>
+            </div>
+            <div id="update-error-message" class="error-message"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Histórico -->
+    <div class="modal" id="history-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2><i class="fas fa-history"></i> Histórico Logístico</h2>
+                <button class="close-modal" id="close-history-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="order-info">
+                    <h3 id="history-order-number"></h3>
+                    <p>Código de rastreamento: <span id="history-tracking-code"></span></p>
+                </div>
+                
+                <div class="history-timeline" id="history-timeline">
+                    <!-- Histórico será carregado via JavaScript -->
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn secondary" id="close-history">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/api-service.js"></script>
+    <script src="../js/products.js"></script>
+    <script src="../js/logistics.js"></script>
+    <script src="../js/logistics-admin.js"></script>
+</body>
+</html>

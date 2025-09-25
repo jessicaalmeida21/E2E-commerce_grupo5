@@ -1,12 +1,29 @@
-// Sistema de Pagamento Mock
-class PaymentManager {
+// Sistema de Pagamento - Mock API
+class PaymentService {
     constructor() {
-        this.apiBaseUrl = 'https://api-mock-payment.e2e.com.br'; // Mock API
+        this.baseUrl = 'https://api.mock-payment.e2e.com'; // URL fictícia
+        this.cards = {
+            credit: {
+                '4111111111111111': { brand: 'VISA', cvv: '123', result: 'APPROVED' },
+                '4000000000000002': { brand: 'VISA', cvv: '123', result: 'DECLINED', error: 'insufficient_funds' },
+                '5555555555554444': { brand: 'MASTERCARD', cvv: '321', result: 'APPROVED' },
+                '5105105105105100': { brand: 'MASTERCARD', cvv: '321', result: 'DECLINED', error: 'do_not_honor' }
+            },
+            debit: {
+                '4900000000000000': { brand: 'VISA', cvv: '111', result: 'APPROVED' },
+                '4916000000000000': { brand: 'VISA', cvv: '111', result: 'DECLINED', error: 'insufficient_funds' },
+                '5200828282828210': { brand: 'MASTERCARD', cvv: '222', result: 'APPROVED' },
+                '5200000000000007': { brand: 'MASTERCARD', cvv: '222', result: 'DECLINED', error: 'do_not_honor' }
+            }
+        };
+        this.pixKeys = {
+            email: 'pix@e2etreinamentos.com.br',
+            phone: '11991919191'
+        };
     }
 
-    // Obter cotações de parcelamento
+    // Simular cotação de parcelas
     async getQuote(amount) {
-        // Simulação de API - em produção seria chamada real
         return new Promise((resolve) => {
             setTimeout(() => {
                 const installments = [];
@@ -18,26 +35,23 @@ class PaymentManager {
                     total_with_interest: amount,
                     total_interest: 0
                 });
-
+                
                 // 2-10x com 1% a.m.
                 for (let i = 2; i <= 10; i++) {
                     const monthlyRate = 0.01; // 1% a.m.
                     const installmentAmount = this.calculateInstallment(amount, monthlyRate, i);
                     const totalWithInterest = installmentAmount * i;
                     const totalInterest = totalWithInterest - amount;
-
+                    
                     installments.push({
                         installments: i,
-                        installment_amount: installmentAmount,
-                        total_with_interest: totalWithInterest,
-                        total_interest: totalInterest
+                        installment_amount: Math.round(installmentAmount * 100) / 100,
+                        total_with_interest: Math.round(totalWithInterest * 100) / 100,
+                        total_interest: Math.round(totalInterest * 100) / 100
                     });
                 }
-
-                resolve({
-                    amount: amount,
-                    installments: installments
-                });
+                
+                resolve({ installments });
             }, 500);
         });
     }
@@ -50,221 +64,101 @@ class PaymentManager {
         return principal * (monthlyRate * factor) / (factor - 1);
     }
 
-    // Processar pagamento com cartão
-    async processCardPayment(orderId, cardData, installments) {
-        // Validações básicas
-        this.validateCardData(cardData);
+    // Validar cartão
+    validateCard(cardNumber, cvv, expiry, cardType) {
+        const cleanNumber = cardNumber.replace(/\s/g, '');
+        const cardData = this.cards[cardType][cleanNumber];
+        
+        if (!cardData) {
+            return { valid: false, error: 'unsupported_brand' };
+        }
+        
+        if (cardData.cvv !== cvv) {
+            return { valid: false, error: 'invalid_cvv' };
+        }
+        
+        // Validar validade (simplificado)
+        const [month, year] = expiry.split('/');
+        const currentDate = new Date();
+        const currentYear = currentDate.getFullYear() % 100;
+        const currentMonth = currentDate.getMonth() + 1;
+        
+        if (parseInt(year) < currentYear || 
+            (parseInt(year) === currentYear && parseInt(month) < currentMonth)) {
+            return { valid: false, error: 'expired_card' };
+        }
+        
+        return { valid: true, result: cardData.result, error: cardData.error };
+    }
 
-        // Simular processamento
+    // Processar pagamento com cartão
+    async processCardPayment(paymentData) {
         return new Promise((resolve, reject) => {
             setTimeout(() => {
-                const result = this.mockCardPayment(cardData);
+                const validation = this.validateCard(
+                    paymentData.cardNumber,
+                    paymentData.cvv,
+                    paymentData.expiry,
+                    paymentData.cardType
+                );
                 
-                if (result.approved) {
-                    resolve({
-                        success: true,
-                        transactionId: this.generateTransactionId(),
-                        message: 'Pagamento aprovado'
-                    });
-                } else {
+                if (!validation.valid) {
                     reject({
-                        success: false,
-                        error: result.error,
-                        message: result.message
+                        error: validation.error,
+                        message: this.getErrorMessage(validation.error)
                     });
+                    return;
                 }
+                
+                if (validation.result === 'DECLINED') {
+                    reject({
+                        error: validation.error,
+                        message: this.getErrorMessage(validation.error)
+                    });
+                    return;
+                }
+                
+                // Simular processamento
+                resolve({
+                    transaction_id: this.generateTransactionId(),
+                    status: 'APPROVED',
+                    amount: paymentData.amount,
+                    installments: paymentData.installments
+                });
             }, 2000);
         });
     }
 
-    // Validar dados do cartão
-    validateCardData(cardData) {
-        const { pan, cvv, expiry, cardholderName } = cardData;
-
-        if (!pan || pan.replace(/\s/g, '').length < 13) {
-            throw new Error('Número do cartão inválido');
-        }
-
-        if (!cvv || cvv.length !== 3) {
-            throw new Error('CVV inválido');
-        }
-
-        if (!expiry || !/^\d{2}\/\d{2}$/.test(expiry)) {
-            throw new Error('Data de validade inválida');
-        }
-
-        if (!cardholderName || cardholderName.trim().length < 2) {
-            throw new Error('Nome do portador inválido');
-        }
-
-        // Verificar se cartão não expirou
-        const [month, year] = expiry.split('/');
-        const expiryDate = new Date(2000 + parseInt(year), parseInt(month) - 1);
-        if (expiryDate < new Date()) {
-            throw new Error('Cartão expirado');
-        }
-    }
-
-    // Mock de pagamento com cartão
-    mockCardPayment(cardData) {
-        const pan = cardData.pan.replace(/\s/g, '');
-        
-        // Cartões de teste aprovados
-        const approvedCards = [
-            '4111111111111111', // VISA
-            '5555555555554444', // MASTERCARD
-            '4900000000000000', // VISA Débito
-            '5200828282828210'  // MASTERCARD Débito
-        ];
-
-        // Cartões de teste reprovados
-        const declinedCards = [
-            '4000000000000002', // VISA - insufficient_funds
-            '5105105105105100', // MASTERCARD - do_not_honor
-            '4916000000000000', // VISA Débito - insufficient_funds
-            '5200000000000007'  // MASTERCARD Débito - do_not_honor
-        ];
-
-        if (approvedCards.includes(pan)) {
-            return { approved: true };
-        } else if (declinedCards.includes(pan)) {
-            return { 
-                approved: false, 
-                error: 'insufficient_funds',
-                message: 'Pagamento recusado - fundos insuficientes'
-            };
-        } else {
-            return { 
-                approved: false, 
-                error: 'invalid_pan',
-                message: 'Cartão não reconhecido'
-            };
-        }
-    }
-
     // Processar pagamento PIX
-    async processPixPayment(orderId, payerData) {
-        // Validar CPF/CNPJ
-        if (!this.validatePixPayer(payerData)) {
-            throw new Error('CPF ou CNPJ inválido');
-        }
-
-        // Simular geração de PIX
+    async processPixPayment(paymentData) {
         return new Promise((resolve) => {
             setTimeout(() => {
                 const txid = this.generateTransactionId();
-                const pixData = {
-                    txid: txid,
-                    pix_key: 'pix@e2etreinamentos.com.br',
-                    qr_code: this.generateQRCode(txid),
-                    expires_at: new Date(Date.now() + 30 * 60 * 1000).toISOString() // 30 min
-                };
-
-                // Simular status inicial
-                this.pixStatuses = this.pixStatuses || {};
-                this.pixStatuses[txid] = 'PENDING';
-
-                resolve(pixData);
+                const expiresAt = new Date(Date.now() + 30 * 60 * 1000); // 30 minutos
+                
+                resolve({
+                    txid,
+                    pix_key: this.pixKeys.email,
+                    qr_code: this.generateQRCode(txid, paymentData.amount),
+                    expires_at: expiresAt.toISOString(),
+                    status: 'PENDING'
+                });
             }, 1000);
         });
-    }
-
-    // Validar pagador PIX
-    validatePixPayer(payerData) {
-        const { cpf, cnpj } = payerData;
-        
-        if (cpf && this.isValidCPF(cpf)) return true;
-        if (cnpj && this.isValidCNPJ(cnpj)) return true;
-        
-        return false;
-    }
-
-    // Validar CPF
-    isValidCPF(cpf) {
-        cpf = cpf.replace(/\D/g, '');
-        if (cpf.length !== 11) return false;
-        
-        // Algoritmo de validação CPF
-        let sum = 0;
-        for (let i = 0; i < 9; i++) {
-            sum += parseInt(cpf.charAt(i)) * (10 - i);
-        }
-        let remainder = (sum * 10) % 11;
-        if (remainder === 10 || remainder === 11) remainder = 0;
-        if (remainder !== parseInt(cpf.charAt(9))) return false;
-
-        sum = 0;
-        for (let i = 0; i < 10; i++) {
-            sum += parseInt(cpf.charAt(i)) * (11 - i);
-        }
-        remainder = (sum * 10) % 11;
-        if (remainder === 10 || remainder === 11) remainder = 0;
-        if (remainder !== parseInt(cpf.charAt(10))) return false;
-
-        return true;
-    }
-
-    // Validar CNPJ
-    isValidCNPJ(cnpj) {
-        cnpj = cnpj.replace(/\D/g, '');
-        if (cnpj.length !== 14) return false;
-        
-        // Algoritmo de validação CNPJ
-        let sum = 0;
-        let weight = 2;
-        for (let i = 11; i >= 0; i--) {
-            sum += parseInt(cnpj.charAt(i)) * weight;
-            weight = weight === 9 ? 2 : weight + 1;
-        }
-        let remainder = sum % 11;
-        if (remainder < 2) remainder = 0;
-        else remainder = 11 - remainder;
-        if (remainder !== parseInt(cnpj.charAt(12))) return false;
-
-        sum = 0;
-        weight = 2;
-        for (let i = 12; i >= 0; i--) {
-            sum += parseInt(cnpj.charAt(i)) * weight;
-            weight = weight === 9 ? 2 : weight + 1;
-        }
-        remainder = sum % 11;
-        if (remainder < 2) remainder = 0;
-        else remainder = 11 - remainder;
-        if (remainder !== parseInt(cnpj.charAt(13))) return false;
-
-        return true;
     }
 
     // Verificar status PIX
     async checkPixStatus(txid) {
         return new Promise((resolve) => {
             setTimeout(() => {
-                // Simular verificação de status
-                const statuses = ['PENDING', 'PAID', 'EXPIRED', 'CANCELLED'];
-                const currentStatus = this.pixStatuses?.[txid] || 'PENDING';
-                
-                // Simular mudança de status após 5 segundos
-                if (currentStatus === 'PENDING' && Math.random() > 0.7) {
-                    this.pixStatuses[txid] = 'PAID';
-                }
-                
+                // Simular 70% de chance de aprovação
+                const approved = Math.random() > 0.3;
                 resolve({
-                    status: this.pixStatuses?.[txid] || 'PENDING',
-                    message: this.getPixStatusMessage(this.pixStatuses?.[txid] || 'PENDING')
+                    status: approved ? 'PAID' : 'EXPIRED',
+                    paid_at: approved ? new Date().toISOString() : null
                 });
             }, 1000);
         });
-    }
-
-    // Obter mensagem do status PIX
-    getPixStatusMessage(status) {
-        const messages = {
-            'PENDING': 'Aguardando pagamento PIX',
-            'PAID': 'Pagamento PIX confirmado',
-            'EXPIRED': 'PIX expirado',
-            'CANCELLED': 'PIX cancelado'
-        };
-        return messages[status] || 'Status desconhecido';
     }
 
     // Gerar ID de transação
@@ -272,31 +166,84 @@ class PaymentManager {
         return 'TXN_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
     }
 
-    // Gerar QR Code (simulação)
-    generateQRCode(txid) {
+    // Gerar QR Code (simulado)
+    generateQRCode(txid, amount) {
         return `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==`;
     }
 
-    // Mascarar número do cartão
-    maskCardNumber(pan) {
-        const cleaned = pan.replace(/\s/g, '');
-        if (cleaned.length < 8) return pan;
-        
-        const start = cleaned.substring(0, 4);
-        const end = cleaned.substring(cleaned.length - 4);
-        const middle = '*'.repeat(cleaned.length - 8);
-        
-        return `${start}${middle}${end}`;
-    }
-
-    // Formatar preço
-    formatPrice(price) {
-        return price.toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-        });
+    // Obter mensagem de erro
+    getErrorMessage(errorCode) {
+        const messages = {
+            'invalid_pan': 'Número do cartão inválido',
+            'invalid_cvv': 'CVV inválido',
+            'expired_card': 'Cartão expirado',
+            'unsupported_brand': 'Bandeira não suportada',
+            'limit_exceeded': 'Limite excedido',
+            'insufficient_funds': 'Saldo insuficiente',
+            'do_not_honor': 'Transação negada',
+            'amount_mismatch': 'Valor incorreto',
+            'order_not_eligible': 'Pedido não elegível para pagamento',
+            'expired_pix': 'PIX expirado',
+            'pix_not_found': 'PIX não encontrado'
+        };
+        return messages[errorCode] || 'Erro desconhecido';
     }
 }
 
-// Instância global
-window.paymentManager = new PaymentManager();
+// Instância global do serviço de pagamento
+const paymentService = new PaymentService();
+
+// Utilitários de formatação
+const PaymentUtils = {
+    // Formatar número do cartão
+    formatCardNumber(value) {
+        return value.replace(/\s/g, '').replace(/(.{4})/g, '$1 ').trim();
+    },
+
+    // Mascarar número do cartão
+    maskCardNumber(cardNumber) {
+        const clean = cardNumber.replace(/\s/g, '');
+        return clean.substring(0, 4) + ' **** **** ' + clean.substring(12);
+    },
+
+    // Formatar CVV
+    formatCVV(value) {
+        return value.replace(/\D/g, '').substring(0, 3);
+    },
+
+    // Formatar validade
+    formatExpiry(value) {
+        return value.replace(/\D/g, '').replace(/(.{2})/, '$1/').substring(0, 5);
+    },
+
+    // Formatar CPF/CNPJ
+    formatCPF(value) {
+        const clean = value.replace(/\D/g, '');
+        if (clean.length <= 11) {
+            return clean.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+        } else {
+            return clean.replace(/(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, '$1.$2.$3/$4-$5');
+        }
+    },
+
+    // Formatar CEP
+    formatCEP(value) {
+        return value.replace(/\D/g, '').replace(/(\d{5})(\d{3})/, '$1-$2');
+    },
+
+    // Validar CPF/CNPJ
+    validateCPF(value) {
+        const clean = value.replace(/\D/g, '');
+        return clean.length === 11 || clean.length === 14;
+    },
+
+    // Validar CEP
+    validateCEP(value) {
+        const clean = value.replace(/\D/g, '');
+        return clean.length === 8;
+    }
+};
+
+// Exportar para uso global
+window.paymentService = paymentService;
+window.PaymentUtils = PaymentUtils;

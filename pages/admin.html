@@ -27,24 +27,27 @@
 
     <main>
         <div class="container">
-            <h1>Gestão de Produtos</h1>
+            <div class="page-header">
+                <h1><i class="fas fa-boxes"></i> Gestão de Produtos</h1>
+                <div class="header-info">
+                    <span class="info-text">Consulta e acréscimo de estoque em lotes de 10</span>
+                </div>
+            </div>
             
             <div class="admin-controls">
                 <div class="search-filters">
                     <div class="search-box">
-                        <input type="text" id="product-search" placeholder="Buscar por nome...">
-                        <button id="search-btn" class="btn primary">Buscar</button>
+                        <input type="text" id="product-search" placeholder="Buscar produtos por nome...">
+                        <button id="search-btn" class="btn primary">
+                            <i class="fas fa-search"></i> Buscar
+                        </button>
                     </div>
                     
                     <div class="filter-options">
                         <div class="filter-group">
                             <label for="category-filter">Categoria:</label>
                             <select id="category-filter">
-                                <option value="">Todas</option>
-                                <option value="eletrônicos">Eletrônicos</option>
-                                <option value="móveis">Móveis</option>
-                                <option value="roupas">Roupas</option>
-                                <option value="acessórios">Acessórios</option>
+                                <option value="">Todas as Categorias</option>
                             </select>
                         </div>
                         
@@ -59,6 +62,15 @@
                                 <option value="stock-desc">Estoque (maior-menor)</option>
                             </select>
                         </div>
+                        
+                        <div class="filter-group">
+                            <label for="status-filter">Status:</label>
+                            <select id="status-filter">
+                                <option value="">Todos</option>
+                                <option value="active">Ativo</option>
+                                <option value="inactive">Inativo</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -68,11 +80,12 @@
                     <thead>
                         <tr>
                             <th>Imagem</th>
-                            <th>Nome</th>
+                            <th>Produto</th>
                             <th>Categoria</th>
                             <th>Preço</th>
-                            <th>Estoque</th>
+                            <th>Estoque Atual</th>
                             <th>Status</th>
+                            <th>Acréscimo</th>
                             <th>Ações</th>
                         </tr>
                     </thead>
@@ -82,7 +95,9 @@
                 </table>
                 
                 <div id="no-products" class="no-results" style="display: none;">
-                    <p>Nenhum produto encontrado.</p>
+                    <i class="fas fa-box-open"></i>
+                    <h3>Nenhum produto encontrado</h3>
+                    <p>Não há produtos que correspondam aos filtros aplicados.</p>
                 </div>
             </div>
             
@@ -95,25 +110,51 @@
     <!-- Modal para adicionar estoque -->
     <div id="stock-modal" class="modal">
         <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h2>Adicionar Estoque</h2>
-            <div class="product-info">
-                <h3 id="modal-product-name"></h3>
-                <p>Estoque atual: <span id="modal-current-stock"></span></p>
+            <div class="modal-header">
+                <h2><i class="fas fa-plus-circle"></i> Adicionar Estoque</h2>
+                <button class="close-modal" id="close-stock-modal">
+                    <i class="fas fa-times"></i>
+                </button>
             </div>
-            <div class="stock-selection">
-                <label for="stock-amount">Selecione a quantidade a adicionar:</label>
-                <select id="stock-amount">
-                    <option value="10">+10</option>
-                    <option value="20">+20</option>
-                    <option value="30">+30</option>
-                    <option value="40">+40</option>
-                    <option value="50">+50</option>
-                </select>
+            <div class="modal-body">
+                <div class="product-info">
+                    <div class="product-image">
+                        <img id="modal-product-image" src="" alt="">
+                    </div>
+                    <div class="product-details">
+                        <h3 id="modal-product-name"></h3>
+                        <p class="product-category" id="modal-product-category"></p>
+                        <p class="product-price" id="modal-product-price"></p>
+                        <div class="current-stock">
+                            <span class="label">Estoque atual:</span>
+                            <span class="value" id="modal-current-stock"></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="stock-selection">
+                    <label for="stock-amount">Selecione a quantidade a adicionar (lotes de 10):</label>
+                    <select id="stock-amount">
+                        <option value="10">+10 unidades</option>
+                        <option value="20">+20 unidades</option>
+                        <option value="30">+30 unidades</option>
+                        <option value="40">+40 unidades</option>
+                        <option value="50">+50 unidades</option>
+                        <option value="100">+100 unidades</option>
+                    </select>
+                    <div class="stock-preview">
+                        <span>Novo estoque: </span>
+                        <span id="new-stock-preview" class="new-stock-value"></span>
+                    </div>
+                </div>
+                
+                <div class="confirmation-message">
+                    <p id="confirmation-text"></p>
+                </div>
             </div>
             <div class="modal-actions">
-                <button id="confirm-add-stock" class="btn primary">Confirmar</button>
-                <button id="cancel-add-stock" class="btn">Cancelar</button>
+                <button id="cancel-add-stock" class="btn secondary">Cancelar</button>
+                <button id="confirm-add-stock" class="btn primary">Confirmar Acréscimo</button>
             </div>
             <div id="stock-error-message" class="error-message"></div>
         </div>
