@@ -12,17 +12,26 @@ let isLoading = false;
 // Inicializar catálogo
 async function initializeCatalog() {
     try {
+        console.log('Inicializando catálogo...');
+        
+        // Aguardar um pouco para garantir que os módulos estejam carregados
+        await new Promise(resolve => setTimeout(resolve, 100));
+        
         // Carregar categorias
+        console.log('Carregando categorias...');
         await loadCategories();
         
         // Processar parâmetros da URL
         processUrlParams();
         
         // Carregar produtos iniciais
+        console.log('Carregando produtos...');
         await loadProducts();
         
         // Configurar event listeners
         setupEventListeners();
+        
+        console.log('Catálogo inicializado com sucesso!');
     } catch (error) {
         console.error('Erro ao inicializar catálogo:', error);
     }
@@ -50,8 +59,15 @@ function processUrlParams() {
 // Carregar categorias
 async function loadCategories() {
     try {
+        console.log('Carregando categorias...');
         const categories = await productsModule.getCategories();
+        console.log('Categorias recebidas:', categories);
+        
         const categoryFilter = document.getElementById('category-filter');
+        if (!categoryFilter) {
+            console.error('Elemento category-filter não encontrado');
+            return;
+        }
         
         // Limpar opções existentes (exceto a primeira)
         while (categoryFilter.children.length > 1) {
@@ -59,12 +75,17 @@ async function loadCategories() {
         }
         
         // Adicionar categorias
-        categories.forEach(category => {
-            const option = document.createElement('option');
-            option.value = category;
-            option.textContent = category.charAt(0).toUpperCase() + category.slice(1);
-            categoryFilter.appendChild(option);
-        });
+        if (categories && categories.length > 0) {
+            categories.forEach(category => {
+                const option = document.createElement('option');
+                option.value = category;
+                option.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+                categoryFilter.appendChild(option);
+            });
+            console.log(`${categories.length} categorias adicionadas ao filtro`);
+        } else {
+            console.log('Nenhuma categoria encontrada');
+        }
     } catch (error) {
         console.error('Erro ao carregar categorias:', error);
     }
@@ -85,6 +106,12 @@ async function loadProducts(page = 1) {
         console.log('Produtos carregados:', products.length);
         console.log('Primeiros 3 produtos:', products.slice(0, 3));
         
+        if (!products || products.length === 0) {
+            console.log('Nenhum produto encontrado, usando fallback...');
+            products = await productsModule.loadLocalProducts();
+            console.log('Produtos locais carregados:', products.length);
+        }
+        
         // Aplicar filtros locais
         if (currentCategory) {
             products = products.filter(p => p.category && p.category.toLowerCase() === currentCategory.toLowerCase());
@@ -104,6 +131,7 @@ async function loadProducts(page = 1) {
             products = productsModule.sortProducts(products, currentSort);
         }
         
+        console.log('Produtos após filtros:', products.length);
         displayProducts(products);
         
         // Criar meta de paginação

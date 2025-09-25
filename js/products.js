@@ -5,18 +5,26 @@ const productsModule = (() => {
 
     // Inicializar o módulo
     function init() {
-        apiService = window.apiService;
-        if (!apiService) {
+        if (window.apiService) {
+            apiService = window.apiService;
+        } else {
             console.error('ApiService não encontrado');
             return;
         }
     }
+
+    // Inicializar automaticamente
+    init();
 
     // Carregar produtos da API
     async function loadProducts(page = 1, pageSize = 200) {
         try {
             if (!apiService) {
                 init();
+                if (!apiService) {
+                    console.log('ApiService não disponível, usando produtos locais...');
+                    return loadLocalProducts();
+                }
             }
             
             console.log('Carregando produtos da API...');
@@ -121,16 +129,21 @@ const productsModule = (() => {
     // Obter categorias
     async function getCategories() {
         try {
-            if (apiService) {
-                return await apiService.getCategories();
+            if (!apiService) {
+                init();
+                if (!apiService) {
+                    console.log('ApiService não disponível para categorias, usando fallback...');
+                    return ['casa', 'eletrônicos', 'eletrodomésticos', 'móveis', 'roupas', 'esportes', 'livros', 'beleza', 'saúde', 'automotivo'];
+                }
             }
+            
+            const categories = await apiService.getCategories();
+            console.log('Categorias carregadas:', categories);
+            return categories;
         } catch (error) {
             console.error('Erro ao carregar categorias:', error);
+            return ['casa', 'eletrônicos', 'eletrodomésticos', 'móveis', 'roupas', 'esportes', 'livros', 'beleza', 'saúde', 'automotivo'];
         }
-        
-        // Fallback para categorias locais
-        const categories = [...new Set(products.map(product => product.category))];
-        return categories.sort();
     }
 
     // Ordenar produtos
@@ -225,6 +238,7 @@ function updateCartCounter() {
 
     return {
         loadProducts,
+        loadLocalProducts,
         getProducts,
         getProductById,
         getFeaturedProducts,
@@ -232,7 +246,7 @@ function updateCartCounter() {
         getProductsByCategory,
         getCategories,
         sortProducts,
-    formatPrice,
+        formatPrice,
         addToCart
     };
 })();
