@@ -54,6 +54,27 @@ document.addEventListener('DOMContentLoaded', function() {
     // Gerenciamento de usuários
     let users = JSON.parse(localStorage.getItem('users')) || [];
     
+    // Adicionar usuário de teste se não existir nenhum
+    if (users.length === 0) {
+        console.log('Nenhum usuário encontrado, criando usuário de teste...');
+        const testUser = {
+            id: 'test-001',
+            name: 'Usuário Teste',
+            email: 'teste@gmail.com',
+            password: 'teste123456', // Será criptografado abaixo
+            profile: 'customer',
+            createdAt: new Date().toISOString()
+        };
+        
+        // Criptografar senha do usuário de teste
+        hashPassword(testUser.password).then(hashedPassword => {
+            testUser.password = hashedPassword;
+            users.push(testUser);
+            saveUsers();
+            console.log('Usuário de teste criado:', testUser);
+        });
+    }
+    
     // Função para salvar usuários no localStorage
     function saveUsers() {
         localStorage.setItem('users', JSON.stringify(users));
@@ -68,10 +89,13 @@ document.addEventListener('DOMContentLoaded', function() {
             const hashBuffer = await crypto.subtle.digest('SHA-256', data);
             const hashArray = Array.from(new Uint8Array(hashBuffer));
             const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+            console.log('Hash da senha (SHA-256):', hashHex);
             return hashHex;
         } catch (e) {
             // Fallback simples caso SubtleCrypto não esteja disponível
-            return btoa(password + 'salt_for_demo');
+            const fallbackHash = btoa(password + 'salt_for_demo');
+            console.log('Hash da senha (fallback):', fallbackHash);
+            return fallbackHash;
         }
     }
     
