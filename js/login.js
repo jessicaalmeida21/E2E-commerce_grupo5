@@ -79,8 +79,9 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         users.push(testCustomer, testSeller);
-        saveUsers();
+        localStorage.setItem('users', JSON.stringify(users));
         console.log('Usuários de teste criados:', { testCustomer, testSeller });
+        console.log('Usuários salvos no localStorage:', JSON.parse(localStorage.getItem('users')).length);
     }
     
     // Função para salvar usuários no localStorage
@@ -188,6 +189,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById('login-password-error').textContent = 'Senha é obrigatória';
                 return;
             }
+            
+            // Recarregar usuários do localStorage para garantir dados atualizados
+            users = JSON.parse(localStorage.getItem('users')) || [];
             
             // Verificar credenciais
             const user = users.find(u => u.email === email);
@@ -311,7 +315,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Adicionar à lista e salvar
             users.push(newUser);
-            saveUsers();
+            localStorage.setItem('users', JSON.stringify(users));
             
             console.log('Usuários após adicionar:', users.length);
             console.log('Usuários salvos no localStorage:', JSON.parse(localStorage.getItem('users') || '[]').length);

@@ -8,6 +8,8 @@ let currentCategory = '';
 let currentSearch = '';
 let currentSort = '';
 let isLoading = false;
+let allProducts = [];
+const productsPerPage = 25;
 
 // Inicializar catálogo
 async function initializeCatalog() {
@@ -105,7 +107,7 @@ async function loadProducts(page = 1) {
         console.log('Carregando produtos da API...');
         
         // Carregar produtos da API (buscar mais produtos)
-        let products = await productsModule.loadProducts(1, 200);
+        let products = await productsModule.loadProducts(1, 500);
         console.log('Produtos carregados:', products.length);
         console.log('Primeiros 3 produtos:', products.slice(0, 3));
         
@@ -135,10 +137,18 @@ async function loadProducts(page = 1) {
         }
         
         console.log('Produtos após filtros:', products.length);
-        displayProducts(products);
+        
+        // Aplicar paginação (25 produtos por página)
+        const totalPages = Math.ceil(products.length / productsPerPage);
+        const startIndex = (page - 1) * productsPerPage;
+        const endIndex = startIndex + productsPerPage;
+        const paginatedProducts = products.slice(startIndex, endIndex);
+        
+        console.log(`Página ${page} de ${totalPages} - Mostrando ${paginatedProducts.length} de ${products.length} produtos`);
+        
+        displayProducts(paginatedProducts);
         
         // Criar meta de paginação
-        const totalPages = Math.ceil(products.length / 12);
         const meta = {
             page: page,
             totalPages: totalPages,

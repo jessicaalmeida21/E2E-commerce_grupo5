@@ -26,7 +26,7 @@ const productsModule = (() => {
     init();
 
     // Carregar produtos da API
-    async function loadProducts(page = 1, pageSize = 200) {
+    async function loadProducts(page = 1, pageSize = 500) {
         try {
             if (!apiService) {
                 init();
