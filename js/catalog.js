@@ -13,9 +13,12 @@ let isLoading = false;
 async function initializeCatalog() {
     try {
         console.log('Inicializando catálogo...');
+        console.log('productsModule disponível:', typeof productsModule);
         
         // Aguardar um pouco para garantir que os módulos estejam carregados
-        await new Promise(resolve => setTimeout(resolve, 100));
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        console.log('productsModule após timeout:', typeof productsModule);
         
         // Carregar categorias
         console.log('Carregando categorias...');
