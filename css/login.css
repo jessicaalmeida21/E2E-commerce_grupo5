@@ -9,12 +9,13 @@
     overflow: hidden;
 }
 
-.auth-tabs {
+/* Tabs */
+.tabs {
     display: flex;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid #e0e0e0;
 }
 
-.auth-tab {
+.tab {
     flex: 1;
     padding: 15px;
     text-align: center;
@@ -27,24 +28,22 @@
     transition: all 0.3s ease;
 }
 
-.auth-tab.active {
+.tab.active {
     color: var(--primary-color);
     border-bottom: 2px solid var(--primary-color);
 }
 
-.auth-content {
+/* Tab Content */
+.tab-content {
+    display: none;
     padding: 30px;
 }
 
-.auth-form {
-    display: none;
-}
-
-.auth-form.active {
+.tab-content.active {
     display: block;
 }
 
-.auth-form h2 {
+.tab-content h2 {
     font-size: 24px;
     margin-bottom: 20px;
     color: var(--dark-color);

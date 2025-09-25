@@ -246,7 +246,7 @@ function updateCartCounter() {
         getProductsByCategory,
         getCategories,
         sortProducts,
-        formatPrice,
+    formatPrice,
         addToCart
     };
 })();

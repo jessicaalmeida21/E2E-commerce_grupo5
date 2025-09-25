@@ -152,6 +152,9 @@ document.addEventListener('DOMContentLoaded', function() {
             const encryptedPassword = await hashPassword(password);
             const user = users.find(u => u.email === email);
             
+            console.log('Tentativa de login:', { email, hasUser: !!user });
+            console.log('Usuários cadastrados:', users.length);
+            
             if (!user || user.password !== encryptedPassword) {
                 messageElement.textContent = 'E-mail ou senha incorretos';
                 messageElement.className = 'form-message error';
@@ -231,6 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Normalizar perfil para o backend/uso interno
             const normalizedProfile = profile === 'vendedor' ? 'seller' : 'customer';
+            console.log('Perfil normalizado:', normalizedProfile);
 
             // Criar novo usuário
             const newUser = {
