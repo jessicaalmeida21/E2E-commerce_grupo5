@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste API - Debug</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .result { background: #f5f5f5; padding: 10px; margin: 10px 0; border-radius: 5px; }
+        .error { background: #ffebee; color: #c62828; }
+        .success { background: #e8f5e8; color: #2e7d32; }
+        button { padding: 10px 20px; margin: 5px; background: #4caf50; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        button:hover { background: #45a049; }
+    </style>
+</head>
+<body>
+    <h1>Teste de API - Debug</h1>
+    
+    <button onclick="testApiConnection()">Testar Conexão API</button>
+    <button onclick="testProductsLoad()">Testar Carregamento de Produtos</button>
+    <button onclick="testCategoriesLoad()">Testar Carregamento de Categorias</button>
+    <button onclick="clearResults()">Limpar Resultados</button>
+    
+    <div id="results"></div>
+
+    <script src="js/api-service.js"></script>
+    <script>
+        function addResult(message, type = 'result') {
+            const resultsDiv = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = `result ${type}`;
+            div.innerHTML = `<strong>${new Date().toLocaleTimeString()}:</strong> ${message}`;
+            resultsDiv.appendChild(div);
+        }
+
+        async function testApiConnection() {
+            addResult('Testando conexão com a API...');
+            try {
+                const response = await fetch('https://catalogo-products.pages.dev/api/products?page=1&pageSize=10');
+                if (response.ok) {
+                    const data = await response.json();
+                    addResult(`✅ Conexão OK! Produtos encontrados: ${data.products ? data.products.length : 0}`, 'success');
+                    addResult(`Estrutura da resposta: ${JSON.stringify(data, null, 2)}`);
+                } else {
+                    addResult(`❌ Erro HTTP: ${response.status} - ${response.statusText}`, 'error');
+                }
+            } catch (error) {
+                addResult(`❌ Erro de conexão: ${error.message}`, 'error');
+            }
+        }
+
+        async function testProductsLoad() {
+            addResult('Testando carregamento de produtos via ApiService...');
+            try {
+                if (window.apiService) {
+                    const result = await apiService.getProducts(1, 50);
+                    addResult(`✅ ApiService OK! Produtos carregados: ${result.products ? result.products.length : 0}`, 'success');
+                    if (result.products && result.products.length > 0) {
+                        addResult(`Primeiro produto: ${JSON.stringify(result.products[0], null, 2)}`);
+                    }
+                } else {
+                    addResult('❌ ApiService não encontrado!', 'error');
+                }
+            } catch (error) {
+                addResult(`❌ Erro no ApiService: ${error.message}`, 'error');
+            }
+        }
+
+        async function testCategoriesLoad() {
+            addResult('Testando carregamento de categorias...');
+            try {
+                if (window.apiService) {
+                    const categories = await apiService.getCategories();
+                    addResult(`✅ Categorias carregadas: ${categories.length}`, 'success');
+                    addResult(`Categorias: ${categories.join(', ')}`);
+                } else {
+                    addResult('❌ ApiService não encontrado!', 'error');
+                }
+            } catch (error) {
+                addResult(`❌ Erro ao carregar categorias: ${error.message}`, 'error');
+            }
+        }
+
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+        }
+
+        // Teste automático ao carregar a página
+        window.addEventListener('load', () => {
+            addResult('Página carregada. ApiService disponível: ' + (window.apiService ? 'Sim' : 'Não'));
+        });
+    </script>
+</body>
+</html>

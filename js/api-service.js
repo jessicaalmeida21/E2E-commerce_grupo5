@@ -132,9 +132,10 @@ class ApiService {
         };
     }
 
-    // Gerar URL da imagem do produto com imagens reais baseadas na categoria
+    // Gerar URL da imagem do produto com imagens reais baseadas na categoria e título
     getProductImage(product) {
         const category = product.category?.toLowerCase() || 'casa';
+        const title = product.title?.toLowerCase() || '';
         const productId = product.id.replace('PROD-', '');
         const imageNumber = parseInt(productId) % 1000;
         

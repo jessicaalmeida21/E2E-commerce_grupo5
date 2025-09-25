@@ -7,9 +7,18 @@ const productsModule = (() => {
     function init() {
         if (window.apiService) {
             apiService = window.apiService;
+            console.log('ApiService inicializado com sucesso');
         } else {
-            console.error('ApiService não encontrado');
-            return;
+            console.error('ApiService não encontrado, tentando novamente...');
+            // Tentar novamente após um delay
+            setTimeout(() => {
+                if (window.apiService) {
+                    apiService = window.apiService;
+                    console.log('ApiService inicializado com delay');
+                } else {
+                    console.error('ApiService ainda não disponível');
+                }
+            }, 1000);
         }
     }
 
