@@ -54,25 +54,33 @@ document.addEventListener('DOMContentLoaded', function() {
     // Gerenciamento de usuários
     let users = JSON.parse(localStorage.getItem('users')) || [];
     
-    // Adicionar usuário de teste se não existir nenhum
+    // Adicionar usuários de teste se não existir nenhum
     if (users.length === 0) {
-        console.log('Nenhum usuário encontrado, criando usuário de teste...');
-        const testUser = {
+        console.log('Nenhum usuário encontrado, criando usuários de teste...');
+        
+        // Usuário Cliente
+        const testCustomer = {
             id: 'test-001',
-            name: 'Usuário Teste',
+            name: 'Cliente Teste',
             email: 'teste@gmail.com',
-            password: 'teste123456', // Será criptografado abaixo
+            password: 'teste123456', // Senha sem criptografia para teste
             profile: 'customer',
             createdAt: new Date().toISOString()
         };
         
-        // Criptografar senha do usuário de teste
-        hashPassword(testUser.password).then(hashedPassword => {
-            testUser.password = hashedPassword;
-            users.push(testUser);
-            saveUsers();
-            console.log('Usuário de teste criado:', testUser);
-        });
+        // Usuário Vendedor
+        const testSeller = {
+            id: 'test-002',
+            name: 'Vendedor Teste',
+            email: 'vendedor@teste.com',
+            password: 'vendedor123456', // Senha sem criptografia para teste
+            profile: 'seller',
+            createdAt: new Date().toISOString()
+        };
+        
+        users.push(testCustomer, testSeller);
+        saveUsers();
+        console.log('Usuários de teste criados:', { testCustomer, testSeller });
     }
     
     // Função para salvar usuários no localStorage
@@ -182,18 +190,32 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Verificar credenciais
-            const encryptedPassword = await hashPassword(password);
             const user = users.find(u => u.email === email);
             
             console.log('Tentativa de login:', { email, hasUser: !!user });
             console.log('Usuários cadastrados:', users.length);
             console.log('Lista de usuários:', users.map(u => ({ email: u.email, profile: u.profile })));
-            console.log('Senha criptografada:', encryptedPassword);
-            if (user) {
-                console.log('Usuário encontrado:', { email: user.email, profile: user.profile, passwordMatch: user.password === encryptedPassword });
+            
+            if (!user) {
+                messageElement.textContent = 'E-mail ou senha incorretos';
+                messageElement.className = 'form-message error';
+                return;
             }
             
-            if (!user || user.password !== encryptedPassword) {
+            // Verificar senha (comparação direta para usuários de teste, criptografada para outros)
+            let passwordMatch = false;
+            if (user.id === 'test-001' || user.id === 'test-002') {
+                // Usuários de teste - comparação direta
+                passwordMatch = user.password === password;
+                console.log('Usuário de teste - comparação direta:', { senhaDigitada: password, senhaArmazenada: user.password, match: passwordMatch });
+            } else {
+                // Outros usuários - comparação criptografada
+                const encryptedPassword = await hashPassword(password);
+                passwordMatch = user.password === encryptedPassword;
+                console.log('Usuário normal - comparação criptografada:', { senhaCriptografada: encryptedPassword, senhaArmazenada: user.password, match: passwordMatch });
+            }
+            
+            if (!passwordMatch) {
                 messageElement.textContent = 'E-mail ou senha incorretos';
                 messageElement.className = 'form-message error';
                 return;
@@ -308,3 +330,28 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+// Função para preencher credenciais de teste
+function fillTestCredentials(email, password) {
+    // Preencher campos de login
+    const loginEmail = document.getElementById('login-email');
+    const loginPassword = document.getElementById('login-password');
+    
+    if (loginEmail && loginPassword) {
+        loginEmail.value = email;
+        loginPassword.value = password;
+        
+        // Mudar para aba de login se estiver na aba de cadastro
+        const loginTab = document.querySelector('.tab[data-tab="login"]');
+        if (loginTab) {
+            loginTab.click();
+        }
+        
+        // Mostrar mensagem de sucesso
+        const messageElement = document.getElementById('login-message');
+        if (messageElement) {
+            messageElement.textContent = 'Credenciais preenchidas! Clique em "Entrar" para fazer login.';
+            messageElement.className = 'form-message success';
+        }
+    }
+}
