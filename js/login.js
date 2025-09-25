@@ -52,37 +52,45 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Gerenciamento de usuários
-    let users = JSON.parse(localStorage.getItem('users')) || [];
+    let users = [];
     
-    // Adicionar usuários de teste se não existir nenhum
-    if (users.length === 0) {
-        console.log('Nenhum usuário encontrado, criando usuários de teste...');
-        
-        // Usuário Cliente
-        const testCustomer = {
-            id: 'test-001',
-            name: 'Cliente Teste',
-            email: 'teste@gmail.com',
-            password: 'teste123456', // Senha sem criptografia para teste
-            profile: 'customer',
-            createdAt: new Date().toISOString()
-        };
-        
-        // Usuário Vendedor
-        const testSeller = {
-            id: 'test-002',
-            name: 'Vendedor Teste',
-            email: 'vendedor@teste.com',
-            password: 'vendedor123456', // Senha sem criptografia para teste
-            profile: 'seller',
-            createdAt: new Date().toISOString()
-        };
-        
-        users.push(testCustomer, testSeller);
-        localStorage.setItem('users', JSON.stringify(users));
-        console.log('Usuários de teste criados:', { testCustomer, testSeller });
-        console.log('Usuários salvos no localStorage:', JSON.parse(localStorage.getItem('users')).length);
+    // Função para inicializar usuários
+    function initializeUsers() {
+        const storedUsers = localStorage.getItem('users');
+        if (storedUsers) {
+            users = JSON.parse(storedUsers);
+            console.log('Usuários carregados do localStorage:', users.length);
+        } else {
+            console.log('Nenhum usuário encontrado, criando usuários de teste...');
+            
+            // Usuário Cliente
+            const testCustomer = {
+                id: 'test-001',
+                name: 'Cliente Teste',
+                email: 'teste@gmail.com',
+                password: 'teste123456', // Senha sem criptografia para teste
+                profile: 'customer',
+                createdAt: new Date().toISOString()
+            };
+            
+            // Usuário Vendedor
+            const testSeller = {
+                id: 'test-002',
+                name: 'Vendedor Teste',
+                email: 'vendedor@teste.com',
+                password: 'vendedor123456', // Senha sem criptografia para teste
+                profile: 'seller',
+                createdAt: new Date().toISOString()
+            };
+            
+            users = [testCustomer, testSeller];
+            localStorage.setItem('users', JSON.stringify(users));
+            console.log('Usuários de teste criados:', { testCustomer, testSeller });
+        }
     }
+    
+    // Inicializar usuários imediatamente
+    initializeUsers();
     
     // Função para salvar usuários no localStorage
     function saveUsers() {
@@ -191,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             // Recarregar usuários do localStorage para garantir dados atualizados
-            users = JSON.parse(localStorage.getItem('users')) || [];
+            initializeUsers();
             
             // Verificar credenciais
             const user = users.find(u => u.email === email);
@@ -358,4 +366,16 @@ function fillTestCredentials(email, password) {
             messageElement.className = 'form-message success';
         }
     }
+}
+
+// Função para limpar cache e recarregar
+function clearCacheAndReload() {
+    // Limpar localStorage
+    localStorage.clear();
+    
+    // Mostrar mensagem
+    alert('Cache limpo! A página será recarregada.');
+    
+    // Recarregar a página
+    window.location.reload(true);
 }
