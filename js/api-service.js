@@ -74,10 +74,18 @@ class ApiService {
             return 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        // Tênis - Mapeamento específico
-        if (title.includes('tênis') || (title.includes('nike') && title.includes('classic')) || (title.includes('puma') && title.includes('zoom'))) {
-            console.log('✓ Imagem tênis encontrada');
-            return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        // Tênis - Imagens específicas por marca
+        if (title.includes('tênis')) {
+            if (title.includes('puma')) {
+                console.log('✓ Imagem tênis Puma encontrada');
+                return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else if (title.includes('nike')) {
+                console.log('✓ Imagem tênis Nike encontrada');
+                return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else {
+                console.log('✓ Imagem tênis genérico encontrada');
+                return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            }
         }
         
         // Smartphones - Mapeamento específico
@@ -104,10 +112,18 @@ class ApiService {
             return 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        // Bicicletas - Mapeamento específico
-        if (title.includes('bicicleta') && title.includes('aro 29')) {
-            console.log('✓ Imagem bicicleta encontrada');
-            return 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        // Bicicletas - Imagens específicas por marca
+        if (title.includes('bicicleta')) {
+            if (title.includes('nike')) {
+                console.log('✓ Imagem bicicleta Nike encontrada');
+                return 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else if (title.includes('puma')) {
+                console.log('✓ Imagem bicicleta Puma encontrada');
+                return 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else {
+                console.log('✓ Imagem bicicleta genérico encontrada');
+                return 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            }
         }
         
         // Halteres - Imagem real do Mercado Livre
@@ -116,10 +132,18 @@ class ApiService {
             return 'https://http2.mlstatic.com/D_NQ_NP_2X_222333-MLA22233344455_012021-F.webp';
         }
         
-        // Skates - Mapeamento específico
-        if (title.includes('skate') && title.includes('maple')) {
-            console.log('✓ Imagem skate encontrada');
-            return 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        // Skates - Imagens específicas por marca
+        if (title.includes('skate')) {
+            if (title.includes('nike')) {
+                console.log('✓ Imagem skate Nike encontrada');
+                return 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else if (title.includes('puma')) {
+                console.log('✓ Imagem skate Puma encontrada');
+                return 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else {
+                console.log('✓ Imagem skate genérico encontrada');
+                return 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            }
         }
         
         // Jaquetas - Mapeamento específico
@@ -128,10 +152,18 @@ class ApiService {
             return 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        // Bolas de futebol - Imagens reais funcionais
+        // Bolas de futebol - Imagens específicas por marca
         if (title.includes('bola') && title.includes('futebol')) {
-            console.log('✓ Imagem bola de futebol encontrada');
-            return 'https://images.unsplash.com/photo-1431326005620-6d0e44b482f8?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            if (title.includes('puma')) {
+                console.log('✓ Imagem bola de futebol Puma encontrada');
+                return 'https://images.unsplash.com/photo-1431326005620-6d0e44b482f8?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else if (title.includes('nike')) {
+                console.log('✓ Imagem bola de futebol Nike encontrada');
+                return 'https://images.unsplash.com/photo-1431326005620-6d0e44b482f8?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else {
+                console.log('✓ Imagem bola de futebol genérico encontrada');
+                return 'https://images.unsplash.com/photo-1431326005620-6d0e44b482f8?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            }
         }
         
         // Monitores - Imagens reais funcionais
@@ -152,10 +184,18 @@ class ApiService {
             return 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        // Liquidificadores - Imagens reais funcionais
-        if (title.includes('liquidificador') && title.includes('inox')) {
-            console.log('✓ Imagem liquidificador encontrada');
-            return 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        // Liquidificadores - Imagens específicas por marca
+        if (title.includes('liquidificador')) {
+            if (title.includes('philips') || title.includes('walita')) {
+                console.log('✓ Imagem liquidificador Philips Walita encontrada');
+                return 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else if (title.includes('philco')) {
+                console.log('✓ Imagem liquidificador Philco encontrada');
+                return 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else {
+                console.log('✓ Imagem liquidificador genérico encontrada');
+                return 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            }
         }
         
         // Cafeteiras - Imagens reais funcionais
