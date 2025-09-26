@@ -28,10 +28,16 @@ const productsModule = (() => {
     // Carregar produtos da API
     async function loadProducts(page = 1, pageSize = 500) {
         try {
+            console.log('=== INÍCIO loadProducts ===');
+            console.log('Parâmetros:', { page, pageSize });
+            console.log('apiService disponível:', typeof apiService);
+            console.log('window.apiService disponível:', typeof window.apiService);
+            
             if (!apiService) {
+                console.log('ApiService não encontrado, tentando inicializar...');
                 init();
                 if (!apiService) {
-                    console.log('ApiService não disponível, usando produtos locais...');
+                    console.log('ApiService não disponível após init, usando produtos locais...');
                     return loadLocalProducts();
                 }
             }
@@ -39,20 +45,26 @@ const productsModule = (() => {
             console.log('Carregando produtos da API...');
             const response = await apiService.getProducts(page, pageSize);
             console.log('Resposta da API:', response);
+            console.log('Tipo da resposta:', typeof response);
+            console.log('response.products existe:', !!response.products);
+            console.log('response.products é array:', Array.isArray(response.products));
             
             if (response && response.products && Array.isArray(response.products)) {
                 products = response.products;
                 console.log('Produtos carregados da API:', products.length);
                 console.log('Primeiro produto da API:', products[0]);
-                return products;
+                console.log('=== FIM loadProducts (API) ===');
+                return response.products; // Retornar apenas os produtos
             } else {
                 console.log('Resposta da API inválida, usando fallback...');
                 console.log('Resposta recebida:', response);
+                console.log('=== FIM loadProducts (fallback) ===');
                 return loadLocalProducts();
             }
         } catch (error) {
             console.error('Erro ao carregar produtos da API:', error);
             console.log('Usando produtos locais como fallback...');
+            console.log('=== FIM loadProducts (erro) ===');
             return loadLocalProducts();
         }
     }
@@ -395,7 +407,10 @@ function updateCartCounter() {
         getProductsByCategory,
         getCategories,
         sortProducts,
-    formatPrice,
+        formatPrice,
         addToCart
     };
 })();
+
+// Disponibilizar globalmente
+window.productsModule = productsModule;
