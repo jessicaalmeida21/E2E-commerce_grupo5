@@ -132,7 +132,7 @@ class ApiService {
         };
     }
 
-    // Gerar URL da imagem do produto com imagens específicas baseadas no nome
+    // Gerar URL da imagem do produto com imagens únicas baseadas no nome
     getProductImage(product) {
         const title = product.title?.toLowerCase() || '';
         const category = product.category?.toLowerCase() || 'casa';
@@ -141,214 +141,108 @@ class ApiService {
         
         console.log('Gerando imagem para:', title, 'categoria:', category);
         
-        // Mapear palavras-chave do título para imagens específicas e reais
-        const imageMap = {
-            // Eletrônicos - TVs (imagens reais de TVs)
-            'smart tv lenovo': 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center',
-            'smart tv': 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center',
-            'tv': 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center',
-            'televisão': 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center',
-            'lenovo': 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center',
-            '4k': 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center',
-            'uhd': 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center',
-            
-            // Eletrônicos - Fones (imagens reais de fones)
-            'fone bluetooth': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center',
-            'fone': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center',
-            'headphone': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center',
-            'headset': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center',
-            'bluetooth': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center',
-            'jbl': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center',
-            'dell': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center',
-            'cancelamento': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center',
-            'ruído': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center',
-            
-            // Casa - Aspiradores (imagens reais de aspiradores)
-            'aspirador robô': 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center',
-            'aspirador': 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center',
-            'robô': 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center',
-            'britânia': 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center',
-            'mondial': 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center',
-            'wi-fi': 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center',
-            'mapeamento': 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center',
-            
-            // Casa - Liquidificadores (imagens reais de liquidificadores)
-            'liquidificador': 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center',
-            'philco': 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center',
-            'inox': 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center',
-            '800w': 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center',
-            
-            // Esportes - Bicicletas (imagens reais de bicicletas)
-            'bicicleta': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
-            'bike': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
-            'puma': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
-            'penalty': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
-            'aro 29': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
-            'aro': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
-            '21v': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
-            
-            // Esportes - Halteres (imagens reais de halteres)
-            'halteres': 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center',
-            'peso': 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center',
-            'kg': 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center',
-            'revestidos': 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center',
-            '4kg': 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center',
-            
-            // Esportes - Skate (imagens reais de skate)
-            'skate': 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop&crop=center',
-            'maple': 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop&crop=center',
-            '8.0': 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop&crop=center',
-            
-            // Eletrônicos - Smartphones (imagens reais de smartphones)
-            'smartphone': 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center',
-            'celular': 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center',
-            'iphone': 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center',
-            'galaxy': 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center',
-            'samsung': 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center',
-            'apple': 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center',
-            'lg': 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center',
-            'asus': 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center',
-            'motorola': 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center',
-            'acer': 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center',
-            
-            // Eletrônicos - Notebooks
-            'notebook': 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center',
-            'laptop': 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center',
-            'macbook': 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center',
-            
-            // Eletrônicos - Monitores
-            'monitor': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center',
-            'lg': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center',
-            
-            // Eletrônicos - Tablets
-            'tablet': 'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=400&h=400&fit=crop&crop=center',
-            'ipad': 'https://images.unsplash.com/photo-1561154464-82e9adf32764?w=400&h=400&fit=crop&crop=center',
-            
-            // Eletrônicos - Câmeras
-            'câmera': 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=400&fit=crop&crop=center',
-            'camera': 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=400&fit=crop&crop=center',
-            'canon': 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=400&fit=crop&crop=center',
-            'nikon': 'https://images.unsplash.com/photo-1502920917128-1aa500764cbd?w=400&h=400&fit=crop&crop=center',
-            
-            // Eletrônicos - Videogames
-            'videogame': 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop&crop=center',
-            'playstation': 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop&crop=center',
-            'xbox': 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop&crop=center',
-            'nintendo': 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop&crop=center',
-            
-            // Casa e Eletrodomésticos
-            'air fryer': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
-            'fritadeira': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
-            'cafeteira': 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center',
-            'microondas': 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center',
-            'geladeira': 'https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=400&h=400&fit=crop&crop=center',
-            'fogão': 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center',
-            'máquina de lavar': 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center',
-            'secadora': 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center',
-            'ventilador': 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center',
-            'ar condicionado': 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center',
-            
-            // Moda e Roupas (imagens reais de roupas)
-            'tênis': 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&crop=center',
-            'sapato': 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&crop=center',
-            'nike': 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&crop=center',
-            'adidas': 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&crop=center',
-            'camiseta': 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center',
-            'polo': 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center',
-            'lacoste': 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center',
-            'calça': 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop&crop=center',
-            'jeans': 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop&crop=center',
-            'jaqueta': 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center',
-            'blusa': 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center',
-            'vestido': 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop&crop=center',
-            'relógio': 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center',
-            'watch': 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center',
-            'bolsa': 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop&crop=center',
-            'mochila': 'https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=400&h=400&fit=crop&crop=center',
-            'calvin klein': 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center',
-            'hering': 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center',
-            'reserva': 'https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop&crop=center',
-            'oakley': 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center',
-            
-            // Móveis
-            'mesa': 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&crop=center',
-            'cadeira': 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&crop=center',
-            'sofá': 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&crop=center',
-            'sofa': 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&crop=center',
-            'cama': 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&crop=center',
-            'armário': 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&crop=center',
-            'estante': 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&crop=center',
-            'prateleira': 'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&crop=center',
-            
-            // Livros
-            'livro': 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop&crop=center',
-            'book': 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop&crop=center',
-            'revista': 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop&crop=center',
-            'mangá': 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop&crop=center',
-            'quadrinho': 'https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&h=400&fit=crop&crop=center',
-            
-            // Beleza e Saúde
-            'perfume': 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=400&fit=crop&crop=center',
-            'maquiagem': 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=400&fit=crop&crop=center',
-            'batom': 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=400&fit=crop&crop=center',
-            'creme': 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=400&fit=crop&crop=center',
-            'shampoo': 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=400&fit=crop&crop=center',
-            'condicionador': 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=400&fit=crop&crop=center',
-            'vitamina': 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop&crop=center',
-            'suplemento': 'https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?w=400&h=400&fit=crop&crop=center',
-            
-            // Automotivo
-            'pneu': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
-            'óleo': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
-            'bateria': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
-            'filtro': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
-            'peça': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
-            
-            // Produtos específicos da API
-            'bola de futebol': 'https://images.unsplash.com/photo-1431326005620-6d0e44b482f8?w=400&h=400&fit=crop&crop=center',
-            'bola': 'https://images.unsplash.com/photo-1431326005620-6d0e44b482f8?w=400&h=400&fit=crop&crop=center',
-            'futebol': 'https://images.unsplash.com/photo-1431326005620-6d0e44b482f8?w=400&h=400&fit=crop&crop=center',
-            'campo': 'https://images.unsplash.com/photo-1431326005620-6d0e44b482f8?w=400&h=400&fit=crop&crop=center',
-            'speedo': 'https://images.unsplash.com/photo-1431326005620-6d0e44b482f8?w=400&h=400&fit=crop&crop=center',
-            'wilson': 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop&crop=center',
-            
-            // Air Fryers
-            'air fryer': 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center',
-            'fritadeira': 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center',
-            'antiaderente': 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center',
-            'oster': 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center',
-            'electrolux': 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center',
-            
-            // Cafeteiras
-            'cafeteira': 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center',
-            'elétrica': 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center',
-            'xícaras': 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center',
-            'brastemp': 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center',
-            'consul': 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center',
-            
-            // Monitores
-            'monitor': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center',
-            'sony': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center',
-            'samsung': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center',
-            '120hz': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center',
-            '60hz': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center',
-            '144hz': 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center'
+        // Gerar hash único baseado no título para garantir imagem única
+        const titleHash = this.generateHash(title);
+        const uniqueSeed = (imageNumber + titleHash) % 10000;
+        
+        // Mapear categorias para coleções específicas do Unsplash
+        const categoryCollections = {
+            'eletronicos': {
+                'tv': '1593359677879', // TVs
+                'smartphone': '1511707171634', // Smartphones
+                'fone': '1505740420928', // Fones
+                'monitor': '1505740420928', // Monitores
+                'notebook': '1498049794561', // Notebooks
+                'tablet': '1561154464', // Tablets
+                'camera': '1502920917128', // Câmeras
+                'videogame': '1606144042614' // Videogames
+            },
+            'casa': {
+                'aspirador': '1581578731548', // Aspiradores
+                'liquidificador': '1556909114', // Liquidificadores
+                'air fryer': '1574269909862', // Air Fryers
+                'cafeteira': '1581578731548', // Cafeteiras
+                'microondas': '1574269909862', // Microondas
+                'geladeira': '1556909114', // Geladeiras
+                'fogão': '1556909114', // Fogões
+                'ventilador': '1556909114' // Ventiladores
+            },
+            'esportes': {
+                'bicicleta': '1558618666', // Bicicletas
+                'halteres': '1571019613454', // Halteres
+                'skate': '1606144042614', // Skates
+                'bola': '1431326005620', // Bolas
+                'futebol': '1431326005620', // Futebol
+                'basquete': '1431326005620', // Basquete
+                'equipamento': '1571019613454' // Equipamentos
+            },
+            'moda': {
+                'tênis': '1441986300917', // Tênis
+                'sapato': '1441986300917', // Sapatos
+                'camiseta': '1521572163474', // Camisetas
+                'calça': '1594633312681', // Calças
+                'jaqueta': '1551028719', // Jaquetas
+                'relógio': '1523275335684', // Relógios
+                'bolsa': '1553062407', // Bolsas
+                'mochila': '1553062407' // Mochilas
+            },
+            'móveis': {
+                'mesa': '1586023492125', // Mesas
+                'cadeira': '1586023492125', // Cadeiras
+                'sofá': '1586023492125', // Sofás
+                'cama': '1586023492125', // Camas
+                'armário': '1586023492125', // Armários
+                'estante': '1586023492125' // Estantes
+            },
+            'beleza': {
+                'perfume': '1541643600914', // Perfumes
+                'maquiagem': '1541643600914', // Maquiagem
+                'creme': '1541643600914', // Cremes
+                'shampoo': '1541643600914', // Shampoos
+                'vitamina': '1584308666744' // Vitaminas
+            }
         };
         
-        // Buscar imagem específica baseada no título (ordem de prioridade)
-        const sortedKeywords = Object.keys(imageMap).sort((a, b) => b.length - a.length);
+        // Determinar tipo específico do produto
+        let productType = 'default';
+        const categoryMap = categoryCollections[category] || {};
         
-        for (const keyword of sortedKeywords) {
-            if (title.includes(keyword)) {
-                console.log('Imagem encontrada para:', keyword, '->', imageMap[keyword]);
-                return imageMap[keyword];
+        for (const [type, collectionId] of Object.entries(categoryMap)) {
+            if (title.includes(type)) {
+                productType = type;
+                break;
             }
         }
         
-        console.log('Nenhuma imagem específica encontrada, usando fallback');
-        // Fallback: usar Picsum baseado no ID do produto
-        return `https://picsum.photos/400/400?random=${imageNumber}`;
+        // Se não encontrou tipo específico, usar categoria geral
+        if (productType === 'default') {
+            const generalCollections = {
+                'eletronicos': '1511707171634',
+                'casa': '1556909114',
+                'esportes': '1571019613454',
+                'moda': '1441986300917',
+                'móveis': '1586023492125',
+                'beleza': '1541643600914'
+            };
+            const collectionId = generalCollections[category] || '1511707171634';
+            return `https://images.unsplash.com/photo-${collectionId}?w=400&h=400&fit=crop&crop=center&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&seed=${uniqueSeed}`;
+        }
+        
+        const collectionId = categoryMap[productType];
+        return `https://images.unsplash.com/photo-${collectionId}?w=400&h=400&fit=crop&crop=center&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&seed=${uniqueSeed}`;
     }
+    
+    // Gerar hash simples baseado no título
+    generateHash(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            const char = str.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash; // Convert to 32bit integer
+        }
+        return Math.abs(hash);
+    }
+    
 
     // Formatar preço
     formatPrice(price) {
