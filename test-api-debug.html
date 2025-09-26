@@ -71,7 +71,7 @@
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 
-                const data = await response.json();
+                    const data = await response.json();
                 log('Dados da API recebidos:');
                 log(`- Tipo: ${typeof data}`);
                 log(`- Keys: ${Object.keys(data).join(', ')}`);

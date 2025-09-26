@@ -350,12 +350,41 @@ const productsModule = (() => {
         // Se não há produtos carregados, tentar carregar
         if (products.length === 0) {
             console.log('Nenhum produto carregado, tentando carregar...');
-            await loadProducts();
+            const loadedProducts = await loadProducts();
+            if (loadedProducts && loadedProducts.length > 0) {
+                products = loadedProducts;
+            }
         }
         
-        const product = products.find(p => p.id === productId);
+        // Tentar encontrar o produto por ID exato primeiro
+        let product = products.find(p => p.id === productId);
+        
+        // Se não encontrou, tentar encontrar por ID sem prefixo
         if (!product) {
-            console.error('Produto não encontrado:', productId);
+            const idWithoutPrefix = productId.replace('PROD-', '');
+            product = products.find(p => p.id === idWithoutPrefix || p.id === productId);
+        }
+        
+        // Se ainda não encontrou, tentar carregar produtos da API novamente
+        if (!product) {
+            console.log('Produto não encontrado, tentando recarregar produtos...');
+            try {
+                const response = await apiService.getProducts(1, 500);
+                if (response && response.products && Array.isArray(response.products)) {
+                    products = response.products.map(p => ({
+                        ...p,
+                        image: apiService.getProductImage(p)
+                    }));
+                    product = products.find(p => p.id === productId || p.id === productId.replace('PROD-', ''));
+                }
+            } catch (error) {
+                console.error('Erro ao recarregar produtos:', error);
+            }
+        }
+        
+        if (!product) {
+            console.error('Produto não encontrado após todas as tentativas:', productId);
+            console.log('Produtos disponíveis:', products.map(p => ({ id: p.id, title: p.title })));
             throw new Error('Produto não encontrado');
         }
         
