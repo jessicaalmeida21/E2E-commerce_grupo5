@@ -38,10 +38,10 @@ class ApiService {
         console.log('ID do produto:', productId);
         
         // Mapeamento específico baseado nos produtos reais da API
-        // Smart TVs - Imagens reais do Mercado Livre
+        // Smart TVs - Imagens reais funcionais
         if (title.includes('smart tv') || (title.includes('tv') && (title.includes('lenovo') || title.includes('philco') || title.includes('sony') || title.includes('acer') || title.includes('asus') || title.includes('motorola') || title.includes('jbl') || title.includes('lg')))) {
             console.log('✓ Imagem Smart TV encontrada');
-            return 'https://http2.mlstatic.com/D_NQ_NP_2X_123456-MLA12345678901_012021-F.webp';
+            return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
         // Calças Jeans - Mapeamento específico
@@ -56,16 +56,16 @@ class ApiService {
             return 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        // Fones de ouvido - Imagem real do Mercado Livre
+        // Fones de ouvido - Imagens reais funcionais
         if (title.includes('fone') && title.includes('bluetooth')) {
             console.log('✓ Imagem fone bluetooth encontrada');
-            return 'https://http2.mlstatic.com/D_NQ_NP_2X_987654-MLA98765432109_012021-F.webp';
+            return 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        // Aspiradores robô - Imagem real do Mercado Livre
+        // Aspiradores robô - Imagens reais funcionais
         if (title.includes('aspirador') && title.includes('robô')) {
             console.log('✓ Imagem aspirador robô encontrada');
-            return 'https://http2.mlstatic.com/D_NQ_NP_2X_456789-MLA45678912345_012021-F.webp';
+            return 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
         // Camisetas - Mapeamento específico
@@ -128,71 +128,40 @@ class ApiService {
             return 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        // Bolas de futebol - Imagem real do Mercado Livre
+        // Bolas de futebol - Imagens reais funcionais
         if (title.includes('bola') && title.includes('futebol')) {
             console.log('✓ Imagem bola de futebol encontrada');
-            return 'https://http2.mlstatic.com/D_NQ_NP_2X_111222-MLA11122233344_012021-F.webp';
+            return 'https://images.unsplash.com/photo-1431326005620-6d0e44b482f8?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        // Monitores - Imagem real do Mercado Livre
+        // Monitores - Imagens reais funcionais
         if (title.includes('monitor') && (title.includes('dell') || title.includes('samsung') || title.includes('philips') || title.includes('sony') || title.includes('acer') || title.includes('apple') || title.includes('lenovo') || title.includes('motorola'))) {
             console.log('✓ Imagem monitor encontrada');
-            return 'https://http2.mlstatic.com/D_NQ_NP_2X_333444-MLA33344455566_012021-F.webp';
+            return 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        // Notebooks - Imagens reais do Mercado Livre
+        // Notebooks - Imagens reais funcionais
         if (title.includes('notebook')) {
-            if (title.includes('lenovo')) {
-                console.log('✓ Imagem notebook Lenovo encontrada');
-                return 'https://http2.mlstatic.com/D_NQ_NP_2X_555666-MLA55566677788_012021-F.webp';
-            } else if (title.includes('acer')) {
-                console.log('✓ Imagem notebook Acer encontrada');
-                return 'https://http2.mlstatic.com/D_NQ_NP_2X_666777-MLA66677788899_012021-F.webp';
-            } else if (title.includes('dell')) {
-                console.log('✓ Imagem notebook Dell encontrada');
-                return 'https://http2.mlstatic.com/D_NQ_NP_2X_777888-MLA77788899900_012021-F.webp';
-            } else if (title.includes('apple')) {
-                console.log('✓ Imagem notebook Apple encontrada');
-                return 'https://http2.mlstatic.com/D_NQ_NP_2X_888999-MLA88899900011_012021-F.webp';
-            } else if (title.includes('sony')) {
-                console.log('✓ Imagem notebook Sony encontrada');
-                return 'https://http2.mlstatic.com/D_NQ_NP_2X_999000-MLA99900011122_012021-F.webp';
-            } else if (title.includes('lg')) {
-                console.log('✓ Imagem notebook LG encontrada');
-                return 'https://http2.mlstatic.com/D_NQ_NP_2X_000111-MLA00011122233_012021-F.webp';
-            } else {
-                console.log('✓ Imagem notebook genérico encontrada');
-                return 'https://http2.mlstatic.com/D_NQ_NP_2X_111222-MLA11122233344_012021-F.webp';
-            }
+            console.log('✓ Imagem notebook encontrada');
+            return 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        // Smartphones - Imagens reais do Mercado Livre
+        // Smartphones - Imagens reais funcionais
         if (title.includes('smartphone')) {
-            if (title.includes('samsung')) {
-                console.log('✓ Imagem smartphone Samsung encontrada');
-                return 'https://http2.mlstatic.com/D_NQ_NP_2X_777888-MLA77788899900_012021-F.webp';
-            } else if (title.includes('lg')) {
-                console.log('✓ Imagem smartphone LG encontrada');
-                return 'https://http2.mlstatic.com/D_NQ_NP_2X_888999-MLA88899900011_012021-F.webp';
-            } else if (title.includes('apple')) {
-                console.log('✓ Imagem smartphone Apple encontrada');
-                return 'https://http2.mlstatic.com/D_NQ_NP_2X_999000-MLA99900011122_012021-F.webp';
-            } else {
-                console.log('✓ Imagem smartphone genérico encontrada');
-                return 'https://http2.mlstatic.com/D_NQ_NP_2X_000111-MLA00011122233_012021-F.webp';
-            }
+            console.log('✓ Imagem smartphone encontrada');
+            return 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        // Liquidificadores - Imagem real do Mercado Livre
+        // Liquidificadores - Imagens reais funcionais
         if (title.includes('liquidificador') && title.includes('inox')) {
             console.log('✓ Imagem liquidificador encontrada');
-            return 'https://http2.mlstatic.com/D_NQ_NP_2X_999000-MLA99900011122_012021-F.webp';
+            return 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        // Cafeteiras - Imagem real do Mercado Livre
+        // Cafeteiras - Imagens reais funcionais
         if (title.includes('cafeteira') && title.includes('elétrica')) {
             console.log('✓ Imagem cafeteira encontrada');
-            return 'https://http2.mlstatic.com/D_NQ_NP_2X_666777-MLA66677788899_012021-F.webp';
+            return 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
         // Fallback: usar Picsum com seed único
