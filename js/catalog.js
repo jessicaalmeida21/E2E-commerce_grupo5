@@ -9,7 +9,7 @@ let currentSearch = '';
 let currentSort = '';
 let isLoading = false;
 let allProducts = [];
-const productsPerPage = 25;
+const productsPerPage = 24;
 
 // Inicializar catálogo
 async function initializeCatalog() {
@@ -148,7 +148,7 @@ async function loadProducts(page = 1) {
         
         console.log('Produtos após filtros:', products.length);
         
-        // Aplicar paginação (25 produtos por página)
+        // Aplicar paginação (24 produtos por página)
         const totalPages = Math.ceil(products.length / productsPerPage);
         const startIndex = (page - 1) * productsPerPage;
         const endIndex = startIndex + productsPerPage;
