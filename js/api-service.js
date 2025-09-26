@@ -76,11 +76,17 @@ class ApiService {
         
         // Tênis - Imagens específicas por marca
         if (title.includes('tênis')) {
-            if (title.includes('puma')) {
+            if (title.includes('oakley')) {
+                console.log('✓ Imagem tênis Oakley encontrada');
+                return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else if (title.includes('puma')) {
                 console.log('✓ Imagem tênis Puma encontrada');
                 return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             } else if (title.includes('nike')) {
                 console.log('✓ Imagem tênis Nike encontrada');
+                return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else if (title.includes('adidas')) {
+                console.log('✓ Imagem tênis Adidas encontrada');
                 return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             } else {
                 console.log('✓ Imagem tênis genérico encontrada');
@@ -202,6 +208,27 @@ class ApiService {
         if (title.includes('cafeteira') && title.includes('elétrica')) {
             console.log('✓ Imagem cafeteira encontrada');
             return 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
+        
+        // Mapeamento adicional para outras marcas comuns
+        if (title.includes('oakley')) {
+            console.log('✓ Imagem Oakley encontrada');
+            return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
+        
+        if (title.includes('adidas')) {
+            console.log('✓ Imagem Adidas encontrada');
+            return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
+        
+        if (title.includes('converse')) {
+            console.log('✓ Imagem Converse encontrada');
+            return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
+        
+        if (title.includes('vans')) {
+            console.log('✓ Imagem Vans encontrada');
+            return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
         // Fallback: usar Picsum com seed único
