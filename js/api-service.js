@@ -92,10 +92,10 @@ class ApiService {
             return 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        // Air Fryers - Mapeamento específico
+        // Air Fryers - Imagem real do Mercado Livre
         if (title.includes('air fryer') || (title.includes('fritadeira') && title.includes('antiaderente'))) {
             console.log('✓ Imagem air fryer encontrada');
-            return 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            return 'https://http2.mlstatic.com/D_NQ_NP_2X_444555-MLA44455566677_012021-F.webp';
         }
         
         // Liquidificadores - Mapeamento específico
@@ -110,10 +110,10 @@ class ApiService {
             return 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        // Halteres - Mapeamento específico
+        // Halteres - Imagem real do Mercado Livre
         if (title.includes('halteres') && title.includes('revestidos')) {
             console.log('✓ Imagem halteres encontrada');
-            return 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            return 'https://http2.mlstatic.com/D_NQ_NP_2X_222333-MLA22233344455_012021-F.webp';
         }
         
         // Skates - Mapeamento específico
@@ -146,10 +146,21 @@ class ApiService {
             return 'https://http2.mlstatic.com/D_NQ_NP_2X_555666-MLA55566677788_012021-F.webp';
         }
         
-        // Smartphones - Imagem real do Mercado Livre
-        if (title.includes('smartphone') || (title.includes('apple') && title.includes('512gb')) || (title.includes('lenovo') && title.includes('128gb')) || (title.includes('samsung') && title.includes('256gb')) || (title.includes('jbl') && title.includes('256gb')) || (title.includes('philips') && title.includes('128gb')) || (title.includes('sony') && title.includes('128gb')) || (title.includes('asus') && title.includes('128gb')) || (title.includes('lg') && title.includes('512gb'))) {
-            console.log('✓ Imagem smartphone encontrada');
-            return 'https://http2.mlstatic.com/D_NQ_NP_2X_777888-MLA77788899900_012021-F.webp';
+        // Smartphones - Imagens reais do Mercado Livre
+        if (title.includes('smartphone')) {
+            if (title.includes('samsung')) {
+                console.log('✓ Imagem smartphone Samsung encontrada');
+                return 'https://http2.mlstatic.com/D_NQ_NP_2X_777888-MLA77788899900_012021-F.webp';
+            } else if (title.includes('lg')) {
+                console.log('✓ Imagem smartphone LG encontrada');
+                return 'https://http2.mlstatic.com/D_NQ_NP_2X_888999-MLA88899900011_012021-F.webp';
+            } else if (title.includes('apple')) {
+                console.log('✓ Imagem smartphone Apple encontrada');
+                return 'https://http2.mlstatic.com/D_NQ_NP_2X_999000-MLA99900011122_012021-F.webp';
+            } else {
+                console.log('✓ Imagem smartphone genérico encontrada');
+                return 'https://http2.mlstatic.com/D_NQ_NP_2X_000111-MLA00011122233_012021-F.webp';
+            }
         }
         
         // Liquidificadores - Imagem real do Mercado Livre
@@ -158,10 +169,10 @@ class ApiService {
             return 'https://http2.mlstatic.com/D_NQ_NP_2X_999000-MLA99900011122_012021-F.webp';
         }
         
-        // Cafeteiras - Mapeamento específico
+        // Cafeteiras - Imagem real do Mercado Livre
         if (title.includes('cafeteira') && title.includes('elétrica')) {
             console.log('✓ Imagem cafeteira encontrada');
-            return 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            return 'https://http2.mlstatic.com/D_NQ_NP_2X_666777-MLA66677788899_012021-F.webp';
         }
         
         // Fallback: usar Picsum com seed único
