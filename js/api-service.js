@@ -144,6 +144,7 @@ class ApiService {
         // Mapear palavras-chave do título para imagens específicas
         const imageMap = {
             // Eletrônicos - TVs (prioridade alta)
+            'smart tv lenovo': 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&crop=center',
             'smart tv': 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&crop=center',
             'tv': 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&crop=center',
             'televisão': 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&crop=center',
@@ -294,11 +295,13 @@ class ApiService {
             'peça': 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center'
         };
         
-        // Buscar imagem específica baseada no título
-        for (const [keyword, imageUrl] of Object.entries(imageMap)) {
+        // Buscar imagem específica baseada no título (ordem de prioridade)
+        const sortedKeywords = Object.keys(imageMap).sort((a, b) => b.length - a.length);
+        
+        for (const keyword of sortedKeywords) {
             if (title.includes(keyword)) {
-                console.log('Imagem encontrada para:', keyword, '->', imageUrl);
-                return imageUrl;
+                console.log('Imagem encontrada para:', keyword, '->', imageMap[keyword]);
+                return imageMap[keyword];
             }
         }
         

@@ -106,18 +106,26 @@ async function loadProducts(page = 1) {
     try {
         console.log('Carregando produtos da API...');
         
-        // Carregar produtos da API (buscar mais produtos)
-        let products = await productsModule.loadProducts(1, 500);
+        // Carregar produtos da API em lotes para garantir 500 produtos
+        let products = [];
+        let page = 1;
+        const pageSize = 200; // API limita a 200 por página
         
-        // Se não carregou 500, tentar carregar em lotes
-        if (products.length < 500) {
-            console.log(`Carregados apenas ${products.length} produtos, tentando carregar mais...`);
-            const additionalProducts = await productsModule.loadProducts(2, 500);
-            if (additionalProducts && additionalProducts.length > 0) {
-                products = [...products, ...additionalProducts];
-                console.log(`Total de produtos após segunda tentativa: ${products.length}`);
+        while (products.length < 500 && page <= 3) {
+            console.log(`Carregando página ${page}...`);
+            const pageProducts = await productsModule.loadProducts(page, pageSize);
+            
+            if (pageProducts && pageProducts.length > 0) {
+                products = [...products, ...pageProducts];
+                console.log(`Página ${page}: ${pageProducts.length} produtos. Total: ${products.length}`);
+                page++;
+            } else {
+                console.log(`Página ${page} vazia, parando...`);
+                break;
             }
         }
+        
+        console.log(`Total de produtos carregados: ${products.length}`);
         console.log('Produtos carregados:', products.length);
         console.log('Primeiros 3 produtos:', products.slice(0, 3));
         
