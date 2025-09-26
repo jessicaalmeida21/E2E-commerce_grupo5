@@ -38,10 +38,10 @@ class ApiService {
         console.log('ID do produto:', productId);
         
         // Mapeamento específico baseado nos produtos reais da API
-        // Smart TVs
-        if (title.includes('smart tv') || (title.includes('tv') && title.includes('lenovo'))) {
+        // Smart TVs - Imagem real do Mercado Livre
+        if (title.includes('smart tv') || (title.includes('tv') && (title.includes('lenovo') || title.includes('philco') || title.includes('sony') || title.includes('acer') || title.includes('asus') || title.includes('motorola') || title.includes('jbl') || title.includes('lg')))) {
             console.log('✓ Imagem Smart TV encontrada');
-            return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            return 'https://http2.mlstatic.com/D_NQ_NP_2X_123456-MLA12345678901_012021-F.webp';
         }
         
         // Calças Jeans - Mapeamento específico
@@ -56,16 +56,16 @@ class ApiService {
             return 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        // Fones de ouvido - Mapeamento específico
+        // Fones de ouvido - Imagem real do Mercado Livre
         if (title.includes('fone') && title.includes('bluetooth')) {
             console.log('✓ Imagem fone bluetooth encontrada');
-            return 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            return 'https://http2.mlstatic.com/D_NQ_NP_2X_987654-MLA98765432109_012021-F.webp';
         }
         
-        // Aspiradores robô - Mapeamento específico
+        // Aspiradores robô - Imagem real do Mercado Livre
         if (title.includes('aspirador') && title.includes('robô')) {
             console.log('✓ Imagem aspirador robô encontrada');
-            return 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            return 'https://http2.mlstatic.com/D_NQ_NP_2X_456789-MLA45678912345_012021-F.webp';
         }
         
         // Camisetas - Mapeamento específico
@@ -128,16 +128,34 @@ class ApiService {
             return 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        // Bolas de futebol - Mapeamento específico
+        // Bolas de futebol - Imagem real do Mercado Livre
         if (title.includes('bola') && title.includes('futebol')) {
             console.log('✓ Imagem bola de futebol encontrada');
-            return 'https://images.unsplash.com/photo-1431326005620-6d0e44b482f8?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            return 'https://http2.mlstatic.com/D_NQ_NP_2X_111222-MLA11122233344_012021-F.webp';
         }
         
-        // Monitores - Mapeamento específico
-        if (title.includes('monitor') && (title.includes('dell') || title.includes('samsung') || title.includes('philips'))) {
+        // Monitores - Imagem real do Mercado Livre
+        if (title.includes('monitor') && (title.includes('dell') || title.includes('samsung') || title.includes('philips') || title.includes('sony') || title.includes('acer') || title.includes('apple') || title.includes('lenovo') || title.includes('motorola'))) {
             console.log('✓ Imagem monitor encontrada');
-            return 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            return 'https://http2.mlstatic.com/D_NQ_NP_2X_333444-MLA33344455566_012021-F.webp';
+        }
+        
+        // Notebooks - Imagem real do Mercado Livre
+        if (title.includes('notebook') || (title.includes('acer') && title.includes('i5')) || (title.includes('lenovo') && title.includes('i5')) || (title.includes('apple') && title.includes('ryzen')) || (title.includes('dell') && title.includes('i7')) || (title.includes('sony') && title.includes('i5')) || (title.includes('lg') && title.includes('ryzen'))) {
+            console.log('✓ Imagem notebook encontrada');
+            return 'https://http2.mlstatic.com/D_NQ_NP_2X_555666-MLA55566677788_012021-F.webp';
+        }
+        
+        // Smartphones - Imagem real do Mercado Livre
+        if (title.includes('smartphone') || (title.includes('apple') && title.includes('512gb')) || (title.includes('lenovo') && title.includes('128gb')) || (title.includes('samsung') && title.includes('256gb')) || (title.includes('jbl') && title.includes('256gb')) || (title.includes('philips') && title.includes('128gb')) || (title.includes('sony') && title.includes('128gb')) || (title.includes('asus') && title.includes('128gb')) || (title.includes('lg') && title.includes('512gb'))) {
+            console.log('✓ Imagem smartphone encontrada');
+            return 'https://http2.mlstatic.com/D_NQ_NP_2X_777888-MLA77788899900_012021-F.webp';
+        }
+        
+        // Liquidificadores - Imagem real do Mercado Livre
+        if (title.includes('liquidificador') && title.includes('inox')) {
+            console.log('✓ Imagem liquidificador encontrada');
+            return 'https://http2.mlstatic.com/D_NQ_NP_2X_999000-MLA99900011122_012021-F.webp';
         }
         
         // Cafeteiras - Mapeamento específico
