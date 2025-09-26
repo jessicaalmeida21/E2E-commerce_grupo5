@@ -50,11 +50,15 @@ const productsModule = (() => {
             console.log('response.products é array:', Array.isArray(response.products));
             
             if (response && response.products && Array.isArray(response.products)) {
-                products = response.products;
+                // Transformar produtos da API para incluir imagens geradas
+                products = response.products.map(product => ({
+                    ...product,
+                    image: apiService.getProductImage(product)
+                }));
                 console.log('Produtos carregados da API:', products.length);
                 console.log('Primeiro produto da API:', products[0]);
                 console.log('=== FIM loadProducts (API) ===');
-                return response.products; // Retornar apenas os produtos
+                return products; // Retornar produtos transformados
             } else {
                 console.log('Resposta da API inválida, usando fallback...');
                 console.log('Resposta recebida:', response);
@@ -339,8 +343,13 @@ const productsModule = (() => {
 
     // Adicionar ao carrinho
 function addToCart(productId) {
+        console.log('Tentando adicionar produto ao carrinho:', productId);
+        console.log('Produtos disponíveis:', products.length);
+        console.log('IDs dos produtos:', products.map(p => p.id));
+        
         const product = products.find(p => p.id === productId);
         if (!product) {
+            console.error('Produto não encontrado:', productId);
             throw new Error('Produto não encontrado');
         }
         
