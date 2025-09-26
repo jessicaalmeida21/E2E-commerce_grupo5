@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Completo - 500 Produtos</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .stats { background: #f0f0f0; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .error { color: red; }
+        .success { color: green; }
+        .warning { color: orange; }
+        .loading { color: blue; }
+        .product { 
+            border: 1px solid #ddd; 
+            margin: 5px; 
+            padding: 10px; 
+            display: inline-block; 
+            width: 180px; 
+            vertical-align: top;
+            border-radius: 5px;
+        }
+        .product img { width: 100%; height: 120px; object-fit: cover; border-radius: 3px; }
+        .product h4 { font-size: 12px; margin: 5px 0; color: #333; }
+        .product p { font-size: 10px; color: #666; margin: 2px 0; }
+        .product button { 
+            background: #007bff; 
+            color: white; 
+            border: none; 
+            padding: 5px 10px; 
+            border-radius: 3px; 
+            cursor: pointer; 
+            font-size: 10px;
+        }
+        .product button:hover { background: #0056b3; }
+        .product button:disabled { background: #ccc; cursor: not-allowed; }
+        .image-status { font-size: 10px; font-weight: bold; }
+        .image-ok { color: green; }
+        .image-error { color: red; }
+        .image-fallback { color: orange; }
+        .controls { margin: 20px 0; }
+        .controls button { 
+            background: #28a745; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 5px; 
+            cursor: pointer; 
+            margin: 5px;
+        }
+        .controls button:hover { background: #218838; }
+        .controls button:disabled { background: #ccc; cursor: not-allowed; }
+        .log { 
+            background: #f8f9fa; 
+            border: 1px solid #dee2e6; 
+            padding: 10px; 
+            margin: 10px 0; 
+            border-radius: 5px; 
+            max-height: 200px; 
+            overflow-y: auto; 
+            font-family: monospace; 
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Teste Completo - 500 Produtos da API</h1>
+    
+    <div class="controls">
+        <button onclick="startTest()" id="startBtn">Iniciar Teste</button>
+        <button onclick="testAllCart()" id="cartBtn" disabled>Testar Todos os Carrinhos</button>
+        <button onclick="clearResults()" id="clearBtn">Limpar Resultados</button>
+    </div>
+
+    <div class="stats">
+        <div><strong>Status:</strong> <span id="status" class="loading">Aguardando...</span></div>
+        <div><strong>Total de produtos:</strong> <span id="total">0</span></div>
+        <div><strong>Produtos com imagem OK:</strong> <span id="com-imagem-ok">0</span></div>
+        <div><strong>Produtos com imagem Fallback:</strong> <span id="com-imagem-fallback">0</span></div>
+        <div><strong>Produtos sem imagem:</strong> <span id="sem-imagem">0</div>
+        <div><strong>Testes de carrinho OK:</strong> <span id="carrinho-ok">0</div>
+        <div><strong>Erros de carrinho:</strong> <span id="erros-carrinho">0</div>
+        <div><strong>Progresso:</strong> <span id="progresso">0%</span></div>
+    </div>
+
+    <div class="log" id="log"></div>
+    
+    <div id="products-container"></div>
+
+    <script src="./js/api-service.js?v=11"></script>
+    <script src="./js/products.js?v=11"></script>
+    <script>
+        let allProducts = [];
+        let testResults = {
+            total: 0,
+            comImagemOk: 0,
+            comImagemFallback: 0,
+            semImagem: 0,
+            carrinhoOk: 0,
+            errosCarrinho: 0
+        };
+
+        function log(message, type = 'info') {
+            const logDiv = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            const className = type === 'error' ? 'error' : type === 'success' ? 'success' : type === 'warning' ? 'warning' : '';
+            logDiv.innerHTML += `<div class="${className}">[${timestamp}] ${message}</div>`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+        }
+
+        function updateStats() {
+            document.getElementById('total').textContent = testResults.total;
+            document.getElementById('com-imagem-ok').textContent = testResults.comImagemOk;
+            document.getElementById('com-imagem-fallback').textContent = testResults.comImagemFallback;
+            document.getElementById('sem-imagem').textContent = testResults.semImagem;
+            document.getElementById('carrinho-ok').textContent = testResults.carrinhoOk;
+            document.getElementById('erros-carrinho').textContent = testResults.errosCarrinho;
+            
+            const progresso = testResults.total > 0 ? Math.round((testResults.comImagemOk + testResults.comImagemFallback + testResults.semImagem) / testResults.total * 100) : 0;
+            document.getElementById('progresso').textContent = progresso + '%';
+        }
+
+        async function startTest() {
+            try {
+                document.getElementById('startBtn').disabled = true;
+                document.getElementById('status').textContent = 'Carregando produtos...';
+                document.getElementById('status').className = 'loading';
+                
+                log('Iniciando teste dos 500 produtos...');
+                
+                // Carregar produtos usando o módulo
+                allProducts = await productsModule.loadProducts(1, 500);
+                log(`Produtos carregados: ${allProducts.length}`);
+                
+                testResults.total = allProducts.length;
+                updateStats();
+                
+                if (allProducts.length === 0) {
+                    throw new Error('Nenhum produto foi carregado');
+                }
+                
+                // Analisar imagens
+                await analyzeImages();
+                
+                // Exibir produtos
+                displayProducts(allProducts.slice(0, 50)); // Mostrar apenas os primeiros 50
+                
+                document.getElementById('status').textContent = 'Análise concluída!';
+                document.getElementById('status').className = 'success';
+                document.getElementById('cartBtn').disabled = false;
+                
+                log('Teste concluído com sucesso!');
+                
+            } catch (error) {
+                log('Erro no teste: ' + error.message, 'error');
+                document.getElementById('status').textContent = 'Erro: ' + error.message;
+                document.getElementById('status').className = 'error';
+                document.getElementById('startBtn').disabled = false;
+            }
+        }
+
+        async function analyzeImages() {
+            log('Analisando imagens dos produtos...');
+            
+            for (let i = 0; i < allProducts.length; i++) {
+                const product = allProducts[i];
+                const hasImage = product.image && product.image !== '';
+                const isUnsplash = hasImage && product.image.includes('unsplash.com');
+                const isPicsum = hasImage && product.image.includes('picsum.photos');
+                
+                if (hasImage) {
+                    if (isUnsplash) {
+                        testResults.comImagemOk++;
+                    } else if (isPicsum) {
+                        testResults.comImagemFallback++;
+                    } else {
+                        testResults.comImagemOk++;
+                    }
+                } else {
+                    testResults.semImagem++;
+                }
+                
+                // Atualizar progresso a cada 50 produtos
+                if ((i + 1) % 50 === 0) {
+                    updateStats();
+                    log(`Analisados ${i + 1} produtos...`);
+                }
+            }
+            
+            updateStats();
+            log(`Análise de imagens concluída: ${testResults.comImagemOk} OK, ${testResults.comImagemFallback} Fallback, ${testResults.semImagem} Sem imagem`);
+        }
+
+        function displayProducts(products) {
+            const container = document.getElementById('products-container');
+            container.innerHTML = '<h3>Primeiros 50 produtos:</h3>';
+            
+            products.forEach((product, index) => {
+                const div = document.createElement('div');
+                div.className = 'product';
+                
+                const hasImage = product.image && product.image !== '';
+                const isUnsplash = hasImage && product.image.includes('unsplash.com');
+                const isPicsum = hasImage && product.image.includes('picsum.photos');
+                
+                let imageStatus = 'Sem imagem';
+                let imageClass = 'image-error';
+                
+                if (hasImage) {
+                    if (isUnsplash) {
+                        imageStatus = 'Unsplash OK';
+                        imageClass = 'image-ok';
+                    } else if (isPicsum) {
+                        imageStatus = 'Picsum Fallback';
+                        imageClass = 'image-fallback';
+                    } else {
+                        imageStatus = 'Imagem OK';
+                        imageClass = 'image-ok';
+                    }
+                }
+                
+                div.innerHTML = `
+                    <img src="${product.image || 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjEyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPk5vIEltYWdlPC90ZXh0Pjwvc3ZnPg=='}" 
+                         alt="${product.title}" 
+                         onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjEyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxMiIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkVycm8gSW1hZ2VtPC90ZXh0Pjwvc3ZnPg=='">
+                    <h4>${product.title}</h4>
+                    <p><strong>ID:</strong> ${product.id}</p>
+                    <p><strong>Categoria:</strong> ${product.category}</p>
+                    <p><strong>Preço:</strong> R$ ${product.price.toFixed(2)}</p>
+                    <p><strong>Imagem:</strong> <span class="image-status ${imageClass}">${imageStatus}</span></p>
+                    <button onclick="testSingleCart('${product.id}', ${index})">Testar Carrinho</button>
+                `;
+                
+                container.appendChild(div);
+            });
+        }
+
+        async function testSingleCart(productId, index) {
+            try {
+                await productsModule.addToCart(productId);
+                testResults.carrinhoOk++;
+                updateStats();
+                log(`✓ Produto ${productId} adicionado ao carrinho com sucesso`);
+            } catch (error) {
+                testResults.errosCarrinho++;
+                updateStats();
+                log(`✗ Erro ao adicionar produto ${productId}: ${error.message}`, 'error');
+            }
+        }
+
+        async function testAllCart() {
+            if (allProducts.length === 0) {
+                log('Nenhum produto carregado para testar', 'error');
+                return;
+            }
+            
+            document.getElementById('cartBtn').disabled = true;
+            document.getElementById('status').textContent = 'Testando carrinho...';
+            document.getElementById('status').className = 'loading';
+            
+            log('Iniciando teste de carrinho para todos os produtos...');
+            
+            // Testar apenas os primeiros 100 produtos para não sobrecarregar
+            const testProducts = allProducts.slice(0, 100);
+            
+            for (let i = 0; i < testProducts.length; i++) {
+                const product = testProducts[i];
+                try {
+                    await productsModule.addToCart(product.id);
+                    testResults.carrinhoOk++;
+                    log(`✓ Produto ${product.id} (${i + 1}/${testProducts.length}) adicionado ao carrinho`);
+                } catch (error) {
+                    testResults.errosCarrinho++;
+                    log(`✗ Erro ao adicionar produto ${product.id}: ${error.message}`, 'error');
+                }
+                
+                // Atualizar progresso a cada 10 produtos
+                if ((i + 1) % 10 === 0) {
+                    updateStats();
+                    log(`Testados ${i + 1} produtos...`);
+                }
+            }
+            
+            updateStats();
+            document.getElementById('status').textContent = 'Teste de carrinho concluído!';
+            document.getElementById('status').className = 'success';
+            document.getElementById('cartBtn').disabled = false;
+            
+            log(`Teste de carrinho concluído: ${testResults.carrinhoOk} OK, ${testResults.errosCarrinho} Erros`);
+        }
+
+        function clearResults() {
+            allProducts = [];
+            testResults = {
+                total: 0,
+                comImagemOk: 0,
+                comImagemFallback: 0,
+                semImagem: 0,
+                carrinhoOk: 0,
+                errosCarrinho: 0
+            };
+            updateStats();
+            document.getElementById('products-container').innerHTML = '';
+            document.getElementById('log').innerHTML = '';
+            document.getElementById('status').textContent = 'Aguardando...';
+            document.getElementById('status').className = 'loading';
+            document.getElementById('startBtn').disabled = false;
+            document.getElementById('cartBtn').disabled = true;
+        }
+
+        // Inicializar
+        log('Sistema de teste carregado. Clique em "Iniciar Teste" para começar.');
+    </script>
+</body>
+</html>
