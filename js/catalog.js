@@ -108,6 +108,16 @@ async function loadProducts(page = 1) {
         
         // Carregar produtos da API (buscar mais produtos)
         let products = await productsModule.loadProducts(1, 500);
+        
+        // Se não carregou 500, tentar carregar em lotes
+        if (products.length < 500) {
+            console.log(`Carregados apenas ${products.length} produtos, tentando carregar mais...`);
+            const additionalProducts = await productsModule.loadProducts(2, 500);
+            if (additionalProducts && additionalProducts.length > 0) {
+                products = [...products, ...additionalProducts];
+                console.log(`Total de produtos após segunda tentativa: ${products.length}`);
+            }
+        }
         console.log('Produtos carregados:', products.length);
         console.log('Primeiros 3 produtos:', products.slice(0, 3));
         
