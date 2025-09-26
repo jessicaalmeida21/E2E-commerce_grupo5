@@ -108,21 +108,30 @@ async function loadProducts(page = 1) {
         
         // Carregar produtos da API em lotes para garantir 500 produtos
         let products = [];
-        let page = 1;
         const pageSize = 200; // API limita a 200 por página
         
-        while (products.length < 500 && page <= 3) {
-            console.log(`Carregando página ${page}...`);
-            const pageProducts = await productsModule.loadProducts(page, pageSize);
-            
-            if (pageProducts && pageProducts.length > 0) {
-                products = [...products, ...pageProducts];
-                console.log(`Página ${page}: ${pageProducts.length} produtos. Total: ${products.length}`);
-                page++;
-            } else {
-                console.log(`Página ${page} vazia, parando...`);
-                break;
-            }
+        // Carregar página 1 (produtos 1-200)
+        console.log('Carregando página 1...');
+        const page1Products = await productsModule.loadProducts(1, pageSize);
+        if (page1Products && page1Products.length > 0) {
+            products = [...products, ...page1Products];
+            console.log(`Página 1: ${page1Products.length} produtos. Total: ${products.length}`);
+        }
+        
+        // Carregar página 2 (produtos 201-400)
+        console.log('Carregando página 2...');
+        const page2Products = await productsModule.loadProducts(2, pageSize);
+        if (page2Products && page2Products.length > 0) {
+            products = [...products, ...page2Products];
+            console.log(`Página 2: ${page2Products.length} produtos. Total: ${products.length}`);
+        }
+        
+        // Carregar página 3 (produtos 401-500)
+        console.log('Carregando página 3...');
+        const page3Products = await productsModule.loadProducts(3, pageSize);
+        if (page3Products && page3Products.length > 0) {
+            products = [...products, ...page3Products];
+            console.log(`Página 3: ${page3Products.length} produtos. Total: ${products.length}`);
         }
         
         console.log(`Total de produtos carregados: ${products.length}`);
