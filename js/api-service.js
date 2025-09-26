@@ -39,7 +39,7 @@ class ApiService {
         
         // Mapeamento específico baseado nos produtos reais da API
         // Smart TVs
-        if (title.includes('smart tv') || title.includes('tv') || title.includes('lenovo') && title.includes('tv')) {
+        if (title.includes('smart tv') || (title.includes('tv') && title.includes('lenovo'))) {
             console.log('✓ Imagem Smart TV encontrada');
             return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
@@ -60,6 +60,12 @@ class ApiService {
         if (title.includes('fone') && title.includes('bluetooth')) {
             console.log('✓ Imagem fone bluetooth encontrada');
             return 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
+        
+        // Aspiradores robô - Mapeamento específico
+        if (title.includes('aspirador') && title.includes('robô')) {
+            console.log('✓ Imagem aspirador robô encontrada');
+            return 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
         // Camisetas - Mapeamento específico
