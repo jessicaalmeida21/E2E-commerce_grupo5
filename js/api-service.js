@@ -145,7 +145,7 @@ class ApiService {
         const titleHash = this.generateHash(title);
         const uniqueSeed = (imageNumber + titleHash) % 10000;
         
-        // Mapear categorias para coleções específicas do Unsplash
+        // Mapear categorias para coleções específicas do Unsplash com imagens mais precisas
         const categoryCollections = {
             'eletronicos': {
                 'tv': '1593359677879', // TVs
@@ -155,26 +155,45 @@ class ApiService {
                 'notebook': '1498049794561', // Notebooks
                 'tablet': '1561154464', // Tablets
                 'camera': '1502920917128', // Câmeras
-                'videogame': '1606144042614' // Videogames
+                'videogame': '1606144042614', // Videogames
+                'controle': '1606144042614', // Controles
+                'playstation': '1606144042614', // PlayStation
+                'xbox': '1606144042614' // Xbox
             },
             'casa': {
                 'aspirador': '1581578731548', // Aspiradores
                 'liquidificador': '1556909114', // Liquidificadores
                 'air fryer': '1574269909862', // Air Fryers
+                'fritadeira': '1574269909862', // Fritadeiras
                 'cafeteira': '1581578731548', // Cafeteiras
                 'microondas': '1574269909862', // Microondas
                 'geladeira': '1556909114', // Geladeiras
                 'fogão': '1556909114', // Fogões
-                'ventilador': '1556909114' // Ventiladores
+                'ventilador': '1556909114', // Ventiladores
+                'britânia': '1574269909862', // Britânia
+                'mondial': '1556909114', // Mondial
+                'oster': '1581578731548', // Oster
+                'electrolux': '1574269909862' // Electrolux
             },
             'esportes': {
+                'bicicleta nike': '1558618666', // Bicicletas Nike
                 'bicicleta': '1558618666', // Bicicletas
+                'bike': '1558618666', // Bikes
+                'aro 29': '1558618666', // Aro 29
+                '21v': '1558618666', // 21 velocidades
                 'halteres': '1571019613454', // Halteres
+                'skate spalding': '1606144042614', // Skate Spalding
                 'skate': '1606144042614', // Skates
+                'maple': '1606144042614', // Maple
+                '8.0': '1606144042614', // 8.0
                 'bola': '1431326005620', // Bolas
                 'futebol': '1431326005620', // Futebol
                 'basquete': '1431326005620', // Basquete
-                'equipamento': '1571019613454' // Equipamentos
+                'equipamento': '1571019613454', // Equipamentos
+                'nike': '1558618666', // Nike esportes
+                'spalding': '1431326005620', // Spalding
+                'penalty': '1431326005620', // Penalty
+                'puma': '1558618666' // Puma esportes
             },
             'moda': {
                 'tênis': '1441986300917', // Tênis
@@ -184,7 +203,14 @@ class ApiService {
                 'jaqueta': '1551028719', // Jaquetas
                 'relógio': '1523275335684', // Relógios
                 'bolsa': '1553062407', // Bolsas
-                'mochila': '1553062407' // Mochilas
+                'mochila': '1553062407', // Mochilas
+                'nike': '1441986300917', // Nike moda
+                'adidas': '1441986300917', // Adidas
+                'lacoste': '1521572163474', // Lacoste
+                'calvin klein': '1521572163474', // Calvin Klein
+                'hering': '1521572163474', // Hering
+                'reserva': '1594633312681', // Reserva
+                'oakley': '1551028719' // Oakley
             },
             'móveis': {
                 'mesa': '1586023492125', // Mesas
@@ -203,14 +229,33 @@ class ApiService {
             }
         };
         
-        // Determinar tipo específico do produto
+        // Determinar tipo específico do produto com prioridade para palavras mais específicas
         let productType = 'default';
         const categoryMap = categoryCollections[category] || {};
         
-        for (const [type, collectionId] of Object.entries(categoryMap)) {
-            if (title.includes(type)) {
-                productType = type;
+        // Ordenar palavras-chave por especificidade (mais longas primeiro)
+        const sortedKeywords = Object.keys(categoryMap).sort((a, b) => b.length - a.length);
+        
+        for (const keyword of sortedKeywords) {
+            if (title.includes(keyword)) {
+                productType = keyword;
+                console.log(`Palavra-chave encontrada: "${keyword}" para produto: "${title}"`);
                 break;
+            }
+        }
+        
+        // Se não encontrou na categoria, tentar em todas as categorias
+        if (productType === 'default') {
+            for (const [cat, catMap] of Object.entries(categoryCollections)) {
+                const sortedCatKeywords = Object.keys(catMap).sort((a, b) => b.length - a.length);
+                for (const keyword of sortedCatKeywords) {
+                    if (title.includes(keyword)) {
+                        productType = keyword;
+                        console.log(`Palavra-chave encontrada em ${cat}: "${keyword}" para produto: "${title}"`);
+                        break;
+                    }
+                }
+                if (productType !== 'default') break;
             }
         }
         
@@ -225,10 +270,29 @@ class ApiService {
                 'beleza': '1541643600914'
             };
             const collectionId = generalCollections[category] || '1511707171634';
+            console.log(`Usando categoria geral ${category} para produto: "${title}"`);
             return `https://images.unsplash.com/photo-${collectionId}?w=400&h=400&fit=crop&crop=center&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&seed=${uniqueSeed}`;
         }
         
-        const collectionId = categoryMap[productType];
+        // Encontrar a coleção correta para o tipo de produto
+        let collectionId = categoryMap[productType];
+        if (!collectionId) {
+            // Se não encontrou na categoria atual, buscar em todas as categorias
+            for (const [cat, catMap] of Object.entries(categoryCollections)) {
+                if (catMap[productType]) {
+                    collectionId = catMap[productType];
+                    console.log(`Encontrada coleção em ${cat} para "${productType}": ${collectionId}`);
+                    break;
+                }
+            }
+        }
+        
+        if (!collectionId) {
+            collectionId = '1511707171634'; // Fallback
+            console.log(`Usando fallback para produto: "${title}"`);
+        }
+        
+        console.log(`Imagem final para "${title}": coleção ${collectionId}, seed ${uniqueSeed}`);
         return `https://images.unsplash.com/photo-${collectionId}?w=400&h=400&fit=crop&crop=center&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&seed=${uniqueSeed}`;
     }
     
