@@ -342,7 +342,7 @@ const productsModule = (() => {
     }
 
     // Adicionar ao carrinho
-function addToCart(productId) {
+    async function addToCart(productId) {
         console.log('Tentando adicionar produto ao carrinho:', productId);
         console.log('Produtos disponíveis:', products.length);
         console.log('IDs dos produtos:', products.map(p => p.id));
@@ -350,9 +350,7 @@ function addToCart(productId) {
         // Se não há produtos carregados, tentar carregar
         if (products.length === 0) {
             console.log('Nenhum produto carregado, tentando carregar...');
-            return loadProducts().then(() => {
-                return addToCart(productId);
-            });
+            await loadProducts();
         }
         
         const product = products.find(p => p.id === productId);
