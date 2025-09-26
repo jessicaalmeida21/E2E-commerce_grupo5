@@ -23,98 +23,119 @@ class ApiService {
         }
     }
 
-    // Função simplificada para gerar imagens baseadas no nome do produto
+    // Função para gerar imagens baseadas no nome do produto - Mapeamento específico baseado na API
     getProductImage(product) {
         const title = product.title?.toLowerCase() || '';
+        const brand = product.brand?.toLowerCase() || '';
+        const category = product.category?.toLowerCase() || '';
         const productId = product.id.replace('PROD-', '');
         const imageNumber = parseInt(productId) % 1000;
         
         console.log('=== GERANDO IMAGEM ===');
         console.log('Título:', title);
+        console.log('Marca:', brand);
+        console.log('Categoria:', category);
         console.log('ID do produto:', productId);
         
-        // Mapeamento simples e direto
-        if (title.includes('smart tv') || title.includes('tv') || title.includes('lenovo')) {
-            console.log('✓ Imagem TV encontrada');
+        // Mapeamento específico baseado nos produtos reais da API
+        // Smart TVs
+        if (title.includes('smart tv') || title.includes('tv') || title.includes('lenovo') && title.includes('tv')) {
+            console.log('✓ Imagem Smart TV encontrada');
             return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        if (title.includes('calça') || title.includes('jeans') || title.includes('puma') || title.includes('oakley')) {
-            console.log('✓ Imagem calça encontrada');
+        // Calças Jeans - Mapeamento específico
+        if (title.includes('calça') && title.includes('jeans')) {
+            console.log('✓ Imagem calça jeans encontrada');
             return 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        if (title.includes('notebook') || title.includes('laptop') || title.includes('acer') || title.includes('dell') || title.includes('i5')) {
+        // Notebooks - Mapeamento específico
+        if (title.includes('notebook') || (title.includes('acer') && title.includes('i5')) || (title.includes('lenovo') && title.includes('i5'))) {
             console.log('✓ Imagem notebook encontrada');
             return 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        if (title.includes('fone') || title.includes('headphone') || title.includes('headset')) {
-            console.log('✓ Imagem fone encontrada');
+        // Fones de ouvido - Mapeamento específico
+        if (title.includes('fone') && title.includes('bluetooth')) {
+            console.log('✓ Imagem fone bluetooth encontrada');
             return 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        if (title.includes('camiseta') || title.includes('camisa') || title.includes('polo') || title.includes('blusa')) {
+        // Camisetas - Mapeamento específico
+        if (title.includes('camiseta') && title.includes('algodão')) {
             console.log('✓ Imagem camiseta encontrada');
             return 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        if (title.includes('tênis') || title.includes('sapato') || title.includes('nike') || title.includes('adidas')) {
+        // Tênis - Mapeamento específico
+        if (title.includes('tênis') || (title.includes('nike') && title.includes('classic')) || (title.includes('puma') && title.includes('zoom'))) {
             console.log('✓ Imagem tênis encontrada');
             return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        if (title.includes('smartphone') || title.includes('iphone') || title.includes('galaxy') || title.includes('apple') || title.includes('samsung')) {
+        // Smartphones - Mapeamento específico
+        if (title.includes('smartphone') || (title.includes('apple') && title.includes('512gb')) || (title.includes('lenovo') && title.includes('128gb'))) {
             console.log('✓ Imagem smartphone encontrada');
             return 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        if (title.includes('aspirador') || title.includes('robô') || title.includes('britânia')) {
-            console.log('✓ Imagem aspirador encontrada');
+        // Aspiradores robô - Mapeamento específico
+        if (title.includes('aspirador') && title.includes('robô')) {
+            console.log('✓ Imagem aspirador robô encontrada');
             return 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        if (title.includes('air fryer') || title.includes('fritadeira') || title.includes('brastemp')) {
+        // Air Fryers - Mapeamento específico
+        if (title.includes('air fryer') || (title.includes('fritadeira') && title.includes('antiaderente'))) {
             console.log('✓ Imagem air fryer encontrada');
             return 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        if (title.includes('liquidificador') || title.includes('philco')) {
+        // Liquidificadores - Mapeamento específico
+        if (title.includes('liquidificador') && title.includes('inox')) {
             console.log('✓ Imagem liquidificador encontrada');
             return 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        if (title.includes('bicicleta') || title.includes('bike')) {
+        // Bicicletas - Mapeamento específico
+        if (title.includes('bicicleta') && title.includes('aro 29')) {
             console.log('✓ Imagem bicicleta encontrada');
             return 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        if (title.includes('halteres') || title.includes('peso')) {
+        // Halteres - Mapeamento específico
+        if (title.includes('halteres') && title.includes('revestidos')) {
             console.log('✓ Imagem halteres encontrada');
             return 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        if (title.includes('skate')) {
+        // Skates - Mapeamento específico
+        if (title.includes('skate') && title.includes('maple')) {
             console.log('✓ Imagem skate encontrada');
             return 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        if (title.includes('jaqueta') || title.includes('corta-vento')) {
+        // Jaquetas - Mapeamento específico
+        if (title.includes('jaqueta') && title.includes('corta-vento')) {
             console.log('✓ Imagem jaqueta encontrada');
             return 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        if (title.includes('bola') || title.includes('futebol')) {
-            console.log('✓ Imagem bola encontrada');
+        // Bolas de futebol - Mapeamento específico
+        if (title.includes('bola') && title.includes('futebol')) {
+            console.log('✓ Imagem bola de futebol encontrada');
             return 'https://images.unsplash.com/photo-1431326005620-6d0e44b482f8?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        if (title.includes('monitor') || title.includes('lg')) {
+        // Monitores - Mapeamento específico
+        if (title.includes('monitor') && (title.includes('dell') || title.includes('samsung') || title.includes('philips'))) {
             console.log('✓ Imagem monitor encontrada');
             return 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        if (title.includes('cafeteira')) {
+        // Cafeteiras - Mapeamento específico
+        if (title.includes('cafeteira') && title.includes('elétrica')) {
             console.log('✓ Imagem cafeteira encontrada');
             return 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
