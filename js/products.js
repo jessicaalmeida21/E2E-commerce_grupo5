@@ -347,6 +347,14 @@ function addToCart(productId) {
         console.log('Produtos disponíveis:', products.length);
         console.log('IDs dos produtos:', products.map(p => p.id));
         
+        // Se não há produtos carregados, tentar carregar
+        if (products.length === 0) {
+            console.log('Nenhum produto carregado, tentando carregar...');
+            return loadProducts().then(() => {
+                return addToCart(productId);
+            });
+        }
+        
         const product = products.find(p => p.id === productId);
         if (!product) {
             console.error('Produto não encontrado:', productId);

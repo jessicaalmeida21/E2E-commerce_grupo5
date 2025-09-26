@@ -264,12 +264,13 @@ function createProductCard(product) {
     // Adicionar eventos
     const addToCartBtn = card.querySelector('.add-to-cart');
     if (addToCartBtn && !addToCartBtn.disabled) {
-        addToCartBtn.addEventListener('click', function() {
+        addToCartBtn.addEventListener('click', async function() {
             const productId = this.getAttribute('data-id');
             try {
-                productsModule.addToCart(productId);
+                const result = await productsModule.addToCart(productId);
                 showNotification('Produto adicionado ao carrinho!', 'success');
             } catch (error) {
+                console.error('Erro ao adicionar ao carrinho:', error);
                 showNotification('Erro: ' + error.message, 'error');
             }
         });
