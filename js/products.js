@@ -50,11 +50,47 @@ const productsModule = (() => {
             console.log('response.products é array:', Array.isArray(response.products));
             
             if (response && response.products && Array.isArray(response.products)) {
-                // Transformar produtos da API para incluir imagens geradas
-                products = response.products.map(product => ({
-                    ...product,
-                    image: apiService.getProductImage(product)
-                }));
+                // Transformar produtos da API para incluir imagens geradas e corrigir preços
+                products = response.products.map(product => {
+                    // Extrair preço da estrutura aninhada da API
+                    const price = (product.price && typeof product.price === 'object') 
+                        ? (product.price.final ?? product.price.price_final ?? 0) 
+                        : (product.price_final ?? product.priceFinal ?? product.price ?? 0);
+                    
+                    const originalPrice = (product.price && typeof product.price === 'object') 
+                        ? (product.price.original ?? product.price.price_original ?? price) 
+                        : (product.price_original ?? product.priceOriginal ?? price);
+                    
+                    const discount = (product.price && typeof product.price === 'object') 
+                        ? (product.price.discount_percent ?? product.price.discountPercent ?? 0) 
+                        : (product.discount_percent ?? product.discountPercent ?? 0);
+                    
+                    // Extrair estoque da estrutura aninhada
+                    const stock = (product.stock && typeof product.stock === 'object') 
+                        ? (product.stock.quantity ?? product.stock.stock_quantity ?? 0) 
+                        : (product.stock_quantity ?? product.stockQuantity ?? 0);
+                    
+                    // Extrair rating da estrutura aninhada
+                    const rating = (product.rating && typeof product.rating === 'object') 
+                        ? (product.rating.average ?? product.rating.rating_average ?? 0) 
+                        : (product.rating_average ?? product.ratingAverage ?? 0);
+                    
+                    return {
+                        id: product.id,
+                        title: product.title,
+                        description: product.description || 'Produto de qualidade',
+                        price: parseFloat(price) || 0,
+                        originalPrice: parseFloat(originalPrice) || parseFloat(price) || 0,
+                        discount: parseFloat(discount) || 0,
+                        category: product.category || 'geral',
+                        brand: product.brand || 'Marca',
+                        rating: parseFloat(rating) || 0,
+                        stock: parseInt(stock) || 0,
+                        image: apiService.getProductImage(product),
+                        createdAt: product.created_at || product.createdAt || new Date().toISOString(),
+                        updatedAt: product.updated_at || product.updatedAt || new Date().toISOString()
+                    };
+                });
                 console.log('Produtos carregados da API:', products.length);
                 console.log('Primeiro produto da API:', products[0]);
                 console.log('=== FIM loadProducts (API) ===');
