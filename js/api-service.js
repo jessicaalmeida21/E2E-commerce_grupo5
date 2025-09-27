@@ -68,6 +68,12 @@ class ApiService {
             return 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
+        // Aspiradores robô Britânia - Mapeamento específico
+        if (title.includes('aspirador') && title.includes('britânia')) {
+            console.log('✓ Imagem aspirador robô Britânia encontrada');
+            return 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
+        
         // Camisetas - Mapeamento específico
         if (title.includes('camiseta') && title.includes('algodão')) {
             console.log('✓ Imagem camiseta encontrada');
@@ -109,7 +115,7 @@ class ApiService {
         // Liquidificadores - Mapeamento específico
         if (title.includes('liquidificador') && title.includes('inox')) {
             console.log('✓ Imagem liquidificador encontrada');
-            return 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            return 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
         // Bicicletas - Imagens específicas por marca
@@ -175,60 +181,76 @@ class ApiService {
         // Notebooks - Imagens reais funcionais
         if (title.includes('notebook')) {
             console.log('✓ Imagem notebook encontrada');
-            return 'https://images.unsplash.com/photo-photo-1498049794561-7780e7231661';
+            return 'https://images.unsplash.com/photo-1498049794561-7780e7231661';
         }
         
         // Smartphones - Imagens reais funcionais
         if (title.includes('smartphone')) {
             console.log('✓ Imagem smartphone encontrada');
-            return 'https://images.unsplash.com/photo-photo-1511707171634-5f897ff02aa9';
+            return 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9';
         }
         
         // Liquidificadores - Imagens específicas por marca
         if (title.includes('liquidificador')) {
             if (title.includes('philips') || title.includes('walita')) {
                 console.log('✓ Imagem liquidificador Philips Walita encontrada');
-                return 'https://images.unsplash.com/photo-photo-1556909114-f6e7ad7d3136';
+                return 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             } else if (title.includes('philco')) {
                 console.log('✓ Imagem liquidificador Philco encontrada');
-                return 'https://images.unsplash.com/photo-photo-1556909114-f6e7ad7d3136';
+                return 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             } else {
                 console.log('✓ Imagem liquidificador genérico encontrada');
-                return 'https://images.unsplash.com/photo-photo-1556909114-f6e7ad7d3136';
+                return 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             }
         }
         
         // Cafeteiras - Imagens reais funcionais
         if (title.includes('cafeteira') && title.includes('elétrica')) {
             console.log('✓ Imagem cafeteira encontrada');
-            return 'https://images.unsplash.com/photo-photo-1581578731548-c6a0c3f2b4a4';
+            return 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
         // Mapeamento adicional para outras marcas comuns
         if (title.includes('oakley')) {
             console.log('✓ Imagem Oakley encontrada');
-            return 'https://images.unsplash.com/photo-photo-1549298916-b41d501d3772';
+            return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
         if (title.includes('adidas')) {
             console.log('✓ Imagem Adidas encontrada');
-            return 'https://images.unsplash.com/photo-photo-1549298916-b41d501d3772';
+            return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
         if (title.includes('converse')) {
             console.log('✓ Imagem Converse encontrada');
-            return 'https://images.unsplash.com/photo-photo-1549298916-b41d501d3772';
+            return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
         if (title.includes('vans')) {
             console.log('✓ Imagem Vans encontrada');
-            return 'https://images.unsplash.com/photo-photo-1549298916-b41d501d3772';
+            return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
+        
+        // Mapeamentos adicionais para produtos específicos
+        if (title.includes('dell')) {
+            console.log('✓ Imagem Dell encontrada');
+            return 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
+        
+        if (title.includes('lenovo')) {
+            console.log('✓ Imagem Lenovo encontrada');
+            return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
+        
+        if (title.includes('britânia')) {
+            console.log('✓ Imagem Britânia encontrada');
+            return 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
         // Fallback: usar Picsum com seed único
         const uniqueSeed = (imageNumber + title.length) % 10000;
         console.log(`⚠ Usando fallback Picsum para "${title}" com seed ${uniqueSeed}`);
-        return `https://images.unsplash.com/photo-${uniqueSeed}`;
+        return `https://picsum.photos/400/400?random=${uniqueSeed}`;
     }
 }
 
