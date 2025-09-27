@@ -203,7 +203,9 @@ header::before {
 
 .user-actions {
     display: flex;
-    gap: 20px;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
 }
 
 .user-actions a {
@@ -216,6 +218,41 @@ header::before {
 
 .user-actions a:hover {
     color: var(--light-color);
+}
+
+.user-greeting {
+    color: white;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.btn-link {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding: 0;
+    text-decoration: none;
+}
+
+.btn-link:hover {
+    color: var(--light-color);
+}
+
+#logged-in-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+#logged-out-actions {
+    display: flex;
+    align-items: center;
 }
 
 .main-nav ul {

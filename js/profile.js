@@ -48,7 +48,15 @@ function setupEventListeners() {
     // Botão salvar perfil
     const saveBtn = document.getElementById('save-profile');
     if (saveBtn) {
-        saveBtn.addEventListener('click', saveProfile);
+        saveBtn.addEventListener('click', async function(e) {
+            e.preventDefault();
+            try {
+                await saveProfile();
+            } catch (error) {
+                console.error('Erro ao salvar perfil:', error);
+                showMessage('Erro ao salvar perfil. Tente novamente.', 'error');
+            }
+        });
     }
     
     // Botão excluir conta
@@ -87,7 +95,7 @@ function setupEventListeners() {
 }
 
 // Salvar perfil
-function saveProfile() {
+async function saveProfile() {
     console.log('Função saveProfile chamada');
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const users = JSON.parse(localStorage.getItem('users')) || [];
@@ -287,7 +295,12 @@ async function hashPassword(password) {
 function showMessage(message, type) {
     const messageElement = document.getElementById('form-message');
     if (messageElement) {
-        messageElement.textContent = message;
+        messageElement.innerHTML = `
+            <div class="message-content ${type}">
+                <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                <span>${message}</span>
+            </div>
+        `;
         messageElement.className = `form-message ${type}`;
         messageElement.style.display = 'block';
         
@@ -295,4 +308,6 @@ function showMessage(message, type) {
             messageElement.style.display = 'none';
         }, 5000);
     }
+    
+    console.log(`Mensagem ${type}: ${message}`);
 }
