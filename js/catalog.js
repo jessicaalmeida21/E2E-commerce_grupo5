@@ -236,10 +236,8 @@ function createProductCard(product) {
         `<span class="stock-status out-of-stock">Fora de estoque</span>`;
 
     card.innerHTML = `
-        <div class="product-image">
-            <img src="${product.image}" alt="${product.title}" loading="lazy">
-            ${discountBadge}
-        </div>
+        <img src="${product.image}" alt="${product.title}" class="product-img" loading="lazy">
+        ${discountBadge}
         <div class="product-info">
             <div class="product-price">
                 ${originalPrice}
