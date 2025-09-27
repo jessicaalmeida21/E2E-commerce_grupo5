@@ -64,8 +64,8 @@ class ApiService {
                 return 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             } else {
                 console.log('✓ Imagem notebook genérico encontrada');
-                return 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
-            }
+            return 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
         }
         
         // Smart TVs - Imagens reais
@@ -151,8 +151,8 @@ class ApiService {
         // Esportes - Imagens reais
         if (title.includes('bicicleta') || title.includes('bike')) {
             console.log('✓ Imagem bicicleta encontrada');
-            return 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
-        }
+                return 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            }
         
         if (title.includes('skate') || title.includes('skateboard')) {
             console.log('✓ Imagem skate encontrada');
@@ -166,7 +166,7 @@ class ApiService {
         
         if (title.includes('bola') || title.includes('futebol')) {
             console.log('✓ Imagem bola de futebol encontrada');
-            return 'https://images.unsplash.com/photo-1431326005620-6d0e44b482f8?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                return 'https://images.unsplash.com/photo-1431326005620-6d0e44b482f8?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
         // Monitores - Imagens reais

@@ -112,6 +112,16 @@ const productsModule = (() => {
     // Carregar produtos locais como fallback
     function loadLocalProducts() {
         console.log('Carregando produtos locais como fallback...');
+        
+        // Usar o banco de dados atualizado se disponível
+        if (typeof getAllProducts === 'function') {
+            console.log('Usando database.js atualizado');
+            products = getAllProducts();
+            console.log('Produtos carregados do database.js:', products.length);
+            return products;
+        }
+        
+        // Fallback para produtos básicos se database.js não estiver disponível
         products = [
             {
                 id: 'PROD-001',
