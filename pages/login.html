@@ -63,23 +63,33 @@
                     <form id="register-form">
                         <div class="form-group">
                             <label for="register-name">Nome Completo</label>
-                            <input type="text" id="register-name" required>
+                            <input type="text" id="register-name" required maxlength="50" pattern="[a-zA-ZÀ-ÿ\s]+" title="Apenas letras e espaços">
                             <span class="error-message" id="register-name-error"></span>
                         </div>
                         <div class="form-group">
                             <label for="register-email">E-mail</label>
-                            <input type="email" id="register-email" required>
+                            <input type="email" id="register-email" required maxlength="100">
                             <span class="error-message" id="register-email-error"></span>
                         </div>
                         <div class="form-group">
                             <label for="register-password">Senha</label>
-                            <input type="password" id="register-password" required>
+                            <div class="password-input-container">
+                                <input type="password" id="register-password" required maxlength="20" minlength="6">
+                                <button type="button" class="password-toggle" onclick="togglePassword('register-password')">
+                                    <span class="show-password">👁️</span>
+                                </button>
+                            </div>
                             <span class="error-message" id="register-password-error"></span>
-                            <small>A senha deve ter no mínimo 10 caracteres, incluindo números, letras e caracteres especiais.</small>
+                            <small>A senha deve ter entre 6 e 20 caracteres, incluindo números e letras.</small>
                         </div>
                         <div class="form-group">
                             <label for="register-confirm-password">Confirmar Senha</label>
-                            <input type="password" id="register-confirm-password" required>
+                            <div class="password-input-container">
+                                <input type="password" id="register-confirm-password" required maxlength="20" minlength="6">
+                                <button type="button" class="password-toggle" onclick="togglePassword('register-confirm-password')">
+                                    <span class="show-password">👁️</span>
+                                </button>
+                            </div>
                             <span class="error-message" id="register-confirm-password-error"></span>
                         </div>
                         <div class="form-group">
@@ -142,6 +152,6 @@
         </div>
     </footer>
 
-    <script src="../js/login.js?v=39"></script>
+    <script src="../js/login.js?v=40"></script>
 </body>
 </html>

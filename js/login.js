@@ -73,9 +73,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Validação de senha
     function validatePassword(password) {
-        // Mínimo 6 caracteres
+        // Mínimo 6 caracteres, máximo 20 caracteres
         if (password.length < 6) {
             return { valid: false, message: 'A senha deve ter no mínimo 6 caracteres.' };
+        }
+        
+        if (password.length > 20) {
+            return { valid: false, message: 'A senha deve ter no máximo 20 caracteres.' };
         }
         
         // Deve conter números
@@ -86,6 +90,39 @@ document.addEventListener('DOMContentLoaded', function() {
         // Deve conter letras
         if (!/[a-zA-Z]/.test(password)) {
             return { valid: false, message: 'A senha deve conter pelo menos uma letra.' };
+        }
+        
+        return { valid: true };
+    }
+    
+    // Validação de nome
+    function validateName(name) {
+        // Apenas letras, espaços e acentos
+        if (!/^[a-zA-ZÀ-ÿ\s]+$/.test(name)) {
+            return { valid: false, message: 'O nome deve conter apenas letras e espaços.' };
+        }
+        
+        // Mínimo 2 caracteres, máximo 50 caracteres
+        if (name.length < 2) {
+            return { valid: false, message: 'O nome deve ter no mínimo 2 caracteres.' };
+        }
+        
+        if (name.length > 50) {
+            return { valid: false, message: 'O nome deve ter no máximo 50 caracteres.' };
+        }
+        
+        return { valid: true };
+    }
+    
+    // Validação de email
+    function validateEmail(email) {
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            return { valid: false, message: 'Digite um e-mail válido.' };
+        }
+        
+        if (email.length > 100) {
+            return { valid: false, message: 'O e-mail deve ter no máximo 100 caracteres.' };
         }
         
         return { valid: true };
@@ -306,19 +343,34 @@ document.addEventListener('DOMContentLoaded', function() {
             // Validar campos
             let hasError = false;
             
+            // Validar nome
             if (!name) {
                 document.getElementById('register-name-error').textContent = 'Nome é obrigatório';
                 hasError = true;
+            } else {
+                const nameValidation = validateName(name);
+                if (!nameValidation.valid) {
+                    document.getElementById('register-name-error').textContent = nameValidation.message;
+                    hasError = true;
+                }
             }
             
+            // Validar email
             if (!email) {
                 document.getElementById('register-email-error').textContent = 'E-mail é obrigatório';
                 hasError = true;
-            } else if (users.some(u => u.email === email)) {
-                document.getElementById('register-email-error').textContent = 'Este e-mail já está em uso';
-                hasError = true;
+            } else {
+                const emailValidation = validateEmail(email);
+                if (!emailValidation.valid) {
+                    document.getElementById('register-email-error').textContent = emailValidation.message;
+                    hasError = true;
+                } else if (users.some(u => u.email === email)) {
+                    document.getElementById('register-email-error').textContent = 'Este e-mail já está em uso';
+                    hasError = true;
+                }
             }
             
+            // Validar senha
             if (!password) {
                 document.getElementById('register-password-error').textContent = 'Senha é obrigatória';
                 hasError = true;
@@ -330,11 +382,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             
-            if (password !== confirmPassword) {
+            // Validar confirmação de senha
+            if (!confirmPassword) {
+                document.getElementById('register-confirm-password-error').textContent = 'Confirmação de senha é obrigatória';
+                hasError = true;
+            } else if (password !== confirmPassword) {
                 document.getElementById('register-confirm-password-error').textContent = 'As senhas não coincidem';
                 hasError = true;
             }
             
+            // Validar perfil
             if (!profile) {
                 document.getElementById('register-profile-error').textContent = 'Selecione um perfil';
                 hasError = true;
@@ -584,7 +641,87 @@ document.addEventListener('DOMContentLoaded', function() {
         testButton.onclick = testRegistration;
         testSection.appendChild(testButton);
     }
+    
+    // Configurar validação em tempo real
+    setupRealTimeValidation();
 });
+
+// Função para alternar visualização da senha
+function togglePassword(inputId) {
+    const input = document.getElementById(inputId);
+    const button = input.nextElementSibling;
+    const icon = button.querySelector('.show-password');
+    
+    if (input.type === 'password') {
+        input.type = 'text';
+        icon.textContent = '🙈';
+        button.setAttribute('aria-label', 'Ocultar senha');
+    } else {
+        input.type = 'password';
+        icon.textContent = '👁️';
+        button.setAttribute('aria-label', 'Mostrar senha');
+    }
+}
+
+// Função para aplicar máscara no campo de nome
+function applyNameMask(input) {
+    input.addEventListener('input', function(e) {
+        // Remove caracteres que não são letras, espaços ou acentos
+        e.target.value = e.target.value.replace(/[^a-zA-ZÀ-ÿ\s]/g, '');
+    });
+}
+
+// Função para validar em tempo real
+function setupRealTimeValidation() {
+    const nameInput = document.getElementById('register-name');
+    const emailInput = document.getElementById('register-email');
+    const passwordInput = document.getElementById('register-password');
+    const confirmPasswordInput = document.getElementById('register-confirm-password');
+    
+    // Aplicar máscara no nome
+    if (nameInput) {
+        applyNameMask(nameInput);
+    }
+    
+    // Validação em tempo real do email
+    if (emailInput) {
+        emailInput.addEventListener('blur', function() {
+            const validation = validateEmail(this.value);
+            const errorElement = document.getElementById('register-email-error');
+            if (!validation.valid && this.value) {
+                errorElement.textContent = validation.message;
+            } else {
+                errorElement.textContent = '';
+            }
+        });
+    }
+    
+    // Validação em tempo real da senha
+    if (passwordInput) {
+        passwordInput.addEventListener('input', function() {
+            const validation = validatePassword(this.value);
+            const errorElement = document.getElementById('register-password-error');
+            if (!validation.valid && this.value) {
+                errorElement.textContent = validation.message;
+            } else {
+                errorElement.textContent = '';
+            }
+        });
+    }
+    
+    // Validação em tempo real da confirmação de senha
+    if (confirmPasswordInput) {
+        confirmPasswordInput.addEventListener('input', function() {
+            const password = document.getElementById('register-password').value;
+            const errorElement = document.getElementById('register-confirm-password-error');
+            if (this.value && this.value !== password) {
+                errorElement.textContent = 'As senhas não coincidem';
+            } else {
+                errorElement.textContent = '';
+            }
+        });
+    }
+}
 
 // Função para limpar cache e recarregar
 function clearCacheAndReload() {

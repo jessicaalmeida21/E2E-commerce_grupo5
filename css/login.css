@@ -77,6 +77,71 @@
     font-size: 1.2rem;
 }
 
+/* Estilos para campos de senha com botão de visualização */
+.password-input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.password-input-container input {
+    width: 100%;
+    padding-right: 40px;
+}
+
+.password-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.password-toggle:hover {
+    background-color: #f0f0f0;
+}
+
+.password-toggle:focus {
+    outline: 2px solid #007bff;
+    outline-offset: 2px;
+}
+
+.show-password {
+    font-size: 16px;
+    user-select: none;
+}
+
+/* Validação em tempo real */
+input:valid {
+    border-color: #28a745;
+}
+
+input:invalid:not(:placeholder-shown) {
+    border-color: #dc3545;
+}
+
+/* Estilos para campos com máscara */
+input[pattern] {
+    text-transform: capitalize;
+}
+
+/* Melhorar aparência dos campos de formulário */
+.form-group input,
+.form-group select {
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
 /* Credenciais de Teste */
 .test-credentials {
     background-color: #f8f9fa;
