@@ -382,12 +382,11 @@ header::before {
 .product-img {
     width: 180px;
     height: auto;
-    max-height: 180px;
-    object-fit: cover;
-    border-radius: 12px;
-    transition: transform 0.3s ease;
+    border-radius: 8px;
+    margin-bottom: 10px;
     display: block;
-    margin: 0 auto;
+    object-fit: cover;
+    transition: transform 0.3s ease;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
