@@ -25,6 +25,11 @@ class ApiService {
 
     // Função para gerar imagens reais baseadas no produto
     getProductImage(product) {
+        // Se o produto já tem uma imagem definida, usar ela
+        if (product.image && product.image.startsWith('https://images.unsplash.com/')) {
+            return product.image;
+        }
+        
         const title = product.title?.toLowerCase() || '';
         const brand = product.brand?.toLowerCase() || '';
         const category = product.category?.toLowerCase() || '';
