@@ -1,11 +1,70 @@
 // Script para gerenciar o checkout
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('=== INICIANDO CHECKOUT ===');
+    console.log('productsModule disponível:', typeof productsModule);
+    console.log('getAllProducts disponível:', typeof getAllProducts);
+    console.log('apiService disponível:', typeof apiService);
+    
     checkUserPermissions();
-    loadCartItems();
+    
+    // Testar carregamento de produtos
+    testProductLoading();
+    
+    // Aguardar um pouco para garantir que os módulos sejam carregados
+    setTimeout(() => {
+        loadCartItems();
+    }, 500);
+    
     setupEventListeners();
     setupHeader();
     loadQuote();
 });
+
+// Função para testar carregamento de produtos no checkout
+function testProductLoading() {
+    console.log('=== TESTE DE CARREGAMENTO DE PRODUTOS NO CHECKOUT ===');
+    
+    // Testar database.js
+    if (typeof getAllProducts === 'function') {
+        const allProducts = getAllProducts();
+        console.log('✅ database.js disponível no checkout:', allProducts.length, 'produtos');
+        console.log('Primeiro produto do database.js (checkout):', allProducts[0]);
+    } else {
+        console.log('❌ database.js não disponível no checkout');
+    }
+    
+    // Testar productsModule
+    if (typeof productsModule !== 'undefined') {
+        console.log('✅ productsModule disponível no checkout');
+        try {
+            productsModule.loadProducts().then(products => {
+                console.log('Produtos do productsModule (checkout):', products.length);
+                console.log('Primeiro produto do productsModule (checkout):', products[0]);
+            });
+        } catch (error) {
+            console.log('❌ Erro ao carregar produtos do productsModule (checkout):', error);
+        }
+    } else {
+        console.log('❌ productsModule não disponível no checkout');
+    }
+    
+    // Testar productsDatabase diretamente
+    if (typeof productsDatabase !== 'undefined') {
+        console.log('✅ productsDatabase disponível no checkout');
+        const allProducts = [];
+        Object.values(productsDatabase).forEach(category => {
+            if (Array.isArray(category)) {
+                allProducts.push(...category);
+            }
+        });
+        console.log('Produtos do productsDatabase (checkout):', allProducts.length);
+        console.log('Primeiro produto do productsDatabase (checkout):', allProducts[0]);
+    } else {
+        console.log('❌ productsDatabase não disponível no checkout');
+    }
+    
+    console.log('=== FIM TESTE CHECKOUT ===');
+}
 
 let currentUser = null;
 let cartItems = [];
@@ -49,7 +108,12 @@ function logout() {
 
 // Carregar itens do carrinho
 async function loadCartItems() {
+    console.log('=== CARREGANDO ITENS DO CARRINHO NO CHECKOUT ===');
     cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    
+    console.log('Carrinho atual no checkout:', cartItems);
+    console.log('productsModule disponível:', typeof productsModule);
+    console.log('getAllProducts disponível:', typeof getAllProducts);
     
     if (cartItems.length === 0) {
         alert('Seu carrinho está vazio.');
@@ -59,42 +123,79 @@ async function loadCartItems() {
     
     // Carregar dados completos dos produtos
     for (const item of cartItems) {
+        console.log(`\n--- Processando item ${item.id} no checkout ---`);
+        console.log('Dados originais do item:', item);
+        
         try {
             let product = null;
             
             // Tentar carregar do productsModule primeiro
-            try {
-                if (typeof productsModule !== 'undefined') {
+            if (typeof productsModule !== 'undefined') {
+                try {
+                    console.log('Tentando carregar do productsModule no checkout...');
                     product = await productsModule.getProductById(item.id);
+                    console.log('Produto encontrado no productsModule (checkout):', product);
+                } catch (error) {
+                    console.log('Erro no productsModule (checkout):', error);
                 }
-            } catch (error) {
-                console.log('Erro no productsModule, tentando database.js...');
+            } else {
+                console.log('productsModule não disponível no checkout');
             }
             
             // Se não encontrou, tentar database.js diretamente
             if (!product && typeof getAllProducts === 'function') {
+                console.log('Tentando carregar do database.js no checkout...');
                 const allProducts = getAllProducts();
+                console.log('Todos os produtos do database.js (checkout):', allProducts.length);
                 product = allProducts.find(p => p.id === item.id);
+                console.log('Produto encontrado no database.js (checkout):', product);
+            }
+            
+            // Se ainda não encontrou, tentar carregar diretamente do database.js
+            if (!product) {
+                console.log('Tentando carregar diretamente do database.js...');
+                try {
+                    // Tentar acessar diretamente o objeto productsDatabase
+                    if (typeof productsDatabase !== 'undefined') {
+                        const allProducts = [];
+                        Object.values(productsDatabase).forEach(category => {
+                            if (Array.isArray(category)) {
+                                allProducts.push(...category);
+                            }
+                        });
+                        product = allProducts.find(p => p.id === item.id);
+                        console.log('Produto encontrado diretamente no database.js:', product);
+                    }
+                } catch (error) {
+                    console.log('Erro ao acessar database.js diretamente:', error);
+                }
             }
             
             if (product) {
                 // Atualizar dados do item com informações do produto
+                const oldPrice = item.price;
                 item.title = product.title || item.title;
                 item.price = parseFloat(product.price) || parseFloat(item.price) || 0;
                 item.image = product.image || item.image;
                 item.stock = product.stock || item.stock;
                 item.description = product.description || item.description;
                 item.brand = product.brand || item.brand;
-                console.log(`Produto ${item.id} atualizado no checkout:`, {
+                console.log(`✅ Produto ${item.id} atualizado no checkout:`, {
+                    title: item.title,
+                    price: item.price,
+                    oldPrice: oldPrice,
+                    brand: item.brand
+                });
+            } else {
+                console.warn('❌ Produto não encontrado no checkout:', item.id);
+                // Garantir que o preço seja numérico
+                item.price = parseFloat(item.price) || 0;
+                item.brand = item.brand || 'Marca';
+                console.log(`Mantendo dados originais para ${item.id} no checkout:`, {
                     title: item.title,
                     price: item.price,
                     brand: item.brand
                 });
-            } else {
-                console.warn('Produto não encontrado no checkout:', item.id);
-                // Garantir que o preço seja numérico
-                item.price = parseFloat(item.price) || 0;
-                item.brand = item.brand || 'Marca';
             }
         } catch (error) {
             console.error('Erro ao carregar produto no checkout:', error);
@@ -102,8 +203,16 @@ async function loadCartItems() {
             item.price = parseFloat(item.price) || 0;
             item.brand = item.brand || 'Marca';
         }
+        
+        console.log(`Dados finais do item ${item.id} no checkout:`, {
+            title: item.title,
+            price: item.price,
+            quantity: item.quantity,
+            brand: item.brand
+        });
     }
     
+    console.log('=== EXIBINDO ITENS E CALCULANDO TOTAIS ===');
     displayCartItems();
     calculateTotals();
 }
