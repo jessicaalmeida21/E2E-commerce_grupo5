@@ -10,6 +10,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const loginForm = document.getElementById('login-form');
     const registerForm = document.getElementById('register-form');
     
+    console.log('=== VERIFICANDO ELEMENTOS DO FORMULÁRIO ===');
+    console.log('loginForm encontrado:', !!loginForm);
+    console.log('registerForm encontrado:', !!registerForm);
+    console.log('Tabs encontradas:', tabs.length);
+    console.log('Tab contents encontrados:', tabContents.length);
+    
     // Gerenciamento de abas
     tabs.forEach(tab => {
         tab.addEventListener('click', () => {
@@ -273,9 +279,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Formulário de cadastro
     if (registerForm) {
+        console.log('✅ Formulário de cadastro encontrado, adicionando event listener...');
         registerForm.addEventListener('submit', async function(e) {
             e.preventDefault();
             console.log('=== INÍCIO DO CADASTRO ===');
+            console.log('Evento de submit capturado!');
             
             const name = document.getElementById('register-name').value;
             const email = document.getElementById('register-email').value;
@@ -414,6 +422,27 @@ document.addEventListener('DOMContentLoaded', function() {
                 messageElement.className = 'form-message';
             }, 2000);
         });
+    } else {
+        console.error('❌ Formulário de cadastro não encontrado!');
+        console.log('Elementos disponíveis:', document.querySelectorAll('form'));
+    }
+    
+    // Event listener alternativo no botão de cadastro
+    const registerButton = document.querySelector('button[type="submit"]');
+    if (registerButton) {
+        console.log('✅ Botão de cadastro encontrado, adicionando event listener alternativo...');
+        registerButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('=== BOTÃO DE CADASTRO CLICADO ===');
+            
+            // Simular o submit do formulário
+            if (registerForm) {
+                const submitEvent = new Event('submit', { bubbles: true, cancelable: true });
+                registerForm.dispatchEvent(submitEvent);
+            }
+        });
+    } else {
+        console.error('❌ Botão de cadastro não encontrado!');
     }
 });
 
@@ -491,20 +520,56 @@ function fillTestCredentials(email, password) {
 function testRegistration() {
     console.log('=== TESTE DE CADASTRO ===');
     
-    // Preencher campos de cadastro
-    document.getElementById('register-name').value = 'Teste Cadastro';
-    document.getElementById('register-email').value = 'teste@cadastro.com';
-    document.getElementById('register-password').value = 'teste123';
-    document.getElementById('register-confirm-password').value = 'teste123';
-    document.getElementById('register-profile').value = 'cliente';
-    
-    console.log('Campos preenchidos, clique em "Cadastrar" para testar');
-    
-    // Mudar para aba de cadastro
+    // Mudar para aba de cadastro primeiro
     const registerTab = document.querySelector('.tab[data-tab="register"]');
     if (registerTab) {
         registerTab.click();
+        console.log('Mudando para aba de cadastro...');
     }
+    
+    // Aguardar um pouco e preencher campos
+    setTimeout(() => {
+        const nameField = document.getElementById('register-name');
+        const emailField = document.getElementById('register-email');
+        const passwordField = document.getElementById('register-password');
+        const confirmPasswordField = document.getElementById('register-confirm-password');
+        const profileField = document.getElementById('register-profile');
+        
+        if (nameField && emailField && passwordField && confirmPasswordField && profileField) {
+            nameField.value = 'Teste Cadastro';
+            emailField.value = 'teste@cadastro.com';
+            passwordField.value = 'teste123';
+            confirmPasswordField.value = 'teste123';
+            profileField.value = 'cliente';
+            
+            console.log('✅ Campos preenchidos com sucesso');
+            console.log('Valores:', {
+                name: nameField.value,
+                email: emailField.value,
+                password: '***',
+                confirmPassword: '***',
+                profile: profileField.value
+            });
+            
+            // Simular clique no botão
+            const registerButton = document.querySelector('button[type="submit"]');
+            if (registerButton) {
+                console.log('Clicando no botão de cadastro...');
+                registerButton.click();
+            } else {
+                console.error('❌ Botão de cadastro não encontrado');
+            }
+        } else {
+            console.error('❌ Campos de cadastro não encontrados');
+            console.log('Campos encontrados:', {
+                name: !!nameField,
+                email: !!emailField,
+                password: !!passwordField,
+                confirmPassword: !!confirmPasswordField,
+                profile: !!profileField
+            });
+        }
+    }, 500);
 }
 
 // Adicionar botão de teste ao DOM
