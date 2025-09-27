@@ -247,10 +247,102 @@ class ApiService {
             return 'https://images.unsplash.com/photo-104';
         }
         
-        // Fallback: usar imagem genérica de produto
-        const uniqueSeed = (imageNumber + title.length) % 10000;
-        console.log(`⚠ Usando fallback genérico para "${title}" com seed ${uniqueSeed}`);
-        return `https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&crop=center&auto=format&q=80`;
+    // Fallback: usar imagem genérica de produto
+    const uniqueSeed = (imageNumber + title.length) % 10000;
+    console.log(`⚠ Usando fallback genérico para "${title}" com seed ${uniqueSeed}`);
+    return `https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&crop=center&auto=format&q=80`;
+}
+
+    // Função para clonar produto com imagens (sem alterar funcionalidade existente)
+    async cloneProductWithImages(productId, options = {}) {
+        try {
+            // Buscar o produto original
+            const response = await fetch(`${this.baseUrl}/products/${productId}`);
+            if (!response.ok) {
+                throw new Error('Produto não encontrado');
+            }
+            
+            const originalProduct = await response.json();
+            
+            // Criar produto clonado com imagens
+            const clonedProduct = {
+                ...originalProduct,
+                id: `PROD-${Date.now()}`, // Novo ID único
+                title: options.newTitle || `${originalProduct.title} (Cópia)`,
+                image: options.mainImage || this.getProductImage(originalProduct),
+                additionalImages: options.additionalImages || [],
+                createdAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+            };
+            
+            // Se não foi fornecida imagem principal, gerar uma nova
+            if (!options.mainImage) {
+                clonedProduct.image = this.getProductImage(clonedProduct);
+            }
+            
+            console.log('Produto clonado com imagens:', clonedProduct);
+            return clonedProduct;
+            
+        } catch (error) {
+            console.error('Erro ao clonar produto com imagens:', error);
+            throw error;
+        }
+    }
+
+    // Função para gerar múltiplas imagens para um produto
+    generateMultipleImages(product, count = 3) {
+        const images = [];
+        const baseImage = this.getProductImage(product);
+        
+        // Gerar variações da imagem base
+        for (let i = 0; i < count; i++) {
+            const variation = this.getImageVariation(baseImage, i);
+            images.push(variation);
+        }
+        
+        return images;
+    }
+
+    // Função para gerar variações de imagem
+    getImageVariation(baseImage, variationIndex) {
+        // Adicionar parâmetros diferentes para criar variações
+        const variations = [
+            '&auto=format&q=80&sat=1.2', // Mais saturado
+            '&auto=format&q=80&brightness=1.1', // Mais brilhante
+            '&auto=format&q=80&contrast=1.1', // Mais contraste
+            '&auto=format&q=80&blur=1', // Levemente desfocado
+            '&auto=format&q=80&hue=30' // Mudança de tom
+        ];
+        
+        const variation = variations[variationIndex % variations.length];
+        return baseImage + variation;
+    }
+
+    // Função para clonar produto mantendo imagens originais
+    async cloneProductKeepImages(productId) {
+        try {
+            const response = await fetch(`${this.baseUrl}/products/${productId}`);
+            if (!response.ok) {
+                throw new Error('Produto não encontrado');
+            }
+            
+            const originalProduct = await response.json();
+            
+            const clonedProduct = {
+                ...originalProduct,
+                id: `PROD-${Date.now()}`,
+                title: `${originalProduct.title} (Cópia)`,
+                createdAt: new Date().toISOString(),
+                updatedAt: new Date().toISOString()
+            };
+            
+            console.log('Produto clonado mantendo imagens originais:', clonedProduct);
+            return clonedProduct;
+            
+        } catch (error) {
+            console.error('Erro ao clonar produto:', error);
+            throw error;
+        }
     }
 }
 

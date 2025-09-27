@@ -257,6 +257,9 @@ function createProductCard(product) {
                 <button class="wishlist-btn" data-id="${product.id}">
                     <i class="far fa-heart"></i>
                 </button>
+                <button class="clone-btn" data-id="${product.id}" title="Clonar produto com imagens">
+                    <i class="fas fa-copy"></i>
+                </button>
             </div>
         </div>
     `;
@@ -287,6 +290,17 @@ function createProductCard(product) {
             } else {
                 icon.className = 'far fa-heart';
                 showNotification('Removido dos favoritos!', 'info');
+            }
+        });
+    }
+    
+    const cloneBtn = card.querySelector('.clone-btn');
+    if (cloneBtn) {
+        cloneBtn.addEventListener('click', function() {
+            if (typeof productCloneModule !== 'undefined') {
+                productCloneModule.showCloneModal(product);
+            } else {
+                showNotification('Módulo de clonagem não disponível', 'error');
             }
         });
     }
