@@ -83,14 +83,23 @@ async function loadCartItems() {
             if (product) {
                 // Atualizar dados do item com informações do produto
                 item.title = product.title || item.title;
-                item.price = parseFloat(product.price) || 0;
+                item.price = parseFloat(product.price) || parseFloat(item.price) || 0;
                 item.image = product.image || item.image;
                 item.stock = product.stock || item.stock;
                 item.description = product.description || item.description;
+                console.log(`Produto ${item.id} atualizado:`, {
+                    title: item.title,
+                    price: item.price,
+                    image: item.image
+                });
             } else {
                 console.warn('Produto não encontrado:', item.id);
                 // Manter dados originais do item
                 item.price = parseFloat(item.price) || 0;
+                console.log(`Mantendo dados originais para ${item.id}:`, {
+                    title: item.title,
+                    price: item.price
+                });
             }
         } catch (error) {
             console.error('Erro ao carregar produto:', error);
@@ -113,7 +122,7 @@ function createCartItem(item) {
     
     cartItem.innerHTML = `
         <div class="item-image">
-            <img src="${item.image}" alt="${item.title}">
+            <img src="${item.image || 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80'}" alt="${item.title || 'Produto'}" onerror="this.src='https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80'">
         </div>
         <div class="item-details">
             <h3 class="item-title">${item.title || 'Produto'}</h3>

@@ -82,13 +82,19 @@ function setupEventListeners() {
     
     // Toggle de senhas
     setupPasswordToggles();
+    
+    console.log('Event listeners configurados no perfil');
 }
 
 // Salvar perfil
 function saveProfile() {
+    console.log('Função saveProfile chamada');
     const currentUser = JSON.parse(localStorage.getItem('currentUser'));
     const users = JSON.parse(localStorage.getItem('users')) || [];
     const userIndex = users.findIndex(u => u.id === currentUser.id);
+    
+    console.log('Current user:', currentUser);
+    console.log('User index:', userIndex);
     
     if (userIndex === -1) {
         showMessage('Usuário não encontrado.', 'error');
@@ -213,18 +219,29 @@ function logout() {
 // Configurar toggles de senha
 function setupPasswordToggles() {
     const toggles = document.querySelectorAll('.toggle-password');
+    console.log(`Encontrados ${toggles.length} botões de toggle de senha`);
     
-    toggles.forEach(toggle => {
-        toggle.addEventListener('click', function() {
+    toggles.forEach((toggle, index) => {
+        console.log(`Configurando toggle ${index + 1}`);
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
             const input = this.parentElement.querySelector('input');
             const icon = this.querySelector('.show-password');
             
-            if (input.type === 'password') {
-                input.type = 'text';
-                icon.textContent = '🙈';
+            console.log('Toggle clicado, input:', input, 'icon:', icon);
+            
+            if (input && icon) {
+                if (input.type === 'password') {
+                    input.type = 'text';
+                    icon.textContent = '🙈';
+                    console.log('Senha mostrada');
+                } else {
+                    input.type = 'password';
+                    icon.textContent = '👁️';
+                    console.log('Senha ocultada');
+                }
             } else {
-                input.type = 'password';
-                icon.textContent = '👁️';
+                console.error('Input ou icon não encontrado');
             }
         });
     });
