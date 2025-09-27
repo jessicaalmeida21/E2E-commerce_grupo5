@@ -315,8 +315,14 @@ function displayInstallmentOptions() {
 // Configurar event listeners
 function setupEventListeners() {
     // CEP
-    document.getElementById('search-cep').addEventListener('click', searchCEP);
-    document.getElementById('cep').addEventListener('input', formatCEP);
+    const searchCepBtn = document.getElementById('search-cep');
+    if (searchCepBtn) {
+        searchCepBtn.addEventListener('click', searchCEP);
+    }
+    const cepInput = document.getElementById('cep');
+    if (cepInput) {
+        cepInput.addEventListener('input', formatCEP);
+    }
     
     // Métodos de pagamento
     document.querySelectorAll('.payment-tab').forEach(tab => {
@@ -324,28 +330,58 @@ function setupEventListeners() {
     });
     
     // Formatação de campos
-    document.getElementById('card-number').addEventListener('input', formatCardNumber);
-    document.getElementById('card-cvv').addEventListener('input', formatCVV);
-    document.getElementById('card-expiry').addEventListener('input', formatExpiry);
-    document.getElementById('pix-cpf').addEventListener('input', formatCPF);
+    const cardNumberInput = document.getElementById('card-number');
+    if (cardNumberInput) {
+        cardNumberInput.addEventListener('input', formatCardNumber);
+    }
+    
+    const cardCvvInput = document.getElementById('card-cvv');
+    if (cardCvvInput) {
+        cardCvvInput.addEventListener('input', formatCVV);
+    }
+    
+    const cardExpiryInput = document.getElementById('card-expiry');
+    if (cardExpiryInput) {
+        cardExpiryInput.addEventListener('input', formatExpiry);
+    }
+    
+    const pixCpfInput = document.getElementById('pix-cpf');
+    if (pixCpfInput) {
+        pixCpfInput.addEventListener('input', formatCPF);
+    }
     
     // Parcelas
-    document.getElementById('installments').addEventListener('change', updateInstallmentInfo);
+    const installmentsSelect = document.getElementById('installments');
+    if (installmentsSelect) {
+        installmentsSelect.addEventListener('change', updateInstallmentInfo);
+    }
     
     // PIX
-    document.getElementById('copy-pix-key').addEventListener('click', copyPixKey);
+    const copyPixBtn = document.getElementById('copy-pix-key');
+    if (copyPixBtn) {
+        copyPixBtn.addEventListener('click', copyPixKey);
+    }
     
     // Finalizar pedido
-    document.getElementById('finalize-order').addEventListener('click', finalizeOrder);
+    const finalizeBtn = document.getElementById('finalize-order');
+    if (finalizeBtn) {
+        finalizeBtn.addEventListener('click', finalizeOrder);
+    }
     
     // Modais
-    document.getElementById('view-orders').addEventListener('click', () => {
-        window.location.href = './orders.html';
-    });
+    const viewOrdersBtn = document.getElementById('view-orders');
+    if (viewOrdersBtn) {
+        viewOrdersBtn.addEventListener('click', () => {
+            window.location.href = './orders.html';
+        });
+    }
     
-    document.getElementById('continue-shopping').addEventListener('click', () => {
-        window.location.href = './catalog.html';
-    });
+    const continueShoppingBtn = document.getElementById('continue-shopping');
+    if (continueShoppingBtn) {
+        continueShoppingBtn.addEventListener('click', () => {
+            window.location.href = './catalog.html';
+        });
+    }
 }
 
 // Buscar CEP
