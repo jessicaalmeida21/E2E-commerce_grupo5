@@ -341,7 +341,12 @@ async function handleLogin(e) {
     // Redirecionar para página de boas-vindas
     console.log('Redirecionando para welcome.html');
     setTimeout(() => {
-        window.location.href = './welcome.html';
+        // Verificar se estamos na pasta pages
+        if (window.location.pathname.includes('/pages/')) {
+            window.location.href = './welcome.html';
+        } else {
+            window.location.href = './pages/welcome.html';
+        }
     }, 1500);
 }
 

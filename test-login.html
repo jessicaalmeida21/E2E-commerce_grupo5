@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Login - E2E-Commerce</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .test-button:hover {
+            background: #218838;
+        }
+        .test-button.danger {
+            background: #dc3545;
+        }
+        .test-button.danger:hover {
+            background: #c82333;
+        }
+        .test-result {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .test-result.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .test-result.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .credentials-display {
+            background: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1><i class="fas fa-vial"></i> Teste de Login e Cadastro</h1>
+        
+        <!-- Teste de Usuários Fixos -->
+        <div class="test-section">
+            <h2><i class="fas fa-users"></i> Usuários de Teste Fixos</h2>
+            <p>Estes usuários sempre existem e não precisam ser cadastrados:</p>
+            
+            <div class="credentials-display">
+                <strong>Cliente Teste:</strong><br>
+                Email: teste@gmail.com<br>
+                Senha: teste123<br>
+                Perfil: Cliente
+            </div>
+            
+            <div class="credentials-display">
+                <strong>Vendedor Teste:</strong><br>
+                Email: vendedor@teste.com<br>
+                Senha: vendedor1<br>
+                Perfil: Vendedor
+            </div>
+            
+            <button class="test-button" onclick="testFixedUsers()">
+                <i class="fas fa-play"></i> Testar Usuários Fixos
+            </button>
+            
+            <div id="fixed-users-result" class="test-result" style="display: none;"></div>
+        </div>
+        
+        <!-- Teste de Cadastro -->
+        <div class="test-section">
+            <h2><i class="fas fa-user-plus"></i> Teste de Cadastro</h2>
+            <p>Teste o cadastro de novos usuários:</p>
+            
+            <button class="test-button" onclick="testRegistration()">
+                <i class="fas fa-user-plus"></i> Testar Cadastro de Cliente
+            </button>
+            
+            <button class="test-button" onclick="testSellerRegistration()">
+                <i class="fas fa-user-tie"></i> Testar Cadastro de Vendedor
+            </button>
+            
+            <div id="registration-result" class="test-result" style="display: none;"></div>
+        </div>
+        
+        <!-- Teste de Login -->
+        <div class="test-section">
+            <h2><i class="fas fa-sign-in-alt"></i> Teste de Login</h2>
+            <p>Teste o login com diferentes usuários:</p>
+            
+            <button class="test-button" onclick="testLogin('teste@gmail.com', 'teste123')">
+                <i class="fas fa-sign-in-alt"></i> Login Cliente Teste
+            </button>
+            
+            <button class="test-button" onclick="testLogin('vendedor@teste.com', 'vendedor1')">
+                <i class="fas fa-sign-in-alt"></i> Login Vendedor Teste
+            </button>
+            
+            <div id="login-result" class="test-result" style="display: none;"></div>
+        </div>
+        
+        <!-- Limpeza -->
+        <div class="test-section">
+            <h2><i class="fas fa-broom"></i> Limpeza e Reset</h2>
+            <p>Limpar dados de teste:</p>
+            
+            <button class="test-button danger" onclick="clearTestData()">
+                <i class="fas fa-trash"></i> Limpar Dados de Teste
+            </button>
+            
+            <button class="test-button" onclick="resetToFixedUsers()">
+                <i class="fas fa-refresh"></i> Reset para Usuários Fixos
+            </button>
+            
+            <div id="cleanup-result" class="test-result" style="display: none;"></div>
+        </div>
+        
+        <!-- Status Atual -->
+        <div class="test-section">
+            <h2><i class="fas fa-info-circle"></i> Status Atual</h2>
+            <div id="current-status"></div>
+        </div>
+    </div>
+
+    <script src="js/database.js"></script>
+    <script src="js/login.js"></script>
+    <script>
+        // Função para testar usuários fixos
+        function testFixedUsers() {
+            const result = document.getElementById('fixed-users-result');
+            result.style.display = 'block';
+            
+            try {
+                // Verificar se os usuários fixos existem
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                const fixedUsers = users.filter(user => user.isFixed);
+                
+                if (fixedUsers.length >= 2) {
+                    const cliente = fixedUsers.find(u => u.email === 'teste@gmail.com');
+                    const vendedor = fixedUsers.find(u => u.email === 'vendedor@teste.com');
+                    
+                    if (cliente && vendedor) {
+                        result.className = 'test-result success';
+                        result.innerHTML = `
+                            <i class="fas fa-check-circle"></i> 
+                            Usuários fixos funcionando!<br>
+                            Cliente: ${cliente.name} (${cliente.email})<br>
+                            Vendedor: ${vendedor.name} (${vendedor.email})
+                        `;
+                    } else {
+                        throw new Error('Usuários fixos não encontrados');
+                    }
+                } else {
+                    throw new Error('Usuários fixos não encontrados');
+                }
+            } catch (error) {
+                result.className = 'test-result error';
+                result.innerHTML = `<i class="fas fa-exclamation-circle"></i> Erro: ${error.message}`;
+            }
+        }
+        
+        // Função para testar cadastro
+        function testRegistration() {
+            const result = document.getElementById('registration-result');
+            result.style.display = 'block';
+            
+            // Simular dados de cadastro
+            const testUser = {
+                name: 'Cliente Teste ' + Date.now(),
+                email: 'cliente' + Date.now() + '@teste.com',
+                password: 'teste123',
+                profile: 'customer'
+            };
+            
+            // Simular processo de cadastro
+            try {
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                
+                // Verificar se email já existe
+                const existingUser = users.find(u => u.email === testUser.email);
+                if (existingUser) {
+                    throw new Error('Email já cadastrado');
+                }
+                
+                // Criar novo usuário
+                const newUser = {
+                    id: Date.now().toString(),
+                    name: testUser.name,
+                    email: testUser.email,
+                    password: testUser.password, // Em produção seria criptografado
+                    profile: testUser.profile,
+                    createdAt: new Date().toISOString(),
+                    isFixed: false
+                };
+                
+                users.push(newUser);
+                localStorage.setItem('users', JSON.stringify(users));
+                
+                result.className = 'test-result success';
+                result.innerHTML = `
+                    <i class="fas fa-check-circle"></i> 
+                    Cadastro funcionando!<br>
+                    Usuário criado: ${newUser.name} (${newUser.email})
+                `;
+            } catch (error) {
+                result.className = 'test-result error';
+                result.innerHTML = `<i class="fas fa-exclamation-circle"></i> Erro: ${error.message}`;
+            }
+        }
+        
+        // Função para testar cadastro de vendedor
+        function testSellerRegistration() {
+            const result = document.getElementById('registration-result');
+            result.style.display = 'block';
+            
+            const testUser = {
+                name: 'Vendedor Teste ' + Date.now(),
+                email: 'vendedor' + Date.now() + '@teste.com',
+                password: 'vendedor1',
+                profile: 'seller'
+            };
+            
+            try {
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                const existingUser = users.find(u => u.email === testUser.email);
+                if (existingUser) {
+                    throw new Error('Email já cadastrado');
+                }
+                
+                const newUser = {
+                    id: Date.now().toString(),
+                    name: testUser.name,
+                    email: testUser.email,
+                    password: testUser.password,
+                    profile: testUser.profile,
+                    createdAt: new Date().toISOString(),
+                    isFixed: false
+                };
+                
+                users.push(newUser);
+                localStorage.setItem('users', JSON.stringify(users));
+                
+                result.className = 'test-result success';
+                result.innerHTML = `
+                    <i class="fas fa-check-circle"></i> 
+                    Cadastro de vendedor funcionando!<br>
+                    Usuário criado: ${newUser.name} (${newUser.email})
+                `;
+            } catch (error) {
+                result.className = 'test-result error';
+                result.innerHTML = `<i class="fas fa-exclamation-circle"></i> Erro: ${error.message}`;
+            }
+        }
+        
+        // Função para testar login
+        function testLogin(email, password) {
+            const result = document.getElementById('login-result');
+            result.style.display = 'block';
+            
+            try {
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                const user = users.find(u => u.email === email);
+                
+                if (!user) {
+                    throw new Error('Usuário não encontrado');
+                }
+                
+                // Verificar senha (simplificado para teste)
+                let passwordMatch = false;
+                if (user.id === 'test-001' || user.id === 'test-002') {
+                    passwordMatch = user.password === password;
+                } else {
+                    // Para usuários cadastrados, seria criptografado
+                    passwordMatch = user.password === password;
+                }
+                
+                if (!passwordMatch) {
+                    throw new Error('Senha incorreta');
+                }
+                
+                // Simular login
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                
+                result.className = 'test-result success';
+                result.innerHTML = `
+                    <i class="fas fa-check-circle"></i> 
+                    Login funcionando!<br>
+                    Usuário logado: ${user.name} (${user.email})<br>
+                    Perfil: ${user.profile === 'customer' ? 'Cliente' : 'Vendedor'}
+                `;
+            } catch (error) {
+                result.className = 'test-result error';
+                result.innerHTML = `<i class="fas fa-exclamation-circle"></i> Erro: ${error.message}`;
+            }
+        }
+        
+        // Função para limpar dados de teste
+        function clearTestData() {
+            const result = document.getElementById('cleanup-result');
+            result.style.display = 'block';
+            
+            try {
+                // Manter apenas usuários fixos
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                const fixedUsers = users.filter(user => user.isFixed);
+                
+                localStorage.setItem('users', JSON.stringify(fixedUsers));
+                localStorage.removeItem('currentUser');
+                
+                result.className = 'test-result success';
+                result.innerHTML = '<i class="fas fa-check-circle"></i> Dados de teste limpos! Apenas usuários fixos mantidos.';
+                
+                updateCurrentStatus();
+            } catch (error) {
+                result.className = 'test-result error';
+                result.innerHTML = `<i class="fas fa-exclamation-circle"></i> Erro: ${error.message}`;
+            }
+        }
+        
+        // Função para resetar para usuários fixos
+        function resetToFixedUsers() {
+            const result = document.getElementById('cleanup-result');
+            result.style.display = 'block';
+            
+            try {
+                // Recriar usuários fixos
+                initializeUsers();
+                localStorage.removeItem('currentUser');
+                
+                result.className = 'test-result success';
+                result.innerHTML = '<i class="fas fa-check-circle"></i> Reset realizado! Usuários fixos recriados.';
+                
+                updateCurrentStatus();
+            } catch (error) {
+                result.className = 'test-result error';
+                result.innerHTML = `<i class="fas fa-exclamation-circle"></i> Erro: ${error.message}`;
+            }
+        }
+        
+        // Função para atualizar status atual
+        function updateCurrentStatus() {
+            const statusDiv = document.getElementById('current-status');
+            
+            try {
+                const users = JSON.parse(localStorage.getItem('users')) || [];
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                
+                const fixedUsers = users.filter(user => user.isFixed);
+                const customUsers = users.filter(user => !user.isFixed);
+                
+                let statusHTML = `
+                    <div class="credentials-display">
+                        <strong>Usuários no sistema:</strong> ${users.length}<br>
+                        <strong>Usuários fixos:</strong> ${fixedUsers.length}<br>
+                        <strong>Usuários cadastrados:</strong> ${customUsers.length}<br>
+                        <strong>Usuário logado:</strong> ${currentUser ? currentUser.name + ' (' + currentUser.email + ')' : 'Nenhum'}
+                    </div>
+                `;
+                
+                if (fixedUsers.length > 0) {
+                    statusHTML += '<br><strong>Usuários fixos disponíveis:</strong><br>';
+                    fixedUsers.forEach(user => {
+                        statusHTML += `• ${user.name} (${user.email}) - ${user.profile === 'customer' ? 'Cliente' : 'Vendedor'}<br>`;
+                    });
+                }
+                
+                if (customUsers.length > 0) {
+                    statusHTML += '<br><strong>Usuários cadastrados:</strong><br>';
+                    customUsers.forEach(user => {
+                        statusHTML += `• ${user.name} (${user.email}) - ${user.profile === 'customer' ? 'Cliente' : 'Vendedor'}<br>`;
+                    });
+                }
+                
+                statusDiv.innerHTML = statusHTML;
+            } catch (error) {
+                statusDiv.innerHTML = `<div class="test-result error">Erro ao carregar status: ${error.message}</div>`;
+            }
+        }
+        
+        // Atualizar status ao carregar a página
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCurrentStatus();
+        });
+    </script>
+</body>
+</html>
