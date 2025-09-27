@@ -65,8 +65,17 @@ function processUrlParams() {
 async function loadCategories() {
     try {
         console.log('Carregando categorias...');
-        const categories = await productsModule.getCategories();
-        console.log('Categorias recebidas:', categories);
+        let categories = await productsModule.getCategories();
+        console.log('Categorias recebidas do productsModule:', categories);
+        
+        // Se não há categorias, usar database.js diretamente
+        if (!categories || categories.length === 0) {
+            console.log('Usando categorias do database.js diretamente...');
+            if (typeof getCategories === 'function') {
+                categories = getCategories();
+                console.log('Categorias carregadas diretamente do database.js:', categories);
+            }
+        }
         
         const categoryFilter = document.getElementById('category-filter');
         if (!categoryFilter) {
@@ -83,8 +92,8 @@ async function loadCategories() {
         if (categories && categories.length > 0) {
             categories.forEach(category => {
                 const option = document.createElement('option');
-                option.value = category;
-                option.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+                option.value = category.key || category;
+                option.textContent = category.name || (category.charAt(0).toUpperCase() + category.slice(1));
                 categoryFilter.appendChild(option);
             });
             console.log(`${categories.length} categorias adicionadas ao filtro`);
@@ -142,6 +151,15 @@ async function loadProducts(page = 1) {
             console.log('Nenhum produto encontrado, usando fallback...');
             products = await productsModule.loadLocalProducts();
             console.log('Produtos locais carregados:', products.length);
+        }
+        
+        // Se ainda não há produtos, usar database.js diretamente
+        if (!products || products.length === 0) {
+            console.log('Usando database.js diretamente...');
+            if (typeof getAllProducts === 'function') {
+                products = getAllProducts();
+                console.log('Produtos carregados diretamente do database.js:', products.length);
+            }
         }
         
         // Aplicar filtros locais
