@@ -61,9 +61,88 @@ async function loadFeaturedProducts() {
     
     try {
         console.log('Carregando produtos em destaque...');
-        // Carregar produtos em destaque da API
-        const featured = await productsModule.getFeaturedProducts(4);
-        console.log('Produtos carregados:', featured);
+        
+        // Tentar carregar produtos em destaque da API
+        let featured = [];
+        try {
+            featured = await productsModule.getFeaturedProducts(4);
+            console.log('Produtos carregados do productsModule:', featured);
+        } catch (error) {
+            console.log('Erro no productsModule, tentando database.js diretamente...');
+        }
+        
+        // Se não há produtos, usar database.js diretamente
+        if (!featured || featured.length === 0) {
+            console.log('Usando database.js diretamente...');
+            if (typeof getAllProducts === 'function') {
+                const allProducts = getAllProducts();
+                featured = allProducts.slice(0, 4); // Pegar os primeiros 4 produtos
+                console.log('Produtos carregados do database.js:', featured.length);
+            }
+        }
+        
+        // Se ainda não há produtos, usar fallback
+        if (!featured || featured.length === 0) {
+            console.log('Usando produtos de fallback...');
+            featured = [
+                {
+                    id: 'PROD-001',
+                    title: 'Samsung Galaxy S24 FE 5G',
+                    description: 'Smartphone Samsung Galaxy S24 FE 5G com 8GB RAM, 128GB',
+                    price: 2899.99,
+                    originalPrice: 3299.99,
+                    discount: 12,
+                    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80',
+                    category: 'Smartphones',
+                    brand: 'Samsung',
+                    stock: 15,
+                    rating: 4.5,
+                    ratingCount: 234
+                },
+                {
+                    id: 'PROD-002',
+                    title: 'iPhone 15 Pro Max',
+                    description: 'iPhone 15 Pro Max com chip A17 Pro, câmera principal 48MP',
+                    price: 8999.99,
+                    originalPrice: 9999.99,
+                    discount: 10,
+                    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80',
+                    category: 'Smartphones',
+                    brand: 'Apple',
+                    stock: 8,
+                    rating: 4.8,
+                    ratingCount: 567
+                },
+                {
+                    id: 'PROD-003',
+                    title: 'Notebook Acer Aspire 5',
+                    description: 'Notebook Acer Aspire 5 com Intel Core i5, 8GB RAM, 512GB SSD',
+                    price: 2499.99,
+                    originalPrice: 2999.99,
+                    discount: 17,
+                    image: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80',
+                    category: 'Notebooks',
+                    brand: 'Acer',
+                    stock: 12,
+                    rating: 4.2,
+                    ratingCount: 156
+                },
+                {
+                    id: 'PROD-004',
+                    title: 'Smart TV Samsung 55" 4K',
+                    description: 'Smart TV Samsung 55" 4K UHD com Tizen OS, HDR, Wi-Fi',
+                    price: 1899.99,
+                    originalPrice: 2299.99,
+                    discount: 17,
+                    image: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80',
+                    category: 'Televisões',
+                    brand: 'Samsung',
+                    stock: 25,
+                    rating: 4.4,
+                    ratingCount: 312
+                }
+            ];
+        }
         
         // Limpa o container
         featuredContainer.innerHTML = '';
@@ -73,73 +152,11 @@ async function loadFeaturedProducts() {
             const productCard = createProductCard(product);
             featuredContainer.appendChild(productCard);
         });
+        
+        console.log(`${featured.length} produtos em destaque carregados com sucesso!`);
     } catch (error) {
         console.error('Erro ao carregar produtos em destaque:', error);
-        // Fallback para produtos locais
-        const fallbackProducts = [
-            {
-                id: 'PROD-001',
-                title: 'Smartphone Galaxy S21',
-                description: 'Smartphone com tela de 6.2 polegadas',
-                price: 2500.00,
-                originalPrice: 3000.00,
-                discount: 17,
-                image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center',
-                category: 'eletrônicos',
-                brand: 'Samsung',
-                stock: 50,
-                rating: 4.5,
-                ratingCount: 120
-            },
-            {
-                id: 'PROD-002',
-                title: 'Notebook Dell Inspiron',
-                description: 'Notebook para trabalho e estudos',
-                price: 3500.00,
-                originalPrice: 4000.00,
-                discount: 13,
-                image: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center',
-                category: 'eletrônicos',
-                brand: 'Dell',
-                stock: 25,
-                rating: 4.2,
-                ratingCount: 85
-            },
-            {
-                id: 'PROD-003',
-                title: 'Air Fryer Electrolux',
-                description: 'Fritadeira sem óleo 4L',
-                price: 399.00,
-                originalPrice: 499.00,
-                discount: 20,
-                image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center',
-                category: 'casa',
-                brand: 'Electrolux',
-                stock: 30,
-                rating: 4.3,
-                ratingCount: 95
-            },
-            {
-                id: 'PROD-004',
-                title: 'Tênis Nike Air Max',
-                description: 'Tênis esportivo confortável',
-                price: 299.00,
-                originalPrice: 399.00,
-                discount: 25,
-                image: 'https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&crop=center',
-                category: 'moda',
-                brand: 'Nike',
-                stock: 40,
-                rating: 4.6,
-                ratingCount: 150
-            }
-        ];
-        
-        featuredContainer.innerHTML = '';
-        fallbackProducts.forEach(product => {
-            const productCard = createProductCard(product);
-            featuredContainer.appendChild(productCard);
-        });
+        featuredContainer.innerHTML = '<p>Erro ao carregar produtos. Tente novamente mais tarde.</p>';
     }
 }
 
