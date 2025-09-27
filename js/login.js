@@ -173,14 +173,9 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Sessão salva no localStorage');
         console.log('Perfil do usuário:', user.profile);
         
-        // Redirecionar com base no perfil
-        if (user.profile === 'seller') {
-            console.log('Redirecionando para admin.html');
-            window.location.href = './admin.html';
-        } else {
-            console.log('Redirecionando para index.html');
-            window.location.href = '../index.html';
-        }
+        // Redirecionar para página de boas-vindas
+        console.log('Redirecionando para welcome.html');
+        window.location.href = './welcome.html';
     }
     
     // Verificar timeout de sessão (30 minutos) via localStorage

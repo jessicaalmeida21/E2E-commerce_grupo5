@@ -1,0 +1,253 @@
+/* Estilos específicos para a página de boas-vindas */
+
+.welcome-main {
+    min-height: calc(100vh - 200px);
+    padding: 40px 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+.welcome-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.welcome-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.welcome-icon {
+    font-size: 4rem;
+    color: #28a745;
+    margin-bottom: 20px;
+}
+
+.welcome-header h1 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.welcome-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 0;
+}
+
+.welcome-subtitle span {
+    color: #007bff;
+    font-weight: 600;
+}
+
+.welcome-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.welcome-card {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.welcome-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.card-icon {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.welcome-card:nth-child(1) .card-icon {
+    color: #007bff;
+}
+
+.welcome-card:nth-child(2) .card-icon {
+    color: #28a745;
+}
+
+.welcome-card:nth-child(3) .card-icon {
+    color: #ffc107;
+}
+
+.welcome-card h3 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.welcome-card p {
+    color: #666;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.welcome-card .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.welcome-card .btn.primary {
+    background: #007bff;
+    color: white;
+}
+
+.welcome-card .btn.primary:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+.welcome-card .btn.secondary {
+    background: #28a745;
+    color: white;
+}
+
+.welcome-card .btn.secondary:hover {
+    background: #1e7e34;
+    transform: translateY(-2px);
+}
+
+.welcome-card .btn.admin {
+    background: #ffc107;
+    color: #333;
+}
+
+.welcome-card .btn.admin:hover {
+    background: #e0a800;
+    transform: translateY(-2px);
+}
+
+.welcome-actions {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.quick-actions h3 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 25px;
+    font-size: 1.5rem;
+}
+
+.action-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.action-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #333;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.action-btn:hover {
+    background: #e9ecef;
+    border-color: #007bff;
+    transform: translateY(-2px);
+}
+
+.action-btn i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #007bff;
+}
+
+.action-btn span {
+    font-weight: 500;
+}
+
+.welcome-footer {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+}
+
+.welcome-footer p {
+    margin: 5px 0;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .welcome-header h1 {
+        font-size: 2rem;
+    }
+    
+    .welcome-subtitle {
+        font-size: 1rem;
+    }
+    
+    .welcome-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .welcome-card {
+        padding: 20px;
+    }
+    
+    .action-buttons {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+    
+    .action-btn {
+        padding: 15px;
+    }
+    
+    .action-btn i {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-main {
+        padding: 20px 0;
+    }
+    
+    .welcome-container {
+        padding: 0 15px;
+    }
+    
+    .welcome-header {
+        margin-bottom: 30px;
+    }
+    
+    .welcome-icon {
+        font-size: 3rem;
+    }
+    
+    .welcome-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .action-buttons {
+        grid-template-columns: 1fr;
+    }
+}

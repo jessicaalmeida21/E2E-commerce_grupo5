@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Carrinho de Compras | E2E-Commerce</title>
+    <title>Bem-vindo - E2E-Commerce</title>
     <link rel="stylesheet" href="../css/styles.css">
-    <link rel="stylesheet" href="../css/cart.css">
+    <link rel="stylesheet" href="../css/welcome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -29,18 +29,17 @@
                     </div>
                     <div id="logged-in-actions" style="display: none;">
                         <span class="user-greeting">Olá, <span id="user-name-header">Usuário</span>!</span>
-                        <a href="welcome.html"><i class="fas fa-home"></i> Início</a>
                         <a href="profile.html"><i class="fas fa-user-cog"></i> Meu Perfil</a>
                         <a href="admin.html" id="admin-link" style="display: none;"><i class="fas fa-cogs"></i> Gestão</a>
                         <button id="logout-btn-header" class="btn-link"><i class="fas fa-sign-out-alt"></i> Sair</button>
                     </div>
-                    <a href="cart.html" class="cart-link active"><i class="fas fa-shopping-cart"></i> Carrinho <span id="cart-count" class="badge">0</span></a>
+                    <a href="cart.html"><i class="fas fa-shopping-cart"></i> Carrinho <span id="cart-count" class="badge">0</span></a>
                 </div>
             </div>
             <nav class="main-nav">
                 <ul>
                     <li><a href="../index.html">Início</a></li>
-                    <li><a href="categories.html">Categorias</a></li>
+                    <li><a href="catalog.html">Catálogo</a></li>
                     <li><a href="offers.html">Ofertas</a></li>
                     <li><a href="sellers.html">Fornecedores</a></li>
                     <li><a href="contact.html">Contato</a></li>
@@ -50,46 +49,81 @@
     </header>
 
     <!-- Conteúdo Principal -->
-    <main class="container">
-        <div class="cart-header">
-            <h1><i class="fas fa-shopping-cart"></i> Carrinho de Compras</h1>
-            <div class="cart-info">
-                <span id="cart-items-count">0 itens</span>
-            </div>
-        </div>
+    <main class="welcome-main">
+        <div class="container">
+            <div class="welcome-container">
+                <div class="welcome-header">
+                    <div class="welcome-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h1>Bem-vindo(a) ao E2E-Commerce!</h1>
+                    <p class="welcome-subtitle">Você está logado(a) como <span id="user-name-welcome">Usuário</span></p>
+                </div>
 
-        <div class="cart-content">
-            <div class="cart-items" id="cart-items">
-                <!-- Itens do carrinho serão carregados via JavaScript -->
-            </div>
+                <div class="welcome-content">
+                    <div class="welcome-card">
+                        <div class="card-icon">
+                            <i class="fas fa-shopping-bag"></i>
+                        </div>
+                        <h3>Explorar Produtos</h3>
+                        <p>Descubra nossa ampla variedade de produtos de qualidade</p>
+                        <a href="catalog.html" class="btn primary">
+                            <i class="fas fa-arrow-right"></i> Ver Catálogo
+                        </a>
+                    </div>
 
-            <div class="cart-summary">
-                <div class="summary-card">
-                    <h3>Resumo do Pedido</h3>
-                    <div class="summary-line">
-                        <span>Subtotal:</span>
-                        <span id="subtotal">R$ 0,00</span>
+                    <div class="welcome-card">
+                        <div class="card-icon">
+                            <i class="fas fa-user-cog"></i>
+                        </div>
+                        <h3>Meu Perfil</h3>
+                        <p>Gerencie suas informações pessoais e configurações</p>
+                        <a href="profile.html" class="btn secondary">
+                            <i class="fas fa-arrow-right"></i> Acessar Perfil
+                        </a>
                     </div>
-                    <div class="summary-line">
-                        <span>Frete:</span>
-                        <span id="shipping">R$ 0,00</span>
+
+                    <div class="welcome-card" id="admin-card" style="display: none;">
+                        <div class="card-icon">
+                            <i class="fas fa-cogs"></i>
+                        </div>
+                        <h3>Gestão de Produtos</h3>
+                        <p>Gerencie seus produtos e vendas (Apenas para vendedores)</p>
+                        <a href="admin.html" class="btn admin">
+                            <i class="fas fa-arrow-right"></i> Painel Admin
+                        </a>
                     </div>
-                    <div class="summary-line total">
-                        <span>Total:</span>
-                        <span id="total">R$ 0,00</span>
+                </div>
+
+                <div class="welcome-actions">
+                    <div class="quick-actions">
+                        <h3>Ações Rápidas</h3>
+                        <div class="action-buttons">
+                            <a href="catalog.html" class="action-btn">
+                                <i class="fas fa-search"></i>
+                                <span>Buscar Produtos</span>
+                            </a>
+                            <a href="cart.html" class="action-btn">
+                                <i class="fas fa-shopping-cart"></i>
+                                <span>Ver Carrinho</span>
+                            </a>
+                            <a href="offers.html" class="action-btn">
+                                <i class="fas fa-tags"></i>
+                                <span>Ofertas</span>
+                            </a>
+                            <a href="contact.html" class="action-btn">
+                                <i class="fas fa-envelope"></i>
+                                <span>Contato</span>
+                            </a>
+                        </div>
                     </div>
-                    <a href="checkout.html" class="btn checkout-btn" id="checkout-btn">
-                        <i class="fas fa-credit-card"></i> Finalizar Compra
-                    </a>
+                </div>
+
+                <div class="welcome-footer">
+                    <p>Obrigado por escolher o E2E-Commerce!</p>
+                    <p>Se precisar de ajuda, entre em contato conosco.</p>
                 </div>
             </div>
-        </div>
-
-        <div class="empty-cart" id="empty-cart" style="display: none;">
-            <i class="fas fa-shopping-cart"></i>
-            <h2>Seu carrinho está vazio</h2>
-            <p>Que tal adicionar alguns produtos?</p>
-            <a href="../index.html" class="btn">Continuar Comprando</a>
         </div>
     </main>
 
@@ -139,6 +173,6 @@
     <script src="../js/api-service.js?v=36"></script>
     <script src="../js/products.js?v=36"></script>
     <script src="../js/main.js?v=36"></script>
-    <script src="../js/cart.js?v=36"></script>
+    <script src="../js/welcome.js?v=36"></script>
 </body>
 </html>
