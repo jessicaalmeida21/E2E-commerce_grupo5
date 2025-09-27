@@ -17,10 +17,22 @@
                 </a>
             </div>
             <div class="user-actions">
-                <a href="cart.html" class="cart-icon">
-                    <span class="material-icons">shopping_cart</span>
-                    <span class="cart-count">0</span>
-                </a>
+                <div id="logged-out-actions">
+                    <a href="cart.html" class="cart-icon">
+                        <span class="material-icons">shopping_cart</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
+                <div id="logged-in-actions" style="display: none;">
+                    <span class="user-greeting">Olá, <span id="user-name-header">Usuário</span>!</span>
+                    <a href="profile.html"><i class="fas fa-user-cog"></i> Meu Perfil</a>
+                    <a href="admin.html" id="admin-link" style="display: none;"><i class="fas fa-cogs"></i> Gestão</a>
+                    <button id="logout-btn-header" class="btn-link"><i class="fas fa-sign-out-alt"></i> Sair</button>
+                    <a href="cart.html" class="cart-icon">
+                        <span class="material-icons">shopping_cart</span>
+                        <span class="cart-count">0</span>
+                    </a>
+                </div>
             </div>
         </div>
     </header>
@@ -137,6 +149,6 @@
         </div>
     </footer>
 
-    <script src="../js/login.js"></script>
+    <script src="../js/login.js?v=35"></script>
 </body>
 </html>

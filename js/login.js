@@ -1,6 +1,9 @@
 // Script para gerenciar login e cadastro de usuários
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Configurar cabeçalho do usuário
+    setupHeaderUserActions();
+    
     // Elementos da interface
     const tabs = document.querySelectorAll('.tab');
     const tabContents = document.querySelectorAll('.tab-content');
@@ -25,6 +28,42 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     });
+    
+    // Função para configurar as ações do usuário no cabeçalho
+    function setupHeaderUserActions() {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        const loggedOutActions = document.getElementById('logged-out-actions');
+        const loggedInActions = document.getElementById('logged-in-actions');
+        const userNameHeader = document.getElementById('user-name-header');
+        const adminLink = document.getElementById('admin-link');
+        const logoutBtn = document.getElementById('logout-btn-header');
+        
+        if (currentUser) {
+            // Usuário logado
+            if (loggedOutActions) loggedOutActions.style.display = 'none';
+            if (loggedInActions) loggedInActions.style.display = 'flex';
+            if (userNameHeader) userNameHeader.textContent = currentUser.name;
+            
+            // Mostrar link de gestão se for vendedor
+            if (adminLink && currentUser.profile === 'seller') {
+                adminLink.style.display = 'inline-block';
+            }
+            
+            // Configurar logout
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', function() {
+                    localStorage.removeItem('currentUser');
+                    localStorage.removeItem('sessionTimeout');
+                    alert('Logout realizado com sucesso!');
+                    window.location.reload();
+                });
+            }
+        } else {
+            // Usuário não logado
+            if (loggedOutActions) loggedOutActions.style.display = 'block';
+            if (loggedInActions) loggedInActions.style.display = 'none';
+        }
+    }
     
     // Validação de senha
     function validatePassword(password) {
