@@ -67,9 +67,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Validação de senha
     function validatePassword(password) {
-        // Mínimo 10 caracteres
-        if (password.length < 10) {
-            return { valid: false, message: 'A senha deve ter no mínimo 10 caracteres.' };
+        // Mínimo 6 caracteres
+        if (password.length < 6) {
+            return { valid: false, message: 'A senha deve ter no mínimo 6 caracteres.' };
         }
         
         // Deve conter números
@@ -80,11 +80,6 @@ document.addEventListener('DOMContentLoaded', function() {
         // Deve conter letras
         if (!/[a-zA-Z]/.test(password)) {
             return { valid: false, message: 'A senha deve conter pelo menos uma letra.' };
-        }
-        
-        // Deve conter caracteres especiais
-        if (!/[!@#$%^&*(),.?":{}|<>]/.test(password)) {
-            return { valid: false, message: 'A senha deve conter pelo menos um caractere especial.' };
         }
         
         return { valid: true };
@@ -280,6 +275,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (registerForm) {
         registerForm.addEventListener('submit', async function(e) {
             e.preventDefault();
+            console.log('=== INÍCIO DO CADASTRO ===');
             
             const name = document.getElementById('register-name').value;
             const email = document.getElementById('register-email').value;
@@ -287,6 +283,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const confirmPassword = document.getElementById('register-confirm-password').value;
             const profile = document.getElementById('register-profile').value;
             const messageElement = document.getElementById('register-message');
+            
+            console.log('Dados do formulário:', { name, email, password: '***', confirmPassword: '***', profile });
             
             // Limpar mensagens de erro anteriores
             document.getElementById('register-name-error').textContent = '';
@@ -335,32 +333,60 @@ document.addEventListener('DOMContentLoaded', function() {
             }
             
             if (hasError) {
+                console.log('❌ Erros de validação encontrados, cancelando cadastro');
                 return;
             }
+            
+            console.log('✅ Validação passou, prosseguindo com cadastro');
             
             // Normalizar perfil para o backend/uso interno
             const normalizedProfile = profile === 'vendedor' ? 'seller' : 'customer';
             console.log('Perfil normalizado:', normalizedProfile);
 
-            // Criar novo usuário
-            const newUser = {
-                id: Date.now().toString(),
-                name,
-                email,
-                password: await hashPassword(password),
-                profile: normalizedProfile,
-                createdAt: new Date().toISOString()
-            };
-            
-            console.log('Novo usuário criado:', newUser);
-            console.log('Usuários antes de adicionar:', users.length);
-            
-            // Adicionar à lista e salvar
-            users.push(newUser);
-            localStorage.setItem('users', JSON.stringify(users));
-            
-            console.log('Usuários após adicionar:', users.length);
-            console.log('Usuários salvos no localStorage:', JSON.parse(localStorage.getItem('users') || '[]').length);
+            try {
+                // Criar novo usuário
+                const hashedPassword = await hashPassword(password);
+                console.log('Senha criptografada com sucesso');
+                
+                const newUser = {
+                    id: Date.now().toString(),
+                    name,
+                    email,
+                    password: hashedPassword,
+                    profile: normalizedProfile,
+                    createdAt: new Date().toISOString()
+                };
+                
+                console.log('Novo usuário criado:', { ...newUser, password: '***' });
+                console.log('Usuários antes de adicionar:', users.length);
+                
+                // Adicionar à lista e salvar
+                users.push(newUser);
+                localStorage.setItem('users', JSON.stringify(users));
+                
+                console.log('Usuários após adicionar:', users.length);
+                console.log('Usuários salvos no localStorage:', JSON.parse(localStorage.getItem('users') || '[]').length);
+                
+                // Verificar se foi salvo corretamente
+                const savedUsers = JSON.parse(localStorage.getItem('users') || '[]');
+                const savedUser = savedUsers.find(u => u.email === email);
+                if (savedUser) {
+                    console.log('✅ Usuário salvo com sucesso no localStorage');
+                } else {
+                    console.error('❌ Erro: Usuário não foi salvo no localStorage');
+                }
+                
+            } catch (error) {
+                console.error('❌ Erro ao criar usuário:', error);
+                messageElement.innerHTML = `
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span>Erro ao criar conta. Tente novamente.</span>
+                    </div>
+                `;
+                messageElement.className = 'form-message error';
+                return;
+            }
             
             // Cadastro bem-sucedido
             messageElement.innerHTML = `
@@ -460,6 +486,40 @@ function fillTestCredentials(email, password) {
         }
     }
 }
+
+// Função para testar cadastro
+function testRegistration() {
+    console.log('=== TESTE DE CADASTRO ===');
+    
+    // Preencher campos de cadastro
+    document.getElementById('register-name').value = 'Teste Cadastro';
+    document.getElementById('register-email').value = 'teste@cadastro.com';
+    document.getElementById('register-password').value = 'teste123';
+    document.getElementById('register-confirm-password').value = 'teste123';
+    document.getElementById('register-profile').value = 'cliente';
+    
+    console.log('Campos preenchidos, clique em "Cadastrar" para testar');
+    
+    // Mudar para aba de cadastro
+    const registerTab = document.querySelector('.tab[data-tab="register"]');
+    if (registerTab) {
+        registerTab.click();
+    }
+}
+
+// Adicionar botão de teste ao DOM
+document.addEventListener('DOMContentLoaded', function() {
+    // Adicionar botão de teste de cadastro
+    const testSection = document.querySelector('.test-credentials');
+    if (testSection) {
+        const testButton = document.createElement('button');
+        testButton.textContent = 'Testar Cadastro';
+        testButton.className = 'btn secondary';
+        testButton.style.marginTop = '10px';
+        testButton.onclick = testRegistration;
+        testSection.appendChild(testButton);
+    }
+});
 
 // Função para limpar cache e recarregar
 function clearCacheAndReload() {
