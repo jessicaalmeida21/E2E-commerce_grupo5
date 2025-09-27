@@ -1,9 +1,48 @@
 // Script para gerenciar o carrinho de compras
 document.addEventListener('DOMContentLoaded', function() {
+    // Configurar cabeçalho do usuário
+    setupHeaderUserActions();
+    
+    // Carregar itens do carrinho
     loadCartItems();
     updateCartSummary();
     setupEventListeners();
 });
+
+// Função para configurar as ações do usuário no cabeçalho
+function setupHeaderUserActions() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const loggedOutActions = document.getElementById('logged-out-actions');
+    const loggedInActions = document.getElementById('logged-in-actions');
+    const userNameHeader = document.getElementById('user-name-header');
+    const adminLink = document.getElementById('admin-link');
+    const logoutBtn = document.getElementById('logout-btn-header');
+    
+    if (currentUser) {
+        // Usuário logado
+        if (loggedOutActions) loggedOutActions.style.display = 'none';
+        if (loggedInActions) loggedInActions.style.display = 'flex';
+        if (userNameHeader) userNameHeader.textContent = currentUser.name;
+        
+        // Mostrar link de gestão se for vendedor
+        if (adminLink && currentUser.profile === 'seller') {
+            adminLink.style.display = 'inline-block';
+        }
+        
+        // Configurar logout
+        if (logoutBtn) {
+            logoutBtn.addEventListener('click', function() {
+                localStorage.removeItem('currentUser');
+                localStorage.removeItem('sessionTimeout');
+                window.location.reload();
+            });
+        }
+    } else {
+        // Usuário não logado
+        if (loggedOutActions) loggedOutActions.style.display = 'block';
+        if (loggedInActions) loggedInActions.style.display = 'none';
+    }
+}
 
 // Carregar itens do carrinho
 async function loadCartItems() {
@@ -23,19 +62,40 @@ async function loadCartItems() {
     
     cartItemsContainer.innerHTML = '';
     
-    // Carregar dados completos dos produtos da API
+    // Carregar dados completos dos produtos
     for (const item of cart) {
         try {
-            const product = await productsModule.getProductById(item.id);
+            let product = null;
+            
+            // Tentar carregar do productsModule primeiro
+            try {
+                product = await productsModule.getProductById(item.id);
+            } catch (error) {
+                console.log('Erro no productsModule, tentando database.js...');
+            }
+            
+            // Se não encontrou, tentar database.js diretamente
+            if (!product && typeof getAllProducts === 'function') {
+                const allProducts = getAllProducts();
+                product = allProducts.find(p => p.id === item.id);
+            }
+            
             if (product) {
-                // Atualizar dados do item com informações da API
-                item.title = product.title;
-                item.price = product.price;
-                item.image = product.image;
-                item.stock = product.stock;
+                // Atualizar dados do item com informações do produto
+                item.title = product.title || item.title;
+                item.price = parseFloat(product.price) || 0;
+                item.image = product.image || item.image;
+                item.stock = product.stock || item.stock;
+                item.description = product.description || item.description;
+            } else {
+                console.warn('Produto não encontrado:', item.id);
+                // Manter dados originais do item
+                item.price = parseFloat(item.price) || 0;
             }
         } catch (error) {
             console.error('Erro ao carregar produto:', error);
+            // Garantir que o preço seja numérico
+            item.price = parseFloat(item.price) || 0;
         }
         
         const cartItem = createCartItem(item);
@@ -56,8 +116,9 @@ function createCartItem(item) {
             <img src="${item.image}" alt="${item.title}">
         </div>
         <div class="item-details">
-            <h3 class="item-title">${item.title}</h3>
-            <div class="item-price">${formatPrice(item.price)}</div>
+            <h3 class="item-title">${item.title || 'Produto'}</h3>
+            <p class="item-description">${item.description || ''}</p>
+            <div class="item-price">${formatPrice(item.price || 0)}</div>
         </div>
         <div class="item-quantity">
             <button class="quantity-btn minus" data-id="${item.id}">
@@ -69,7 +130,7 @@ function createCartItem(item) {
             </button>
         </div>
         <div class="item-total">
-            ${formatPrice(item.price * item.quantity)}
+            ${formatPrice((item.price || 0) * (item.quantity || 1))}
         </div>
         <div class="item-actions">
             <button class="remove-btn" data-id="${item.id}">
@@ -147,16 +208,25 @@ function removeFromCart(productId) {
 // Atualizar resumo do carrinho
 function updateCartSummary() {
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const itemsCount = cart.reduce((total, item) => total + item.quantity, 0);
-    const subtotal = cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+    const itemsCount = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+    const subtotal = cart.reduce((total, item) => {
+        const price = parseFloat(item.price) || 0;
+        const quantity = parseInt(item.quantity) || 1;
+        return total + (price * quantity);
+    }, 0);
     const shipping = subtotal > 99 ? 0 : 15; // Frete grátis acima de R$ 99
     const total = subtotal + shipping;
     
     // Atualizar contadores
-    document.getElementById('cart-items-count').textContent = `${itemsCount} ${itemsCount === 1 ? 'item' : 'itens'}`;
-    document.getElementById('subtotal').textContent = formatPrice(subtotal);
-    document.getElementById('shipping').textContent = formatPrice(shipping);
-    document.getElementById('total').textContent = formatPrice(total);
+    const itemsCountEl = document.getElementById('cart-items-count');
+    const subtotalEl = document.getElementById('subtotal');
+    const shippingEl = document.getElementById('shipping');
+    const totalEl = document.getElementById('total');
+    
+    if (itemsCountEl) itemsCountEl.textContent = `${itemsCount} ${itemsCount === 1 ? 'item' : 'itens'}`;
+    if (subtotalEl) subtotalEl.textContent = formatPrice(subtotal);
+    if (shippingEl) shippingEl.textContent = formatPrice(shipping);
+    if (totalEl) totalEl.textContent = formatPrice(total);
     
     // Habilitar/desabilitar botão de checkout
     const checkoutBtn = document.getElementById('checkout-btn');
