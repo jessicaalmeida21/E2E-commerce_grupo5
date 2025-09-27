@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Produtos - E2E-Commerce</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ddd; border-radius: 8px; }
+        .product-card { display: inline-block; margin: 10px; padding: 15px; border: 1px solid #ccc; border-radius: 8px; width: 200px; }
+        .product-image { width: 100%; height: 150px; background: #f0f0f0; margin-bottom: 10px; }
+        .product-title { font-weight: bold; margin-bottom: 5px; }
+        .product-price { color: #28a745; font-weight: bold; }
+        .test-button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin: 5px; }
+        .test-button:hover { background: #0056b3; }
+        .console-output { background: #f8f9fa; border: 1px solid #dee2e6; padding: 10px; margin: 10px 0; border-radius: 4px; font-family: monospace; white-space: pre-wrap; max-height: 300px; overflow-y: auto; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Teste de Produtos - E2E-Commerce</h1>
+    
+    <div class="test-section">
+        <h2>1. Verificar Módulos</h2>
+        <button class="test-button" onclick="checkModules()">Verificar Módulos</button>
+        <div id="modules-output" class="console-output"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. Carregar Produtos</h2>
+        <button class="test-button" onclick="loadProducts()">Carregar Produtos</button>
+        <div id="products-output" class="console-output"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>3. Exibir Produtos</h2>
+        <button class="test-button" onclick="displayProducts()">Exibir Produtos</button>
+        <div id="products-display"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>4. Testar Adicionar ao Carrinho</h2>
+        <button class="test-button" onclick="testAddToCart()">Testar Adicionar ao Carrinho</button>
+        <div id="cart-output" class="console-output"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>5. Verificar Carrinho</h2>
+        <button class="test-button" onclick="checkCart()">Verificar Carrinho</button>
+        <div id="cart-display" class="console-output"></div>
+    </div>
+
+    <script src="js/database.js?v=38"></script>
+    <script src="js/api-service.js?v=38"></script>
+    <script src="js/products.js?v=38"></script>
+    <script src="js/catalog.js?v=38"></script>
+    
+    <script>
+        let loadedProducts = [];
+        
+        function log(outputId, message) {
+            const output = document.getElementById(outputId);
+            output.textContent += message + '\n';
+            output.scrollTop = output.scrollHeight;
+        }
+        
+        function clearOutput(outputId) {
+            document.getElementById(outputId).textContent = '';
+        }
+        
+        function checkModules() {
+            clearOutput('modules-output');
+            log('modules-output', '=== VERIFICANDO MÓDULOS ===');
+            log('modules-output', 'productsModule: ' + (typeof productsModule !== 'undefined' ? '✅ Disponível' : '❌ Não disponível'));
+            log('modules-output', 'getAllProducts: ' + (typeof getAllProducts !== 'undefined' ? '✅ Disponível' : '❌ Não disponível'));
+            log('modules-output', 'getCategories: ' + (typeof getCategories !== 'undefined' ? '✅ Disponível' : '❌ Não disponível'));
+            log('modules-output', 'apiService: ' + (typeof apiService !== 'undefined' ? '✅ Disponível' : '❌ Não disponível'));
+            log('modules-output', 'productsDatabase: ' + (typeof productsDatabase !== 'undefined' ? '✅ Disponível' : '❌ Não disponível'));
+            
+            if (typeof productsDatabase !== 'undefined') {
+                const categories = Object.keys(productsDatabase);
+                log('modules-output', 'Categorias disponíveis: ' + categories.join(', '));
+                log('modules-output', 'Total de produtos no database: ' + Object.values(productsDatabase).flat().length);
+            }
+        }
+        
+        async function loadProducts() {
+            clearOutput('products-output');
+            log('products-output', '=== CARREGANDO PRODUTOS ===');
+            
+            try {
+                // Tentar carregar via productsModule
+                if (typeof productsModule !== 'undefined') {
+                    log('products-output', 'Tentando carregar via productsModule...');
+                    const products = await productsModule.loadProducts();
+                    log('products-output', 'Produtos carregados via productsModule: ' + products.length);
+                    if (products.length > 0) {
+                        log('products-output', 'Primeiro produto: ' + JSON.stringify(products[0], null, 2));
+                        loadedProducts = products;
+                    }
+                } else {
+                    log('products-output', 'productsModule não disponível, tentando database.js...');
+                }
+                
+                // Tentar carregar via database.js
+                if (loadedProducts.length === 0 && typeof getAllProducts !== 'undefined') {
+                    log('products-output', 'Tentando carregar via getAllProducts...');
+                    const products = getAllProducts();
+                    log('products-output', 'Produtos carregados via getAllProducts: ' + products.length);
+                    if (products.length > 0) {
+                        log('products-output', 'Primeiro produto: ' + JSON.stringify(products[0], null, 2));
+                        loadedProducts = products;
+                    }
+                }
+                
+                // Tentar carregar diretamente do productsDatabase
+                if (loadedProducts.length === 0 && typeof productsDatabase !== 'undefined') {
+                    log('products-output', 'Tentando carregar diretamente do productsDatabase...');
+                    const allProducts = [];
+                    Object.values(productsDatabase).forEach(category => {
+                        allProducts.push(...category);
+                    });
+                    log('products-output', 'Produtos carregados do productsDatabase: ' + allProducts.length);
+                    if (allProducts.length > 0) {
+                        log('products-output', 'Primeiro produto: ' + JSON.stringify(allProducts[0], null, 2));
+                        loadedProducts = allProducts;
+                    }
+                }
+                
+                log('products-output', 'Total de produtos carregados: ' + loadedProducts.length);
+                
+            } catch (error) {
+                log('products-output', '❌ Erro ao carregar produtos: ' + error.message);
+            }
+        }
+        
+        function displayProducts() {
+            const container = document.getElementById('products-display');
+            container.innerHTML = '';
+            
+            if (loadedProducts.length === 0) {
+                container.innerHTML = '<p>Nenhum produto carregado. Clique em "Carregar Produtos" primeiro.</p>';
+                return;
+            }
+            
+            log('products-output', '=== EXIBINDO PRODUTOS ===');
+            
+            loadedProducts.slice(0, 6).forEach((product, index) => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <div class="product-image" style="background-image: url('${product.image}'); background-size: cover; background-position: center;"></div>
+                    <div class="product-title">${product.title}</div>
+                    <div class="product-price">R$ ${product.price.toFixed(2).replace('.', ',')}</div>
+                    <button onclick="addProductToCart('${product.id}')" style="width: 100%; margin-top: 10px; padding: 5px;">Adicionar ao Carrinho</button>
+                `;
+                container.appendChild(productCard);
+                
+                log('products-output', `Produto ${index + 1}: ${product.title} - R$ ${product.price}`);
+            });
+        }
+        
+        async function addProductToCart(productId) {
+            log('cart-output', `=== ADICIONANDO PRODUTO ${productId} AO CARRINHO ===`);
+            
+            try {
+                if (typeof productsModule !== 'undefined') {
+                    const result = await productsModule.addToCart(productId);
+                    log('cart-output', '✅ Produto adicionado via productsModule: ' + result);
+                } else {
+                    log('cart-output', '❌ productsModule não disponível');
+                }
+            } catch (error) {
+                log('cart-output', '❌ Erro ao adicionar produto: ' + error.message);
+            }
+        }
+        
+        async function testAddToCart() {
+            clearOutput('cart-output');
+            
+            if (loadedProducts.length === 0) {
+                log('cart-output', 'Nenhum produto carregado. Carregue produtos primeiro.');
+                return;
+            }
+            
+            const firstProduct = loadedProducts[0];
+            log('cart-output', 'Testando adicionar primeiro produto ao carrinho...');
+            await addProductToCart(firstProduct.id);
+        }
+        
+        function checkCart() {
+            clearOutput('cart-display');
+            log('cart-display', '=== VERIFICANDO CARRINHO ===');
+            
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            log('cart-display', 'Itens no carrinho: ' + cart.length);
+            
+            cart.forEach((item, index) => {
+                log('cart-display', `Item ${index + 1}:`);
+                log('cart-display', `  ID: ${item.id}`);
+                log('cart-display', `  Título: ${item.title}`);
+                log('cart-display', `  Preço: R$ ${item.price}`);
+                log('cart-display', `  Quantidade: ${item.quantity}`);
+                log('cart-display', `  Total: R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}`);
+                log('cart-display', '---');
+            });
+            
+            const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+            log('cart-display', `Total do carrinho: R$ ${total.toFixed(2).replace('.', ',')}`);
+        }
+        
+        // Executar verificação automática ao carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                checkModules();
+                loadProducts();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

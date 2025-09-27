@@ -394,7 +394,8 @@ const productsModule = (() => {
 
     // Adicionar ao carrinho
     async function addToCart(productId) {
-        console.log('Tentando adicionar produto ao carrinho:', productId);
+        console.log('=== ADICIONANDO PRODUTO AO CARRINHO ===');
+        console.log('ProductId:', productId);
         console.log('Produtos disponíveis:', products.length);
         console.log('IDs dos produtos:', products.map(p => p.id));
         
@@ -404,16 +405,19 @@ const productsModule = (() => {
             const loadedProducts = await loadProducts();
             if (loadedProducts && loadedProducts.length > 0) {
                 products = loadedProducts;
+                console.log('Produtos carregados:', products.length);
             }
         }
         
         // Tentar encontrar o produto por ID exato primeiro
         let product = products.find(p => p.id === productId);
+        console.log('Produto encontrado nos produtos carregados:', !!product);
         
         // Se não encontrou, tentar encontrar por ID sem prefixo
         if (!product) {
             const idWithoutPrefix = productId.replace('PROD-', '');
             product = products.find(p => p.id === idWithoutPrefix || p.id === productId);
+            console.log('Produto encontrado sem prefixo:', !!product);
         }
         
         // Se ainda não encontrou, tentar carregar produtos da API novamente
@@ -427,14 +431,30 @@ const productsModule = (() => {
                         image: apiService.getProductImage(p)
                     }));
                     product = products.find(p => p.id === productId || p.id === productId.replace('PROD-', ''));
+                    console.log('Produto encontrado após recarregar da API:', !!product);
                 }
             } catch (error) {
                 console.error('Erro ao recarregar produtos:', error);
             }
         }
         
+        // Se ainda não encontrou, tentar database.js diretamente
+        if (!product && typeof getAllProducts === 'function') {
+            console.log('Tentando carregar do database.js diretamente...');
+            const allProducts = getAllProducts();
+            product = allProducts.find(p => p.id === productId);
+            console.log('Produto encontrado no database.js:', !!product);
+            if (product) {
+                console.log('Produto do database.js:', {
+                    id: product.id,
+                    title: product.title,
+                    price: product.price
+                });
+            }
+        }
+        
         if (!product) {
-            console.error('Produto não encontrado após todas as tentativas:', productId);
+            console.error('❌ Produto não encontrado após todas as tentativas:', productId);
             console.log('Produtos disponíveis:', products.map(p => ({ id: p.id, title: p.title })));
             throw new Error('Produto não encontrado');
         }
@@ -459,6 +479,8 @@ const productsModule = (() => {
         if (existingItem) {
             // Incrementar quantidade
             existingItem.quantity += 1;
+            // Atualizar preço também
+            existingItem.price = parseFloat(product.price) || 0;
             console.log('Quantidade incrementada para item existente:', existingItem);
         } else {
             // Adicionar novo item
