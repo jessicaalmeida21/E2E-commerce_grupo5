@@ -170,6 +170,10 @@ async function loadCartItems() {
     }
     
     console.log('=== ATUALIZANDO RESUMO DO CARRINHO ===');
+    
+    // Forçar atualização dos preços antes de calcular totais
+    await updateItemPrices();
+    
     updateCartSummary();
 }
 
@@ -273,21 +277,100 @@ function removeFromCart(productId) {
     updateCartCounter();
 }
 
+// Função para atualizar preços dos itens no carrinho
+async function updateItemPrices() {
+    console.log('=== ATUALIZANDO PREÇOS DOS ITENS ===');
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    let updated = false;
+    
+    for (const item of cart) {
+        console.log(`Atualizando preço do item ${item.id}:`, item);
+        
+        try {
+            let product = null;
+            
+            // Tentar carregar do productsModule primeiro
+            if (typeof productsModule !== 'undefined') {
+                try {
+                    product = await productsModule.getProductById(item.id);
+                    console.log('Produto encontrado no productsModule:', product);
+                } catch (error) {
+                    console.log('Erro no productsModule:', error);
+                }
+            }
+            
+            // Se não encontrou, tentar database.js diretamente
+            if (!product && typeof getAllProducts === 'function') {
+                const allProducts = getAllProducts();
+                product = allProducts.find(p => p.id === item.id);
+                console.log('Produto encontrado no database.js:', product);
+            }
+            
+            // Se ainda não encontrou, tentar carregar diretamente do database.js
+            if (!product && typeof productsDatabase !== 'undefined') {
+                const allProducts = [];
+                Object.values(productsDatabase).forEach(category => {
+                    if (Array.isArray(category)) {
+                        allProducts.push(...category);
+                    }
+                });
+                product = allProducts.find(p => p.id === item.id);
+                console.log('Produto encontrado no productsDatabase:', product);
+            }
+            
+            if (product) {
+                const oldPrice = item.price;
+                item.price = parseFloat(product.price) || 0;
+                item.title = product.title || item.title;
+                item.image = product.image || item.image;
+                item.description = product.description || item.description;
+                item.brand = product.brand || item.brand;
+                
+                if (oldPrice !== item.price) {
+                    console.log(`✅ Preço atualizado para ${item.id}: ${oldPrice} → ${item.price}`);
+                    updated = true;
+                } else {
+                    console.log(`Preço já correto para ${item.id}: ${item.price}`);
+                }
+            } else {
+                console.warn(`❌ Produto não encontrado para ${item.id}`);
+            }
+        } catch (error) {
+            console.error(`Erro ao atualizar preço do item ${item.id}:`, error);
+        }
+    }
+    
+    if (updated) {
+        console.log('Preços atualizados, salvando carrinho...');
+        localStorage.setItem('cart', JSON.stringify(cart));
+        console.log('Carrinho salvo com preços atualizados:', cart);
+    }
+    
+    console.log('=== FIM ATUALIZAÇÃO DE PREÇOS ===');
+}
+
 // Atualizar resumo do carrinho
 function updateCartSummary() {
+    console.log('=== ATUALIZANDO RESUMO DO CARRINHO ===');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    console.log('Carrinho atual para cálculo:', cart);
+    
     const itemsCount = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+    console.log('Total de itens:', itemsCount);
+    
     const subtotal = cart.reduce((total, item) => {
         const price = parseFloat(item.price) || 0;
         const quantity = parseInt(item.quantity) || 1;
         const itemTotal = price * quantity;
-        console.log(`Carrinho - Item ${item.id}: preço=${price}, qtd=${quantity}, total=${itemTotal}`);
+        console.log(`Item ${item.id}: preço=${price}, qtd=${quantity}, total=${itemTotal}`);
+        console.log(`Item ${item.id} dados completos:`, item);
         return total + itemTotal;
     }, 0);
+    
     const shipping = subtotal > 99 ? 0 : 15; // Frete grátis acima de R$ 99
     const total = subtotal + shipping;
     
-    console.log('Carrinho - Totais calculados:', { itemsCount, subtotal, shipping, total });
+    console.log('Totais calculados:', { itemsCount, subtotal, shipping, total });
     
     // Atualizar contadores
     const itemsCountEl = document.getElementById('cart-items-count');
@@ -295,19 +378,44 @@ function updateCartSummary() {
     const shippingEl = document.getElementById('shipping');
     const totalEl = document.getElementById('total');
     
-    if (itemsCountEl) itemsCountEl.textContent = `${itemsCount} ${itemsCount === 1 ? 'item' : 'itens'}`;
-    if (subtotalEl) subtotalEl.textContent = formatPrice(subtotal);
-    if (shippingEl) shippingEl.textContent = formatPrice(shipping);
-    if (totalEl) totalEl.textContent = formatPrice(total);
+    console.log('Elementos encontrados:', {
+        itemsCountEl: !!itemsCountEl,
+        subtotalEl: !!subtotalEl,
+        shippingEl: !!shippingEl,
+        totalEl: !!totalEl
+    });
+    
+    if (itemsCountEl) {
+        itemsCountEl.textContent = `${itemsCount} ${itemsCount === 1 ? 'item' : 'itens'}`;
+        console.log('Contador de itens atualizado:', itemsCountEl.textContent);
+    }
+    
+    if (subtotalEl) {
+        subtotalEl.textContent = formatPrice(subtotal);
+        console.log('Subtotal atualizado:', subtotalEl.textContent);
+    }
+    
+    if (shippingEl) {
+        shippingEl.textContent = formatPrice(shipping);
+        console.log('Frete atualizado:', shippingEl.textContent);
+    }
+    
+    if (totalEl) {
+        totalEl.textContent = formatPrice(total);
+        console.log('Total atualizado:', totalEl.textContent);
+    }
     
     // Habilitar/desabilitar botão de checkout
     const checkoutBtn = document.getElementById('checkout-btn');
     if (checkoutBtn) {
         checkoutBtn.disabled = itemsCount === 0;
+        console.log('Botão checkout habilitado:', !checkoutBtn.disabled);
     }
     
     // Atualizar contador do header
     updateCartCounter();
+    
+    console.log('=== FIM ATUALIZAÇÃO RESUMO ===');
 }
 
 // Formatar preço
