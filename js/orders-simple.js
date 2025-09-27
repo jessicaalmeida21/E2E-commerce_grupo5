@@ -91,14 +91,14 @@ function createOrderCard(order) {
                         <h4>${item.title}</h4>
                         <p>Qtd: ${item.quantity} | ${item.brand || 'Marca'}</p>
                     </div>
-                    <div class="item-price">${formatPrice(item.price * item.quantity)}</div>
+                    <div class="item-price">${formatPrice((parseFloat(item.price) || 0) * (parseInt(item.quantity) || 1))}</div>
                 </div>
             `).join('')}
         </div>
         
         <div class="order-footer">
             <div class="order-total">
-                <span>Total: <strong>${formatPrice(order.totals.total)}</strong></span>
+                <span>Total: <strong>${formatPrice(order.totals ? order.totals.total : 0)}</strong></span>
             </div>
             <div class="order-actions">
                 <button class="btn secondary" onclick="viewOrderDetails('${order.id}')">
@@ -183,10 +183,15 @@ function formatDate(dateString) {
 }
 
 function formatPrice(price) {
+    const numPrice = parseFloat(price);
+    if (isNaN(numPrice)) {
+        console.error('Preço inválido para formatação:', price);
+        return 'R$ 0,00';
+    }
     return new Intl.NumberFormat('pt-BR', {
         style: 'currency',
         currency: 'BRL'
-    }).format(price);
+    }).format(numPrice);
 }
 
 function showNotification(message, type = 'info') {
@@ -228,7 +233,7 @@ function viewOrderDetails(orderId) {
     
     let details = `Detalhes do Pedido #${order.id}\n`;
     details += `Status: ${getStatusInfo(order.status).text}\n`;
-    details += `Total: ${formatPrice(order.totals.total)}\n`;
+    details += `Total: ${formatPrice(order.totals ? order.totals.total : 0)}\n`;
     
     // Adicionar informações de logística se disponíveis
     if (order.logistics && window.logisticsUI) {

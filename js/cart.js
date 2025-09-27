@@ -221,10 +221,14 @@ function updateCartSummary() {
     const subtotal = cart.reduce((total, item) => {
         const price = parseFloat(item.price) || 0;
         const quantity = parseInt(item.quantity) || 1;
-        return total + (price * quantity);
+        const itemTotal = price * quantity;
+        console.log(`Carrinho - Item ${item.id}: preço=${price}, qtd=${quantity}, total=${itemTotal}`);
+        return total + itemTotal;
     }, 0);
     const shipping = subtotal > 99 ? 0 : 15; // Frete grátis acima de R$ 99
     const total = subtotal + shipping;
+    
+    console.log('Carrinho - Totais calculados:', { itemsCount, subtotal, shipping, total });
     
     // Atualizar contadores
     const itemsCountEl = document.getElementById('cart-items-count');

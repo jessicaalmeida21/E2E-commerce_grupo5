@@ -66,7 +66,11 @@ class OrderManager {
 
     // Calcular subtotal
     calculateSubtotal(cart) {
-        return cart.reduce((total, item) => total + (item.price * item.quantity), 0);
+        return cart.reduce((total, item) => {
+            const price = parseFloat(item.price) || 0;
+            const quantity = parseInt(item.quantity) || 1;
+            return total + (price * quantity);
+        }, 0);
     }
 
     // Calcular frete
@@ -167,7 +171,12 @@ class OrderManager {
 
     // Formatar preço
     formatPrice(price) {
-        return price.toLocaleString('pt-BR', {
+        const numPrice = parseFloat(price);
+        if (isNaN(numPrice)) {
+            console.error('Preço inválido para formatação:', price);
+            return 'R$ 0,00';
+        }
+        return numPrice.toLocaleString('pt-BR', {
             style: 'currency',
             currency: 'BRL'
         });

@@ -266,7 +266,7 @@ function createProductCard(product) {
 
     card.innerHTML = `
         <img src="${product.image}" alt="${product.title}" class="product-img" loading="lazy">
-        ${discountBadge}
+            ${discountBadge}
         <div class="product-info">
             <div class="product-price">
                 ${originalPrice}
