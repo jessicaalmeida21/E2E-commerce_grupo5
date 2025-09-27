@@ -48,7 +48,12 @@
                         </div>
                         <div class="form-group">
                             <label for="login-password">Senha</label>
-                            <input type="password" id="login-password" required>
+                            <div class="password-input-container">
+                                <input type="password" id="login-password" required>
+                                <button type="button" class="password-toggle" onclick="togglePassword('login-password')">
+                                    <span class="show-password">👁️</span>
+                                </button>
+                            </div>
                             <span class="error-message" id="login-password-error"></span>
                         </div>
                         <div class="form-group">
@@ -74,18 +79,18 @@
                         <div class="form-group">
                             <label for="register-password">Senha</label>
                             <div class="password-input-container">
-                                <input type="password" id="register-password" required maxlength="20" minlength="6">
+                                <input type="password" id="register-password" required maxlength="10" minlength="6">
                                 <button type="button" class="password-toggle" onclick="togglePassword('register-password')">
                                     <span class="show-password">👁️</span>
                                 </button>
                             </div>
                             <span class="error-message" id="register-password-error"></span>
-                            <small>A senha deve ter entre 6 e 20 caracteres, incluindo números e letras.</small>
+                            <small>A senha deve ter entre 6 e 10 caracteres, incluindo números e letras.</small>
                         </div>
                         <div class="form-group">
                             <label for="register-confirm-password">Confirmar Senha</label>
                             <div class="password-input-container">
-                                <input type="password" id="register-confirm-password" required maxlength="20" minlength="6">
+                                <input type="password" id="register-confirm-password" required maxlength="10" minlength="6">
                                 <button type="button" class="password-toggle" onclick="togglePassword('register-confirm-password')">
                                     <span class="show-password">👁️</span>
                                 </button>
@@ -111,40 +116,6 @@
         </div>
     </main>
 
-    <!-- Credenciais de Teste -->
-    <section class="test-credentials">
-        <div class="container">
-            <div class="test-info">
-                <h3><i class="fas fa-key"></i> Credenciais de Teste</h3>
-                <p>Use estas credenciais para testar o sistema:</p>
-                <div class="credentials-grid">
-                    <div class="credential-card">
-                        <h4>Cliente</h4>
-                        <p><strong>E-mail:</strong> teste@gmail.com</p>
-                        <p><strong>Senha:</strong> teste123456</p>
-                        <button class="btn-test" onclick="fillTestCredentials('teste@gmail.com', 'teste123456')">
-                            <i class="fas fa-copy"></i> Usar Credenciais
-                        </button>
-                    </div>
-                    <div class="credential-card">
-                        <h4>Vendedor</h4>
-                        <p><strong>E-mail:</strong> vendedor@teste.com</p>
-                        <p><strong>Senha:</strong> vendedor123456</p>
-                        <button class="btn-test" onclick="fillTestCredentials('vendedor@teste.com', 'vendedor123456')">
-                            <i class="fas fa-copy"></i> Usar Credenciais
-                        </button>
-                    </div>
-                    <div class="credential-card">
-                        <h4>Debug</h4>
-                        <p>Se o login não funcionar, tente:</p>
-                        <button class="btn-test" onclick="clearCacheAndReload()" style="background: #dc3545;">
-                            <i class="fas fa-refresh"></i> Limpar Cache e Recarregar
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <footer>
         <div class="container">
@@ -152,6 +123,6 @@
         </div>
     </footer>
 
-    <script src="../js/login.js?v=40"></script>
+    <script src="../js/login.js?v=41"></script>
 </body>
 </html>

@@ -73,13 +73,13 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Validação de senha
     function validatePassword(password) {
-        // Mínimo 6 caracteres, máximo 20 caracteres
+        // Mínimo 6 caracteres, máximo 10 caracteres
         if (password.length < 6) {
             return { valid: false, message: 'A senha deve ter no mínimo 6 caracteres.' };
         }
         
-        if (password.length > 20) {
-            return { valid: false, message: 'A senha deve ter no máximo 20 caracteres.' };
+        if (password.length > 10) {
+            return { valid: false, message: 'A senha deve ter no máximo 10 caracteres.' };
         }
         
         // Deve conter números
@@ -133,36 +133,57 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Função para inicializar usuários
     function initializeUsers() {
-        const storedUsers = localStorage.getItem('users');
-        if (storedUsers) {
-            users = JSON.parse(storedUsers);
-            console.log('Usuários carregados do localStorage:', users.length);
-        } else {
-            console.log('Nenhum usuário encontrado, criando usuários de teste...');
-            
-            // Usuário Cliente
-            const testCustomer = {
+        // Usuários de teste fixos (sempre existem)
+        const fixedTestUsers = [
+            {
                 id: 'test-001',
                 name: 'Cliente Teste',
                 email: 'teste@gmail.com',
-                password: 'teste123456', // Senha sem criptografia para teste
+                password: 'teste123', // Senha com 10 caracteres
                 profile: 'customer',
-                createdAt: new Date().toISOString()
-            };
-            
-            // Usuário Vendedor
-            const testSeller = {
+                createdAt: new Date().toISOString(),
+                isFixed: true
+            },
+            {
                 id: 'test-002',
                 name: 'Vendedor Teste',
                 email: 'vendedor@teste.com',
-                password: 'vendedor123456', // Senha sem criptografia para teste
+                password: 'vendedor1', // Senha com 10 caracteres
                 profile: 'seller',
-                createdAt: new Date().toISOString()
-            };
-            
-            users = [testCustomer, testSeller];
+                createdAt: new Date().toISOString(),
+                isFixed: true
+            }
+        ];
+        
+        const storedUsers = localStorage.getItem('users');
+        if (storedUsers) {
+            try {
+                const loadedUsers = JSON.parse(storedUsers);
+                console.log('Usuários carregados do localStorage:', loadedUsers.length);
+                
+                // Garantir que os usuários fixos sempre existam
+                users = [...fixedTestUsers];
+                
+                // Adicionar usuários cadastrados (que não sejam fixos)
+                const customUsers = loadedUsers.filter(user => !user.isFixed);
+                users = [...users, ...customUsers];
+                
+                console.log('Usuários finais:', users.length, '(2 fixos +', customUsers.length, 'cadastrados)');
+            } catch (error) {
+                console.error('Erro ao carregar usuários do localStorage:', error);
+                users = [...fixedTestUsers];
+            }
+        } else {
+            console.log('Nenhum usuário encontrado, criando usuários de teste fixos...');
+            users = [...fixedTestUsers];
+        }
+        
+        // Sempre salvar a lista atualizada
+        try {
             localStorage.setItem('users', JSON.stringify(users));
-            console.log('Usuários de teste criados:', { testCustomer, testSeller });
+            console.log('Usuários salvos no localStorage:', users.length);
+        } catch (error) {
+            console.error('Erro ao salvar usuários no localStorage:', error);
         }
     }
     
@@ -273,18 +294,33 @@ document.addEventListener('DOMContentLoaded', function() {
             // Recarregar usuários do localStorage para garantir dados atualizados
             initializeUsers();
             
+            console.log('=== TENTATIVA DE LOGIN ===');
+            console.log('Email digitado:', email);
+            console.log('Senha digitada:', password);
+            console.log('Total de usuários:', users.length);
+            console.log('Usuários disponíveis:', users.map(u => ({ 
+                id: u.id, 
+                email: u.email, 
+                name: u.name, 
+                profile: u.profile 
+            })));
+            
             // Verificar credenciais
             const user = users.find(u => u.email === email);
             
-            console.log('Tentativa de login:', { email, hasUser: !!user });
-            console.log('Usuários cadastrados:', users.length);
-            console.log('Lista de usuários:', users.map(u => ({ email: u.email, profile: u.profile })));
-            
             if (!user) {
-                messageElement.textContent = 'E-mail ou senha incorretos';
+                console.log('❌ Usuário não encontrado');
+                messageElement.innerHTML = `
+                    <div class="error-message">
+                        <i class="fas fa-exclamation-circle"></i>
+                        <span>E-mail ou senha incorretos.</span>
+                    </div>
+                `;
                 messageElement.className = 'form-message error';
                 return;
             }
+            
+            console.log('✅ Usuário encontrado:', { id: user.id, name: user.name, email: user.email });
             
             // Verificar senha (comparação direta para usuários de teste, criptografada para outros)
             let passwordMatch = false;
@@ -419,7 +455,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     email,
                     password: hashedPassword,
                     profile: normalizedProfile,
-                    createdAt: new Date().toISOString()
+                    createdAt: new Date().toISOString(),
+                    isFixed: false // Usuário cadastrado, não fixo
                 };
                 
                 console.log('Novo usuário criado:', { ...newUser, password: '***' });
@@ -543,106 +580,8 @@ function showSuccessNotification(message) {
     }, 3000);
 }
 
-// Função para preencher credenciais de teste
-function fillTestCredentials(email, password) {
-    // Preencher campos de login
-    const loginEmail = document.getElementById('login-email');
-    const loginPassword = document.getElementById('login-password');
-    
-    if (loginEmail && loginPassword) {
-        loginEmail.value = email;
-        loginPassword.value = password;
-        
-        // Mudar para aba de login se estiver na aba de cadastro
-        const loginTab = document.querySelector('.tab[data-tab="login"]');
-        if (loginTab) {
-            loginTab.click();
-        }
-        
-        // Mostrar mensagem de sucesso
-        const messageElement = document.getElementById('login-message');
-        if (messageElement) {
-            messageElement.innerHTML = `
-                <div class="success-message">
-                    <i class="fas fa-check-circle"></i>
-                    <span>Credenciais preenchidas! Clique em "Entrar" para fazer login.</span>
-                </div>
-            `;
-            messageElement.className = 'form-message success';
-        }
-    }
-}
-
-// Função para testar cadastro
-function testRegistration() {
-    console.log('=== TESTE DE CADASTRO ===');
-    
-    // Mudar para aba de cadastro primeiro
-    const registerTab = document.querySelector('.tab[data-tab="register"]');
-    if (registerTab) {
-        registerTab.click();
-        console.log('Mudando para aba de cadastro...');
-    }
-    
-    // Aguardar um pouco e preencher campos
-    setTimeout(() => {
-        const nameField = document.getElementById('register-name');
-        const emailField = document.getElementById('register-email');
-        const passwordField = document.getElementById('register-password');
-        const confirmPasswordField = document.getElementById('register-confirm-password');
-        const profileField = document.getElementById('register-profile');
-        
-        if (nameField && emailField && passwordField && confirmPasswordField && profileField) {
-            nameField.value = 'Teste Cadastro';
-            emailField.value = 'teste@cadastro.com';
-            passwordField.value = 'teste123';
-            confirmPasswordField.value = 'teste123';
-            profileField.value = 'cliente';
-            
-            console.log('✅ Campos preenchidos com sucesso');
-            console.log('Valores:', {
-                name: nameField.value,
-                email: emailField.value,
-                password: '***',
-                confirmPassword: '***',
-                profile: profileField.value
-            });
-            
-            // Simular clique no botão
-            const registerButton = document.querySelector('button[type="submit"]');
-            if (registerButton) {
-                console.log('Clicando no botão de cadastro...');
-                registerButton.click();
-            } else {
-                console.error('❌ Botão de cadastro não encontrado');
-            }
-        } else {
-            console.error('❌ Campos de cadastro não encontrados');
-            console.log('Campos encontrados:', {
-                name: !!nameField,
-                email: !!emailField,
-                password: !!passwordField,
-                confirmPassword: !!confirmPasswordField,
-                profile: !!profileField
-            });
-        }
-    }, 500);
-}
-
-// Adicionar botão de teste ao DOM
+// Configurar validação em tempo real
 document.addEventListener('DOMContentLoaded', function() {
-    // Adicionar botão de teste de cadastro
-    const testSection = document.querySelector('.test-credentials');
-    if (testSection) {
-        const testButton = document.createElement('button');
-        testButton.textContent = 'Testar Cadastro';
-        testButton.className = 'btn secondary';
-        testButton.style.marginTop = '10px';
-        testButton.onclick = testRegistration;
-        testSection.appendChild(testButton);
-    }
-    
-    // Configurar validação em tempo real
     setupRealTimeValidation();
 });
 
@@ -721,16 +660,4 @@ function setupRealTimeValidation() {
             }
         });
     }
-}
-
-// Função para limpar cache e recarregar
-function clearCacheAndReload() {
-    // Limpar localStorage
-    localStorage.clear();
-    
-    // Mostrar mensagem
-    alert('Cache limpo! A página será recarregada.');
-    
-    // Recarregar a página
-    window.location.reload(true);
 }
