@@ -111,15 +111,20 @@ const productsModule = (() => {
 
     // Carregar produtos locais como fallback
     function loadLocalProducts() {
-        console.log('Carregando produtos locais como fallback...');
+        console.log('=== INÍCIO loadLocalProducts ===');
+        console.log('getAllProducts disponível:', typeof getAllProducts);
         
         // Usar o banco de dados atualizado se disponível
         if (typeof getAllProducts === 'function') {
             console.log('Usando database.js atualizado');
             products = getAllProducts();
             console.log('Produtos carregados do database.js:', products.length);
+            console.log('Primeiro produto do database.js:', products[0]);
+            console.log('=== FIM loadLocalProducts (database.js) ===');
             return products;
         }
+        
+        console.log('database.js não disponível, usando fallback hardcoded');
         
         // Fallback para produtos básicos se database.js não estiver disponível
         products = [
@@ -438,8 +443,15 @@ const productsModule = (() => {
             throw new Error('Produto fora de estoque');
         }
         
+        console.log('✅ Produto encontrado para adicionar ao carrinho:', {
+            id: product.id,
+            title: product.title,
+            price: product.price,
+            stock: product.stock
+        });
+        
         // Obter carrinho atual
-    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
         
         // Verificar se o produto já está no carrinho
         const existingItem = cart.find(item => item.id === productId);
@@ -447,24 +459,30 @@ const productsModule = (() => {
         if (existingItem) {
             // Incrementar quantidade
             existingItem.quantity += 1;
+            console.log('Quantidade incrementada para item existente:', existingItem);
         } else {
             // Adicionar novo item
-            cart.push({
+            const newItem = {
                 id: productId,
                 title: product.title,
-                price: product.price,
+                price: parseFloat(product.price) || 0,
                 image: product.image,
-                quantity: 1
-            });
+                quantity: 1,
+                description: product.description || '',
+                brand: product.brand || 'Marca'
+            };
+            cart.push(newItem);
+            console.log('Novo item adicionado ao carrinho:', newItem);
         }
         
         // Salvar carrinho
         localStorage.setItem('cart', JSON.stringify(cart));
+        console.log('Carrinho salvo no localStorage:', cart);
         
         // Atualizar contador do carrinho
         updateCartCounter();
         
-        console.log('Produto adicionado ao carrinho:', product.title);
+        console.log('Produto adicionado ao carrinho com sucesso:', product.title);
         return true;
     }
     

@@ -3,11 +3,44 @@ document.addEventListener('DOMContentLoaded', function() {
     // Configurar cabeçalho do usuário
     setupHeaderUserActions();
     
+    // Testar carregamento de produtos
+    testProductLoading();
+    
     // Carregar itens do carrinho
     loadCartItems();
     updateCartSummary();
     setupEventListeners();
 });
+
+// Função para testar carregamento de produtos
+async function testProductLoading() {
+    console.log('=== TESTE DE CARREGAMENTO DE PRODUTOS ===');
+    
+    // Testar database.js
+    if (typeof getAllProducts === 'function') {
+        const allProducts = getAllProducts();
+        console.log('✅ database.js disponível:', allProducts.length, 'produtos');
+        console.log('Primeiro produto do database.js:', allProducts[0]);
+    } else {
+        console.log('❌ database.js não disponível');
+    }
+    
+    // Testar productsModule
+    if (typeof productsModule !== 'undefined') {
+        console.log('✅ productsModule disponível');
+        try {
+            const products = await productsModule.loadProducts();
+            console.log('Produtos do productsModule:', products.length);
+            console.log('Primeiro produto do productsModule:', products[0]);
+        } catch (error) {
+            console.log('❌ Erro ao carregar produtos do productsModule:', error);
+        }
+    } else {
+        console.log('❌ productsModule não disponível');
+    }
+    
+    console.log('=== FIM TESTE ===');
+}
 
 // Função para configurar as ações do usuário no cabeçalho
 function setupHeaderUserActions() {
@@ -46,10 +79,15 @@ function setupHeaderUserActions() {
 
 // Carregar itens do carrinho
 async function loadCartItems() {
+    console.log('=== CARREGANDO ITENS DO CARRINHO ===');
     const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartItemsContainer = document.getElementById('cart-items');
     const emptyCart = document.getElementById('empty-cart');
     const cartContent = document.querySelector('.cart-content');
+    
+    console.log('Carrinho atual:', cart);
+    console.log('productsModule disponível:', typeof productsModule);
+    console.log('getAllProducts disponível:', typeof getAllProducts);
     
     if (cart.length === 0) {
         cartContent.style.display = 'none';
@@ -64,36 +102,50 @@ async function loadCartItems() {
     
     // Carregar dados completos dos produtos
     for (const item of cart) {
+        console.log(`\n--- Processando item ${item.id} ---`);
+        console.log('Dados originais do item:', item);
+        
         try {
             let product = null;
             
             // Tentar carregar do productsModule primeiro
-            try {
-                product = await productsModule.getProductById(item.id);
-            } catch (error) {
-                console.log('Erro no productsModule, tentando database.js...');
+            if (typeof productsModule !== 'undefined' && productsModule.getProductById) {
+                try {
+                    console.log('Tentando carregar do productsModule...');
+                    product = await productsModule.getProductById(item.id);
+                    console.log('Produto encontrado no productsModule:', product);
+                } catch (error) {
+                    console.log('Erro no productsModule:', error);
+                }
+            } else {
+                console.log('productsModule não disponível');
             }
             
             // Se não encontrou, tentar database.js diretamente
             if (!product && typeof getAllProducts === 'function') {
+                console.log('Tentando carregar do database.js...');
                 const allProducts = getAllProducts();
+                console.log('Todos os produtos do database.js:', allProducts.length);
                 product = allProducts.find(p => p.id === item.id);
+                console.log('Produto encontrado no database.js:', product);
             }
             
             if (product) {
                 // Atualizar dados do item com informações do produto
+                const oldPrice = item.price;
                 item.title = product.title || item.title;
                 item.price = parseFloat(product.price) || parseFloat(item.price) || 0;
                 item.image = product.image || item.image;
                 item.stock = product.stock || item.stock;
                 item.description = product.description || item.description;
-                console.log(`Produto ${item.id} atualizado:`, {
+                console.log(`✅ Produto ${item.id} atualizado:`, {
                     title: item.title,
                     price: item.price,
+                    oldPrice: oldPrice,
                     image: item.image
                 });
             } else {
-                console.warn('Produto não encontrado:', item.id);
+                console.warn('❌ Produto não encontrado:', item.id);
                 // Manter dados originais do item
                 item.price = parseFloat(item.price) || 0;
                 console.log(`Mantendo dados originais para ${item.id}:`, {
@@ -107,10 +159,17 @@ async function loadCartItems() {
             item.price = parseFloat(item.price) || 0;
         }
         
+        console.log(`Dados finais do item ${item.id}:`, {
+            title: item.title,
+            price: item.price,
+            quantity: item.quantity
+        });
+        
         const cartItem = createCartItem(item);
         cartItemsContainer.appendChild(cartItem);
     }
     
+    console.log('=== ATUALIZANDO RESUMO DO CARRINHO ===');
     updateCartSummary();
 }
 
