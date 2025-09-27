@@ -363,19 +363,73 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log('Usuários salvos no localStorage:', JSON.parse(localStorage.getItem('users') || '[]').length);
             
             // Cadastro bem-sucedido
-            messageElement.textContent = 'Cadastro realizado com sucesso! Você já pode fazer login.';
+            messageElement.innerHTML = `
+                <div class="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Cadastro realizado com sucesso! Você já pode fazer login.</span>
+                </div>
+            `;
             messageElement.className = 'form-message success';
             
             // Limpar formulário
             registerForm.reset();
             
+            // Mostrar notificação de sucesso
+            showSuccessNotification('Cadastro realizado com sucesso! Redirecionando para login...');
+            
             // Mudar para a aba de login após 2 segundos
             setTimeout(() => {
-                document.querySelector('.tab[data-tab="login"]').click();
+                const loginTab = document.querySelector('.tab[data-tab="login"]');
+                if (loginTab) {
+                    loginTab.click();
+                }
+                // Limpar mensagem de sucesso
+                messageElement.textContent = '';
+                messageElement.className = 'form-message';
             }, 2000);
         });
     }
 });
+
+// Função para mostrar notificação de sucesso
+function showSuccessNotification(message) {
+    const notification = document.createElement('div');
+    notification.className = 'success-notification';
+    notification.innerHTML = `
+        <div class="notification-content">
+            <i class="fas fa-check-circle"></i>
+            <span>${message}</span>
+        </div>
+    `;
+    
+    // Adicionar estilos
+    notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #28a745;
+        color: white;
+        padding: 15px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+        animation: slideIn 0.3s ease;
+        max-width: 300px;
+    `;
+    
+    // Adicionar ao DOM
+    document.body.appendChild(notification);
+    
+    // Remover após 3 segundos
+    setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    }, 3000);
+}
 
 // Função para preencher credenciais de teste
 function fillTestCredentials(email, password) {
@@ -396,7 +450,12 @@ function fillTestCredentials(email, password) {
         // Mostrar mensagem de sucesso
         const messageElement = document.getElementById('login-message');
         if (messageElement) {
-            messageElement.textContent = 'Credenciais preenchidas! Clique em "Entrar" para fazer login.';
+            messageElement.innerHTML = `
+                <div class="success-message">
+                    <i class="fas fa-check-circle"></i>
+                    <span>Credenciais preenchidas! Clique em "Entrar" para fazer login.</span>
+                </div>
+            `;
             messageElement.className = 'form-message success';
         }
     }
