@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Catálogo - E2E-Commerce</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .product { border: 1px solid #ddd; padding: 10px; margin: 10px 0; }
+        .product img { width: 100px; height: 100px; object-fit: cover; }
+        .debug { background: #f0f0f0; padding: 10px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Teste de Carregamento do Catálogo</h1>
+    
+    <div class="debug">
+        <h3>Status dos Módulos:</h3>
+        <p>productsModule: <span id="productsModule-status">Carregando...</span></p>
+        <p>getAllProducts: <span id="getAllProducts-status">Carregando...</span></p>
+        <p>getCategories: <span id="getCategories-status">Carregando...</span></p>
+    </div>
+    
+    <div class="debug">
+        <h3>Produtos Carregados:</h3>
+        <p>Total: <span id="products-count">0</span></p>
+        <div id="products-list"></div>
+    </div>
+    
+    <div class="debug">
+        <h3>Categorias:</h3>
+        <div id="categories-list"></div>
+    </div>
+
+    <script src="js/database.js"></script>
+    <script src="js/api-service.js"></script>
+    <script src="js/products.js"></script>
+    
+    <script>
+        function updateStatus() {
+            document.getElementById('productsModule-status').textContent = typeof productsModule;
+            document.getElementById('getAllProducts-status').textContent = typeof getAllProducts;
+            document.getElementById('getCategories-status').textContent = typeof getCategories;
+        }
+        
+        function displayProducts(products) {
+            const count = document.getElementById('products-count');
+            const list = document.getElementById('products-list');
+            
+            count.textContent = products.length;
+            list.innerHTML = '';
+            
+            products.forEach(product => {
+                const div = document.createElement('div');
+                div.className = 'product';
+                div.innerHTML = `
+                    <img src="${product.image}" alt="${product.title}" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iI2RkZCIvPjx0ZXh0IHg9IjUwIiB5PSI1MCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjEyIiBmaWxsPSIjOTk5IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBkeT0iLjNlbSI+SW1hZ2VtPC90ZXh0Pjwvc3ZnPg=='">
+                    <h4>${product.title}</h4>
+                    <p>Preço: R$ ${product.price.toFixed(2)}</p>
+                    <p>Categoria: ${product.category}</p>
+                    <p>Marca: ${product.brand}</p>
+                `;
+                list.appendChild(div);
+            });
+        }
+        
+        function displayCategories(categories) {
+            const list = document.getElementById('categories-list');
+            list.innerHTML = '';
+            
+            categories.forEach(category => {
+                const span = document.createElement('span');
+                span.textContent = category.name || category;
+                span.style.margin = '5px';
+                span.style.padding = '5px';
+                span.style.background = '#e0e0e0';
+                span.style.borderRadius = '3px';
+                list.appendChild(span);
+            });
+        }
+        
+        async function testCatalog() {
+            console.log('=== TESTE DO CATÁLOGO ===');
+            
+            // Aguardar carregamento
+            await new Promise(resolve => setTimeout(resolve, 1000));
+            
+            updateStatus();
+            
+            // Testar produtos
+            if (typeof getAllProducts === 'function') {
+                const products = getAllProducts();
+                console.log('Produtos carregados:', products.length);
+                displayProducts(products);
+            } else {
+                console.log('getAllProducts não disponível');
+            }
+            
+            // Testar categorias
+            if (typeof getCategories === 'function') {
+                const categories = getCategories();
+                console.log('Categorias carregadas:', categories.length);
+                displayCategories(categories);
+            } else {
+                console.log('getCategories não disponível');
+            }
+            
+            // Testar productsModule
+            if (typeof productsModule !== 'undefined') {
+                try {
+                    const localProducts = productsModule.loadLocalProducts();
+                    console.log('Produtos do productsModule:', localProducts.length);
+                } catch (error) {
+                    console.error('Erro no productsModule:', error);
+                }
+            }
+        }
+        
+        // Iniciar teste
+        testCatalog();
+    </script>
+</body>
+</html>
