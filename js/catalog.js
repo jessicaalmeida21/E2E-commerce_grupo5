@@ -16,11 +16,15 @@ async function initializeCatalog() {
     try {
         console.log('Inicializando catálogo...');
         console.log('productsModule disponível:', typeof productsModule);
+        console.log('getAllProducts disponível:', typeof getAllProducts);
+        console.log('getCategories disponível:', typeof getCategories);
         
         // Aguardar um pouco para garantir que os módulos estejam carregados
-        await new Promise(resolve => setTimeout(resolve, 500));
+        await new Promise(resolve => setTimeout(resolve, 1000));
         
         console.log('productsModule após timeout:', typeof productsModule);
+        console.log('getAllProducts após timeout:', typeof getAllProducts);
+        console.log('getCategories após timeout:', typeof getCategories);
         
         // Carregar categorias
         console.log('Carregando categorias...');
@@ -39,6 +43,9 @@ async function initializeCatalog() {
         console.log('Catálogo inicializado com sucesso!');
     } catch (error) {
         console.error('Erro ao inicializar catálogo:', error);
+        // Fallback: carregar produtos diretamente
+        console.log('Tentando carregar produtos diretamente...');
+        await loadProductsDirectly();
     }
 }
 
@@ -159,6 +166,10 @@ async function loadProducts(page = 1) {
             if (typeof getAllProducts === 'function') {
                 products = getAllProducts();
                 console.log('Produtos carregados diretamente do database.js:', products.length);
+            } else {
+                console.log('getAllProducts não está disponível, tentando carregar diretamente...');
+                await loadProductsDirectly();
+                return;
             }
         }
         
@@ -432,6 +443,46 @@ function showEmptyCatalog() {
     
     grid.innerHTML = '';
     emptyCatalog.style.display = 'block';
+}
+
+// Carregar produtos diretamente do database.js
+async function loadProductsDirectly() {
+    try {
+        console.log('Carregando produtos diretamente do database.js...');
+        
+        if (typeof getAllProducts === 'function') {
+            const products = getAllProducts();
+            console.log('Produtos carregados diretamente:', products.length);
+            
+            if (products && products.length > 0) {
+                // Aplicar paginação
+                const totalPages = Math.ceil(products.length / productsPerPage);
+                const startIndex = (currentPage - 1) * productsPerPage;
+                const endIndex = startIndex + productsPerPage;
+                const paginatedProducts = products.slice(startIndex, endIndex);
+                
+                console.log(`Mostrando ${paginatedProducts.length} de ${products.length} produtos`);
+                displayProducts(paginatedProducts);
+                
+                // Criar meta de paginação
+                const meta = {
+                    page: currentPage,
+                    totalPages: totalPages,
+                    total: products.length
+                };
+                
+                updatePagination(meta);
+                return;
+            }
+        }
+        
+        console.log('Nenhum produto encontrado no database.js');
+        showEmptyCatalog();
+        
+    } catch (error) {
+        console.error('Erro ao carregar produtos diretamente:', error);
+        showEmptyCatalog();
+    }
 }
 
 // Mostrar notificação
