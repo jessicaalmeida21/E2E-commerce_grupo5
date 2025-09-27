@@ -260,25 +260,6 @@
     border-color: #ff4757;
 }
 
-.product-actions .clone-btn {
-    background: #667eea;
-    color: white;
-    border: 2px solid #667eea;
-    width: 45px;
-    flex: none;
-    transition: all 0.3s ease;
-}
-
-.product-actions .clone-btn:hover {
-    background: #5a6fd8;
-    border-color: #5a6fd8;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
-}
-
-.product-actions .clone-btn i {
-    font-size: 14px;
-}
 
 .loading {
     display: flex;
