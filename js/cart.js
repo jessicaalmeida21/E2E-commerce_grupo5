@@ -138,6 +138,7 @@ async function loadCartItems() {
                 item.image = product.image || item.image;
                 item.stock = product.stock || item.stock;
                 item.description = product.description || item.description;
+                item.brand = product.brand || item.brand;
                 console.log(`✅ Produto ${item.id} atualizado:`, {
                     title: item.title,
                     price: item.price,
@@ -170,6 +171,10 @@ async function loadCartItems() {
     }
     
     console.log('=== ATUALIZANDO RESUMO DO CARRINHO ===');
+    
+    // Salvar carrinho atualizado com preços corretos
+    localStorage.setItem('cart', JSON.stringify(cart));
+    console.log('Carrinho salvo com preços atualizados:', cart);
     
     // Forçar atualização dos preços antes de calcular totais
     await updateItemPrices();

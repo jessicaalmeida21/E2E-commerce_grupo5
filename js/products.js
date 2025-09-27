@@ -481,6 +481,10 @@ const productsModule = (() => {
             existingItem.quantity += 1;
             // Atualizar preço também
             existingItem.price = parseFloat(product.price) || 0;
+            existingItem.title = product.title || existingItem.title;
+            existingItem.image = product.image || existingItem.image;
+            existingItem.description = product.description || existingItem.description;
+            existingItem.brand = product.brand || existingItem.brand;
             console.log('Quantidade incrementada para item existente:', existingItem);
         } else {
             // Adicionar novo item
