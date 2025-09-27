@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Site - E2E-Commerce</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .debug-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .error { color: red; }
+        .success { color: green; }
+        .info { color: blue; }
+        button { padding: 10px; margin: 5px; }
+        #console { background: #f5f5f5; padding: 10px; height: 200px; overflow-y: scroll; }
+    </style>
+</head>
+<body>
+    <h1>Debug do Site E2E-Commerce</h1>
+    
+    <div class="debug-section">
+        <h2>1. Teste de Carregamento de Scripts</h2>
+        <button onclick="testScripts()">Testar Scripts</button>
+        <div id="scripts-result"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>2. Teste de Database.js</h2>
+        <button onclick="testDatabase()">Testar Database</button>
+        <div id="database-result"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>3. Teste de Produtos</h2>
+        <button onclick="testProducts()">Testar Produtos</button>
+        <div id="products-result"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>4. Teste de Usuário Logado</h2>
+        <button onclick="testUser()">Testar Usuário</button>
+        <div id="user-result"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>5. Teste de Carrinho</h2>
+        <button onclick="testCart()">Testar Carrinho</button>
+        <div id="cart-result"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>6. Console de Debug</h2>
+        <div id="console"></div>
+        <button onclick="clearConsole()">Limpar Console</button>
+    </div>
+    
+    <div class="debug-section">
+        <h2>7. Ações</h2>
+        <button onclick="clearAllData()">Limpar Todos os Dados</button>
+        <button onclick="addTestUser()">Adicionar Usuário de Teste</button>
+        <button onclick="addTestProduct()">Adicionar Produto de Teste</button>
+        <button onclick="window.location.href='../index.html'">Ir para Home</button>
+        <button onclick="window.location.href='../pages/catalog.html'">Ir para Catálogo</button>
+        <button onclick="window.location.href='../pages/cart.html'">Ir para Carrinho</button>
+    </div>
+
+    <script src="../js/database.js?v=36"></script>
+    <script src="../js/api-service.js?v=36"></script>
+    <script src="../js/products.js?v=36"></script>
+    <script src="../js/main.js?v=36"></script>
+    
+    <script>
+        function log(message, type = 'info') {
+            const console = document.getElementById('console');
+            const timestamp = new Date().toLocaleTimeString();
+            const className = type === 'error' ? 'error' : type === 'success' ? 'success' : 'info';
+            console.innerHTML += `<div class="${className}">[${timestamp}] ${message}</div>`;
+            console.scrollTop = console.scrollHeight;
+        }
+        
+        function clearConsole() {
+            document.getElementById('console').innerHTML = '';
+        }
+        
+        function testScripts() {
+            const result = document.getElementById('scripts-result');
+            let html = '<h3>Resultado dos Scripts:</h3>';
+            
+            // Testar database.js
+            if (typeof getAllProducts === 'function') {
+                html += '<p class="success">✓ database.js carregado</p>';
+                log('database.js carregado com sucesso', 'success');
+            } else {
+                html += '<p class="error">✗ database.js NÃO carregado</p>';
+                log('database.js NÃO carregado', 'error');
+            }
+            
+            // Testar api-service.js
+            if (typeof apiService !== 'undefined') {
+                html += '<p class="success">✓ api-service.js carregado</p>';
+                log('api-service.js carregado com sucesso', 'success');
+            } else {
+                html += '<p class="error">✗ api-service.js NÃO carregado</p>';
+                log('api-service.js NÃO carregado', 'error');
+            }
+            
+            // Testar products.js
+            if (typeof productsModule !== 'undefined') {
+                html += '<p class="success">✓ products.js carregado</p>';
+                log('products.js carregado com sucesso', 'success');
+            } else {
+                html += '<p class="error">✗ products.js NÃO carregado</p>';
+                log('products.js NÃO carregado', 'error');
+            }
+            
+            result.innerHTML = html;
+        }
+        
+        function testDatabase() {
+            const result = document.getElementById('database-result');
+            let html = '<h3>Resultado do Database:</h3>';
+            
+            try {
+                if (typeof getAllProducts === 'function') {
+                    const products = getAllProducts();
+                    html += `<p class="success">✓ ${products.length} produtos encontrados</p>`;
+                    log(`Database: ${products.length} produtos encontrados`, 'success');
+                    
+                    // Mostrar alguns produtos
+                    products.slice(0, 3).forEach(product => {
+                        html += `<p class="info">- ${product.title} (R$ ${product.price})</p>`;
+                    });
+                } else {
+                    html += '<p class="error">✗ Função getAllProducts não encontrada</p>';
+                    log('Função getAllProducts não encontrada', 'error');
+                }
+            } catch (error) {
+                html += `<p class="error">✗ Erro: ${error.message}</p>`;
+                log(`Erro no database: ${error.message}`, 'error');
+            }
+            
+            result.innerHTML = html;
+        }
+        
+        function testProducts() {
+            const result = document.getElementById('products-result');
+            let html = '<h3>Resultado dos Produtos:</h3>';
+            
+            try {
+                if (typeof productsModule !== 'undefined') {
+                    productsModule.loadLocalProducts().then(products => {
+                        html += `<p class="success">✓ ${products.length} produtos carregados via productsModule</p>`;
+                        log(`ProductsModule: ${products.length} produtos carregados`, 'success');
+                        result.innerHTML = html;
+                    }).catch(error => {
+                        html += `<p class="error">✗ Erro no productsModule: ${error.message}</p>`;
+                        log(`Erro no productsModule: ${error.message}`, 'error');
+                        result.innerHTML = html;
+                    });
+                } else {
+                    html += '<p class="error">✗ productsModule não encontrado</p>';
+                    log('productsModule não encontrado', 'error');
+                    result.innerHTML = html;
+                }
+            } catch (error) {
+                html += `<p class="error">✗ Erro: ${error.message}</p>`;
+                log(`Erro nos produtos: ${error.message}`, 'error');
+                result.innerHTML = html;
+            }
+        }
+        
+        function testUser() {
+            const result = document.getElementById('user-result');
+            let html = '<h3>Resultado do Usuário:</h3>';
+            
+            try {
+                const currentUser = JSON.parse(localStorage.getItem('currentUser') || 'null');
+                if (currentUser) {
+                    html += `<p class="success">✓ Usuário logado: ${currentUser.name}</p>`;
+                    html += `<p class="info">- Email: ${currentUser.email}</p>`;
+                    html += `<p class="info">- Perfil: ${currentUser.profile}</p>`;
+                    log(`Usuário logado: ${currentUser.name}`, 'success');
+                } else {
+                    html += '<p class="error">✗ Nenhum usuário logado</p>';
+                    log('Nenhum usuário logado', 'error');
+                }
+            } catch (error) {
+                html += `<p class="error">✗ Erro: ${error.message}</p>`;
+                log(`Erro no usuário: ${error.message}`, 'error');
+            }
+            
+            result.innerHTML = html;
+        }
+        
+        function testCart() {
+            const result = document.getElementById('cart-result');
+            let html = '<h3>Resultado do Carrinho:</h3>';
+            
+            try {
+                const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+                if (cart.length > 0) {
+                    html += `<p class="success">✓ ${cart.length} itens no carrinho</p>`;
+                    cart.forEach(item => {
+                        html += `<p class="info">- ${item.title} (Qtd: ${item.quantity})</p>`;
+                    });
+                    log(`Carrinho: ${cart.length} itens`, 'success');
+                } else {
+                    html += '<p class="info">ℹ Carrinho vazio</p>';
+                    log('Carrinho vazio', 'info');
+                }
+            } catch (error) {
+                html += `<p class="error">✗ Erro: ${error.message}</p>`;
+                log(`Erro no carrinho: ${error.message}`, 'error');
+            }
+            
+            result.innerHTML = html;
+        }
+        
+        function clearAllData() {
+            localStorage.clear();
+            log('Todos os dados do localStorage foram limpos', 'success');
+            alert('Todos os dados foram limpos!');
+        }
+        
+        function addTestUser() {
+            const testUser = {
+                name: 'Usuário Teste',
+                email: 'teste@teste.com',
+                profile: 'cliente'
+            };
+            localStorage.setItem('currentUser', JSON.stringify(testUser));
+            log('Usuário de teste adicionado', 'success');
+            alert('Usuário de teste adicionado!');
+        }
+        
+        function addTestProduct() {
+            const cart = JSON.parse(localStorage.getItem('cart') || '[]');
+            const testProduct = {
+                id: 'TEST-001',
+                title: 'Produto Teste',
+                price: 99.99,
+                quantity: 1,
+                image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80'
+            };
+            cart.push(testProduct);
+            localStorage.setItem('cart', JSON.stringify(cart));
+            log('Produto de teste adicionado ao carrinho', 'success');
+            alert('Produto de teste adicionado ao carrinho!');
+        }
+        
+        // Executar testes automáticos ao carregar
+        window.addEventListener('load', function() {
+            log('Página de debug carregada', 'info');
+            setTimeout(() => {
+                testScripts();
+                testDatabase();
+                testUser();
+                testCart();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
