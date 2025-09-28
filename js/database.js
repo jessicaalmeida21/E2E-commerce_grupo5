@@ -158,7 +158,7 @@ const productsDatabase = {
             discount: 20,
             category: "Áudio",
             brand: "Sony",
-            image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+            image: "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
             description: "Fone de ouvido Sony WH-CH720N com cancelamento de ruído, Bluetooth, bateria de 35h",
             stock: 28,
             rating: 4.6,

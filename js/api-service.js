@@ -56,8 +56,31 @@ class ApiService {
             }
         }
         
-        // Notebooks - Imagens reais e únicas
-        if (title.includes('notebook') || title.includes('laptop') || title.includes('acer') || title.includes('lenovo') || title.includes('dell')) {
+        // Smart TVs - Imagens reais e únicas (VERIFICAR PRIMEIRO!)
+        if (title.includes('smart tv') || title.includes('tv') || title.includes('televisão')) {
+            if (title.includes('samsung')) {
+                console.log('✓ Imagem TV Samsung encontrada');
+                return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else if (title.includes('lg')) {
+                console.log('✓ Imagem TV LG encontrada');
+                return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else if (title.includes('sony')) {
+                console.log('✓ Imagem TV Sony encontrada');
+                return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else if (title.includes('lenovo')) {
+                console.log('✓ Imagem TV Lenovo encontrada');
+                return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else if (title.includes('dell')) {
+                console.log('✓ Imagem TV Dell encontrada');
+                return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else {
+                console.log('✓ Imagem TV genérico encontrada');
+                return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            }
+        }
+        
+        // Notebooks - Imagens reais e únicas (VERIFICAR DEPOIS!)
+        if (title.includes('notebook') || title.includes('laptop')) {
             if (title.includes('acer')) {
                 console.log('✓ Imagem notebook Acer encontrada');
                 return 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
@@ -73,30 +96,28 @@ class ApiService {
             }
         }
         
-        // Smart TVs - Imagens reais e únicas
-        if (title.includes('smart tv') || title.includes('tv') || title.includes('televisão')) {
-            if (title.includes('samsung')) {
-                console.log('✓ Imagem TV Samsung encontrada');
-                return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
-            } else if (title.includes('lg')) {
-                console.log('✓ Imagem TV LG encontrada');
-                return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
-            } else if (title.includes('sony')) {
-                console.log('✓ Imagem TV Sony encontrada');
-                return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
-            } else {
-                console.log('✓ Imagem TV genérico encontrada');
-                return 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
-            }
-        }
-        
-        // Fones de ouvido - Imagens reais e únicas
+        // Fones de ouvido - Imagens reais e únicas (VERIFICAR ANTES DE DELL NOTEBOOK!)
         if (title.includes('fone') || title.includes('headphone') || title.includes('bluetooth')) {
             if (title.includes('jbl')) {
                 console.log('✓ Imagem fone JBL encontrada');
                 return 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             } else if (title.includes('sony')) {
                 console.log('✓ Imagem fone Sony encontrada');
+                return 'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else if (title.includes('dell')) {
+                console.log('✓ Imagem fone Dell encontrada');
+                return 'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else if (title.includes('apple')) {
+                console.log('✓ Imagem fone Apple encontrada');
+                return 'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else if (title.includes('acer')) {
+                console.log('✓ Imagem fone Acer encontrada');
+                return 'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else if (title.includes('lenovo')) {
+                console.log('✓ Imagem fone Lenovo encontrada');
+                return 'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else if (title.includes('samsung')) {
+                console.log('✓ Imagem fone Samsung encontrada');
                 return 'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             } else {
                 console.log('✓ Imagem fone genérico encontrada');
