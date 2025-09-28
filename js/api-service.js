@@ -161,7 +161,7 @@ class ApiService {
         // Eletrodomésticos - Imagens reais
         if (title.includes('liquidificador') || title.includes('mixer')) {
             console.log('✓ Imagem liquidificador encontrada');
-            return 'https://images.unsplash.com/photo-15569091431326005620-6d0e44b482f8?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            return 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
         if (title.includes('air fryer') || title.includes('fritadeira')) {
@@ -174,6 +174,11 @@ class ApiService {
             return 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
+        if (title.includes('cafeteira') || title.includes('coffee')) {
+            console.log('✓ Imagem cafeteira encontrada');
+            return 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
+        
         // Esportes - Imagens reais
         if (title.includes('bicicleta') || title.includes('bike')) {
             console.log('✓ Imagem bicicleta encontrada');
@@ -182,12 +187,12 @@ class ApiService {
         
         if (title.includes('skate') || title.includes('skateboard')) {
             console.log('✓ Imagem skate encontrada');
-            return 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            return 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
         if (title.includes('halteres') || title.includes('peso')) {
             console.log('✓ Imagem halteres encontrada');
-            return 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            return 'https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
         if (title.includes('bola') || title.includes('futebol')) {
