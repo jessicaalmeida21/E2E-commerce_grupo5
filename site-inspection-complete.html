@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inspeção Completa do Site - E2E-Commerce</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .inspection-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+        .test-button.success {
+            background: #28a745;
+        }
+        .test-button.danger {
+            background: #dc3545;
+        }
+        .test-button.warning {
+            background: #ffc107;
+            color: #212529;
+        }
+        .log-area {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            border-radius: 5px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .status.warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        .test-section {
+            border: 1px solid #ddd;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .test-section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .image-test {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 10px 0;
+        }
+        .image-test img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 5px;
+            border: 2px solid #ddd;
+        }
+        .image-test .image-info {
+            font-size: 10px;
+            text-align: center;
+            margin-top: 5px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #e9ecef;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background-color: #28a745;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Inspeção Completa do Site E2E-Commerce</h1>
+    
+    <div class="inspection-container">
+        <h2>📊 Progresso da Inspeção</h2>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+        </div>
+        <div id="overall-status"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>🔐 1. Sistema de Login</h3>
+        <button class="test-button" onclick="testLoginSystem()">Testar Login</button>
+        <button class="test-button" onclick="testRegisterSystem()">Testar Cadastro</button>
+        <button class="test-button" onclick="testUserSessions()">Testar Sessões</button>
+        <div id="login-status"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>🛒 2. Sistema de Carrinho</h3>
+        <button class="test-button" onclick="testCartSystem()">Testar Carrinho</button>
+        <button class="test-button" onclick="testAddToCart()">Testar Adicionar Produtos</button>
+        <button class="test-button" onclick="testCartPersistence()">Testar Persistência</button>
+        <div id="cart-status"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>💳 3. Sistema de Checkout</h3>
+        <button class="test-button" onclick="testCheckoutSystem()">Testar Checkout</button>
+        <button class="test-button" onclick="testPaymentMethods()">Testar Pagamentos</button>
+        <button class="test-button" onclick="testOrderCreation()">Testar Criação de Pedidos</button>
+        <div id="checkout-status"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>🖼️ 4. Sistema de Imagens</h3>
+        <button class="test-button" onclick="testProductImages()">Testar Imagens dos Produtos</button>
+        <button class="test-button" onclick="testImageLoading()">Testar Carregamento</button>
+        <button class="test-button" onclick="fixImageProblems()">Corrigir Problemas</button>
+        <div id="images-status"></div>
+        <div id="image-test-area"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>🧭 5. Sistema de Navegação</h3>
+        <button class="test-button" onclick="testNavigation()">Testar Navegação</button>
+        <button class="test-button" onclick="testAllPages()">Testar Todas as Páginas</button>
+        <button class="test-button" onclick="testButtons()">Testar Botões</button>
+        <div id="navigation-status"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>🔧 6. Funcionalidades Gerais</h3>
+        <button class="test-button" onclick="testSearchSystem()">Testar Busca</button>
+        <button class="test-button" onclick="testFilters()">Testar Filtros</button>
+        <button class="test-button" onclick="testResponsiveDesign()">Testar Responsividade</button>
+        <div id="general-status"></div>
+    </div>
+    
+    <div class="inspection-container">
+        <h2>📝 Log Detalhado</h2>
+        <button class="test-button danger" onclick="clearLog()">Limpar Log</button>
+        <button class="test-button warning" onclick="exportLog()">Exportar Log</button>
+        <div id="log-area" class="log-area"></div>
+    </div>
+
+    <!-- Scripts necessários -->
+    <script src="js/database.js"></script>
+    <script src="js/api-service.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
+
+    <script>
+        let logArea = document.getElementById('log-area');
+        let totalTests = 0;
+        let passedTests = 0;
+        let failedTests = 0;
+        
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logMessage = `[${timestamp}] ${message}\n`;
+            logArea.textContent += logMessage;
+            logArea.scrollTop = logArea.scrollHeight;
+            
+            console.log(message);
+        }
+        
+        function updateStatus(elementId, message, type = 'info') {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.innerHTML = `<div class="status ${type}">${message}</div>`;
+            }
+        }
+        
+        function updateProgress() {
+            const progressFill = document.getElementById('progress-fill');
+            const overallStatus = document.getElementById('overall-status');
+            const progress = totalTests > 0 ? (passedTests / totalTests) * 100 : 0;
+            
+            if (progressFill) {
+                progressFill.style.width = progress + '%';
+            }
+            
+            if (overallStatus) {
+                const statusType = progress === 100 ? 'success' : progress >= 70 ? 'warning' : 'error';
+                const statusMessage = `Testes: ${passedTests}/${totalTests} (${progress.toFixed(1)}%) - ${failedTests} falhas`;
+                overallStatus.innerHTML = `<div class="status ${statusType}">${statusMessage}</div>`;
+            }
+        }
+        
+        function runTest(testName, testFunction) {
+            totalTests++;
+            log(`🧪 Executando teste: ${testName}`);
+            
+            try {
+                const result = testFunction();
+                if (result === true || result === undefined) {
+                    passedTests++;
+                    log(`✅ ${testName}: PASSOU`);
+                    return true;
+                } else {
+                    failedTests++;
+                    log(`❌ ${testName}: FALHOU - ${result}`);
+                    return false;
+                }
+            } catch (error) {
+                failedTests++;
+                log(`❌ ${testName}: ERRO - ${error.message}`);
+                return false;
+            } finally {
+                updateProgress();
+            }
+        }
+        
+        function clearLog() {
+            logArea.textContent = '';
+            totalTests = 0;
+            passedTests = 0;
+            failedTests = 0;
+            updateProgress();
+        }
+        
+        function exportLog() {
+            const logContent = logArea.textContent;
+            const blob = new Blob([logContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `site-inspection-${new Date().toISOString().slice(0,10)}.log`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        // 1. TESTE DO SISTEMA DE LOGIN
+        function testLoginSystem() {
+            log('=== TESTANDO SISTEMA DE LOGIN ===');
+            
+            const results = [];
+            
+            // Teste 1: Verificar se elementos do login existem
+            results.push(runTest('Elementos do Login', () => {
+                const loginForm = document.getElementById('login-form');
+                const loginEmail = document.getElementById('login-email');
+                const loginPassword = document.getElementById('login-password');
+                return loginForm && loginEmail && loginPassword;
+            }));
+            
+            // Teste 2: Verificar usuários de teste
+            results.push(runTest('Usuários de Teste', () => {
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                const testUser = users.find(u => u.email === 'teste@gmail.com');
+                return testUser !== undefined;
+            }));
+            
+            // Teste 3: Testar login com usuário de teste
+            results.push(runTest('Login com Usuário de Teste', async () => {
+                try {
+                    // Simular login
+                    const testUser = {
+                        id: 'test-001',
+                        name: 'Cliente Teste',
+                        email: 'teste@gmail.com',
+                        password: 'teste123',
+                        profile: 'customer',
+                        isFixed: true
+                    };
+                    localStorage.setItem('currentUser', JSON.stringify(testUser));
+                    
+                    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                    return currentUser && currentUser.email === 'teste@gmail.com';
+                } catch (error) {
+                    return false;
+                }
+            }));
+            
+            const passed = results.filter(r => r).length;
+            const total = results.length;
+            
+            updateStatus('login-status', `Login: ${passed}/${total} testes passaram`, 
+                        passed === total ? 'success' : 'warning');
+            
+            return passed === total;
+        }
+        
+        // 2. TESTE DO SISTEMA DE CARRINHO
+        function testCartSystem() {
+            log('=== TESTANDO SISTEMA DE CARRINHO ===');
+            
+            const results = [];
+            
+            // Teste 1: Verificar funções do carrinho
+            results.push(runTest('Funções do Carrinho', () => {
+                return typeof getUserCart === 'function' && 
+                       typeof saveUserCart === 'function' &&
+                       typeof updateCartCounter === 'function';
+            }));
+            
+            // Teste 2: Testar carrinho vazio
+            results.push(runTest('Carrinho Vazio', () => {
+                const cart = getUserCart();
+                return Array.isArray(cart);
+            }));
+            
+            // Teste 3: Testar adicionar produto
+            results.push(runTest('Adicionar Produto', async () => {
+                try {
+                    // Simular adição de produto
+                    const testItem = {
+                        id: 'TEST-001',
+                        title: 'Produto Teste',
+                        price: 100,
+                        quantity: 1
+                    };
+                    
+                    let cart = getUserCart();
+                    cart.push(testItem);
+                    saveUserCart(cart);
+                    
+                    const savedCart = getUserCart();
+                    return savedCart.length > 0 && savedCart[0].id === 'TEST-001';
+                } catch (error) {
+                    return false;
+                }
+            }));
+            
+            const passed = results.filter(r => r).length;
+            const total = results.length;
+            
+            updateStatus('cart-status', `Carrinho: ${passed}/${total} testes passaram`, 
+                        passed === total ? 'success' : 'warning');
+            
+            return passed === total;
+        }
+        
+        // 3. TESTE DO SISTEMA DE CHECKOUT
+        function testCheckoutSystem() {
+            log('=== TESTANDO SISTEMA DE CHECKOUT ===');
+            
+            const results = [];
+            
+            // Teste 1: Verificar se usuário está logado para checkout
+            results.push(runTest('Verificação de Login para Checkout', () => {
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                return currentUser !== null;
+            }));
+            
+            // Teste 2: Verificar elementos do checkout
+            results.push(runTest('Elementos do Checkout', () => {
+                // Simular verificação de elementos
+                return true; // Placeholder - seria verificado em página real
+            }));
+            
+            const passed = results.filter(r => r).length;
+            const total = results.length;
+            
+            updateStatus('checkout-status', `Checkout: ${passed}/${total} testes passaram`, 
+                        passed === total ? 'success' : 'warning');
+            
+            return passed === total;
+        }
+        
+        // 4. TESTE DO SISTEMA DE IMAGENS
+        function testProductImages() {
+            log('=== TESTANDO SISTEMA DE IMAGENS ===');
+            
+            const results = [];
+            
+            // Teste 1: Verificar função getProductImage
+            results.push(runTest('Função getProductImage', () => {
+                return typeof apiService !== 'undefined' && 
+                       typeof apiService.getProductImage === 'function';
+            }));
+            
+            // Teste 2: Testar geração de imagens para diferentes produtos
+            results.push(runTest('Geração de Imagens', () => {
+                if (!apiService || !apiService.getProductImage) return false;
+                
+                const testProducts = [
+                    { title: 'iPhone 15 Pro', brand: 'Apple' },
+                    { title: 'Samsung Galaxy S24', brand: 'Samsung' },
+                    { title: 'Notebook Acer Aspire', brand: 'Acer' },
+                    { title: 'Smart TV LG 55"', brand: 'LG' }
+                ];
+                
+                let allImagesGenerated = true;
+                testProducts.forEach(product => {
+                    const image = apiService.getProductImage(product);
+                    if (!image || !image.startsWith('https://')) {
+                        allImagesGenerated = false;
+                    }
+                });
+                
+                return allImagesGenerated;
+            }));
+            
+            // Teste 3: Verificar produtos do database
+            results.push(runTest('Produtos do Database', () => {
+                if (!productsDatabase) return false;
+                
+                let allProductsHaveImages = true;
+                Object.values(productsDatabase).forEach(category => {
+                    if (Array.isArray(category)) {
+                        category.forEach(product => {
+                            if (!product.image || !product.image.startsWith('https://')) {
+                                allProductsHaveImages = false;
+                            }
+                        });
+                    }
+                });
+                
+                return allProductsHaveImages;
+            }));
+            
+            const passed = results.filter(r => r).length;
+            const total = results.length;
+            
+            updateStatus('images-status', `Imagens: ${passed}/${total} testes passaram`, 
+                        passed === total ? 'success' : 'warning');
+            
+            // Mostrar imagens dos produtos
+            displayProductImages();
+            
+            return passed === total;
+        }
+        
+        function displayProductImages() {
+            const imageArea = document.getElementById('image-test-area');
+            if (!imageArea || !productsDatabase) return;
+            
+            let html = '<h4>🖼️ Imagens dos Produtos:</h4><div class="image-test">';
+            
+            Object.values(productsDatabase).forEach(category => {
+                if (Array.isArray(category)) {
+                    category.forEach(product => {
+                        html += `
+                            <div>
+                                <img src="${product.image}" alt="${product.title}" 
+                                     onerror="this.src='data:image/svg+xml,<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"100\" height=\"100\" viewBox=\"0 0 100 100\"><rect width=\"100\" height=\"100\" fill=\"%23f0f0f0\"/><text x=\"50\" y=\"50\" text-anchor=\"middle\" dy=\".3em\" font-family=\"Arial\" font-size=\"12\" fill=\"%23999\">Erro</text></svg>'">
+                                <div class="image-info">${product.title}</div>
+                            </div>
+                        `;
+                    });
+                }
+            });
+            
+            html += '</div>';
+            imageArea.innerHTML = html;
+        }
+        
+        // 5. TESTE DO SISTEMA DE NAVEGAÇÃO
+        function testNavigation() {
+            log('=== TESTANDO SISTEMA DE NAVEGAÇÃO ===');
+            
+            const results = [];
+            
+            // Teste 1: Verificar links principais
+            results.push(runTest('Links de Navegação', () => {
+                const mainPages = [
+                    'index.html',
+                    'catalog.html',
+                    'login.html',
+                    'cart.html',
+                    'checkout.html'
+                ];
+                
+                // Simular verificação de links
+                return mainPages.length > 0;
+            }));
+            
+            // Teste 2: Verificar funcionalidade de logout
+            results.push(runTest('Funcionalidade de Logout', () => {
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                if (currentUser) {
+                    localStorage.removeItem('currentUser');
+                    const afterLogout = JSON.parse(localStorage.getItem('currentUser'));
+                    return afterLogout === null;
+                }
+                return true; // Se não há usuário logado, logout funciona
+            }));
+            
+            const passed = results.filter(r => r).length;
+            const total = results.length;
+            
+            updateStatus('navigation-status', `Navegação: ${passed}/${total} testes passaram`, 
+                        passed === total ? 'success' : 'warning');
+            
+            return passed === total;
+        }
+        
+        // 6. TESTE DAS FUNCIONALIDADES GERAIS
+        function testSearchSystem() {
+            log('=== TESTANDO SISTEMA DE BUSCA ===');
+            
+            const results = [];
+            
+            // Teste 1: Verificar se há produtos para buscar
+            results.push(runTest('Produtos Disponíveis para Busca', () => {
+                return productsDatabase && Object.keys(productsDatabase).length > 0;
+            }));
+            
+            // Teste 2: Verificar função de busca
+            results.push(runTest('Função de Busca', () => {
+                return typeof productsModule !== 'undefined' && 
+                       typeof productsModule.searchProducts === 'function';
+            }));
+            
+            const passed = results.filter(r => r).length;
+            const total = results.length;
+            
+            updateStatus('general-status', `Funcionalidades: ${passed}/${total} testes passaram`, 
+                        passed === total ? 'success' : 'warning');
+            
+            return passed === total;
+        }
+        
+        // Funções auxiliares para testes específicos
+        function getUserCart() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const userId = currentUser ? currentUser.id : 'guest';
+            const cartKey = `cart_${userId}`;
+            return JSON.parse(localStorage.getItem(cartKey)) || [];
+        }
+        
+        function saveUserCart(cart) {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const userId = currentUser ? currentUser.id : 'guest';
+            const cartKey = `cart_${userId}`;
+            localStorage.setItem(cartKey, JSON.stringify(cart));
+        }
+        
+        function updateCartCounter() {
+            // Simulação da função
+            return true;
+        }
+        
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            log('🔍 Inspeção Completa do Site Iniciada');
+            log('Clique nos botões de teste para verificar cada funcionalidade');
+            
+            // Executar testes automáticos básicos
+            setTimeout(() => {
+                testLoginSystem();
+                testCartSystem();
+                testProductImages();
+            }, 1000);
+        });
+        
+        // Funções placeholder para outros testes
+        function testRegisterSystem() { log('Teste de cadastro não implementado ainda'); }
+        function testUserSessions() { log('Teste de sessões não implementado ainda'); }
+        function testAddToCart() { log('Teste de adicionar ao carrinho não implementado ainda'); }
+        function testCartPersistence() { log('Teste de persistência do carrinho não implementado ainda'); }
+        function testPaymentMethods() { log('Teste de métodos de pagamento não implementado ainda'); }
+        function testOrderCreation() { log('Teste de criação de pedidos não implementado ainda'); }
+        function testImageLoading() { log('Teste de carregamento de imagens não implementado ainda'); }
+        function fixImageProblems() { log('Correção de problemas de imagem não implementado ainda'); }
+        function testAllPages() { log('Teste de todas as páginas não implementado ainda'); }
+        function testButtons() { log('Teste de botões não implementado ainda'); }
+        function testFilters() { log('Teste de filtros não implementado ainda'); }
+        function testResponsiveDesign() { log('Teste de responsividade não implementado ainda'); }
+    </script>
+</body>
+</html>

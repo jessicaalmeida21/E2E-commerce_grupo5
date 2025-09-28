@@ -39,41 +39,41 @@ class ApiService {
         console.log('Marca:', brand);
         console.log('Categoria:', category);
         
-        // Smartphones - Imagens reais
+        // Smartphones - Imagens reais e únicas
         if (title.includes('smartphone') || title.includes('iphone') || title.includes('galaxy') || title.includes('xiaomi')) {
             if (title.includes('iphone') || title.includes('apple')) {
                 console.log('✓ Imagem iPhone encontrada');
-                return 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                return 'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             } else if (title.includes('galaxy') || title.includes('samsung')) {
                 console.log('✓ Imagem Samsung Galaxy encontrada');
                 return 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             } else if (title.includes('xiaomi') || title.includes('redmi')) {
                 console.log('✓ Imagem Xiaomi encontrada');
-                return 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                return 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             } else {
                 console.log('✓ Imagem smartphone genérico encontrada');
                 return 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             }
         }
         
-        // Notebooks - Imagens reais
+        // Notebooks - Imagens reais e únicas
         if (title.includes('notebook') || title.includes('laptop') || title.includes('acer') || title.includes('lenovo') || title.includes('dell')) {
             if (title.includes('acer')) {
                 console.log('✓ Imagem notebook Acer encontrada');
                 return 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             } else if (title.includes('lenovo')) {
                 console.log('✓ Imagem notebook Lenovo encontrada');
-                return 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                return 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             } else if (title.includes('dell')) {
                 console.log('✓ Imagem notebook Dell encontrada');
-                return 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                return 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             } else {
                 console.log('✓ Imagem notebook genérico encontrada');
-            return 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
-        }
+                return 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            }
         }
         
-        // Smart TVs - Imagens reais
+        // Smart TVs - Imagens reais e únicas
         if (title.includes('smart tv') || title.includes('tv') || title.includes('televisão')) {
             if (title.includes('samsung')) {
                 console.log('✓ Imagem TV Samsung encontrada');
@@ -90,31 +90,31 @@ class ApiService {
             }
         }
         
-        // Fones de ouvido - Imagens reais
+        // Fones de ouvido - Imagens reais e únicas
         if (title.includes('fone') || title.includes('headphone') || title.includes('bluetooth')) {
             if (title.includes('jbl')) {
                 console.log('✓ Imagem fone JBL encontrada');
                 return 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             } else if (title.includes('sony')) {
                 console.log('✓ Imagem fone Sony encontrada');
-                return 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                return 'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             } else {
                 console.log('✓ Imagem fone genérico encontrada');
                 return 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             }
         }
         
-        // Tênis - Imagens reais
+        // Tênis - Imagens reais e únicas
         if (title.includes('tênis') || title.includes('sapato') || title.includes('calçado')) {
             if (title.includes('nike')) {
                 console.log('✓ Imagem tênis Nike encontrada');
                 return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             } else if (title.includes('adidas')) {
                 console.log('✓ Imagem tênis Adidas encontrada');
-                return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                return 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             } else if (title.includes('puma')) {
                 console.log('✓ Imagem tênis Puma encontrada');
-                return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                return 'https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
             } else {
                 console.log('✓ Imagem tênis genérico encontrada');
                 return 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
