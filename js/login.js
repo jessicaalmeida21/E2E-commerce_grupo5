@@ -1,7 +1,10 @@
 // Script para gerenciar login e cadastro de usuários - VERSÃO CORRIGIDA DEFINITIVA
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('=== INICIALIZANDO SISTEMA DE LOGIN CORRIGIDO ===');
+    console.log('=== INICIALIZANDO SISTEMA DE LOGIN CORRIGIDO DEFINITIVO ===');
+    
+    // Garantir que os usuários estejam inicializados primeiro
+    initializeUsers();
     
     // Verificar se o usuário já está logado
     checkExistingLogin();
@@ -23,31 +26,53 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Gerenciamento de abas
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const tabId = tab.getAttribute('data-tab');
-            console.log('Mudando para aba:', tabId);
-            
-            // Atualizar abas ativas
-            tabs.forEach(t => t.classList.remove('active'));
-            tab.classList.add('active');
-            
-            // Mostrar conteúdo da aba selecionada
-            tabContents.forEach(content => {
-                content.classList.remove('active');
-                if (content.id === `${tabId}-tab`) {
-                    content.classList.add('active');
-                }
+    if (tabs.length > 0) {
+        tabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.getAttribute('data-tab');
+                console.log('Mudando para aba:', tabId);
+                
+                // Atualizar abas ativas
+                tabs.forEach(t => t.classList.remove('active'));
+                tab.classList.add('active');
+                
+                // Mostrar conteúdo da aba selecionada
+                tabContents.forEach(content => {
+                    content.classList.remove('active');
+                    if (content.id === `${tabId}-tab`) {
+                        content.classList.add('active');
+                    }
+                });
             });
         });
-    });
+    }
     
     // Configurar formulário de login
     if (loginForm) {
         console.log('✅ Configurando formulário de login...');
         loginForm.addEventListener('submit', handleLogin);
+        
+        // Configurar também com click no botão como fallback
+        const loginButton = loginForm.querySelector('button[type="submit"]');
+        if (loginButton) {
+            loginButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                handleLogin(e);
+            });
+        }
     } else {
         console.log('❌ Formulário de login não encontrado');
+        console.log('Tentando configurar login alternativo...');
+        
+        // Fallback: procurar botão de login diretamente
+        const loginButton = document.querySelector('button[type="submit"]');
+        if (loginButton) {
+            console.log('✅ Botão de login encontrado, configurando...');
+            loginButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                handleLogin(e);
+            });
+        }
     }
     
     // Configurar formulário de cadastro
@@ -60,6 +85,12 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Configurar validação em tempo real
     setupRealTimeValidation();
+    
+    // Verificar se tudo foi configurado corretamente
+    console.log('=== VERIFICAÇÃO FINAL ===');
+    console.log('Usuários disponíveis:', users.length);
+    console.log('Login form configurado:', !!loginForm);
+    console.log('handleLogin disponível:', typeof handleLogin === 'function');
     
     console.log('=== SISTEMA DE LOGIN INICIALIZADO ===');
 });
@@ -270,51 +301,87 @@ function setupRealTimeValidation() {
 // Função para lidar com login
 async function handleLogin(e) {
     e.preventDefault();
-    console.log('=== INÍCIO DO LOGIN ===');
+    console.log('=== INÍCIO DO LOGIN DEFINITIVO ===');
     
-    const email = document.getElementById('login-email').value;
-    const password = document.getElementById('login-password').value;
-    const rememberMe = document.getElementById('remember-me').checked;
+    // Verificar se os elementos existem
+    const emailElement = document.getElementById('login-email');
+    const passwordElement = document.getElementById('login-password');
+    const rememberMeElement = document.getElementById('remember-me');
     const messageElement = document.getElementById('login-message');
     
+    if (!emailElement || !passwordElement) {
+        console.error('❌ Elementos do formulário não encontrados!');
+        console.error('Email element:', !!emailElement);
+        console.error('Password element:', !!passwordElement);
+        alert('Erro: Formulário não encontrado. Recarregue a página.');
+        return;
+    }
+    
+    const email = emailElement.value.trim();
+    const password = passwordElement.value;
+    const rememberMe = rememberMeElement ? rememberMeElement.checked : false;
+    
+    console.log('Dados do login:', { email, password: '***', rememberMe });
+    
     // Limpar mensagens de erro anteriores
-    document.getElementById('login-email-error').textContent = '';
-    document.getElementById('login-password-error').textContent = '';
-    messageElement.textContent = '';
-    messageElement.className = 'form-message';
+    const emailErrorElement = document.getElementById('login-email-error');
+    const passwordErrorElement = document.getElementById('login-password-error');
+    
+    if (emailErrorElement) emailErrorElement.textContent = '';
+    if (passwordErrorElement) passwordErrorElement.textContent = '';
+    if (messageElement) {
+        messageElement.textContent = '';
+        messageElement.className = 'form-message';
+    }
     
     // Validar campos
     if (!email) {
-        document.getElementById('login-email-error').textContent = 'E-mail é obrigatório';
+        if (emailErrorElement) emailErrorElement.textContent = 'E-mail é obrigatório';
+        console.log('❌ Email vazio');
         return;
     }
     
     if (!password) {
-        document.getElementById('login-password-error').textContent = 'Senha é obrigatória';
+        if (passwordErrorElement) passwordErrorElement.textContent = 'Senha é obrigatória';
+        console.log('❌ Senha vazia');
         return;
     }
     
+    console.log('✅ Campos validados');
+    
     // Recarregar usuários do localStorage para garantir dados atualizados
+    console.log('🔄 Recarregando usuários...');
     initializeUsers();
+    
+    console.log('📋 Usuários disponíveis:', users.length);
+    users.forEach((u, index) => {
+        console.log(`  ${index + 1}. ${u.email} (${u.name}) - ID: ${u.id}`);
+    });
     
     // Verificar credenciais
     const user = users.find(u => u.email === email);
     
-    console.log('Tentativa de login:', { email, hasUser: !!user });
-    console.log('Usuários cadastrados:', users.length);
+    console.log('🔍 Tentativa de login:', { email, hasUser: !!user });
     
     if (!user) {
-        messageElement.textContent = 'E-mail ou senha incorretos';
-        messageElement.className = 'form-message error';
+        console.log('❌ Usuário não encontrado');
+        if (messageElement) {
+            messageElement.textContent = 'E-mail ou senha incorretos';
+            messageElement.className = 'form-message error';
+        }
         return;
     }
     
+    console.log('✅ Usuário encontrado:', { id: user.id, name: user.name, email: user.email });
+    
     // Verificar senha (comparação direta para usuários de teste, criptografada para outros)
+    console.log('🔐 Verificando senha...');
     let passwordMatch = false;
+    
     if (user.isFixed || user.id === 'test-001' || user.id === 'test-002') {
         // Usuários de teste - comparação direta
         passwordMatch = user.password === password;
-        console.log('Usuário de teste - comparação direta:', { 
+        console.log('🔍 Usuário de teste - comparação direta:', { 
             userId: user.id, 
             senhaDigitada: password, 
             senhaArmazenada: user.password, 
@@ -324,17 +391,22 @@ async function handleLogin(e) {
         // Outros usuários - comparação criptografada
         const encryptedPassword = await hashPassword(password);
         passwordMatch = user.password === encryptedPassword;
-        console.log('Usuário cadastrado - comparação criptografada:', { 
+        console.log('🔍 Usuário cadastrado - comparação criptografada:', { 
             userId: user.id,
             match: passwordMatch 
         });
     }
     
     if (!passwordMatch) {
-        messageElement.textContent = 'E-mail ou senha incorretos';
-        messageElement.className = 'form-message error';
+        console.log('❌ Senha incorreta');
+        if (messageElement) {
+            messageElement.textContent = 'E-mail ou senha incorretos';
+            messageElement.className = 'form-message error';
+        }
         return;
     }
+    
+    console.log('✅ Senha correta!');
     
     console.log('✅ Login bem-sucedido:', user);
     
@@ -359,22 +431,29 @@ async function handleLogin(e) {
     }
     
     // Mostrar mensagem de sucesso
-    messageElement.innerHTML = `
-        <div class="success-message">
-            <i class="fas fa-check-circle"></i>
-            <span>Login realizado com sucesso! Redirecionando...</span>
-        </div>
-    `;
-    messageElement.className = 'form-message success';
+    if (messageElement) {
+        messageElement.innerHTML = `
+            <div class="success-message">
+                <i class="fas fa-check-circle"></i>
+                <span>Login realizado com sucesso! Redirecionando...</span>
+            </div>
+        `;
+        messageElement.className = 'form-message success';
+    }
     
     // Redirecionar para página de boas-vindas
-    console.log('Redirecionando para welcome.html');
+    console.log('🚀 Redirecionando para welcome.html');
     setTimeout(() => {
-        // Verificar se estamos na pasta pages
-        if (window.location.pathname.includes('/pages/')) {
-            window.location.href = './welcome.html';
-        } else {
-            window.location.href = './pages/welcome.html';
+        try {
+            // Verificar se estamos na pasta pages
+            if (window.location.pathname.includes('/pages/')) {
+                window.location.href = './welcome.html';
+            } else {
+                window.location.href = './pages/welcome.html';
+            }
+        } catch (error) {
+            console.error('Erro ao redirecionar:', error);
+            alert('Login realizado com sucesso! Clique em OK para continuar.');
         }
     }, 1500);
 }
