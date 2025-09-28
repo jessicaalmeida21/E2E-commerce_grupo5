@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correção de Login de Usuários - E2E-Commerce</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .fix-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .fix-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .fix-button:hover {
+            background: #0056b3;
+        }
+        .fix-button.success {
+            background: #28a745;
+        }
+        .fix-button.danger {
+            background: #dc3545;
+        }
+        .fix-button.warning {
+            background: #ffc107;
+            color: #212529;
+        }
+        .log-area {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            border-radius: 5px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .status.warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        .form-group {
+            margin: 10px 0;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 Correção de Login de Usuários</h1>
+    
+    <div class="fix-container">
+        <h2>🧪 Teste de Login de Vendedor</h2>
+        <div class="form-group">
+            <label for="vendor-email">Email do Vendedor:</label>
+            <input type="email" id="vendor-email" value="vendedor@teste.com">
+        </div>
+        <div class="form-group">
+            <label for="vendor-password">Senha:</label>
+            <input type="password" id="vendor-password" value="vendedor1">
+        </div>
+        <div class="form-group">
+            <button onclick="testVendorLogin()" class="fix-button">Testar Login Vendedor</button>
+            <button onclick="createVendorUser()" class="fix-button success">Criar Vendedor Novo</button>
+        </div>
+        <div id="vendor-status"></div>
+    </div>
+    
+    <div class="fix-container">
+        <h2>🧹 Limpeza de Usuários</h2>
+        <button class="fix-button" onclick="listUsers()">Listar Usuários</button>
+        <button class="fix-button warning" onclick="clearDuplicateUsers()">Limpar Usuários Duplicados</button>
+        <button class="fix-button danger" onclick="resetAllUsers()">Resetar Todos os Usuários</button>
+        <div id="users-status"></div>
+    </div>
+    
+    <div class="fix-container">
+        <h2>🧪 Teste de Cadastro</h2>
+        <div class="form-group">
+            <label for="new-email">Email:</label>
+            <input type="email" id="new-email" value="novo@vendedor.com">
+        </div>
+        <div class="form-group">
+            <label for="new-password">Senha:</label>
+            <input type="password" id="new-password" value="senha123">
+        </div>
+        <div class="form-group">
+            <button onclick="testRegistration()" class="fix-button">Testar Cadastro</button>
+        </div>
+        <div id="registration-status"></div>
+    </div>
+    
+    <div class="fix-container">
+        <h2>📝 Log Detalhado</h2>
+        <button class="fix-button danger" onclick="clearLog()">Limpar Log</button>
+        <div id="log-area" class="log-area"></div>
+    </div>
+
+    <!-- Scripts necessários -->
+    <script src="js/database.js"></script>
+    <script src="js/api-service.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/login.js"></script>
+
+    <script>
+        let logArea = document.getElementById('log-area');
+        
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logMessage = `[${timestamp}] ${message}\n`;
+            logArea.textContent += logMessage;
+            logArea.scrollTop = logArea.scrollHeight;
+            
+            console.log(message);
+        }
+        
+        function updateStatus(elementId, message, type = 'info') {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.innerHTML = `<div class="status ${type}">${message}</div>`;
+            }
+        }
+        
+        function clearLog() {
+            logArea.textContent = '';
+        }
+        
+        // Função para testar login de vendedor
+        async function testVendorLogin() {
+            log('=== TESTANDO LOGIN DE VENDEDOR ===');
+            
+            const email = document.getElementById('vendor-email').value;
+            const password = document.getElementById('vendor-password').value;
+            
+            try {
+                // Simular login
+                const mockEvent = {
+                    preventDefault: () => {}
+                };
+                
+                // Preencher campos do formulário se existirem
+                const emailInput = document.getElementById('login-email');
+                const passwordInput = document.getElementById('login-password');
+                
+                if (emailInput && passwordInput) {
+                    emailInput.value = email;
+                    passwordInput.value = password;
+                }
+                
+                // Executar função de login
+                if (typeof handleLogin === 'function') {
+                    await handleLogin(mockEvent);
+                    
+                    // Verificar se o login foi bem-sucedido
+                    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                    if (currentUser && currentUser.email === email) {
+                        log(`✅ Login bem-sucedido: ${currentUser.name} (${currentUser.profile})`);
+                        updateStatus('vendor-status', `Login OK: ${currentUser.name} - ${currentUser.profile}`, 'success');
+                    } else {
+                        log('❌ Login falhou');
+                        updateStatus('vendor-status', 'Login falhou', 'error');
+                    }
+                } else {
+                    log('❌ Função handleLogin não encontrada');
+                    updateStatus('vendor-status', 'Função de login não encontrada', 'error');
+                }
+                
+            } catch (error) {
+                log(`❌ Erro no login: ${error.message}`, 'error');
+                updateStatus('vendor-status', `Erro: ${error.message}`, 'error');
+            }
+        }
+        
+        // Função para criar novo vendedor
+        function createVendorUser() {
+            log('=== CRIANDO NOVO VENDEDOR ===');
+            
+            try {
+                // Criar novo vendedor
+                const newVendor = {
+                    id: `vendor-${Date.now()}`,
+                    name: 'Vendedor Novo',
+                    email: 'novo@vendedor.com',
+                    password: 'senha123',
+                    profile: 'seller',
+                    createdAt: new Date().toISOString(),
+                    isFixed: false
+                };
+                
+                // Carregar usuários existentes
+                const storedUsers = JSON.parse(localStorage.getItem('users') || '[]');
+                
+                // Verificar se já existe
+                const existingUser = storedUsers.find(u => u.email === newVendor.email);
+                if (existingUser) {
+                    log('❌ Email já existe, removendo usuário antigo...');
+                    const filteredUsers = storedUsers.filter(u => u.email !== newVendor.email);
+                    localStorage.setItem('users', JSON.stringify(filteredUsers));
+                }
+                
+                // Adicionar novo vendedor
+                storedUsers.push(newVendor);
+                localStorage.setItem('users', JSON.stringify(storedUsers));
+                
+                log('✅ Novo vendedor criado:', newVendor.email);
+                updateStatus('vendor-status', 'Novo vendedor criado com sucesso!', 'success');
+                
+            } catch (error) {
+                log(`❌ Erro ao criar vendedor: ${error.message}`, 'error');
+                updateStatus('vendor-status', `Erro: ${error.message}`, 'error');
+            }
+        }
+        
+        // Função para listar usuários
+        function listUsers() {
+            log('=== LISTANDO USUÁRIOS ===');
+            
+            try {
+                const storedUsers = JSON.parse(localStorage.getItem('users') || '[]');
+                log(`Total de usuários: ${storedUsers.length}`);
+                
+                storedUsers.forEach((user, index) => {
+                    log(`${index + 1}. ${user.name} (${user.email})`);
+                    log(`   ID: ${user.id}`);
+                    log(`   Perfil: ${user.profile}`);
+                    log(`   Senha: ${user.password.substring(0, 10)}...`);
+                    log(`   Fixo: ${user.isFixed ? 'Sim' : 'Não'}`);
+                    log('');
+                });
+                
+                updateStatus('users-status', `${storedUsers.length} usuários encontrados`, 'info');
+                
+            } catch (error) {
+                log(`❌ Erro ao listar usuários: ${error.message}`, 'error');
+                updateStatus('users-status', `Erro: ${error.message}`, 'error');
+            }
+        }
+        
+        // Função para limpar usuários duplicados
+        function clearDuplicateUsers() {
+            log('=== LIMPANDO USUÁRIOS DUPLICADOS ===');
+            
+            try {
+                const storedUsers = JSON.parse(localStorage.getItem('users') || '[]');
+                const uniqueUsers = [];
+                const seenEmails = new Set();
+                
+                storedUsers.forEach(user => {
+                    if (!seenEmails.has(user.email)) {
+                        seenEmails.add(user.email);
+                        uniqueUsers.push(user);
+                        log(`✅ Mantendo: ${user.email}`);
+                    } else {
+                        log(`❌ Removendo duplicado: ${user.email}`);
+                    }
+                });
+                
+                localStorage.setItem('users', JSON.stringify(uniqueUsers));
+                log(`✅ Limpeza concluída: ${storedUsers.length} → ${uniqueUsers.length} usuários`);
+                
+                updateStatus('users-status', `Limpeza OK: ${uniqueUsers.length} usuários únicos`, 'success');
+                
+            } catch (error) {
+                log(`❌ Erro na limpeza: ${error.message}`, 'error');
+                updateStatus('users-status', `Erro: ${error.message}`, 'error');
+            }
+        }
+        
+        // Função para resetar todos os usuários
+        function resetAllUsers() {
+            log('=== RESETANDO TODOS OS USUÁRIOS ===');
+            
+            try {
+                // Manter apenas usuários de teste fixos
+                const fixedUsers = [
+                    {
+                        id: 'test-001',
+                        name: 'Cliente Teste',
+                        email: 'teste@gmail.com',
+                        password: 'teste123',
+                        profile: 'customer',
+                        createdAt: new Date().toISOString(),
+                        isFixed: true
+                    },
+                    {
+                        id: 'test-002',
+                        name: 'Vendedor Teste',
+                        email: 'vendedor@teste.com',
+                        password: 'vendedor1',
+                        profile: 'seller',
+                        createdAt: new Date().toISOString(),
+                        isFixed: true
+                    }
+                ];
+                
+                localStorage.setItem('users', JSON.stringify(fixedUsers));
+                log('✅ Usuários resetados, mantendo apenas usuários de teste');
+                
+                updateStatus('users-status', 'Reset concluído - apenas usuários de teste mantidos', 'success');
+                
+            } catch (error) {
+                log(`❌ Erro no reset: ${error.message}`, 'error');
+                updateStatus('users-status', `Erro: ${error.message}`, 'error');
+            }
+        }
+        
+        // Função para testar cadastro
+        async function testRegistration() {
+            log('=== TESTANDO CADASTRO ===');
+            
+            const email = document.getElementById('new-email').value;
+            const password = document.getElementById('new-password').value;
+            
+            try {
+                // Simular cadastro
+                const mockEvent = {
+                    preventDefault: () => {}
+                };
+                
+                // Preencher campos do formulário se existirem
+                const nameInput = document.getElementById('register-name');
+                const emailInput = document.getElementById('register-email');
+                const passwordInput = document.getElementById('register-password');
+                const confirmPasswordInput = document.getElementById('register-confirm-password');
+                const profileSelect = document.getElementById('register-profile');
+                
+                if (nameInput) nameInput.value = 'Novo Usuário';
+                if (emailInput) emailInput.value = email;
+                if (passwordInput) passwordInput.value = password;
+                if (confirmPasswordInput) confirmPasswordInput.value = password;
+                if (profileSelect) profileSelect.value = 'seller';
+                
+                // Executar função de cadastro
+                if (typeof handleRegister === 'function') {
+                    await handleRegister(mockEvent);
+                    log('✅ Cadastro executado');
+                    updateStatus('registration-status', 'Cadastro executado com sucesso!', 'success');
+                } else {
+                    log('❌ Função handleRegister não encontrada');
+                    updateStatus('registration-status', 'Função de cadastro não encontrada', 'error');
+                }
+                
+            } catch (error) {
+                log(`❌ Erro no cadastro: ${error.message}`, 'error');
+                updateStatus('registration-status', `Erro: ${error.message}`, 'error');
+            }
+        }
+        
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            log('🔧 Correção de Login de Usuários Iniciada');
+            log('Clique em "Listar Usuários" para começar');
+            
+            // Listar usuários automaticamente
+            setTimeout(() => {
+                listUsers();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

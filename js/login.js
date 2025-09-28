@@ -27,24 +27,24 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Gerenciamento de abas
     if (tabs.length > 0) {
-        tabs.forEach(tab => {
-            tab.addEventListener('click', () => {
-                const tabId = tab.getAttribute('data-tab');
-                console.log('Mudando para aba:', tabId);
-                
-                // Atualizar abas ativas
-                tabs.forEach(t => t.classList.remove('active'));
-                tab.classList.add('active');
-                
-                // Mostrar conteúdo da aba selecionada
-                tabContents.forEach(content => {
-                    content.classList.remove('active');
-                    if (content.id === `${tabId}-tab`) {
-                        content.classList.add('active');
-                    }
-                });
+    tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            const tabId = tab.getAttribute('data-tab');
+            console.log('Mudando para aba:', tabId);
+            
+            // Atualizar abas ativas
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            
+            // Mostrar conteúdo da aba selecionada
+            tabContents.forEach(content => {
+                content.classList.remove('active');
+                if (content.id === `${tabId}-tab`) {
+                    content.classList.add('active');
+                }
             });
         });
+    });
     }
     
     // Configurar formulário de login
@@ -330,8 +330,8 @@ async function handleLogin(e) {
     if (emailErrorElement) emailErrorElement.textContent = '';
     if (passwordErrorElement) passwordErrorElement.textContent = '';
     if (messageElement) {
-        messageElement.textContent = '';
-        messageElement.className = 'form-message';
+    messageElement.textContent = '';
+    messageElement.className = 'form-message';
     }
     
     // Validar campos
@@ -366,8 +366,8 @@ async function handleLogin(e) {
     if (!user) {
         console.log('❌ Usuário não encontrado');
         if (messageElement) {
-            messageElement.textContent = 'E-mail ou senha incorretos';
-            messageElement.className = 'form-message error';
+        messageElement.textContent = 'E-mail ou senha incorretos';
+        messageElement.className = 'form-message error';
         }
         return;
     }
@@ -378,8 +378,22 @@ async function handleLogin(e) {
     console.log('🔐 Verificando senha...');
     let passwordMatch = false;
     
-    if (user.isFixed || user.id === 'test-001' || user.id === 'test-002') {
-        // Usuários de teste - comparação direta
+    // Verificar se a senha armazenada está criptografada (usuários cadastrados)
+    // ou em texto plano (usuários de teste)
+    const isEncryptedPassword = user.password && user.password.length === 64; // SHA-256 hash tem 64 caracteres
+    
+    if (isEncryptedPassword) {
+        // Usuário cadastrado - comparação criptografada
+        const encryptedPassword = await hashPassword(password);
+        passwordMatch = user.password === encryptedPassword;
+        console.log('🔍 Usuário cadastrado - comparação criptografada:', { 
+            userId: user.id,
+            senhaDigitada: password,
+            senhaArmazenada: user.password.substring(0, 10) + '...',
+            match: passwordMatch 
+        });
+    } else {
+        // Usuário de teste - comparação direta
         passwordMatch = user.password === password;
         console.log('🔍 Usuário de teste - comparação direta:', { 
             userId: user.id, 
@@ -387,21 +401,13 @@ async function handleLogin(e) {
             senhaArmazenada: user.password, 
             match: passwordMatch 
         });
-    } else {
-        // Outros usuários - comparação criptografada
-        const encryptedPassword = await hashPassword(password);
-        passwordMatch = user.password === encryptedPassword;
-        console.log('🔍 Usuário cadastrado - comparação criptografada:', { 
-            userId: user.id,
-            match: passwordMatch 
-        });
     }
     
     if (!passwordMatch) {
         console.log('❌ Senha incorreta');
         if (messageElement) {
-            messageElement.textContent = 'E-mail ou senha incorretos';
-            messageElement.className = 'form-message error';
+        messageElement.textContent = 'E-mail ou senha incorretos';
+        messageElement.className = 'form-message error';
         }
         return;
     }
@@ -432,24 +438,24 @@ async function handleLogin(e) {
     
     // Mostrar mensagem de sucesso
     if (messageElement) {
-        messageElement.innerHTML = `
-            <div class="success-message">
-                <i class="fas fa-check-circle"></i>
-                <span>Login realizado com sucesso! Redirecionando...</span>
-            </div>
-        `;
-        messageElement.className = 'form-message success';
+    messageElement.innerHTML = `
+        <div class="success-message">
+            <i class="fas fa-check-circle"></i>
+            <span>Login realizado com sucesso! Redirecionando...</span>
+        </div>
+    `;
+    messageElement.className = 'form-message success';
     }
     
     // Redirecionar para página de boas-vindas
     console.log('🚀 Redirecionando para welcome.html');
     setTimeout(() => {
         try {
-            // Verificar se estamos na pasta pages
-            if (window.location.pathname.includes('/pages/')) {
-                window.location.href = './welcome.html';
-            } else {
-                window.location.href = './pages/welcome.html';
+        // Verificar se estamos na pasta pages
+        if (window.location.pathname.includes('/pages/')) {
+            window.location.href = './welcome.html';
+        } else {
+            window.location.href = './pages/welcome.html';
             }
         } catch (error) {
             console.error('Erro ao redirecionar:', error);

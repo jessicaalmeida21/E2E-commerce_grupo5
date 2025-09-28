@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Carrinho e Checkout - E2E-Commerce</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .debug-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .test-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .test-button:hover {
+            background: #0056b3;
+        }
+        .test-button.success {
+            background: #28a745;
+        }
+        .test-button.danger {
+            background: #dc3545;
+        }
+        .test-button.warning {
+            background: #ffc107;
+            color: #212529;
+        }
+        .log-area {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            border-radius: 5px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .status.warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        .form-group {
+            margin: 10px 0;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .form-group button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .error {
+            color: #dc3545;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Debug Carrinho e Checkout</h1>
+    
+    <div class="debug-container">
+        <h2>🧪 Teste de Carrinho</h2>
+        <div class="form-group">
+            <button onclick="createTestCart()" class="test-button">Criar Carrinho de Teste</button>
+            <button onclick="checkCart()" class="test-button">Verificar Carrinho</button>
+            <button onclick="clearCart()" class="test-button danger">Limpar Carrinho</button>
+        </div>
+        <div id="cart-status"></div>
+    </div>
+    
+    <div class="debug-container">
+        <h2>🧪 Teste de Checkout</h2>
+        <div class="form-group">
+            <button onclick="testCheckout()" class="test-button">Testar Checkout</button>
+            <button onclick="calculateTotals()" class="test-button">Calcular Totais</button>
+            <button onclick="testPayment()" class="test-button">Testar Pagamento</button>
+        </div>
+        <div id="checkout-status"></div>
+    </div>
+    
+    <div class="debug-container">
+        <h2>📊 Estado Atual</h2>
+        <button class="test-button" onclick="checkSystemState()">Verificar Estado</button>
+        <button class="test-button" onclick="checkLocalStorage()">Verificar localStorage</button>
+        <button class="test-button" onclick="checkProducts()">Verificar Produtos</button>
+        <div id="system-status"></div>
+    </div>
+    
+    <div class="debug-container">
+        <h2>📝 Log Detalhado</h2>
+        <button class="test-button danger" onclick="clearLog()">Limpar Log</button>
+        <div id="log-area" class="log-area"></div>
+    </div>
+
+    <!-- Scripts necessários -->
+    <script src="js/database.js"></script>
+    <script src="js/api-service.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
+
+    <script>
+        let logArea = document.getElementById('log-area');
+        
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logMessage = `[${timestamp}] ${message}\n`;
+            logArea.textContent += logMessage;
+            logArea.scrollTop = logArea.scrollHeight;
+            
+            console.log(message);
+        }
+        
+        function updateStatus(elementId, message, type = 'info') {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.innerHTML = `<div class="status ${type}">${message}</div>`;
+            }
+        }
+        
+        function clearLog() {
+            logArea.textContent = '';
+        }
+        
+        // Função para criar carrinho de teste
+        function createTestCart() {
+            log('=== CRIANDO CARRINHO DE TESTE ===');
+            
+            try {
+                // Criar usuário de teste se não existir
+                const testUser = {
+                    id: 'test-001',
+                    name: 'Cliente Teste',
+                    email: 'teste@gmail.com',
+                    password: 'teste123',
+                    profile: 'customer',
+                    isFixed: true
+                };
+                localStorage.setItem('currentUser', JSON.stringify(testUser));
+                log('✅ Usuário de teste criado');
+                
+                // Criar carrinho de teste
+                const testCart = [
+                    {
+                        id: 'PROD-001',
+                        title: 'Samsung Galaxy S24 FE 5G',
+                        price: 2899.99,
+                        quantity: 1,
+                        image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80'
+                    },
+                    {
+                        id: 'PROD-004',
+                        title: 'Notebook Acer Aspire 5',
+                        price: 2499.99,
+                        quantity: 1,
+                        image: 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80'
+                    }
+                ];
+                
+                // Salvar carrinho
+                const cartKey = `cart_${testUser.id}`;
+                localStorage.setItem(cartKey, JSON.stringify(testCart));
+                log('✅ Carrinho de teste criado');
+                log(`Produtos no carrinho: ${testCart.length}`);
+                testCart.forEach(item => {
+                    log(`  - ${item.title}: R$ ${item.price} x ${item.quantity}`);
+                });
+                
+                updateStatus('cart-status', 'Carrinho de teste criado com sucesso!', 'success');
+                
+            } catch (error) {
+                log(`❌ Erro ao criar carrinho: ${error.message}`, 'error');
+                updateStatus('cart-status', `Erro: ${error.message}`, 'error');
+            }
+        }
+        
+        // Função para verificar carrinho
+        function checkCart() {
+            log('=== VERIFICANDO CARRINHO ===');
+            
+            try {
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                if (!currentUser) {
+                    log('❌ Usuário não logado');
+                    updateStatus('cart-status', 'Usuário não logado', 'error');
+                    return;
+                }
+                
+                const cartKey = `cart_${currentUser.id}`;
+                const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+                
+                log(`Usuário: ${currentUser.name} (${currentUser.id})`);
+                log(`Carrinho: ${cart.length} itens`);
+                
+                if (cart.length > 0) {
+                    let total = 0;
+                    cart.forEach((item, index) => {
+                        const itemTotal = item.price * item.quantity;
+                        total += itemTotal;
+                        log(`  ${index + 1}. ${item.title}`);
+                        log(`     Preço: R$ ${item.price}`);
+                        log(`     Quantidade: ${item.quantity}`);
+                        log(`     Total: R$ ${itemTotal.toFixed(2)}`);
+                    });
+                    log(`Total do carrinho: R$ ${total.toFixed(2)}`);
+                    updateStatus('cart-status', `Carrinho OK: ${cart.length} itens, Total: R$ ${total.toFixed(2)}`, 'success');
+                } else {
+                    log('❌ Carrinho vazio');
+                    updateStatus('cart-status', 'Carrinho vazio', 'warning');
+                }
+                
+            } catch (error) {
+                log(`❌ Erro ao verificar carrinho: ${error.message}`, 'error');
+                updateStatus('cart-status', `Erro: ${error.message}`, 'error');
+            }
+        }
+        
+        // Função para limpar carrinho
+        function clearCart() {
+            log('=== LIMPANDO CARRINHO ===');
+            
+            try {
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                if (currentUser) {
+                    const cartKey = `cart_${currentUser.id}`;
+                    localStorage.removeItem(cartKey);
+                    log('✅ Carrinho limpo');
+                    updateStatus('cart-status', 'Carrinho limpo', 'info');
+                } else {
+                    log('❌ Usuário não logado');
+                    updateStatus('cart-status', 'Usuário não logado', 'error');
+                }
+            } catch (error) {
+                log(`❌ Erro ao limpar carrinho: ${error.message}`, 'error');
+                updateStatus('cart-status', `Erro: ${error.message}`, 'error');
+            }
+        }
+        
+        // Função para testar checkout
+        function testCheckout() {
+            log('=== TESTANDO CHECKOUT ===');
+            
+            try {
+                // Verificar se há carrinho
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                if (!currentUser) {
+                    log('❌ Usuário não logado');
+                    updateStatus('checkout-status', 'Usuário não logado', 'error');
+                    return;
+                }
+                
+                const cartKey = `cart_${currentUser.id}`;
+                const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+                
+                if (cart.length === 0) {
+                    log('❌ Carrinho vazio');
+                    updateStatus('checkout-status', 'Carrinho vazio - crie um carrinho de teste primeiro', 'warning');
+                    return;
+                }
+                
+                // Simular cálculo de totais
+                let subtotal = 0;
+                cart.forEach(item => {
+                    subtotal += item.price * item.quantity;
+                });
+                
+                const shipping = subtotal > 99 ? 0 : 15;
+                const total = subtotal + shipping;
+                
+                log(`Subtotal: R$ ${subtotal.toFixed(2)}`);
+                log(`Frete: R$ ${shipping.toFixed(2)}`);
+                log(`Total: R$ ${total.toFixed(2)}`);
+                
+                updateStatus('checkout-status', `Checkout OK: Total R$ ${total.toFixed(2)}`, 'success');
+                
+            } catch (error) {
+                log(`❌ Erro no checkout: ${error.message}`, 'error');
+                updateStatus('checkout-status', `Erro: ${error.message}`, 'error');
+            }
+        }
+        
+        // Função para verificar estado do sistema
+        function checkSystemState() {
+            log('=== VERIFICANDO ESTADO DO SISTEMA ===');
+            
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            const hasUser = !!currentUser;
+            
+            log(`Usuário logado: ${hasUser}`);
+            if (hasUser) {
+                log(`  Nome: ${currentUser.name}`);
+                log(`  Email: ${currentUser.email}`);
+                log(`  ID: ${currentUser.id}`);
+            }
+            
+            // Verificar carrinho
+            if (hasUser) {
+                const cartKey = `cart_${currentUser.id}`;
+                const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+                log(`Carrinho: ${cart.length} itens`);
+            }
+            
+            // Verificar produtos
+            if (typeof productsDatabase !== 'undefined') {
+                const totalProducts = Object.values(productsDatabase).reduce((total, category) => {
+                    return total + (Array.isArray(category) ? category.length : 0);
+                }, 0);
+                log(`Produtos disponíveis: ${totalProducts}`);
+            }
+            
+            updateStatus('system-status', 
+                `Sistema: ${hasUser ? 'Usuário logado' : 'Sem usuário'}`, 
+                hasUser ? 'success' : 'warning');
+        }
+        
+        // Função para verificar localStorage
+        function checkLocalStorage() {
+            log('=== VERIFICANDO LOCALSTORAGE ===');
+            
+            const keys = Object.keys(localStorage);
+            log(`Total de chaves: ${keys.length}`);
+            
+            keys.forEach(key => {
+                if (key.startsWith('cart_') || key === 'currentUser') {
+                    const value = localStorage.getItem(key);
+                    if (key === 'currentUser') {
+                        try {
+                            const user = JSON.parse(value);
+                            log(`  ${key}: ${user.name} (${user.email})`);
+                        } catch (error) {
+                            log(`  ${key}: ERRO - ${error.message}`);
+                        }
+                    } else {
+                        try {
+                            const cart = JSON.parse(value);
+                            log(`  ${key}: ${cart.length} itens`);
+                        } catch (error) {
+                            log(`  ${key}: ERRO - ${error.message}`);
+                        }
+                    }
+                }
+            });
+        }
+        
+        // Função para verificar produtos
+        function checkProducts() {
+            log('=== VERIFICANDO PRODUTOS ===');
+            
+            if (typeof productsDatabase !== 'undefined') {
+                Object.keys(productsDatabase).forEach(category => {
+                    const products = productsDatabase[category];
+                    if (Array.isArray(products)) {
+                        log(`${category}: ${products.length} produtos`);
+                        products.slice(0, 3).forEach(product => {
+                            log(`  - ${product.title}: R$ ${product.price}`);
+                        });
+                    }
+                });
+            } else {
+                log('❌ productsDatabase não encontrado');
+            }
+        }
+        
+        // Funções placeholder
+        function calculateTotals() {
+            log('Função calculateTotals não implementada neste teste');
+        }
+        
+        function testPayment() {
+            log('Função testPayment não implementada neste teste');
+        }
+        
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            log('🔍 Debug do Carrinho e Checkout Iniciado');
+            log('Clique em "Criar Carrinho de Teste" para começar');
+            
+            // Verificar estado automaticamente
+            setTimeout(() => {
+                checkSystemState();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

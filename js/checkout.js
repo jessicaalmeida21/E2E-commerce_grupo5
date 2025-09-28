@@ -59,9 +59,10 @@ async function loadCartItems() {
     console.log('Carrinho carregado:', cart);
     
     if (cart.length === 0) {
-        console.log('Carrinho vazio, redirecionando para catálogo...');
-        alert('Seu carrinho está vazio. Adicione produtos antes de finalizar a compra.');
-        window.location.href = './catalog.html';
+        console.log('Carrinho vazio, mas continuando para debug...');
+        // Não redirecionar durante debug
+        cartItems = [];
+        updateTotalsDisplay(0, 0, 0);
         return;
     }
     
