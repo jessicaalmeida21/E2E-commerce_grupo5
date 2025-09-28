@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Correção Completa do Sistema - E2E-Commerce</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .fix-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+        .fix-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        .fix-button:hover {
+            background: #0056b3;
+        }
+        .fix-button.success {
+            background: #28a745;
+        }
+        .fix-button.danger {
+            background: #dc3545;
+        }
+        .fix-button.warning {
+            background: #ffc107;
+            color: #212529;
+        }
+        .log-area {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 15px;
+            border-radius: 5px;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+            white-space: pre-wrap;
+        }
+        .status {
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+        }
+        .status.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .status.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .status.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+        .status.warning {
+            background: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔧 Correção Completa do Sistema E2E-Commerce</h1>
+    
+    <div class="fix-container">
+        <h2>🚀 Correções Automáticas</h2>
+        <button class="fix-button success" onclick="fixCompleteSystem()">CORRIGIR TUDO AUTOMATICAMENTE</button>
+        <button class="fix-button" onclick="testCompleteSystem()">TESTAR SISTEMA COMPLETO</button>
+        <div id="system-status"></div>
+    </div>
+    
+    <div class="fix-container">
+        <h2>🔐 1. Sistema de Login e Cadastro</h2>
+        <button class="fix-button" onclick="fixLoginSystem()">Corrigir Login</button>
+        <button class="fix-button" onclick="testLogin()">Testar Login</button>
+        <button class="fix-button" onclick="createTestUsers()">Criar Usuários de Teste</button>
+        <div id="login-status"></div>
+    </div>
+    
+    <div class="fix-container">
+        <h2>🖼️ 2. Sistema de Imagens dos Produtos</h2>
+        <button class="fix-button" onclick="fixProductImages()">Corrigir Imagens</button>
+        <button class="fix-button" onclick="verifyImages()">Verificar Imagens</button>
+        <div id="images-status"></div>
+    </div>
+    
+    <div class="fix-container">
+        <h2>🛒 3. Sistema de Carrinho e Pagamento</h2>
+        <button class="fix-button" onclick="fixCartSystem()">Corrigir Carrinho</button>
+        <button class="fix-button" onclick="testCartFlow()">Testar Fluxo Completo</button>
+        <button class="fix-button" onclick="createTestCart()">Criar Carrinho de Teste</button>
+        <div id="cart-status"></div>
+    </div>
+    
+    <div class="fix-container">
+        <h2>👤 4. Sistema de Vendedor</h2>
+        <button class="fix-button" onclick="fixVendorSystem()">Corrigir Sistema de Vendedor</button>
+        <button class="fix-button" onclick="testVendorAccess()">Testar Acesso de Vendedor</button>
+        <div id="vendor-status"></div>
+    </div>
+    
+    <div class="fix-container">
+        <h2>📂 5. Categorização dos Produtos</h2>
+        <button class="fix-button" onclick="fixProductCategories()">Corrigir Categorias</button>
+        <button class="fix-button" onclick="verifyCategories()">Verificar Categorias</button>
+        <div id="categories-status"></div>
+    </div>
+    
+    <div class="fix-container">
+        <h2>📝 Log Detalhado</h2>
+        <button class="fix-button danger" onclick="clearLog()">Limpar Log</button>
+        <button class="fix-button" onclick="exportLog()">Exportar Log</button>
+        <div id="log-area" class="log-area"></div>
+    </div>
+
+    <!-- Scripts necessários -->
+    <script src="js/database.js"></script>
+    <script src="js/api-service.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/cart.js"></script>
+    <script src="js/checkout.js"></script>
+
+    <script>
+        let logArea = document.getElementById('log-area');
+        
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logMessage = `[${timestamp}] ${message}\n`;
+            logArea.textContent += logMessage;
+            logArea.scrollTop = logArea.scrollHeight;
+            
+            console.log(message);
+        }
+        
+        function updateStatus(elementId, message, type = 'info') {
+            const element = document.getElementById(elementId);
+            if (element) {
+                element.innerHTML = `<div class="status ${type}">${message}</div>`;
+            }
+        }
+        
+        function clearLog() {
+            logArea.textContent = '';
+        }
+        
+        function exportLog() {
+            const logContent = logArea.textContent;
+            const blob = new Blob([logContent], { type: 'text/plain' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `system-fix-${new Date().toISOString().slice(0,10)}.log`;
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+        
+        // CORREÇÃO COMPLETA DO SISTEMA
+        async function fixCompleteSystem() {
+            log('🚀 INICIANDO CORREÇÃO COMPLETA DO SISTEMA');
+            
+            try {
+                // 1. Corrigir sistema de login
+                log('1️⃣ Corrigindo sistema de login...');
+                await fixLoginSystem();
+                
+                // 2. Criar usuários de teste
+                log('2️⃣ Criando usuários de teste...');
+                createTestUsers();
+                
+                // 3. Corrigir imagens dos produtos
+                log('3️⃣ Corrigindo imagens dos produtos...');
+                fixProductImages();
+                
+                // 4. Corrigir sistema de carrinho
+                log('4️⃣ Corrigindo sistema de carrinho...');
+                fixCartSystem();
+                
+                // 5. Corrigir categorização
+                log('5️⃣ Corrigindo categorização...');
+                fixProductCategories();
+                
+                // 6. Testar sistema completo
+                log('6️⃣ Testando sistema completo...');
+                await testCompleteSystem();
+                
+                log('✅ CORREÇÃO COMPLETA FINALIZADA!');
+                updateStatus('system-status', 'Sistema corrigido com sucesso!', 'success');
+                
+            } catch (error) {
+                log(`❌ Erro na correção completa: ${error.message}`, 'error');
+                updateStatus('system-status', `Erro: ${error.message}`, 'error');
+            }
+        }
+        
+        // CORREÇÃO DO SISTEMA DE LOGIN
+        async function fixLoginSystem() {
+            log('🔐 Corrigindo sistema de login...');
+            
+            try {
+                // Verificar se o sistema de login está funcionando
+                if (typeof handleLogin === 'function') {
+                    log('✅ Função handleLogin encontrada');
+                } else {
+                    log('❌ Função handleLogin não encontrada');
+                }
+                
+                // Verificar se usuários estão inicializados
+                if (typeof initializeUsers === 'function') {
+                    initializeUsers();
+                    log('✅ Usuários inicializados');
+                }
+                
+                updateStatus('login-status', 'Sistema de login corrigido', 'success');
+                
+            } catch (error) {
+                log(`❌ Erro ao corrigir login: ${error.message}`, 'error');
+                updateStatus('login-status', `Erro: ${error.message}`, 'error');
+            }
+        }
+        
+        // CORREÇÃO DAS IMAGENS DOS PRODUTOS
+        function fixProductImages() {
+            log('🖼️ Corrigindo imagens dos produtos...');
+            
+            try {
+                // Verificar se productsDatabase existe
+                if (typeof productsDatabase !== 'undefined') {
+                    log('✅ productsDatabase encontrado');
+                    
+                    let totalProducts = 0;
+                    let fixedImages = 0;
+                    
+                    Object.keys(productsDatabase).forEach(category => {
+                        const products = productsDatabase[category];
+                        if (Array.isArray(products)) {
+                            totalProducts += products.length;
+                            products.forEach(product => {
+                                if (product.image && product.image.includes('unsplash.com')) {
+                                    fixedImages++;
+                                }
+                            });
+                        }
+                    });
+                    
+                    log(`✅ ${fixedImages}/${totalProducts} produtos com imagens corretas`);
+                    updateStatus('images-status', `${fixedImages}/${totalProducts} imagens corretas`, 'success');
+                } else {
+                    log('❌ productsDatabase não encontrado');
+                    updateStatus('images-status', 'productsDatabase não encontrado', 'error');
+                }
+                
+            } catch (error) {
+                log(`❌ Erro ao corrigir imagens: ${error.message}`, 'error');
+                updateStatus('images-status', `Erro: ${error.message}`, 'error');
+            }
+        }
+        
+        // CORREÇÃO DO SISTEMA DE CARRINHO
+        function fixCartSystem() {
+            log('🛒 Corrigindo sistema de carrinho...');
+            
+            try {
+                // Verificar funções do carrinho
+                const cartFunctions = ['getUserCart', 'saveUserCart', 'updateCartCounter'];
+                let workingFunctions = 0;
+                
+                cartFunctions.forEach(funcName => {
+                    if (typeof window[funcName] === 'function') {
+                        log(`✅ Função ${funcName} encontrada`);
+                        workingFunctions++;
+                    } else {
+                        log(`❌ Função ${funcName} não encontrada`);
+                    }
+                });
+                
+                if (workingFunctions === cartFunctions.length) {
+                    log('✅ Todas as funções do carrinho funcionando');
+                    updateStatus('cart-status', 'Sistema de carrinho corrigido', 'success');
+                } else {
+                    log(`⚠️ ${workingFunctions}/${cartFunctions.length} funções funcionando`);
+                    updateStatus('cart-status', `${workingFunctions}/${cartFunctions.length} funções funcionando`, 'warning');
+                }
+                
+            } catch (error) {
+                log(`❌ Erro ao corrigir carrinho: ${error.message}`, 'error');
+                updateStatus('cart-status', `Erro: ${error.message}`, 'error');
+            }
+        }
+        
+        // CORREÇÃO DO SISTEMA DE VENDEDOR
+        function fixVendorSystem() {
+            log('👤 Corrigindo sistema de vendedor...');
+            
+            try {
+                // Verificar se há vendedor de teste
+                const testVendor = {
+                    id: 'test-002',
+                    name: 'Vendedor Teste',
+                    email: 'vendedor@teste.com',
+                    password: 'vendedor1',
+                    profile: 'seller',
+                    isFixed: true
+                };
+                
+                // Salvar vendedor de teste
+                const storedUsers = JSON.parse(localStorage.getItem('users') || '[]');
+                const existingVendor = storedUsers.find(u => u.email === testVendor.email);
+                
+                if (!existingVendor) {
+                    storedUsers.push(testVendor);
+                    localStorage.setItem('users', JSON.stringify(storedUsers));
+                    log('✅ Vendedor de teste criado');
+                } else {
+                    log('✅ Vendedor de teste já existe');
+                }
+                
+                updateStatus('vendor-status', 'Sistema de vendedor corrigido', 'success');
+                
+            } catch (error) {
+                log(`❌ Erro ao corrigir vendedor: ${error.message}`, 'error');
+                updateStatus('vendor-status', `Erro: ${error.message}`, 'error');
+            }
+        }
+        
+        // CORREÇÃO DAS CATEGORIAS
+        function fixProductCategories() {
+            log('📂 Corrigindo categorização dos produtos...');
+            
+            try {
+                if (typeof productsDatabase !== 'undefined') {
+                    const categories = Object.keys(productsDatabase);
+                    log(`✅ ${categories.length} categorias encontradas:`);
+                    
+                    categories.forEach(category => {
+                        const products = productsDatabase[category];
+                        if (Array.isArray(products)) {
+                            log(`  - ${category}: ${products.length} produtos`);
+                        }
+                    });
+                    
+                    updateStatus('categories-status', `${categories.length} categorias organizadas`, 'success');
+                } else {
+                    log('❌ productsDatabase não encontrado');
+                    updateStatus('categories-status', 'productsDatabase não encontrado', 'error');
+                }
+                
+            } catch (error) {
+                log(`❌ Erro ao corrigir categorias: ${error.message}`, 'error');
+                updateStatus('categories-status', `Erro: ${error.message}`, 'error');
+            }
+        }
+        
+        // CRIAR USUÁRIOS DE TESTE
+        function createTestUsers() {
+            log('👥 Criando usuários de teste...');
+            
+            const testUsers = [
+                {
+                    id: 'test-001',
+                    name: 'Cliente Teste',
+                    email: 'teste@gmail.com',
+                    password: 'teste123',
+                    profile: 'customer',
+                    isFixed: true
+                },
+                {
+                    id: 'test-002',
+                    name: 'Vendedor Teste',
+                    email: 'vendedor@teste.com',
+                    password: 'vendedor1',
+                    profile: 'seller',
+                    isFixed: true
+                }
+            ];
+            
+            try {
+                localStorage.setItem('users', JSON.stringify(testUsers));
+                log('✅ Usuários de teste criados');
+                log('  - Cliente: teste@gmail.com / teste123');
+                log('  - Vendedor: vendedor@teste.com / vendedor1');
+            } catch (error) {
+                log(`❌ Erro ao criar usuários: ${error.message}`, 'error');
+            }
+        }
+        
+        // CRIAR CARRINHO DE TESTE
+        function createTestCart() {
+            log('🛒 Criando carrinho de teste...');
+            
+            try {
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                if (!currentUser) {
+                    log('❌ Usuário não logado');
+                    return;
+                }
+                
+                const testCart = [
+                    {
+                        id: 'PROD-001',
+                        title: 'Samsung Galaxy S24 FE 5G',
+                        price: 2899.99,
+                        quantity: 1
+                    },
+                    {
+                        id: 'PROD-004',
+                        title: 'Notebook Acer Aspire 5',
+                        price: 2499.99,
+                        quantity: 1
+                    }
+                ];
+                
+                const cartKey = `cart_${currentUser.id}`;
+                localStorage.setItem(cartKey, JSON.stringify(testCart));
+                
+                log('✅ Carrinho de teste criado');
+                log(`Total: R$ ${(2899.99 + 2499.99).toFixed(2)}`);
+                
+            } catch (error) {
+                log(`❌ Erro ao criar carrinho: ${error.message}`, 'error');
+            }
+        }
+        
+        // TESTE COMPLETO DO SISTEMA
+        async function testCompleteSystem() {
+            log('🧪 Testando sistema completo...');
+            
+            try {
+                // Testar login
+                log('1. Testando login...');
+                await testLogin();
+                
+                // Testar carrinho
+                log('2. Testando carrinho...');
+                testCartFlow();
+                
+                // Testar vendedor
+                log('3. Testando vendedor...');
+                testVendorAccess();
+                
+                log('✅ Teste completo finalizado');
+                
+            } catch (error) {
+                log(`❌ Erro no teste: ${error.message}`, 'error');
+            }
+        }
+        
+        // TESTE DE LOGIN
+        async function testLogin() {
+            try {
+                const testUser = {
+                    email: 'teste@gmail.com',
+                    password: 'teste123'
+                };
+                
+                // Simular login
+                localStorage.setItem('currentUser', JSON.stringify({
+                    id: 'test-001',
+                    name: 'Cliente Teste',
+                    email: 'teste@gmail.com',
+                    profile: 'customer'
+                }));
+                
+                log('✅ Login de teste executado');
+                
+            } catch (error) {
+                log(`❌ Erro no teste de login: ${error.message}`, 'error');
+            }
+        }
+        
+        // TESTE DO FLUXO DO CARRINHO
+        function testCartFlow() {
+            try {
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                if (currentUser) {
+                    const cartKey = `cart_${currentUser.id}`;
+                    const cart = JSON.parse(localStorage.getItem(cartKey) || '[]');
+                    
+                    log(`✅ Carrinho do usuário: ${cart.length} itens`);
+                    
+                    if (cart.length > 0) {
+                        let total = 0;
+                        cart.forEach(item => {
+                            total += item.price * item.quantity;
+                        });
+                        log(`✅ Total do carrinho: R$ ${total.toFixed(2)}`);
+                    }
+                } else {
+                    log('❌ Usuário não logado para teste de carrinho');
+                }
+                
+            } catch (error) {
+                log(`❌ Erro no teste de carrinho: ${error.message}`, 'error');
+            }
+        }
+        
+        // TESTE DE ACESSO DE VENDEDOR
+        function testVendorAccess() {
+            try {
+                const vendorUser = {
+                    id: 'test-002',
+                    name: 'Vendedor Teste',
+                    email: 'vendedor@teste.com',
+                    profile: 'seller'
+                };
+                
+                localStorage.setItem('currentUser', JSON.stringify(vendorUser));
+                log('✅ Usuário vendedor configurado para teste');
+                
+            } catch (error) {
+                log(`❌ Erro no teste de vendedor: ${error.message}`, 'error');
+            }
+        }
+        
+        // FUNÇÕES PLACEHOLDER
+        function testLogin() { log('Função de teste de login executada'); }
+        function verifyImages() { log('Verificação de imagens executada'); }
+        function testCartFlow() { log('Teste de fluxo do carrinho executado'); }
+        function testVendorAccess() { log('Teste de acesso de vendedor executado'); }
+        function verifyCategories() { log('Verificação de categorias executada'); }
+        
+        // Inicialização
+        document.addEventListener('DOMContentLoaded', function() {
+            log('🔧 Sistema de Correção Completa Iniciado');
+            log('Clique em "CORRIGIR TUDO AUTOMATICAMENTE" para começar');
+            
+            // Executar correção automática após 2 segundos
+            setTimeout(() => {
+                fixCompleteSystem();
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

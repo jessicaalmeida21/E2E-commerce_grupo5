@@ -378,27 +378,24 @@ async function handleLogin(e) {
     console.log('🔐 Verificando senha...');
     let passwordMatch = false;
     
-    // Verificar se a senha armazenada está criptografada (usuários cadastrados)
-    // ou em texto plano (usuários de teste)
-    const isEncryptedPassword = user.password && user.password.length === 64; // SHA-256 hash tem 64 caracteres
-    
-    if (isEncryptedPassword) {
-        // Usuário cadastrado - comparação criptografada
+    // Verificar senha baseado no tipo de usuário
+    if (user.isFixed || user.id === 'test-001' || user.id === 'test-002') {
+        // Usuários de teste fixos - comparação direta
+        passwordMatch = user.password === password;
+        console.log('🔍 Usuário de teste - comparação direta:', { 
+            userId: user.id, 
+            senhaDigitada: password, 
+            senhaArmazenada: user.password, 
+            match: passwordMatch 
+        });
+    } else {
+        // Usuários cadastrados - comparação criptografada
         const encryptedPassword = await hashPassword(password);
         passwordMatch = user.password === encryptedPassword;
         console.log('🔍 Usuário cadastrado - comparação criptografada:', { 
             userId: user.id,
             senhaDigitada: password,
             senhaArmazenada: user.password.substring(0, 10) + '...',
-            match: passwordMatch 
-        });
-    } else {
-        // Usuário de teste - comparação direta
-        passwordMatch = user.password === password;
-        console.log('🔍 Usuário de teste - comparação direta:', { 
-            userId: user.id, 
-            senhaDigitada: password, 
-            senhaArmazenada: user.password, 
             match: passwordMatch 
         });
     }
