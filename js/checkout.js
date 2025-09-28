@@ -1,392 +1,389 @@
-// Script para gerenciar o checkout
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('=== INICIANDO CHECKOUT ===');
-    console.log('productsModule disponível:', typeof productsModule);
-    console.log('getAllProducts disponível:', typeof getAllProducts);
-    console.log('apiService disponível:', typeof apiService);
-    
-    checkUserPermissions();
-    
-    // Testar carregamento de produtos
-    testProductLoading();
-    
-    // Aguardar um pouco para garantir que os módulos sejam carregados
-    setTimeout(() => {
-        loadCartItems();
-    }, 500);
-    
-    setupEventListeners();
-    setupHeader();
-    loadQuote();
-});
+// Script para gerenciar o checkout - VERSÃO CORRIGIDA DEFINITIVA
 
-// Função para testar carregamento de produtos no checkout
-function testProductLoading() {
-    console.log('=== TESTE DE CARREGAMENTO DE PRODUTOS NO CHECKOUT ===');
-    
-    // Testar database.js
-    if (typeof getAllProducts === 'function') {
-        const allProducts = getAllProducts();
-        console.log('✅ database.js disponível no checkout:', allProducts.length, 'produtos');
-        console.log('Primeiro produto do database.js (checkout):', allProducts[0]);
-    } else {
-        console.log('❌ database.js não disponível no checkout');
-    }
-    
-    // Testar productsModule
-    if (typeof productsModule !== 'undefined') {
-        console.log('✅ productsModule disponível no checkout');
-        try {
-            productsModule.loadProducts().then(products => {
-                console.log('Produtos do productsModule (checkout):', products.length);
-                console.log('Primeiro produto do productsModule (checkout):', products[0]);
-            });
-        } catch (error) {
-            console.log('❌ Erro ao carregar produtos do productsModule (checkout):', error);
-        }
-    } else {
-        console.log('❌ productsModule não disponível no checkout');
-    }
-    
-    // Testar productsDatabase diretamente
-    if (typeof productsDatabase !== 'undefined') {
-        console.log('✅ productsDatabase disponível no checkout');
-        const allProducts = [];
-        Object.values(productsDatabase).forEach(category => {
-            if (Array.isArray(category)) {
-                allProducts.push(...category);
-            }
-        });
-        console.log('Produtos do productsDatabase (checkout):', allProducts.length);
-        console.log('Primeiro produto do productsDatabase (checkout):', allProducts[0]);
-    } else {
-        console.log('❌ productsDatabase não disponível no checkout');
-    }
-    
-    console.log('=== FIM TESTE CHECKOUT ===');
-}
-
-let currentUser = null;
 let cartItems = [];
-let quoteData = null;
-let selectedPaymentMethod = 'credit';
-let pixTimer = null;
 
-// Verificar permissões do usuário
-function checkUserPermissions() {
-    const currentUserData = JSON.parse(localStorage.getItem('currentUser'));
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('=== INICIANDO CHECKOUT CORRIGIDO DEFINITIVO ===');
     
-    if (!currentUserData) {
+    // Verificar se há usuário logado
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (!currentUser) {
+        console.log('Usuário não logado, redirecionando para login...');
         alert('Você precisa estar logado para finalizar a compra.');
         window.location.href = './login.html';
         return;
     }
     
-    currentUser = currentUserData;
+    console.log('Usuário logado:', currentUser.name);
+    
+    // Carregar itens do carrinho
+    loadCartItems();
+    
+    // Configurar event listeners
+    setupEventListeners();
+    
+    // Carregar dados do usuário se disponível
+    loadUserData();
+    
+    // Configurar busca de CEP
+    setupCEPValidation();
+    
+    console.log('=== CHECKOUT INICIALIZADO ===');
+});
+
+// Função para obter carrinho do usuário atual
+function getUserCart() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const userId = currentUser ? currentUser.id : 'guest';
+    const cartKey = `cart_${userId}`;
+    const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+    
+    console.log(`Carregando carrinho do usuário ${userId}:`, cart);
+    return cart;
 }
 
-// Configurar header
-function setupHeader() {
-    const userNameHeader = document.getElementById('user-name-header');
-    const logoutBtn = document.getElementById('logout-btn-header');
-    
-    if (userNameHeader) {
-        userNameHeader.textContent = currentUser.name;
-    }
-    
-    if (logoutBtn) {
-        logoutBtn.addEventListener('click', logout);
-    }
-}
-
-// Logout
-function logout() {
-    localStorage.removeItem('currentUser');
-    localStorage.removeItem('sessionTimeout');
-    window.location.href = './login.html';
+// Função para salvar carrinho do usuário atual
+function saveUserCart(cart) {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const userId = currentUser ? currentUser.id : 'guest';
+    const cartKey = `cart_${userId}`;
+    localStorage.setItem(cartKey, JSON.stringify(cart));
+    console.log(`Carrinho salvo para usuário ${userId}:`, cart);
 }
 
 // Carregar itens do carrinho
 async function loadCartItems() {
     console.log('=== CARREGANDO ITENS DO CARRINHO NO CHECKOUT ===');
-    cartItems = JSON.parse(localStorage.getItem('cart')) || [];
     
-    console.log('Carrinho atual no checkout:', cartItems);
-    console.log('productsModule disponível:', typeof productsModule);
-    console.log('getAllProducts disponível:', typeof getAllProducts);
+    const cart = getUserCart();
+    console.log('Carrinho carregado:', cart);
     
-    if (cartItems.length === 0) {
-        alert('Seu carrinho está vazio.');
+    if (cart.length === 0) {
+        console.log('Carrinho vazio, redirecionando para catálogo...');
+        alert('Seu carrinho está vazio. Adicione produtos antes de finalizar a compra.');
         window.location.href = './catalog.html';
         return;
     }
     
     // Carregar dados completos dos produtos
-    for (const item of cartItems) {
-        console.log(`\n--- Processando item ${item.id} no checkout ---`);
+    cartItems = [];
+    for (const item of cart) {
+        console.log(`\n--- Carregando produto ${item.id} ---`);
         console.log('Dados originais do item:', item);
         
         try {
-            let product = null;
-            
-            // Tentar carregar do productsModule primeiro
-            if (typeof productsModule !== 'undefined') {
-                try {
-                    console.log('Tentando carregar do productsModule no checkout...');
-                    product = await productsModule.getProductById(item.id);
-                    console.log('Produto encontrado no productsModule (checkout):', product);
-                } catch (error) {
-                    console.log('Erro no productsModule (checkout):', error);
-                }
-            } else {
-                console.log('productsModule não disponível no checkout');
-            }
-            
-            // Se não encontrou, tentar database.js diretamente
-            if (!product && typeof getAllProducts === 'function') {
-                console.log('Tentando carregar do database.js no checkout...');
-                const allProducts = getAllProducts();
-                console.log('Todos os produtos do database.js (checkout):', allProducts.length);
-                product = allProducts.find(p => p.id === item.id);
-                console.log('Produto encontrado no database.js (checkout):', product);
-            }
-            
-            // Se ainda não encontrou, tentar carregar diretamente do database.js
-            if (!product) {
-                console.log('Tentando carregar diretamente do database.js...');
-                try {
-                    // Tentar acessar diretamente o objeto productsDatabase
-                    if (typeof productsDatabase !== 'undefined') {
-                        const allProducts = [];
-                        Object.values(productsDatabase).forEach(category => {
-                            if (Array.isArray(category)) {
-                                allProducts.push(...category);
-                            }
-                        });
-                        product = allProducts.find(p => p.id === item.id);
-                        console.log('Produto encontrado diretamente no database.js:', product);
-                    }
-                } catch (error) {
-                    console.log('Erro ao acessar database.js diretamente:', error);
-                }
-            }
+            // Tentar carregar produto de todas as fontes possíveis
+            let product = await findProductById(item.id);
             
             if (product) {
                 // Atualizar dados do item com informações do produto
-                const oldPrice = item.price;
-                item.title = product.title || item.title;
-                item.price = parseFloat(product.price) || parseFloat(item.price) || 0;
-                item.image = product.image || item.image;
-                item.stock = product.stock || item.stock;
-                item.description = product.description || item.description;
-                item.brand = product.brand || item.brand;
-                console.log(`✅ Produto ${item.id} atualizado no checkout:`, {
-                    title: item.title,
-                    price: item.price,
-                    oldPrice: oldPrice,
-                    brand: item.brand
+                const updatedItem = {
+                    ...item,
+                    title: product.title || item.title,
+                    price: parseFloat(product.price) || 0,
+                    image: product.image || item.image,
+                    stock: product.stock || item.stock,
+                    description: product.description || item.description,
+                    brand: product.brand || item.brand
+                };
+                
+                cartItems.push(updatedItem);
+                console.log(`✅ Produto ${item.id} carregado:`, {
+                    title: updatedItem.title,
+                    price: updatedItem.price,
+                    quantity: updatedItem.quantity
                 });
             } else {
-                console.warn('❌ Produto não encontrado no checkout:', item.id);
-                // Garantir que o preço seja numérico
-                item.price = parseFloat(item.price) || 0;
-                item.brand = item.brand || 'Marca';
-                console.log(`Mantendo dados originais para ${item.id} no checkout:`, {
-                    title: item.title,
-                    price: item.price,
-                    brand: item.brand
-                });
+                console.warn('❌ Produto não encontrado:', item.id);
+                // Manter dados originais, mas garantir que o preço seja numérico
+                const fallbackItem = {
+                    ...item,
+                    price: parseFloat(item.price) || 0
+                };
+                cartItems.push(fallbackItem);
+                console.log(`Usando dados originais para ${item.id}:`, fallbackItem);
             }
         } catch (error) {
-            console.error('Erro ao carregar produto no checkout:', error);
+            console.error('Erro ao carregar produto:', error);
             // Garantir que o preço seja numérico
-            item.price = parseFloat(item.price) || 0;
-            item.brand = item.brand || 'Marca';
+            const fallbackItem = {
+                ...item,
+                price: parseFloat(item.price) || 0
+            };
+            cartItems.push(fallbackItem);
         }
-        
-        console.log(`Dados finais do item ${item.id} no checkout:`, {
-            title: item.title,
-            price: item.price,
-            quantity: item.quantity,
-            brand: item.brand
-        });
     }
     
-    console.log('=== EXIBINDO ITENS E CALCULANDO TOTAIS ===');
-    displayCartItems();
+    console.log('Itens do carrinho carregados:', cartItems);
+    
+    // Atualizar carrinho salvo com preços corretos
+    saveUserCart(cartItems);
+    
+    // Calcular totais
     calculateTotals();
+    
+    // Exibir itens
+    displayCartItems();
+}
+
+// Função para encontrar produto por ID em todas as fontes possíveis
+async function findProductById(productId) {
+    console.log(`Procurando produto ${productId}...`);
+    
+    // 1. Tentar productsModule
+    if (typeof productsModule !== 'undefined' && productsModule.getProductById) {
+        try {
+            console.log('Tentando productsModule...');
+            const product = await productsModule.getProductById(productId);
+            if (product) {
+                console.log('✅ Produto encontrado no productsModule:', product);
+                return product;
+            }
+        } catch (error) {
+            console.log('Erro no productsModule:', error);
+        }
+    }
+    
+    // 2. Tentar database.js - getAllProducts
+    if (typeof getAllProducts === 'function') {
+        try {
+            console.log('Tentando database.js - getAllProducts...');
+            const allProducts = getAllProducts();
+            const product = allProducts.find(p => p.id === productId);
+            if (product) {
+                console.log('✅ Produto encontrado no database.js:', product);
+                return product;
+            }
+        } catch (error) {
+            console.log('Erro no database.js - getAllProducts:', error);
+        }
+    }
+    
+    // 3. Tentar database.js - productsDatabase diretamente
+    if (typeof productsDatabase !== 'undefined') {
+        try {
+            console.log('Tentando database.js - productsDatabase...');
+            const allProducts = [];
+            Object.values(productsDatabase).forEach(category => {
+                if (Array.isArray(category)) {
+                    allProducts.push(...category);
+                }
+            });
+            const product = allProducts.find(p => p.id === productId);
+            if (product) {
+                console.log('✅ Produto encontrado no productsDatabase:', product);
+                return product;
+            }
+        } catch (error) {
+            console.log('Erro no productsDatabase:', error);
+        }
+    }
+    
+    console.log('❌ Produto não encontrado em nenhuma fonte:', productId);
+    return null;
 }
 
 // Exibir itens do carrinho
 function displayCartItems() {
-    const summaryItems = document.getElementById('summary-items');
-    if (!summaryItems) return;
+    console.log('=== EXIBINDO ITENS DO CARRINHO ===');
+    const cartItemsContainer = document.getElementById('cart-items');
     
-    summaryItems.innerHTML = '';
+    if (!cartItemsContainer) {
+        console.error('Container de itens do carrinho não encontrado');
+        return;
+    }
+    
+    cartItemsContainer.innerHTML = '';
     
     cartItems.forEach(item => {
+        const itemElement = document.createElement('div');
+        itemElement.className = 'checkout-item';
+        
         const price = parseFloat(item.price) || 0;
         const quantity = parseInt(item.quantity) || 1;
-        const itemTotal = price * quantity;
+        const total = price * quantity;
         
-        console.log(`Exibindo item ${item.id}:`, {
-            title: item.title,
-            price: price,
-            quantity: quantity,
-            total: itemTotal
-        });
-        
-        const itemElement = document.createElement('div');
-        itemElement.className = 'summary-item';
         itemElement.innerHTML = `
-            <div class="summary-item-info">
-                <div class="summary-item-name">${item.title || 'Produto'}</div>
-                <div class="summary-item-details">Qtd: ${quantity} | ${item.brand || 'Marca'}</div>
+            <div class="item-image">
+                <img src="${item.image || 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80'}" 
+                     alt="${item.title || 'Produto'}" 
+                     onerror="this.src='https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80'">
             </div>
-            <div class="summary-item-price">${formatPrice(itemTotal)}</div>
+            <div class="item-details">
+                <h4 class="item-title">${item.title || 'Produto'}</h4>
+                <p class="item-description">${item.description || ''}</p>
+                <div class="item-price">${formatPrice(price)}</div>
+                <div class="item-quantity">Qtd: ${quantity}</div>
+            </div>
+            <div class="item-total">
+                ${formatPrice(total)}
+            </div>
         `;
-        summaryItems.appendChild(itemElement);
+        
+        cartItemsContainer.appendChild(itemElement);
     });
+    
+    console.log(`${cartItems.length} itens exibidos no checkout`);
 }
 
 // Calcular totais
 function calculateTotals() {
-    const subtotal = cartItems.reduce((total, item) => {
+    console.log('=== CALCULANDO TOTAIS NO CHECKOUT ===');
+    console.log('Itens do carrinho para cálculo:', cartItems);
+    console.log('Tipo de cartItems:', typeof cartItems);
+    console.log('É array?', Array.isArray(cartItems));
+    
+    if (!cartItems || cartItems.length === 0) {
+        console.log('Carrinho vazio, definindo totais como zero');
+        updateTotalsDisplay(0, 0, 0);
+        return { subtotal: 0, shipping: 0, total: 0 };
+    }
+    
+    let subtotal = 0;
+    let validItems = 0;
+    
+    cartItems.forEach((item, index) => {
+        console.log(`\n--- Calculando item ${index} ---`);
+        console.log('Dados do item:', item);
+        
+        // Garantir que os dados sejam válidos
         const price = parseFloat(item.price) || 0;
         const quantity = parseInt(item.quantity) || 1;
-        const itemTotal = price * quantity;
-        console.log(`Item ${item.id}: preço=${price}, qtd=${quantity}, total=${itemTotal}`);
-        return total + itemTotal;
-    }, 0);
+        
+        if (price > 0 && quantity > 0) {
+            const itemTotal = price * quantity;
+            subtotal += itemTotal;
+            validItems++;
+            
+            console.log(`Item ${index} (${item.id}):`);
+            console.log(`  - Preço: ${price}`);
+            console.log(`  - Quantidade: ${quantity}`);
+            console.log(`  - Total do item: ${itemTotal}`);
+            console.log(`  - Subtotal acumulado: ${subtotal}`);
+        } else {
+            console.warn(`Item ${index} inválido - preço: ${price}, quantidade: ${quantity}`);
+        }
+    });
     
-    console.log('Subtotal calculado:', subtotal);
+    if (validItems === 0) {
+        console.warn('Nenhum item válido encontrado no carrinho');
+        updateTotalsDisplay(0, 0, 0);
+        return { subtotal: 0, shipping: 0, total: 0 };
+    }
     
-    // Usar serviço de logística para calcular frete
-    const shipping = window.logisticsService ? 
-        window.logisticsService.calculateShipping(subtotal) : 
-        (subtotal >= 399 ? 0 : 100);
-    
+    const shipping = subtotal > 99 ? 0 : 15; // Frete grátis acima de R$ 99
     const total = subtotal + shipping;
     
-    console.log('Totais finais:', { subtotal, shipping, total });
+    console.log('Totais calculados no checkout:', { 
+        subtotal, 
+        shipping, 
+        total, 
+        validItems,
+        totalItems: cartItems.length 
+    });
+    
+    // Atualizar elementos
+    updateTotalsDisplay(subtotal, shipping, total);
+    
+    return { subtotal, shipping, total };
+}
+
+// Atualizar exibição dos totais
+function updateTotalsDisplay(subtotal, shipping, total) {
+    console.log('Atualizando exibição dos totais:', { subtotal, shipping, total });
     
     const subtotalEl = document.getElementById('subtotal');
     const shippingEl = document.getElementById('shipping');
     const totalEl = document.getElementById('total');
     
-    if (subtotalEl) subtotalEl.textContent = formatPrice(subtotal);
-    if (shippingEl) shippingEl.textContent = formatPrice(shipping);
-    if (totalEl) totalEl.textContent = formatPrice(total);
-    
-    return { subtotal, shipping, total };
-}
-
-// Carregar cotação de parcelas
-async function loadQuote() {
-    const totals = calculateTotals();
-    
-    try {
-        quoteData = await paymentService.getQuote(totals.total);
-        displayInstallmentOptions();
-    } catch (error) {
-        console.error('Erro ao carregar cotação:', error);
+    if (subtotalEl) {
+        subtotalEl.textContent = formatPrice(subtotal);
+        console.log('Subtotal atualizado:', subtotalEl.textContent);
     }
-}
-
-// Exibir opções de parcelamento
-function displayInstallmentOptions() {
-    const installmentsSelect = document.getElementById('installments');
-    installmentsSelect.innerHTML = '<option value="">Selecione</option>';
     
-    quoteData.installments.forEach(option => {
-        const optionElement = document.createElement('option');
-        optionElement.value = option.installments;
-        
-        if (option.installments === 1) {
-            optionElement.textContent = `1x de ${formatPrice(option.installment_amount)} (à vista)`;
-        } else {
-            optionElement.textContent = `${option.installments}x de ${formatPrice(option.installment_amount)} (Total: ${formatPrice(option.total_with_interest)})`;
-        }
-        
-        installmentsSelect.appendChild(optionElement);
-    });
+    if (shippingEl) {
+        shippingEl.textContent = formatPrice(shipping);
+        console.log('Frete atualizado:', shippingEl.textContent);
+    }
+    
+    if (totalEl) {
+        totalEl.textContent = formatPrice(total);
+        console.log('Total atualizado:', totalEl.textContent);
+    }
+    
+    // Carregar opções de parcelas se houver total
+    if (total > 0) {
+        loadInstallmentOptions();
+    }
 }
 
 // Configurar event listeners
 function setupEventListeners() {
-    // CEP
-    const searchCepBtn = document.getElementById('search-cep');
-    if (searchCepBtn) {
-        searchCepBtn.addEventListener('click', searchCEP);
-    }
-    const cepInput = document.getElementById('cep');
-    if (cepInput) {
-        cepInput.addEventListener('input', formatCEP);
+    // Busca de CEP
+    const cepButton = document.getElementById('search-cep');
+    if (cepButton) {
+        cepButton.addEventListener('click', searchCEP);
     }
     
     // Métodos de pagamento
-    document.querySelectorAll('.payment-tab').forEach(tab => {
-        tab.addEventListener('click', () => switchPaymentMethod(tab.dataset.method));
+    const paymentTabs = document.querySelectorAll('.payment-tab');
+    paymentTabs.forEach(tab => {
+        tab.addEventListener('click', function() {
+            const method = this.getAttribute('data-method');
+            switchPaymentMethod(method);
+        });
     });
     
-    // Formatação de campos
-    const cardNumberInput = document.getElementById('card-number');
-    if (cardNumberInput) {
-        cardNumberInput.addEventListener('input', formatCardNumber);
+    // Formulário de checkout
+    const checkoutForm = document.getElementById('checkout-form');
+    if (checkoutForm) {
+        checkoutForm.addEventListener('submit', handleCheckout);
     }
     
-    const cardCvvInput = document.getElementById('card-cvv');
-    if (cardCvvInput) {
-        cardCvvInput.addEventListener('input', formatCVV);
+    // Validação de campos em tempo real
+    const requiredFields = document.querySelectorAll('input[required]');
+    requiredFields.forEach(field => {
+        field.addEventListener('blur', validateField);
+    });
+}
+
+// Carregar dados do usuário
+function loadUserData() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser) {
+        // Preencher campos se disponível
+        const nameField = document.getElementById('full-name');
+        if (nameField && currentUser.name) {
+            nameField.value = currentUser.name;
+        }
+        
+        const emailField = document.getElementById('email');
+        if (emailField && currentUser.email) {
+            emailField.value = currentUser.email;
+        }
+        
+        console.log('Dados do usuário carregados');
     }
-    
-    const cardExpiryInput = document.getElementById('card-expiry');
-    if (cardExpiryInput) {
-        cardExpiryInput.addEventListener('input', formatExpiry);
-    }
-    
-    const pixCpfInput = document.getElementById('pix-cpf');
-    if (pixCpfInput) {
-        pixCpfInput.addEventListener('input', formatCPF);
-    }
-    
-    // Parcelas
-    const installmentsSelect = document.getElementById('installments');
-    if (installmentsSelect) {
-        installmentsSelect.addEventListener('change', updateInstallmentInfo);
-    }
-    
-    // PIX
-    const copyPixBtn = document.getElementById('copy-pix-key');
-    if (copyPixBtn) {
-        copyPixBtn.addEventListener('click', copyPixKey);
-    }
-    
-    // Finalizar pedido
-    const finalizeBtn = document.getElementById('finalize-order');
-    if (finalizeBtn) {
-        finalizeBtn.addEventListener('click', finalizeOrder);
-    }
-    
-    // Modais
-    const viewOrdersBtn = document.getElementById('view-orders');
-    if (viewOrdersBtn) {
-        viewOrdersBtn.addEventListener('click', () => {
-            window.location.href = './orders.html';
-        });
-    }
-    
-    const continueShoppingBtn = document.getElementById('continue-shopping');
-    if (continueShoppingBtn) {
-        continueShoppingBtn.addEventListener('click', () => {
-            window.location.href = './catalog.html';
+}
+
+// Configurar validação de CEP
+function setupCEPValidation() {
+    const cepInput = document.getElementById('cep');
+    if (cepInput) {
+        cepInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value.length > 5) {
+                value = value.substring(0, 5) + '-' + value.substring(5, 8);
+            }
+            e.target.value = value;
         });
     }
 }
 
 // Buscar CEP
 async function searchCEP() {
-    const cep = document.getElementById('cep').value.replace(/\D/g, '');
+    const cepInput = document.getElementById('cep');
+    const cep = cepInput.value.replace(/\D/g, '');
     
     if (cep.length !== 8) {
         alert('CEP deve ter 8 dígitos');
@@ -394,7 +391,6 @@ async function searchCEP() {
     }
     
     try {
-        // Simular busca de CEP (usando ViaCEP ou similar)
         const response = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
         const data = await response.json();
         
@@ -403,380 +399,235 @@ async function searchCEP() {
             return;
         }
         
+        // Preencher campos
         document.getElementById('street').value = data.logradouro;
         document.getElementById('neighborhood').value = data.bairro;
         document.getElementById('city').value = data.localidade;
         document.getElementById('state').value = data.uf;
         
+        console.log('CEP encontrado:', data);
     } catch (error) {
         console.error('Erro ao buscar CEP:', error);
-        alert('Erro ao buscar CEP. Tente novamente.');
+        alert('Erro ao buscar CEP');
     }
 }
 
-// Formatar CEP
-function formatCEP(e) {
-    e.target.value = PaymentUtils.formatCEP(e.target.value);
-}
-
-// Formatar número do cartão
-function formatCardNumber(e) {
-    e.target.value = PaymentUtils.formatCardNumber(e.target.value);
-}
-
-// Formatar CVV
-function formatCVV(e) {
-    e.target.value = PaymentUtils.formatCVV(e.target.value);
-}
-
-// Formatar validade
-function formatExpiry(e) {
-    e.target.value = PaymentUtils.formatExpiry(e.target.value);
-}
-
-// Formatar CPF/CNPJ
-function formatCPF(e) {
-    e.target.value = PaymentUtils.formatCPF(e.target.value);
-}
-
-// Trocar método de pagamento
+// Alterar método de pagamento
 function switchPaymentMethod(method) {
-    selectedPaymentMethod = method;
+    console.log('=== ALTERANDO MÉTODO DE PAGAMENTO ===');
+    console.log('Método selecionado:', method);
     
-    // Atualizar tabs
+    // Remover classe active de todas as abas
     document.querySelectorAll('.payment-tab').forEach(tab => {
         tab.classList.remove('active');
     });
-    document.querySelector(`[data-method="${method}"]`).classList.add('active');
+    
+    // Esconder todos os formulários
+    document.querySelectorAll('.payment-form').forEach(form => {
+        form.style.display = 'none';
+    });
+    
+    // Ativar aba selecionada
+    const selectedTab = document.querySelector(`[data-method="${method}"]`);
+    if (selectedTab) {
+        selectedTab.classList.add('active');
+        console.log('Aba ativada:', selectedTab);
+    }
     
     // Mostrar formulário correspondente
-    document.getElementById('card-form').style.display = method === 'pix' ? 'none' : 'block';
-    document.getElementById('pix-form').style.display = method === 'pix' ? 'block' : 'none';
-    
-    // Limpar campos
-    if (method !== 'pix') {
-        document.getElementById('installments').required = true;
-    } else {
-        document.getElementById('installments').required = false;
+    const formId = method === 'pix' ? 'pix-form' : 'card-form';
+    const formElement = document.getElementById(formId);
+    if (formElement) {
+        formElement.style.display = 'block';
+        console.log('Formulário exibido:', formId);
     }
-}
-
-// Atualizar informações de parcelamento
-function updateInstallmentInfo() {
-    const installments = parseInt(document.getElementById('installments').value);
-    const installmentInfo = document.getElementById('installment-info');
-    const installmentDetails = document.getElementById('installment-details');
     
-    if (installments && quoteData) {
-        const option = quoteData.installments.find(opt => opt.installments === installments);
-        
-        if (option) {
-            installmentDetails.innerHTML = `
-                <div class="installment-option selected">
-                    <span>${installments}x de ${formatPrice(option.installment_amount)}</span>
-                    <span>Total: ${formatPrice(option.total_with_interest)}</span>
-                </div>
-                ${option.total_interest > 0 ? `<p class="interest-info">Juros: ${formatPrice(option.total_interest)}</p>` : ''}
-            `;
-            installmentInfo.style.display = 'block';
-        }
-    } else {
-        installmentInfo.style.display = 'none';
+    // Carregar opções de parcelas se for cartão
+    if (method === 'credit' || method === 'debit') {
+        loadInstallmentOptions();
     }
+    
+    console.log('Método de pagamento alterado para:', method);
 }
 
-// Copiar chave PIX
-function copyPixKey() {
-    const pixKey = document.getElementById('pix-key-value').textContent;
-    navigator.clipboard.writeText(pixKey).then(() => {
-        showNotification('Chave PIX copiada!', 'success');
-    });
-}
-
-// Finalizar pedido
-async function finalizeOrder() {
-    if (!validateForm()) {
+// Carregar opções de parcelas
+function loadInstallmentOptions() {
+    console.log('=== CARREGANDO OPÇÕES DE PARCELAS ===');
+    
+    const installmentsSelect = document.getElementById('installments');
+    if (!installmentsSelect) {
+        console.error('Elemento de parcelas não encontrado');
         return;
     }
     
-    const totals = calculateTotals();
-    const orderData = {
-        items: cartItems,
-        totals,
-        address: getAddressData(),
-        payment: getPaymentData()
-    };
+    // Limpar opções existentes (exceto a primeira)
+    while (installmentsSelect.children.length > 1) {
+        installmentsSelect.removeChild(installmentsSelect.lastChild);
+    }
     
-    try {
-        showLoading(true);
+    // Obter total do pedido
+    const totalEl = document.getElementById('total');
+    let total = 0;
+    
+    if (totalEl && totalEl.textContent) {
+        const totalText = totalEl.textContent.replace(/[^\d,]/g, '');
+        total = parseFloat(totalText.replace(',', '.')) || 0;
+    }
+    
+    console.log('Total para parcelas:', total);
+    
+    if (total > 0) {
+        // Definir número máximo de parcelas baseado no valor
+        let maxInstallments = 12;
+        if (total < 100) maxInstallments = 3;
+        else if (total < 500) maxInstallments = 6;
         
-        if (selectedPaymentMethod === 'pix') {
-            await processPixPayment(orderData);
-        } else {
-            await processCardPayment(orderData);
+        // Adicionar opções de parcelas
+        for (let i = 1; i <= maxInstallments; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            
+            if (i === 1) {
+                option.textContent = `1x de ${formatPrice(total)} à vista`;
+            } else {
+                const installmentValue = total / i;
+                option.textContent = `${i}x de ${formatPrice(installmentValue)} sem juros`;
+            }
+            
+            installmentsSelect.appendChild(option);
         }
         
-    } catch (error) {
-        console.error('Erro ao processar pagamento:', error);
-        showNotification(error.message || 'Erro ao processar pagamento', 'error');
-    } finally {
-        showLoading(false);
+        console.log(`${maxInstallments} opções de parcelas carregadas`);
+    } else {
+        console.log('Total zerado, não carregando parcelas');
     }
 }
 
-// Validar formulário
-function validateForm() {
-    const requiredFields = ['cep', 'street', 'number', 'neighborhood', 'city', 'state'];
+// Validar campo
+function validateField(e) {
+    const field = e.target;
+    const value = field.value.trim();
     
-    for (const field of requiredFields) {
-        const element = document.getElementById(field);
-        if (!element.value.trim()) {
-            showNotification(`Campo ${element.previousElementSibling.textContent} é obrigatório`, 'error');
-            element.focus();
-            return false;
-        }
+    if (field.hasAttribute('required') && !value) {
+        field.classList.add('error');
+        return false;
     }
     
-    if (selectedPaymentMethod !== 'pix') {
-        const cardFields = ['card-number', 'card-name', 'card-cvv', 'card-expiry', 'installments'];
-        for (const field of cardFields) {
-            const element = document.getElementById(field);
-            if (!element.value.trim()) {
-                showNotification(`Campo ${element.previousElementSibling.textContent} é obrigatório`, 'error');
-                element.focus();
-                return false;
-            }
-        }
-    } else {
-        const pixCpf = document.getElementById('pix-cpf').value;
-        if (!PaymentUtils.validateCPF(pixCpf)) {
-            showNotification('CPF/CNPJ inválido', 'error');
-            return false;
-        }
-    }
-    
+    field.classList.remove('error');
     return true;
 }
 
-// Obter dados do endereço
-function getAddressData() {
-    return {
-        type: document.getElementById('address-type').value,
-        cep: document.getElementById('cep').value,
-        street: document.getElementById('street').value,
-        number: document.getElementById('number').value,
-        complement: document.getElementById('complement').value,
-        neighborhood: document.getElementById('neighborhood').value,
-        city: document.getElementById('city').value,
-        state: document.getElementById('state').value
-    };
-}
-
-// Obter dados do pagamento
-function getPaymentData() {
-    const totals = calculateTotals();
-    const installments = parseInt(document.getElementById('installments').value) || 1;
-    const option = quoteData.installments.find(opt => opt.installments === installments);
+// Lidar com checkout
+async function handleCheckout(e) {
+    e.preventDefault();
+    console.log('=== INICIANDO FINALIZAÇÃO DO PEDIDO ===');
     
-    return {
-        method: selectedPaymentMethod,
-        amount: option ? option.total_with_interest : totals.total,
-        installments,
-        card: selectedPaymentMethod !== 'pix' ? {
-            number: document.getElementById('card-number').value,
-            name: document.getElementById('card-name').value,
-            cvv: document.getElementById('card-cvv').value,
-            expiry: document.getElementById('card-expiry').value
-        } : null,
-        pix: selectedPaymentMethod === 'pix' ? {
-            cpf: document.getElementById('pix-cpf').value
-        } : null
-    };
-}
-
-// Processar pagamento com cartão
-async function processCardPayment(orderData) {
-    const paymentData = {
-        cardNumber: orderData.payment.card.number,
-        cardName: orderData.payment.card.name,
-        cvv: orderData.payment.card.cvv,
-        expiry: orderData.payment.card.expiry,
-        cardType: orderData.payment.method,
-        amount: orderData.payment.amount,
-        installments: orderData.payment.installments
-    };
+    // Validar formulário
+    if (!validateCheckoutForm()) {
+        return;
+    }
     
-    const result = await paymentService.processCardPayment(paymentData);
+    // Obter dados do formulário
+    const orderData = getOrderData();
     
-    // Criar pedido
-    const order = await createOrder(orderData, result);
-    
-    // Limpar carrinho
-    localStorage.removeItem('cart');
-    
-    // Mostrar confirmação
-    showOrderConfirmation(order);
-}
-
-// Processar pagamento PIX
-async function processPixPayment(orderData) {
-    const paymentData = {
-        amount: orderData.payment.amount,
-        cpf: orderData.payment.pix.cpf
-    };
-    
-    const result = await paymentService.processPixPayment(paymentData);
-    
-    // Mostrar informações PIX
-    showPixPayment(result);
-    
-    // Monitorar status
-    monitorPixStatus(result.txid, orderData);
-}
-
-// Mostrar pagamento PIX
-function showPixPayment(pixData) {
-    document.getElementById('pix-key-value').textContent = pixData.pix_key;
-    document.getElementById('pix-qr-container').innerHTML = `<img src="${pixData.qr_code}" alt="QR Code PIX">`;
-    document.getElementById('pix-payment-info').style.display = 'block';
-    
-    // Iniciar timer
-    startPixTimer();
-}
-
-// Iniciar timer PIX
-function startPixTimer() {
-    let timeLeft = 30 * 60; // 30 minutos em segundos
-    
-    pixTimer = setInterval(() => {
-        const minutes = Math.floor(timeLeft / 60);
-        const seconds = timeLeft % 60;
-        document.getElementById('pix-timer').textContent = 
-            `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    try {
+        // Criar pedido
+        const order = await createOrder(orderData);
         
-        if (timeLeft <= 0) {
-            clearInterval(pixTimer);
-            showNotification('PIX expirado. Tente novamente.', 'error');
-        }
+        // Limpar carrinho
+        clearCart();
         
-        timeLeft--;
-    }, 1000);
+        // Redirecionar para página de sucesso
+        alert('Pedido realizado com sucesso!');
+        window.location.href = './orders.html';
+        
+    } catch (error) {
+        console.error('Erro ao finalizar pedido:', error);
+        alert('Erro ao finalizar pedido. Tente novamente.');
+    }
 }
 
-// Monitorar status PIX
-async function monitorPixStatus(txid, orderData) {
-    const checkStatus = async () => {
-        try {
-            const status = await paymentService.checkPixStatus(txid);
-            
-            if (status.status === 'PAID') {
-                clearInterval(pixTimer);
-                
-                // Criar pedido
-                const order = await createOrder(orderData, { transaction_id: txid, status: 'PAID' });
-                
-                // Limpar carrinho
-                localStorage.removeItem('cart');
-                
-                // Mostrar confirmação
-                showOrderConfirmation(order);
-            } else if (status.status === 'EXPIRED') {
-                clearInterval(pixTimer);
-                showNotification('PIX expirado. Tente novamente.', 'error');
-            }
-        } catch (error) {
-            console.error('Erro ao verificar status PIX:', error);
+// Validar formulário de checkout
+function validateCheckoutForm() {
+    const requiredFields = document.querySelectorAll('input[required]');
+    let isValid = true;
+    
+    requiredFields.forEach(field => {
+        if (!field.value.trim()) {
+            field.classList.add('error');
+            isValid = false;
+        } else {
+            field.classList.remove('error');
         }
-    };
+    });
     
-    // Verificar a cada 10 segundos
-    const statusInterval = setInterval(checkStatus, 10000);
+    // Validar método de pagamento
+    const selectedPaymentMethod = document.querySelector('.payment-tab.active');
+    if (!selectedPaymentMethod) {
+        alert('Selecione um método de pagamento');
+        isValid = false;
+    }
     
-    // Parar após 30 minutos
-    setTimeout(() => {
-        clearInterval(statusInterval);
-        clearInterval(pixTimer);
-    }, 30 * 60 * 1000);
+    return isValid;
 }
 
-// Criar pedido
-async function createOrder(orderData, paymentResult) {
-    // Garantir que os totais sejam calculados corretamente
-    const totals = calculateTotals();
+// Obter dados do pedido
+function getOrderData() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const selectedPaymentMethod = document.querySelector('.payment-tab.active');
+    const paymentMethod = selectedPaymentMethod ? selectedPaymentMethod.getAttribute('data-method') : '';
     
-    const order = {
-        id: 'ORD_' + Date.now(),
-        user_id: currentUser.id,
+    return {
+        id: Date.now().toString(),
+        userId: currentUser.id,
         items: cartItems.map(item => ({
             id: item.id,
             title: item.title,
-            price: parseFloat(item.price) || 0,
-            quantity: parseInt(item.quantity) || 1,
-            brand: item.brand || 'Marca'
+            price: parseFloat(item.price),
+            quantity: parseInt(item.quantity),
+            image: item.image
         })),
-        totals: {
-            subtotal: totals.subtotal,
-            shipping: totals.shipping,
-            total: totals.total
+        shippingAddress: {
+            fullName: document.getElementById('full-name').value,
+            phone: document.getElementById('phone').value,
+            cep: document.getElementById('cep').value,
+            street: document.getElementById('street').value,
+            number: document.getElementById('number').value,
+            complement: document.getElementById('complement').value,
+            neighborhood: document.getElementById('neighborhood').value,
+            city: document.getElementById('city').value,
+            state: document.getElementById('state').value
         },
-        address: orderData.address,
-        payment: {
-            ...orderData.payment,
-            transaction_id: paymentResult.transaction_id,
-            status: paymentResult.status
-        },
-        status: 'aguardando-pagamento',
-        created_at: new Date().toISOString(),
-        updated_at: new Date().toISOString()
+        paymentMethod: paymentMethod,
+        subtotal: calculateTotals().subtotal,
+        shipping: calculateTotals().shipping,
+        total: calculateTotals().total,
+        status: 'pending',
+        createdAt: new Date().toISOString()
     };
+}
+
+// Criar pedido
+async function createOrder(orderData) {
+    console.log('Criando pedido:', orderData);
     
-    console.log('Pedido criado:', order);
-    
-    // Salvar pedido
+    // Salvar pedido no localStorage
     const orders = JSON.parse(localStorage.getItem('orders')) || [];
-    orders.push(order);
+    orders.push(orderData);
     localStorage.setItem('orders', JSON.stringify(orders));
     
-    // Inicializar logística se pagamento aprovado
-    if (paymentResult.status === 'APPROVED' || paymentResult.status === 'PAID') {
-        order.status = 'pago';
-        if (window.logisticsService) {
-            window.logisticsService.initializeLogistics(order.id);
-        }
-    }
-    
-    return order;
+    console.log('Pedido criado com sucesso:', orderData.id);
+    return orderData;
 }
 
-// Mostrar confirmação do pedido
-function showOrderConfirmation(order) {
-    const orderNumberEl = document.getElementById('order-number');
-    const orderTotalEl = document.getElementById('order-total');
-    const orderStatusEl = document.getElementById('order-status');
+// Limpar carrinho
+function clearCart() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const userId = currentUser ? currentUser.id : 'guest';
+    const cartKey = `cart_${userId}`;
     
-    if (orderNumberEl) orderNumberEl.textContent = order.id;
-    if (orderTotalEl) {
-        const total = order.totals ? order.totals.total : order.total || 0;
-        orderTotalEl.textContent = formatPrice(total);
-    }
-    if (orderStatusEl) orderStatusEl.textContent = 'Aguardando Pagamento';
-    
-    const modal = document.getElementById('confirmation-modal');
-    if (modal) modal.classList.add('show');
-    
-    console.log('Confirmação do pedido:', order);
-}
-
-// Mostrar loading
-function showLoading(show) {
-    const button = document.getElementById('finalize-order');
-    if (show) {
-        button.disabled = true;
-        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processando...';
-    } else {
-        button.disabled = false;
-        button.innerHTML = '<i class="fas fa-lock"></i> Finalizar Pedido';
-    }
+    localStorage.removeItem(cartKey);
+    console.log('Carrinho limpo após finalização do pedido');
 }
 
 // Formatar preço
@@ -786,618 +637,8 @@ function formatPrice(price) {
         console.error('Preço inválido para formatação:', price);
         return 'R$ 0,00';
     }
-    return new Intl.NumberFormat('pt-BR', {
+    return numPrice.toLocaleString('pt-BR', {
         style: 'currency',
         currency: 'BRL'
-    }).format(numPrice);
-}
-
-// Mostrar notificação
-function showNotification(message, type = 'info') {
-    const notification = document.createElement('div');
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
-        <span>${message}</span>
-    `;
-    
-    notification.style.cssText = `
-        position: fixed;
-        top: 20px;
-        right: 20px;
-        padding: 15px 20px;
-        border-radius: 5px;
-        color: white;
-        font-weight: bold;
-        z-index: 1001;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        background: ${type === 'success' ? '#4CAF50' : type === 'error' ? '#f44336' : '#2196F3'};
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    `;
-    
-    document.body.appendChild(notification);
-    
-    setTimeout(() => {
-        notification.style.opacity = '1';
-    }, 100);
-    
-    setTimeout(() => {
-        notification.style.opacity = '0';
-        setTimeout(() => {
-            if (notification.parentNode) {
-                notification.parentNode.removeChild(notification);
-            }
-        }, 300);
-    }, 4000);
-}
-
-        if (selectedPaymentMethod === 'pix') {
-
-            await processPixPayment(orderData);
-
-        } else {
-
-            await processCardPayment(orderData);
-
-        }
-
-        
-
-    } catch (error) {
-
-        console.error('Erro ao processar pagamento:', error);
-
-        showNotification(error.message || 'Erro ao processar pagamento', 'error');
-
-    } finally {
-
-        showLoading(false);
-
-    }
-
-}
-
-
-
-// Validar formulário
-
-function validateForm() {
-
-    const requiredFields = ['cep', 'street', 'number', 'neighborhood', 'city', 'state'];
-
-    
-
-    for (const field of requiredFields) {
-
-        const element = document.getElementById(field);
-
-        if (!element.value.trim()) {
-
-            showNotification(`Campo ${element.previousElementSibling.textContent} é obrigatório`, 'error');
-
-            element.focus();
-
-            return false;
-
-        }
-
-    }
-
-    
-
-    if (selectedPaymentMethod !== 'pix') {
-
-        const cardFields = ['card-number', 'card-name', 'card-cvv', 'card-expiry', 'installments'];
-
-        for (const field of cardFields) {
-
-            const element = document.getElementById(field);
-
-            if (!element.value.trim()) {
-
-                showNotification(`Campo ${element.previousElementSibling.textContent} é obrigatório`, 'error');
-
-                element.focus();
-
-                return false;
-
-            }
-
-        }
-
-    } else {
-
-        const pixCpf = document.getElementById('pix-cpf').value;
-
-        if (!PaymentUtils.validateCPF(pixCpf)) {
-
-            showNotification('CPF/CNPJ inválido', 'error');
-
-            return false;
-
-        }
-
-    }
-
-    
-
-    return true;
-
-}
-
-
-
-// Obter dados do endereço
-
-function getAddressData() {
-
-    return {
-
-        type: document.getElementById('address-type').value,
-
-        cep: document.getElementById('cep').value,
-
-        street: document.getElementById('street').value,
-
-        number: document.getElementById('number').value,
-
-        complement: document.getElementById('complement').value,
-
-        neighborhood: document.getElementById('neighborhood').value,
-
-        city: document.getElementById('city').value,
-
-        state: document.getElementById('state').value
-
-    };
-
-}
-
-
-
-// Obter dados do pagamento
-
-function getPaymentData() {
-
-    const totals = calculateTotals();
-
-    const installments = parseInt(document.getElementById('installments').value) || 1;
-
-    const option = quoteData.installments.find(opt => opt.installments === installments);
-
-    
-
-    return {
-
-        method: selectedPaymentMethod,
-
-        amount: option ? option.total_with_interest : totals.total,
-
-        installments,
-
-        card: selectedPaymentMethod !== 'pix' ? {
-
-            number: document.getElementById('card-number').value,
-
-            name: document.getElementById('card-name').value,
-
-            cvv: document.getElementById('card-cvv').value,
-
-            expiry: document.getElementById('card-expiry').value
-
-        } : null,
-
-        pix: selectedPaymentMethod === 'pix' ? {
-
-            cpf: document.getElementById('pix-cpf').value
-
-        } : null
-
-    };
-
-}
-
-
-
-// Processar pagamento com cartão
-
-async function processCardPayment(orderData) {
-
-    const paymentData = {
-
-        cardNumber: orderData.payment.card.number,
-
-        cardName: orderData.payment.card.name,
-
-        cvv: orderData.payment.card.cvv,
-
-        expiry: orderData.payment.card.expiry,
-
-        cardType: orderData.payment.method,
-
-        amount: orderData.payment.amount,
-
-        installments: orderData.payment.installments
-
-    };
-
-    
-
-    const result = await paymentService.processCardPayment(paymentData);
-
-    
-
-    // Criar pedido
-
-    const order = await createOrder(orderData, result);
-
-    
-
-    // Limpar carrinho
-
-    localStorage.removeItem('cart');
-
-    
-
-    // Mostrar confirmação
-
-    showOrderConfirmation(order);
-
-}
-
-
-
-// Processar pagamento PIX
-
-async function processPixPayment(orderData) {
-
-    const paymentData = {
-
-        amount: orderData.payment.amount,
-
-        cpf: orderData.payment.pix.cpf
-
-    };
-
-    
-
-    const result = await paymentService.processPixPayment(paymentData);
-
-    
-
-    // Mostrar informações PIX
-
-    showPixPayment(result);
-
-    
-
-    // Monitorar status
-
-    monitorPixStatus(result.txid, orderData);
-
-}
-
-
-
-// Mostrar pagamento PIX
-
-function showPixPayment(pixData) {
-
-    document.getElementById('pix-key-value').textContent = pixData.pix_key;
-
-    document.getElementById('pix-qr-container').innerHTML = `<img src="${pixData.qr_code}" alt="QR Code PIX">`;
-
-    document.getElementById('pix-payment-info').style.display = 'block';
-
-    
-
-    // Iniciar timer
-
-    startPixTimer();
-
-}
-
-
-
-// Iniciar timer PIX
-
-function startPixTimer() {
-
-    let timeLeft = 30 * 60; // 30 minutos em segundos
-
-    
-
-    pixTimer = setInterval(() => {
-
-        const minutes = Math.floor(timeLeft / 60);
-
-        const seconds = timeLeft % 60;
-
-        document.getElementById('pix-timer').textContent = 
-
-            `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-
-        
-
-        if (timeLeft <= 0) {
-
-            clearInterval(pixTimer);
-
-            showNotification('PIX expirado. Tente novamente.', 'error');
-
-        }
-
-        
-
-        timeLeft--;
-
-    }, 1000);
-
-}
-
-
-
-// Monitorar status PIX
-
-async function monitorPixStatus(txid, orderData) {
-
-    const checkStatus = async () => {
-
-        try {
-
-            const status = await paymentService.checkPixStatus(txid);
-
-            
-
-            if (status.status === 'PAID') {
-
-                clearInterval(pixTimer);
-
-                
-
-                // Criar pedido
-
-                const order = await createOrder(orderData, { transaction_id: txid, status: 'PAID' });
-
-                
-
-                // Limpar carrinho
-
-                localStorage.removeItem('cart');
-
-                
-
-                // Mostrar confirmação
-
-                showOrderConfirmation(order);
-
-            } else if (status.status === 'EXPIRED') {
-
-                clearInterval(pixTimer);
-
-                showNotification('PIX expirado. Tente novamente.', 'error');
-
-            }
-
-        } catch (error) {
-
-            console.error('Erro ao verificar status PIX:', error);
-
-        }
-
-    };
-
-    
-
-    // Verificar a cada 10 segundos
-
-    const statusInterval = setInterval(checkStatus, 10000);
-
-    
-
-    // Parar após 30 minutos
-
-    setTimeout(() => {
-
-        clearInterval(statusInterval);
-
-        clearInterval(pixTimer);
-
-    }, 30 * 60 * 1000);
-
-}
-
-
-
-// Criar pedido
-
-async function createOrder(orderData, paymentResult) {
-
-    const order = {
-
-        id: 'ORD_' + Date.now(),
-
-        user_id: currentUser.id,
-
-        items: orderData.items,
-
-        totals: orderData.totals,
-
-        address: orderData.address,
-
-        payment: {
-
-            ...orderData.payment,
-
-            transaction_id: paymentResult.transaction_id,
-
-            status: paymentResult.status
-
-        },
-
-        status: 'aguardando-pagamento',
-
-        created_at: new Date().toISOString(),
-
-        updated_at: new Date().toISOString()
-
-    };
-
-    
-
-    // Salvar pedido
-
-    const orders = JSON.parse(localStorage.getItem('orders')) || [];
-
-    orders.push(order);
-
-    localStorage.setItem('orders', JSON.stringify(orders));
-
-    
-
-    // Inicializar logística se pagamento aprovado
-
-    if (paymentResult.status === 'APPROVED' || paymentResult.status === 'PAID') {
-
-        order.status = 'pago';
-
-        if (window.logisticsService) {
-
-            window.logisticsService.initializeLogistics(order.id);
-
-        }
-
-    }
-
-    
-
-    return order;
-
-}
-
-
-
-// Mostrar confirmação do pedido
-
-function showOrderConfirmation(order) {
-
-    document.getElementById('order-number').textContent = order.id;
-
-    document.getElementById('order-total').textContent = formatPrice(order.totals.total);
-
-    document.getElementById('order-status').textContent = 'Aguardando Pagamento';
-
-    
-
-    document.getElementById('confirmation-modal').classList.add('show');
-
-}
-
-
-
-// Mostrar loading
-
-function showLoading(show) {
-
-    const button = document.getElementById('finalize-order');
-
-    if (show) {
-
-        button.disabled = true;
-
-        button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processando...';
-
-    } else {
-
-        button.disabled = false;
-
-        button.innerHTML = '<i class="fas fa-lock"></i> Finalizar Pedido';
-
-    }
-
-}
-
-
-
-// Formatar preço (função duplicada removida)
-
-
-
-// Mostrar notificação
-
-function showNotification(message, type = 'info') {
-
-    const notification = document.createElement('div');
-
-    notification.className = `notification notification-${type}`;
-
-    notification.innerHTML = `
-
-        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
-
-        <span>${message}</span>
-
-    `;
-
-    
-
-    notification.style.cssText = `
-
-        position: fixed;
-
-        top: 20px;
-
-        right: 20px;
-
-        padding: 15px 20px;
-
-        border-radius: 5px;
-
-        color: white;
-
-        font-weight: bold;
-
-        z-index: 1001;
-
-        opacity: 0;
-
-        transition: opacity 0.3s ease;
-
-        background: ${type === 'success' ? '#4CAF50' : type === 'error' ? '#f44336' : '#2196F3'};
-
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-
-    `;
-
-    
-
-    document.body.appendChild(notification);
-
-    
-
-    setTimeout(() => {
-
-        notification.style.opacity = '1';
-
-    }, 100);
-
-    
-
-    setTimeout(() => {
-
-        notification.style.opacity = '0';
-
-        setTimeout(() => {
-
-            if (notification.parentNode) {
-
-                notification.parentNode.removeChild(notification);
-
-            }
-
-        }, 300);
-
-    }, 4000);
-
+    });
 }

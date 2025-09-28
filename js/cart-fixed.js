@@ -1,63 +1,6 @@
-// Script para gerenciar o carrinho de compras - VERSÃO CORRIGIDA DEFINITIVA
-
-// Funções para gerenciar carrinho específico por usuário
-function getCurrentUserId() {
-    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-    return currentUser ? currentUser.id : 'guest';
-}
-
-function getUserCart() {
-    const userId = getCurrentUserId();
-    const cartKey = `cart_${userId}`;
-    const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
-    
-    // Limpar carrinho se o usuário mudou
-    const lastUserId = localStorage.getItem('lastUserId');
-    if (lastUserId && lastUserId !== userId) {
-        console.log('Usuário mudou, limpando carrinho anterior');
-        localStorage.removeItem(cartKey);
-        localStorage.setItem('lastUserId', userId);
-        return [];
-    }
-    
-    localStorage.setItem('lastUserId', userId);
-    return cart;
-}
-
-function saveUserCart(cart) {
-    const userId = getCurrentUserId();
-    const cartKey = `cart_${userId}`;
-    localStorage.setItem(cartKey, JSON.stringify(cart));
-    localStorage.setItem('lastUserId', userId);
-    console.log(`Carrinho salvo para usuário ${userId}:`, cart);
-}
-
-function clearUserCart() {
-    const userId = getCurrentUserId();
-    const cartKey = `cart_${userId}`;
-    localStorage.removeItem(cartKey);
-    localStorage.setItem('lastUserId', userId);
-    console.log(`Carrinho limpo para usuário ${userId}`);
-}
-
-// Limpar carrinho de outros usuários quando logar
-function clearOtherUserCarts() {
-    const currentUserId = getCurrentUserId();
-    const allKeys = Object.keys(localStorage);
-    
-    allKeys.forEach(key => {
-        if (key.startsWith('cart_') && key !== `cart_${currentUserId}`) {
-            localStorage.removeItem(key);
-            console.log(`Carrinho de outro usuário removido: ${key}`);
-        }
-    });
-}
-
+// Script para gerenciar o carrinho de compras - VERSÃO CORRIGIDA
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('=== INICIANDO CARRINHO CORRIGIDO DEFINITIVO ===');
-    
-    // Limpar carrinhos de outros usuários
-    clearOtherUserCarts();
+    console.log('=== INICIANDO CARRINHO CORRIGIDO ===');
     
     // Configurar cabeçalho do usuário
     setupHeaderUserActions();
@@ -112,7 +55,7 @@ function logout() {
 // Carregar itens do carrinho
 async function loadCartItems() {
     console.log('=== CARREGANDO ITENS DO CARRINHO ===');
-    const cart = getUserCart();
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const cartItemsContainer = document.getElementById('cart-items');
     const emptyCart = document.getElementById('empty-cart');
     const cartContent = document.querySelector('.cart-content');
@@ -186,7 +129,7 @@ async function loadCartItems() {
     }
     
     // Salvar carrinho atualizado com preços corretos
-    saveUserCart(cart);
+    localStorage.setItem('cart', JSON.stringify(cart));
     console.log('Carrinho salvo com preços atualizados:', cart);
     
     // Atualizar resumo
@@ -243,6 +186,20 @@ async function findProductById(productId) {
             }
         } catch (error) {
             console.log('Erro no productsDatabase:', error);
+        }
+    }
+    
+    // 4. Tentar API service
+    if (typeof apiService !== 'undefined' && apiService.getProductById) {
+        try {
+            console.log('Tentando apiService...');
+            const product = await apiService.getProductById(productId);
+            if (product) {
+                console.log('✅ Produto encontrado no apiService:', product);
+                return product;
+            }
+        } catch (error) {
+            console.log('Erro no apiService:', error);
         }
     }
     
@@ -316,7 +273,7 @@ function setupEventListeners() {
     const checkoutBtn = document.getElementById('checkout-btn');
     if (checkoutBtn) {
         checkoutBtn.addEventListener('click', function(e) {
-            const cart = getUserCart();
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
             if (cart.length === 0) {
                 e.preventDefault();
                 alert('Seu carrinho está vazio. Adicione produtos antes de finalizar a compra.');
@@ -331,7 +288,7 @@ function setupEventListeners() {
 function updateQuantity(productId, change) {
     console.log(`Atualizando quantidade para ${productId}: ${change}`);
     
-    const cart = getUserCart();
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const item = cart.find(item => item.id === productId);
     
     if (!item) {
@@ -347,7 +304,7 @@ function updateQuantity(productId, change) {
     }
     
     item.quantity = newQuantity;
-    saveUserCart(cart);
+    localStorage.setItem('cart', JSON.stringify(cart));
     
     console.log('Quantidade atualizada:', item);
     
@@ -360,10 +317,10 @@ function updateQuantity(productId, change) {
 function removeFromCart(productId) {
     console.log(`Removendo item ${productId} do carrinho`);
     
-    const cart = getUserCart();
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const filteredCart = cart.filter(item => item.id !== productId);
     
-    saveUserCart(filteredCart);
+    localStorage.setItem('cart', JSON.stringify(filteredCart));
     
     console.log('Item removido. Carrinho atual:', filteredCart);
     
@@ -375,37 +332,24 @@ function removeFromCart(productId) {
 // Atualizar resumo do carrinho
 function updateCartSummary() {
     console.log('=== ATUALIZANDO RESUMO DO CARRINHO ===');
-    const cart = getUserCart();
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
     console.log('Carrinho atual para cálculo:', cart);
     
     const itemsCount = cart.reduce((total, item) => total + (item.quantity || 1), 0);
     console.log('Total de itens:', itemsCount);
     
-    let subtotal = 0;
-    let validItems = 0;
-    
-    cart.forEach(item => {
+    const subtotal = cart.reduce((total, item) => {
         const price = parseFloat(item.price) || 0;
         const quantity = parseInt(item.quantity) || 1;
         const itemTotal = price * quantity;
-        
-        if (price > 0 && quantity > 0) {
-            subtotal += itemTotal;
-            validItems++;
-        }
-        
         console.log(`Item ${item.id}: preço=${price}, qtd=${quantity}, total=${itemTotal}`);
-    });
-    
-    if (validItems === 0) {
-        console.warn('Nenhum item válido encontrado no carrinho');
-        subtotal = 0;
-    }
+        return total + itemTotal;
+    }, 0);
     
     const shipping = subtotal > 99 ? 0 : 15; // Frete grátis acima de R$ 99
     const total = subtotal + shipping;
     
-    console.log('Totais calculados:', { itemsCount, subtotal, shipping, total, validItems });
+    console.log('Totais calculados:', { itemsCount, subtotal, shipping, total });
     
     // Atualizar contadores
     const itemsCountEl = document.getElementById('cart-items-count');
@@ -468,7 +412,7 @@ function formatPrice(price) {
 
 // Atualizar contador do carrinho (compatibilidade com main.js)
 function updateCartCounter() {
-    const cart = getUserCart();
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
     const totalItems = cart.reduce((total, item) => total + (item.quantity || 1), 0);
     
     const cartCounters = document.querySelectorAll('#cart-count, .cart-count, .cart-counter');

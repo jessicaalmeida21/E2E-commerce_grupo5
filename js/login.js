@@ -1,7 +1,10 @@
-// Script para gerenciar login e cadastro de usuários
+// Script para gerenciar login e cadastro de usuários - VERSÃO CORRIGIDA DEFINITIVA
 
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('=== INICIALIZANDO SISTEMA DE LOGIN ===');
+    console.log('=== INICIALIZANDO SISTEMA DE LOGIN CORRIGIDO ===');
+    
+    // Verificar se o usuário já está logado
+    checkExistingLogin();
     
     // Configurar cabeçalho do usuário
     setupHeaderUserActions();
@@ -271,6 +274,7 @@ async function handleLogin(e) {
     
     const email = document.getElementById('login-email').value;
     const password = document.getElementById('login-password').value;
+    const rememberMe = document.getElementById('remember-me').checked;
     const messageElement = document.getElementById('login-message');
     
     // Limpar mensagens de erro anteriores
@@ -307,15 +311,23 @@ async function handleLogin(e) {
     
     // Verificar senha (comparação direta para usuários de teste, criptografada para outros)
     let passwordMatch = false;
-    if (user.id === 'test-001' || user.id === 'test-002') {
+    if (user.isFixed || user.id === 'test-001' || user.id === 'test-002') {
         // Usuários de teste - comparação direta
         passwordMatch = user.password === password;
-        console.log('Usuário de teste - comparação direta:', { senhaDigitada: password, senhaArmazenada: user.password, match: passwordMatch });
+        console.log('Usuário de teste - comparação direta:', { 
+            userId: user.id, 
+            senhaDigitada: password, 
+            senhaArmazenada: user.password, 
+            match: passwordMatch 
+        });
     } else {
         // Outros usuários - comparação criptografada
         const encryptedPassword = await hashPassword(password);
         passwordMatch = user.password === encryptedPassword;
-        console.log('Usuário cadastrado - comparação criptografada:', { match: passwordMatch });
+        console.log('Usuário cadastrado - comparação criptografada:', { 
+            userId: user.id,
+            match: passwordMatch 
+        });
     }
     
     if (!passwordMatch) {
@@ -326,8 +338,25 @@ async function handleLogin(e) {
     
     console.log('✅ Login bem-sucedido:', user);
     
+    // LIMPAR CARRINHOS DE OUTROS USUÁRIOS AO FAZER LOGIN
+    clearOtherUserCarts(user.id);
+    
     // Salvar usuário atual no localStorage
     localStorage.setItem('currentUser', JSON.stringify(user));
+    
+    // Salvar tempo de início da sessão
+    localStorage.setItem('sessionStartTime', Date.now().toString());
+    
+    // Salvar opção "Lembrar-me"
+    localStorage.setItem('rememberMe', rememberMe.toString());
+    
+    // Se "Lembrar-me" estiver marcado, salvar credenciais (apenas email por segurança)
+    if (rememberMe) {
+        localStorage.setItem('savedEmail', email);
+        console.log('✅ Email salvo para login automático');
+    } else {
+        localStorage.removeItem('savedEmail');
+    }
     
     // Mostrar mensagem de sucesso
     messageElement.innerHTML = `
@@ -348,6 +377,23 @@ async function handleLogin(e) {
             window.location.href = './pages/welcome.html';
         }
     }, 1500);
+}
+
+// Função para limpar carrinhos de outros usuários
+function clearOtherUserCarts(currentUserId) {
+    console.log('=== LIMPANDO CARRINHOS DE OUTROS USUÁRIOS ===');
+    const allKeys = Object.keys(localStorage);
+    
+    allKeys.forEach(key => {
+        if (key.startsWith('cart_') && key !== `cart_${currentUserId}`) {
+            localStorage.removeItem(key);
+            console.log(`Carrinho de outro usuário removido: ${key}`);
+        }
+    });
+    
+    // Limpar carrinho de guest também
+    localStorage.removeItem('cart_guest');
+    console.log('Carrinho de guest removido');
 }
 
 // Função para lidar com cadastro
@@ -478,6 +524,9 @@ async function handleRegister(e) {
         
         console.log('✅ Usuário adicionado com sucesso! Total de usuários:', users.length);
         
+        // LIMPAR CARRINHO AO CRIAR NOVO CADASTRO
+        clearOtherUserCarts(newUser.id);
+        
         // Mostrar mensagem de sucesso
         messageElement.innerHTML = `
             <div class="success-message">
@@ -505,6 +554,56 @@ async function handleRegister(e) {
             </div>
         `;
         messageElement.className = 'form-message error';
+    }
+}
+
+// Função para verificar se o usuário já está logado
+function checkExistingLogin() {
+    console.log('🔍 Verificando se há usuário logado...');
+    
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const sessionStartTime = localStorage.getItem('sessionStartTime');
+    
+    if (currentUser) {
+        console.log('✅ Usuário encontrado no localStorage:', currentUser.name);
+        
+        // Verificar se a sessão ainda é válida (opcional - pode definir um tempo limite)
+        if (sessionStartTime) {
+            const sessionAge = Date.now() - parseInt(sessionStartTime);
+            const maxSessionTime = 7 * 24 * 60 * 60 * 1000; // 7 dias em millisegundos
+            
+            if (sessionAge > maxSessionTime) {
+                console.log('⏰ Sessão expirada, fazendo logout...');
+                logout();
+                return;
+            }
+        }
+        
+        // Se estamos na página de login, redirecionar para welcome
+        if (window.location.pathname.includes('login.html')) {
+            console.log('🔄 Usuário já logado, redirecionando para welcome...');
+            setTimeout(() => {
+                if (window.location.pathname.includes('/pages/')) {
+                    window.location.href = './welcome.html';
+                } else {
+                    window.location.href = './pages/welcome.html';
+                }
+            }, 1000);
+        }
+    } else {
+        console.log('❌ Nenhum usuário logado');
+        
+        // Verificar se há email salvo para preencher automaticamente
+        const savedEmail = localStorage.getItem('savedEmail');
+        const rememberMe = localStorage.getItem('rememberMe') === 'true';
+        
+        if (savedEmail && rememberMe) {
+            const emailInput = document.getElementById('login-email');
+            if (emailInput) {
+                emailInput.value = savedEmail;
+                console.log('📧 Email preenchido automaticamente:', savedEmail);
+            }
+        }
     }
 }
 
@@ -545,8 +644,25 @@ function setupHeaderUserActions() {
 // Função de logout
 function logout() {
     console.log('Fazendo logout...');
+    
+    // Limpar carrinho ao fazer logout
+    const currentUserId = getCurrentUserId();
+    clearOtherUserCarts(currentUserId);
+    console.log('🧹 Carrinho limpo');
+    
     localStorage.removeItem('currentUser');
     localStorage.removeItem('sessionStartTime');
+    
+    // Verificar se deve manter o "Lembrar-me"
+    const rememberMe = localStorage.getItem('rememberMe') === 'true';
+    if (!rememberMe) {
+        localStorage.removeItem('savedEmail');
+        localStorage.removeItem('rememberMe');
+        console.log('🧹 Dados de login removidos');
+    } else {
+        console.log('💾 Mantendo dados de "Lembrar-me"');
+    }
+    
     window.location.href = './login.html';
 }
 
