@@ -174,7 +174,7 @@ class ApiService {
             return 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
-        if (title.includes('cafeteira') || title.includes('coffee')) {
+        if (title.includes('cafeteira') || title.includes('coffee') || title.includes('elétrica')) {
             console.log('✓ Imagem cafeteira encontrada');
             return 'https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
