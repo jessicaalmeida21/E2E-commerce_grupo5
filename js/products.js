@@ -2,6 +2,32 @@
 const productsModule = (() => {
     let products = [];
     let apiService;
+    
+    // Funções para gerenciar carrinho específico por usuário
+    function getCurrentUserId() {
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        return currentUser ? currentUser.id : 'guest';
+    }
+    
+    function getUserCart() {
+        const userId = getCurrentUserId();
+        const cartKey = `cart_${userId}`;
+        return JSON.parse(localStorage.getItem(cartKey)) || [];
+    }
+    
+    function saveUserCart(cart) {
+        const userId = getCurrentUserId();
+        const cartKey = `cart_${userId}`;
+        localStorage.setItem(cartKey, JSON.stringify(cart));
+        console.log(`Carrinho salvo para usuário ${userId}:`, cart);
+    }
+    
+    function clearUserCart() {
+        const userId = getCurrentUserId();
+        const cartKey = `cart_${userId}`;
+        localStorage.removeItem(cartKey);
+        console.log(`Carrinho limpo para usuário ${userId}`);
+    }
 
     // Inicializar o módulo
     function init() {
@@ -392,12 +418,16 @@ const productsModule = (() => {
         }).format(price);
     }
 
-    // Adicionar ao carrinho
+    // Adicionar ao carrinho - VERSÃO CORRIGIDA DEFINITIVA
     async function addToCart(productId) {
         console.log('=== ADICIONANDO PRODUTO AO CARRINHO ===');
         console.log('ProductId:', productId);
         console.log('Produtos disponíveis:', products.length);
         console.log('IDs dos produtos:', products.map(p => p.id));
+        
+        // Verificar usuário atual
+        const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+        console.log('Usuário atual:', currentUser ? currentUser.name : 'guest');
         
         // Se não há produtos carregados, tentar carregar
         if (products.length === 0) {
@@ -470,8 +500,9 @@ const productsModule = (() => {
             stock: product.stock
         });
         
-        // Obter carrinho atual
-        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        // Obter carrinho atual do usuário usando função sincronizada
+        let cart = getUserCart();
+        console.log('Carrinho atual antes da adição:', cart);
         
         // Verificar se o produto já está no carrinho
         const existingItem = cart.find(item => item.id === productId);
@@ -501,22 +532,26 @@ const productsModule = (() => {
             console.log('Novo item adicionado ao carrinho:', newItem);
         }
         
-        // Salvar carrinho
-        localStorage.setItem('cart', JSON.stringify(cart));
-        console.log('Carrinho salvo no localStorage:', cart);
+        // Salvar carrinho do usuário usando função sincronizada
+        saveUserCart(cart);
+        console.log('Carrinho salvo:', cart);
         
         // Atualizar contador do carrinho
         updateCartCounter();
         
-        console.log('Produto adicionado ao carrinho com sucesso:', product.title);
+        // Verificar se foi salvo corretamente
+        const savedCart = getUserCart();
+        console.log('Verificação: carrinho após salvar:', savedCart);
+        
+        console.log('✅ Produto adicionado ao carrinho com sucesso:', product.title);
         return true;
     }
     
     // Atualizar contador do carrinho
-function updateCartCounter() {
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
-    
+    function updateCartCounter() {
+        const cart = getUserCart();
+        const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+        
         const cartCounters = document.querySelectorAll('#cart-count, .cart-count, .cart-counter');
         cartCounters.forEach(counter => {
             counter.textContent = totalItems;
@@ -541,8 +576,9 @@ function updateCartCounter() {
         getProductsByCategory,
         getCategories,
         sortProducts,
-    formatPrice,
-        addToCart
+        formatPrice,
+        addToCart,
+        updateCartCounter
     };
 })();
 
