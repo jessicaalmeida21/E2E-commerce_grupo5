@@ -303,6 +303,37 @@ class ApiService {
             throw error;
         }
     }
+
+    // Método para obter produto por ID
+    async getProductById(id) {
+        try {
+            // Primeiro tentar buscar na API
+            const response = await fetch(`${this.baseUrl}/products/${id}`);
+            if (response.ok) {
+                return await response.json();
+            }
+        } catch (error) {
+            console.log('Erro ao buscar produto na API:', error);
+        }
+        
+        // Se não encontrar na API, buscar no database.js
+        if (typeof productsDatabase !== 'undefined') {
+            const allProducts = [];
+            Object.values(productsDatabase).forEach(category => {
+                if (Array.isArray(category)) {
+                    allProducts.push(...category);
+                }
+            });
+            const product = allProducts.find(p => p.id === id);
+            if (product) {
+                console.log('✅ Produto encontrado no database.js:', product);
+                return product;
+            }
+        }
+        
+        console.log('❌ Produto não encontrado:', id);
+        return null;
+    }
 }
 
 // Criar instância global
