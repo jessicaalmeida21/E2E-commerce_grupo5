@@ -276,7 +276,7 @@ function updateCartSummary(items) {
         const quantity = parseInt(item.quantity) || 1;
         
         if (price > 0 && quantity > 0) {
-            const itemTotal = price * quantity;
+        const itemTotal = price * quantity;
             subtotal += itemTotal;
             validItems++;
             

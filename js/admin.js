@@ -1,10 +1,21 @@
 // Verificação de autenticação e perfil
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('=== INICIALIZANDO ADMIN ===');
     checkUserPermissions();
-    loadProducts();
-    loadCategories();
-    setupEventListeners();
-    setupHeader();
+    
+    // Aguardar um pouco para garantir que os módulos sejam carregados
+    setTimeout(async () => {
+        await loadProducts();
+        loadCategories();
+        setupEventListeners();
+        setupHeader();
+        
+        // Forçar renderização após um tempo
+        setTimeout(() => {
+            console.log('🔄 Forçando renderização...');
+            applyFiltersAndSort();
+        }, 500);
+    }, 100);
 });
 
 // Verificar permissões do usuário
@@ -57,12 +68,14 @@ const productsPerPage = 10;
 // Carregar produtos da API
 async function loadProducts() {
     try {
-        console.log('Iniciando carregamento de produtos...');
+        console.log('=== INICIANDO CARREGAMENTO DE PRODUTOS ===');
+        console.log('productsModule disponível:', typeof productsModule);
         
         // Carregar produtos usando o módulo products (buscar mais produtos)
         allProducts = await productsModule.loadProducts(1, 200);
         
-        console.log('Produtos carregados:', allProducts.length);
+        console.log('✅ Produtos carregados via API:', allProducts.length);
+        console.log('Primeiros 3 produtos:', allProducts.slice(0, 3));
         
         // Garantir que todos os produtos tenham estoque
         allProducts = allProducts.map(product => ({
@@ -77,7 +90,9 @@ async function loadProducts() {
         loadCategories();
         
     } catch (error) {
-        console.error('Erro ao carregar produtos:', error);
+        console.error('❌ Erro ao carregar produtos via API:', error);
+        console.log('🔄 Usando produtos de fallback...');
+        
         // Fallback para produtos locais
         allProducts = [
             {
@@ -109,6 +124,54 @@ async function loadProducts() {
                 ratingCount: 85
             }
         ];
+        
+        // Adicionar mais produtos de fallback
+        allProducts.push(
+            {
+                id: 'PROD-003',
+                title: 'Fone Bluetooth Dell',
+                description: 'Fone TWS Dell com ANC',
+                price: 163.30,
+                originalPrice: 200.00,
+                discount: 18,
+                image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center',
+                category: 'eletrônicos',
+                brand: 'Dell',
+                stock: 30,
+                rating: 4.3,
+                ratingCount: 95
+            },
+            {
+                id: 'PROD-004',
+                title: 'Smart TV Lenovo 55" 4K UHD',
+                description: 'Smart TV Lenovo 55" com 4K, HDR e apps de streaming',
+                price: 1204.84,
+                originalPrice: 1500.00,
+                discount: 20,
+                image: 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center',
+                category: 'eletrônicos',
+                brand: 'Lenovo',
+                stock: 15,
+                rating: 4.1,
+                ratingCount: 67
+            },
+            {
+                id: 'PROD-005',
+                title: 'Notebook HP Pavilion',
+                description: 'Notebook HP para trabalho e entretenimento',
+                price: 2800.00,
+                originalPrice: 3200.00,
+                discount: 12,
+                image: 'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center',
+                category: 'eletrônicos',
+                brand: 'HP',
+                stock: 20,
+                rating: 4.0,
+                ratingCount: 45
+            }
+        );
+        
+        console.log('✅ Produtos de fallback carregados:', allProducts.length);
         filteredProducts = [...allProducts];
         applyFiltersAndSort();
     }
@@ -211,17 +274,29 @@ function applyFiltersAndSort() {
 
 // Renderizar produtos na tabela
 function renderProducts() {
+    console.log('=== RENDERIZANDO PRODUTOS ===');
+    console.log('filteredProducts.length:', filteredProducts.length);
+    console.log('allProducts.length:', allProducts.length);
+    
     const productsList = document.getElementById('products-list');
     const noProducts = document.getElementById('no-products');
+    
+    console.log('Elementos DOM encontrados:', {
+        productsList: !!productsList,
+        noProducts: !!noProducts
+    });
     
     // Limpar lista atual
     productsList.innerHTML = '';
     
     if (filteredProducts.length === 0) {
+        console.log('❌ Nenhum produto para exibir');
         productsList.innerHTML = '';
         noProducts.style.display = 'block';
         return;
     }
+    
+    console.log('✅ Exibindo produtos:', filteredProducts.length);
     
     noProducts.style.display = 'none';
     

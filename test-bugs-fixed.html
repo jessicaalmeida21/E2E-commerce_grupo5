@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Correções - E2E-Commerce</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <style>
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-section {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-button {
+            background: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        .test-button:hover {
+            background: #218838;
+        }
+        .test-button.danger {
+            background: #dc3545;
+        }
+        .test-button.danger:hover {
+            background: #c82333;
+        }
+        .test-result {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        .test-result.success {
+            background: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .test-result.error {
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .test-result.info {
+            background: #d1ecf1;
+            color: #0c5460;
+            border: 1px solid #bee5eb;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🔧 Teste de Correções - E2E-Commerce</h1>
+        
+        <!-- Teste de Módulos -->
+        <div class="test-section">
+            <h2>📦 Teste de Módulos JavaScript</h2>
+            <button class="test-button" onclick="testModules()">
+                Testar Carregamento de Módulos
+            </button>
+            <div id="modules-result"></div>
+        </div>
+
+        <!-- Teste de Carrinho -->
+        <div class="test-section">
+            <h2>🛒 Teste de Carrinho</h2>
+            <button class="test-button" onclick="testCartFunctions()">
+                Testar Funções do Carrinho
+            </button>
+            <button class="test-button" onclick="testAddProduct()">
+                Adicionar Produto de Teste
+            </button>
+            <button class="test-button danger" onclick="clearCartTest()">
+                Limpar Carrinho
+            </button>
+            <div id="cart-result"></div>
+        </div>
+
+        <!-- Teste de Produtos -->
+        <div class="test-section">
+            <h2>📦 Teste de Produtos</h2>
+            <button class="test-button" onclick="testProductLoading()">
+                Testar Carregamento de Produtos
+            </button>
+            <button class="test-button" onclick="testProductSearch()">
+                Testar Busca de Produtos
+            </button>
+            <div id="products-result"></div>
+        </div>
+
+        <!-- Teste de API Service -->
+        <div class="test-section">
+            <h2>🌐 Teste de API Service</h2>
+            <button class="test-button" onclick="testApiService()">
+                Testar API Service
+            </button>
+            <div id="api-result"></div>
+        </div>
+
+        <!-- Logs -->
+        <div class="test-section">
+            <h2>📋 Logs do Sistema</h2>
+            <button class="test-button danger" onclick="clearLogs()">Limpar Logs</button>
+            <div id="logs" style="background: #f8f9fa; padding: 15px; border-radius: 5px; max-height: 300px; overflow-y: auto; font-family: monospace; font-size: 12px;"></div>
+        </div>
+    </div>
+
+    <script src="./js/database.js?v=40"></script>
+    <script src="./js/api-service.js?v=40"></script>
+    <script src="./js/products.js?v=40"></script>
+    <script src="./js/main.js?v=40"></script>
+
+    <script>
+        // Função para log
+        function log(message, type = 'info') {
+            const logsDiv = document.getElementById('logs');
+            const timestamp = new Date().toLocaleTimeString();
+            const logEntry = document.createElement('div');
+            logEntry.innerHTML = `[${timestamp}] ${message}`;
+            logEntry.style.color = type === 'error' ? '#dc3545' : type === 'success' ? '#28a745' : '#6c757d';
+            logsDiv.appendChild(logEntry);
+            logsDiv.scrollTop = logsDiv.scrollHeight;
+        }
+
+        // Função para mostrar resultado
+        function showResult(elementId, message, type = 'info') {
+            const element = document.getElementById(elementId);
+            element.innerHTML = `<div class="test-result ${type}">${message}</div>`;
+        }
+
+        // Teste de Módulos
+        function testModules() {
+            log('Testando carregamento de módulos', 'info');
+            
+            const modules = [
+                { name: 'productsModule', obj: typeof productsModule !== 'undefined' ? productsModule : null },
+                { name: 'apiService', obj: typeof apiService !== 'undefined' ? apiService : null },
+                { name: 'getAllProducts', obj: typeof getAllProducts !== 'undefined' ? getAllProducts : null },
+                { name: 'updateCartCounterFallback', obj: typeof updateCartCounterFallback !== 'undefined' ? updateCartCounterFallback : null }
+            ];
+            
+            let workingModules = 0;
+            let results = [];
+            
+            modules.forEach(module => {
+                if (module.obj) {
+                    workingModules++;
+                    results.push(`✅ ${module.name} - OK`);
+                    log(`${module.name} carregado com sucesso`, 'success');
+                } else {
+                    results.push(`❌ ${module.name} - FALHOU`);
+                    log(`${module.name} não carregado`, 'error');
+                }
+            });
+            
+            const success = workingModules === modules.length;
+            showResult('modules-result', results.join('<br>'), success ? 'success' : 'error');
+            
+            if (success) {
+                log('Todos os módulos carregados com sucesso!', 'success');
+            } else {
+                log('Alguns módulos falharam ao carregar', 'error');
+            }
+        }
+
+        // Teste de Funções do Carrinho
+        function testCartFunctions() {
+            log('Testando funções do carrinho', 'info');
+            
+            try {
+                // Testar funções de carrinho
+                const testResults = [];
+                
+                // Testar getUserCart
+                if (typeof getUserCart === 'function') {
+                    const cart = getUserCart();
+                    testResults.push('✅ getUserCart - OK');
+                    log('getUserCart funcionando', 'success');
+                } else {
+                    testResults.push('❌ getUserCart - FALHOU');
+                    log('getUserCart não encontrado', 'error');
+                }
+                
+                // Testar saveUserCart
+                if (typeof saveUserCart === 'function') {
+                    testResults.push('✅ saveUserCart - OK');
+                    log('saveUserCart funcionando', 'success');
+                } else {
+                    testResults.push('❌ saveUserCart - FALHOU');
+                    log('saveUserCart não encontrado', 'error');
+                }
+                
+                // Testar updateCartCounter
+                if (typeof updateCartCounter === 'function') {
+                    testResults.push('✅ updateCartCounter - OK');
+                    log('updateCartCounter funcionando', 'success');
+                } else {
+                    testResults.push('❌ updateCartCounter - FALHOU');
+                    log('updateCartCounter não encontrado', 'error');
+                }
+                
+                const success = testResults.filter(r => r.includes('✅')).length === testResults.length;
+                showResult('cart-result', testResults.join('<br>'), success ? 'success' : 'error');
+                
+            } catch (error) {
+                showResult('cart-result', `❌ Erro no teste do carrinho: ${error.message}`, 'error');
+                log(`Erro no teste do carrinho: ${error.message}`, 'error');
+            }
+        }
+
+        // Teste de Adicionar Produto
+        async function testAddProduct() {
+            log('Testando adição de produto ao carrinho', 'info');
+            
+            try {
+                if (typeof productsModule !== 'undefined' && productsModule.addToCart) {
+                    // Limpar carrinho primeiro
+                    if (typeof clearUserCart === 'function') {
+                        clearUserCart();
+                    }
+                    
+                    // Tentar adicionar um produto
+                    await productsModule.addToCart('PROD-001');
+                    
+                    // Verificar se foi adicionado
+                    const cart = getUserCart();
+                    if (cart.length > 0) {
+                        showResult('cart-result', `✅ Produto adicionado com sucesso! Carrinho tem ${cart.length} item(s)`, 'success');
+                        log('Produto adicionado ao carrinho com sucesso', 'success');
+                    } else {
+                        showResult('cart-result', '❌ Produto não foi adicionado ao carrinho', 'error');
+                        log('Produto não foi adicionado ao carrinho', 'error');
+                    }
+                } else {
+                    showResult('cart-result', '❌ productsModule.addToCart não disponível', 'error');
+                    log('productsModule.addToCart não disponível', 'error');
+                }
+            } catch (error) {
+                showResult('cart-result', `❌ Erro ao adicionar produto: ${error.message}`, 'error');
+                log(`Erro ao adicionar produto: ${error.message}`, 'error');
+            }
+        }
+
+        // Limpar Carrinho de Teste
+        function clearCartTest() {
+            if (typeof clearUserCart === 'function') {
+                clearUserCart();
+                showResult('cart-result', '✅ Carrinho limpo!', 'success');
+                log('Carrinho limpo', 'success');
+            } else {
+                showResult('cart-result', '❌ Função clearUserCart não disponível', 'error');
+                log('Função clearUserCart não disponível', 'error');
+            }
+        }
+
+        // Teste de Carregamento de Produtos
+        async function testProductLoading() {
+            log('Testando carregamento de produtos', 'info');
+            
+            try {
+                if (typeof getAllProducts === 'function') {
+                    const products = getAllProducts();
+                    if (products && products.length > 0) {
+                        showResult('products-result', `✅ Produtos carregados com sucesso! ${products.length} produtos encontrados`, 'success');
+                        log(`${products.length} produtos carregados do database`, 'success');
+                    } else {
+                        showResult('products-result', '❌ Nenhum produto encontrado no database', 'error');
+                        log('Nenhum produto encontrado no database', 'error');
+                    }
+                } else {
+                    showResult('products-result', '❌ Função getAllProducts não disponível', 'error');
+                    log('Função getAllProducts não disponível', 'error');
+                }
+            } catch (error) {
+                showResult('products-result', `❌ Erro ao carregar produtos: ${error.message}`, 'error');
+                log(`Erro ao carregar produtos: ${error.message}`, 'error');
+            }
+        }
+
+        // Teste de Busca de Produtos
+        async function testProductSearch() {
+            log('Testando busca de produtos', 'info');
+            
+            try {
+                if (typeof productsModule !== 'undefined' && productsModule.searchProducts) {
+                    const results = productsModule.searchProducts('Samsung');
+                    if (results && results.length > 0) {
+                        showResult('products-result', `✅ Busca funcionando! ${results.length} produtos Samsung encontrados`, 'success');
+                        log(`Busca encontrou ${results.length} produtos Samsung`, 'success');
+                    } else {
+                        showResult('products-result', '❌ Busca não retornou resultados', 'error');
+                        log('Busca não retornou resultados', 'error');
+                    }
+                } else {
+                    showResult('products-result', '❌ Função de busca não disponível', 'error');
+                    log('Função de busca não disponível', 'error');
+                }
+            } catch (error) {
+                showResult('products-result', `❌ Erro na busca: ${error.message}`, 'error');
+                log(`Erro na busca: ${error.message}`, 'error');
+            }
+        }
+
+        // Teste de API Service
+        function testApiService() {
+            log('Testando API Service', 'info');
+            
+            try {
+                if (typeof apiService !== 'undefined') {
+                    // Testar função getProductImage
+                    if (typeof apiService.getProductImage === 'function') {
+                        const testProduct = { title: 'Samsung Galaxy', brand: 'Samsung', category: 'Smartphones' };
+                        const image = apiService.getProductImage(testProduct);
+                        
+                        if (image && image.includes('unsplash.com')) {
+                            showResult('api-result', '✅ API Service funcionando! Função getProductImage OK', 'success');
+                            log('API Service getProductImage funcionando', 'success');
+                        } else {
+                            showResult('api-result', '❌ getProductImage retornou imagem inválida', 'error');
+                            log('getProductImage retornou imagem inválida', 'error');
+                        }
+                    } else {
+                        showResult('api-result', '❌ Função getProductImage não disponível', 'error');
+                        log('Função getProductImage não disponível', 'error');
+                    }
+                } else {
+                    showResult('api-result', '❌ apiService não disponível', 'error');
+                    log('apiService não disponível', 'error');
+                }
+            } catch (error) {
+                showResult('api-result', `❌ Erro no API Service: ${error.message}`, 'error');
+                log(`Erro no API Service: ${error.message}`, 'error');
+            }
+        }
+
+        // Limpar Logs
+        function clearLogs() {
+            document.getElementById('logs').innerHTML = '';
+        }
+
+        // Inicializar testes
+        document.addEventListener('DOMContentLoaded', function() {
+            log('Sistema de testes de correções inicializado', 'success');
+            log('Página de teste carregada', 'info');
+            
+            // Executar teste básico automaticamente
+            setTimeout(() => {
+                testModules();
+            }, 1000);
+        });
+    </script>
+</body>
+</html>
+

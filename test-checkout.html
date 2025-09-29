@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Checkout</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        button { padding: 10px 20px; margin: 5px; }
+        .result { background: #f0f0f0; padding: 10px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <h1>Teste do Checkout</h1>
+    
+    <div class="test-section">
+        <h3>Teste 1: Verificar localStorage</h3>
+        <button onclick="testLocalStorage()">Verificar Carrinho</button>
+        <div id="localStorage-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Teste 2: Criar Dados de Teste</h3>
+        <button onclick="createTestData()">Criar Dados de Teste</button>
+        <div id="test-data-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Teste 3: Calcular Totais</h3>
+        <button onclick="testCalculateTotals()">Calcular Totais</button>
+        <div id="calculation-result" class="result"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Teste 4: Atualizar Display</h3>
+        <button onclick="testUpdateDisplay()">Atualizar Display</button>
+        <div id="display-result" class="result"></div>
+    </div>
+
+    <script>
+        let testCartItems = [];
+        
+        function testLocalStorage() {
+            const cartData = localStorage.getItem('cart');
+            const result = document.getElementById('localStorage-result');
+            result.innerHTML = `
+                <strong>Dados do localStorage:</strong><br>
+                ${cartData ? cartData : 'Nenhum dado encontrado'}<br>
+                <strong>Parsed:</strong><br>
+                ${JSON.stringify(JSON.parse(cartData || '[]'), null, 2)}
+            `;
+        }
+        
+        function createTestData() {
+            testCartItems = [
+                { id: 'test-1', title: 'Produto Teste 1', price: 50.00, quantity: 2, brand: 'Marca A' },
+                { id: 'test-2', title: 'Produto Teste 2', price: 30.00, quantity: 1, brand: 'Marca B' }
+            ];
+            
+            localStorage.setItem('cart', JSON.stringify(testCartItems));
+            
+            const result = document.getElementById('test-data-result');
+            result.innerHTML = `
+                <strong>Dados de teste criados:</strong><br>
+                ${JSON.stringify(testCartItems, null, 2)}
+            `;
+        }
+        
+        function testCalculateTotals() {
+            const subtotal = testCartItems.reduce((total, item) => {
+                const price = parseFloat(item.price) || 0;
+                const quantity = parseInt(item.quantity) || 1;
+                return total + (price * quantity);
+            }, 0);
+            
+            const shipping = subtotal > 99 ? 0 : 15;
+            const total = subtotal + shipping;
+            
+            const result = document.getElementById('calculation-result');
+            result.innerHTML = `
+                <strong>Cálculo realizado:</strong><br>
+                Subtotal: R$ ${subtotal.toFixed(2)}<br>
+                Frete: R$ ${shipping.toFixed(2)}<br>
+                Total: R$ ${total.toFixed(2)}
+            `;
+        }
+        
+        function testUpdateDisplay() {
+            const subtotal = testCartItems.reduce((total, item) => {
+                const price = parseFloat(item.price) || 0;
+                const quantity = parseInt(item.quantity) || 1;
+                return total + (price * quantity);
+            }, 0);
+            
+            const shipping = subtotal > 99 ? 0 : 15;
+            const total = subtotal + shipping;
+            
+            const result = document.getElementById('display-result');
+            result.innerHTML = `
+                <strong>Display atualizado:</strong><br>
+                <div style="display: flex; justify-content: space-between;">
+                    <span>Subtotal:</span>
+                    <span>R$ ${subtotal.toFixed(2)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between;">
+                    <span>Frete:</span>
+                    <span>R$ ${shipping.toFixed(2)}</span>
+                </div>
+                <div style="display: flex; justify-content: space-between; font-weight: bold;">
+                    <span>Total:</span>
+                    <span>R$ ${total.toFixed(2)}</span>
+                </div>
+            `;
+        }
+        
+        // Executar teste inicial
+        window.onload = function() {
+            testLocalStorage();
+        };
+    </script>
+</body>
+</html>
+
+

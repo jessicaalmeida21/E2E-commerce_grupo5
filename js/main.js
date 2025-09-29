@@ -1,7 +1,12 @@
 // Espera o DOM carregar completamente
 document.addEventListener('DOMContentLoaded', function() {
     // Inicializa o contador do carrinho
-    productsModule.updateCartCounter();
+    if (typeof productsModule !== 'undefined' && productsModule.updateCartCounter) {
+        productsModule.updateCartCounter();
+    } else {
+        // Fallback: usar função local
+        updateCartCounterFallback();
+    }
     
     // Carrega os produtos em destaque na página inicial
     loadFeaturedProducts();
@@ -393,4 +398,19 @@ function checkSessionTimeout() {
 function setSessionTimeout() {
     const timeout = new Date().getTime() + (30 * 60 * 1000);
     localStorage.setItem('sessionTimeout', timeout);
+}
+
+// Função de fallback para atualizar contador do carrinho
+function updateCartCounterFallback() {
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    const userId = currentUser ? currentUser.id : 'guest';
+    const cartKey = `cart_${userId}`;
+    const cart = JSON.parse(localStorage.getItem(cartKey)) || [];
+    const totalItems = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+    
+    const cartCounters = document.querySelectorAll('#cart-count, .cart-count, .cart-counter');
+    cartCounters.forEach(counter => {
+        counter.textContent = totalItems;
+        counter.style.display = totalItems > 0 ? 'flex' : 'none';
+    });
 }

@@ -67,22 +67,32 @@
                                 </select>
                             </div>
                             
+                        <div class="form-group">
+                            <label for="cep">CEP *</label>
+                            <input type="text" id="cep" placeholder="00000-000" maxlength="9" required>
+                            <button type="button" id="search-cep" class="btn secondary">Buscar</button>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="full-name">Nome Completo *</label>
+                            <input type="text" id="full-name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Telefone *</label>
+                            <input type="text" id="phone" placeholder="(11) 99999-9999" required>
+                        </div>
+                        
+                        <div class="form-row">
                             <div class="form-group">
-                                <label for="cep">CEP *</label>
-                                <input type="text" id="cep" placeholder="00000-000" maxlength="9" required>
-                                <button type="button" id="search-cep" class="btn secondary">Buscar</button>
+                                <label for="street">Rua *</label>
+                                <input type="text" id="street" required>
                             </div>
-                            
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="street">Rua *</label>
-                                    <input type="text" id="street" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="number">Número *</label>
-                                    <input type="text" id="number" required>
-                                </div>
+                            <div class="form-group">
+                                <label for="number">Número *</label>
+                                <input type="text" id="number" required>
                             </div>
+                        </div>
                             
                             <div class="form-group">
                                 <label for="complement">Complemento</label>
@@ -251,6 +261,9 @@
                         <div id="installment-details"></div>
                     </div>
                     
+                    <button class="btn secondary btn-large" id="test-calc" style="margin-bottom: 10px;">
+                        <i class="fas fa-calculator"></i> Testar Cálculo
+                    </button>
                     <button class="btn primary btn-large" id="finalize-order">
                         <i class="fas fa-lock"></i> Finalizar Pedido
                     </button>
@@ -288,292 +301,4 @@
     <script src="../js/payment.js?v=36"></script>
     <script src="../js/checkout.js?v=40"></script>
 </body>
-</html>
-
-                                <button class="payment-tab" data-method="debit">
-
-                                    <i class="fas fa-credit-card"></i> Cartão de Débito
-
-                                </button>
-
-                                <button class="payment-tab" data-method="pix">
-
-                                    <i class="fas fa-qrcode"></i> PIX
-
-                                </button>
-
-                            </div>
-
-
-
-                            <!-- Formulário de Cartão -->
-
-                            <div class="payment-form" id="card-form">
-
-                                <div class="form-group">
-
-                                    <label for="card-number">Número do Cartão *</label>
-
-                                    <input type="text" id="card-number" placeholder="0000 0000 0000 0000" maxlength="19" required>
-
-                                    <div class="card-brands">
-
-                                        <i class="fab fa-cc-visa"></i>
-
-                                        <i class="fab fa-cc-mastercard"></i>
-
-                                    </div>
-
-                                </div>
-
-                                
-
-                                <div class="form-row">
-
-                                    <div class="form-group">
-
-                                        <label for="card-name">Nome no Cartão *</label>
-
-                                        <input type="text" id="card-name" placeholder="Nome como está no cartão" required>
-
-                                    </div>
-
-                                    <div class="form-group">
-
-                                        <label for="card-cvv">CVV *</label>
-
-                                        <input type="text" id="card-cvv" placeholder="000" maxlength="3" required>
-
-                                    </div>
-
-                                </div>
-
-                                
-
-                                <div class="form-row">
-
-                                    <div class="form-group">
-
-                                        <label for="card-expiry">Validade *</label>
-
-                                        <input type="text" id="card-expiry" placeholder="MM/AA" maxlength="5" required>
-
-                                    </div>
-
-                                    <div class="form-group">
-
-                                        <label for="installments">Parcelas *</label>
-
-                                        <select id="installments" required>
-
-                                            <option value="">Selecione</option>
-
-                                        </select>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-
-
-                            <!-- Formulário PIX -->
-
-                            <div class="payment-form" id="pix-form" style="display: none;">
-
-                                <div class="pix-info">
-
-                                    <div class="form-group">
-
-                                        <label for="pix-cpf">CPF/CNPJ *</label>
-
-                                        <input type="text" id="pix-cpf" placeholder="000.000.000-00" required>
-
-                                    </div>
-
-                                    
-
-                                    <div class="pix-payment-info" id="pix-payment-info" style="display: none;">
-
-                                        <div class="pix-qr-code">
-
-                                            <div id="pix-qr-container"></div>
-
-                                            <p>Escaneie o QR Code com seu app de pagamento</p>
-
-                                        </div>
-
-                                        
-
-                                        <div class="pix-key">
-
-                                            <label>Chave PIX:</label>
-
-                                            <div class="pix-key-value">
-
-                                                <span id="pix-key-value"></span>
-
-                                                <button type="button" id="copy-pix-key" class="btn secondary">
-
-                                                    <i class="fas fa-copy"></i>
-
-                                                </button>
-
-                                            </div>
-
-                                        </div>
-
-                                        
-
-                                        <div class="pix-timer">
-
-                                            <i class="fas fa-clock"></i>
-
-                                            <span id="pix-timer">30:00</span>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                    </section>
-
-                </div>
-
-
-
-                <!-- Resumo do Pedido -->
-
-                <div class="order-summary">
-
-                    <h3>Resumo do Pedido</h3>
-
-                    
-
-                    <div class="summary-items" id="summary-items">
-
-                        <!-- Itens serão carregados via JavaScript -->
-
-                    </div>
-
-                    
-
-                    <div class="summary-totals">
-
-                        <div class="summary-line">
-
-                            <span>Subtotal:</span>
-
-                            <span id="subtotal">R$ 0,00</span>
-
-                        </div>
-
-                        <div class="summary-line">
-
-                            <span>Frete:</span>
-
-                            <span id="shipping">R$ 0,00</span>
-
-                        </div>
-
-                        <div class="summary-line total">
-
-                            <span>Total:</span>
-
-                            <span id="total">R$ 0,00</span>
-
-                        </div>
-
-                    </div>
-
-                    
-
-                    <div class="installment-info" id="installment-info" style="display: none;">
-
-                        <h4>Parcelamento</h4>
-
-                        <div id="installment-details"></div>
-
-                    </div>
-
-                    
-
-                    <button class="btn primary btn-large" id="finalize-order">
-
-                        <i class="fas fa-lock"></i> Finalizar Pedido
-
-                    </button>
-
-                </div>
-
-            </div>
-
-        </div>
-
-    </main>
-
-
-
-    <!-- Modal de Confirmação -->
-
-    <div class="modal" id="confirmation-modal">
-
-        <div class="modal-content">
-
-            <div class="modal-header">
-
-                <h2><i class="fas fa-check-circle"></i> Pedido Realizado!</h2>
-
-            </div>
-
-            <div class="modal-body">
-
-                <div class="success-message">
-
-                    <i class="fas fa-check-circle"></i>
-
-                    <h3>Seu pedido foi realizado com sucesso!</h3>
-
-                    <p>Número do pedido: <strong id="order-number"></strong></p>
-
-                    <p>Valor total: <strong id="order-total"></strong></p>
-
-                    <p>Status: <span id="order-status"></span></p>
-
-                </div>
-
-            </div>
-
-            <div class="modal-actions">
-
-                <button class="btn primary" id="view-orders">Ver Meus Pedidos</button>
-
-                <button class="btn secondary" id="continue-shopping">Continuar Comprando</button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-
-    <script src="../js/api-service.js"></script>
-
-    <script src="../js/products.js"></script>
-
-    <script src="../js/logistics.js"></script>
-
-    <script src="../js/payment.js"></script>
-
-    <script src="../js/checkout.js"></script>
-
-</body>
-
 </html>

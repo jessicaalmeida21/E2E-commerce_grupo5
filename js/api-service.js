@@ -161,7 +161,7 @@ class ApiService {
         // Eletrodomésticos - Imagens reais
         if (title.includes('liquidificador') || title.includes('mixer')) {
             console.log('✓ Imagem liquidificador encontrada');
-            return 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            return 'https://images.unsplash.com/photo-15569091431326005620-6d0e44b482f8?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
         if (title.includes('air fryer') || title.includes('fritadeira')) {
@@ -182,12 +182,12 @@ class ApiService {
         // Esportes - Imagens reais
         if (title.includes('bicicleta') || title.includes('bike')) {
             console.log('✓ Imagem bicicleta encontrada');
-                return 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
-            }
+            return 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
         
         if (title.includes('skate') || title.includes('skateboard')) {
             console.log('✓ Imagem skate encontrada');
-            return 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            return 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         
         if (title.includes('halteres') || title.includes('peso')) {

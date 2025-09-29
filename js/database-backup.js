@@ -338,7 +338,7 @@ const productsDatabase = {
             discount: 25,
             category: "Esportes",
             brand: "ProForm",
-            image: "https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+            image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
             description: "Halteres revestidos 20kg com barra de 1.20m, anilhas de 2.5kg, revestimento em neoprene",
             stock: 35,
             rating: 4.2,
