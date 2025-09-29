@@ -166,6 +166,35 @@ async function loadProducts(page = 1) {
             }
         }
         
+        // Se ainda não há produtos, carregar da API diretamente
+        if (!products || products.length === 0) {
+            console.log('Carregando da API diretamente...');
+            try {
+                const response = await fetch('https://catalogo-products.pages.dev/api/products?page=1&pageSize=20');
+                const data = await response.json();
+                
+                if (data.products && data.products.length > 0) {
+                    products = data.products.map(product => ({
+                        id: product.id,
+                        title: product.title,
+                        description: product.description,
+                        price: product.price?.final || product.price?.original || 0,
+                        originalPrice: product.price?.original || (product.price?.final * 1.2),
+                        discount: product.price?.discount_percent || 0,
+                        category: product.category,
+                        brand: product.brand,
+                        image: product.image || 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&crop=center&auto=format&q=80',
+                        stock: product.stock?.quantity || Math.floor(Math.random() * 100) + 10,
+                        rating: product.rating?.average || Math.round((Math.random() * 2 + 3) * 10) / 10,
+                        ratingCount: product.rating?.count || Math.floor(Math.random() * 500) + 50
+                    }));
+                    console.log('Produtos carregados da API diretamente:', products.length);
+                }
+            } catch (error) {
+                console.error('Erro ao carregar da API diretamente:', error);
+            }
+        }
+        
         // Se ainda não há produtos, usar database.js diretamente
         if (!products || products.length === 0) {
             console.log('Usando database.js diretamente...');
