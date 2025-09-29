@@ -648,6 +648,85 @@ class ApiService {
         return this.imageUrls[randomIndex];
     }
     
+    // Método para obter produtos da API
+    async getProducts(page = 1, limit = 20) {
+        try {
+            console.log(`=== CARREGANDO PRODUTOS DA API ===`);
+            console.log(`Página: ${page}, Limite: ${limit}`);
+            
+            const response = await fetch(`${this.baseUrl}/products?limit=${limit}`);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const products = await response.json();
+            console.log(`✅ ${products.length} produtos carregados da API`);
+            
+            // Adicionar imagens do Unsplash aos produtos
+            const productsWithImages = products.map(product => {
+                const imageUrl = this.getProductImage(product);
+                return {
+                    ...product,
+                    image: imageUrl,
+                    originalPrice: product.price * 1.2, // Simular preço original
+                    discount: Math.floor(Math.random() * 30) + 5, // Desconto aleatório 5-35%
+                    stock: Math.floor(Math.random() * 100) + 10, // Estoque aleatório 10-110
+                    rating: Math.round((Math.random() * 2 + 3) * 10) / 10, // Rating 3.0-5.0
+                    ratingCount: Math.floor(Math.random() * 500) + 50 // 50-550 avaliações
+                };
+            });
+            
+            console.log('Primeiros 3 produtos processados:', productsWithImages.slice(0, 3));
+            
+            return {
+                products: productsWithImages,
+                meta: {
+                    total: productsWithImages.length,
+                    page: page,
+                    pageSize: limit
+                }
+            };
+            
+        } catch (error) {
+            console.error('❌ Erro ao carregar produtos da API:', error);
+            
+            // Fallback para produtos locais se a API falhar
+            console.log('🔄 Usando produtos locais como fallback...');
+            return this.getLocalProducts();
+        }
+    }
+
+    // Método para obter produtos locais (fallback)
+    getLocalProducts() {
+        console.log('=== USANDO PRODUTOS LOCAIS ===');
+        
+        if (typeof productsDatabase !== 'undefined') {
+            const allProducts = [];
+            Object.values(productsDatabase).forEach(category => {
+                if (Array.isArray(category)) {
+                    allProducts.push(...category);
+                }
+            });
+            
+            console.log(`✅ ${allProducts.length} produtos locais encontrados`);
+            return {
+                products: allProducts,
+                meta: {
+                    total: allProducts.length,
+                    page: 1,
+                    pageSize: allProducts.length
+                }
+            };
+        }
+        
+        console.log('❌ Nenhum produto local encontrado');
+        return {
+            products: [],
+            meta: { total: 0, page: 1, pageSize: 0 }
+        };
+    }
+
     // Método para obter imagem de fallback
     getFallbackImage() {
         return 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
@@ -656,4 +735,4 @@ class ApiService {
 
 // Criar instância global
 window.apiService = new ApiService();
-console.log('=== API SERVICE COM 500 IMAGENS CARREGADO ===');
+console.log('=== API SERVICE RESTAURADO E FUNCIONANDO ===');
