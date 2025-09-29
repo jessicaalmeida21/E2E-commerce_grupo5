@@ -1,0 +1,6 @@
+Atualização forçada - $(Get-Date)
+Sistema de imagens específicas implementado
+- Aspirador Robô com imagem correta
+- Liquidificador com imagem correta  
+- Smartphones com imagens específicas
+- Todos os produtos com imagens correspondentes aos nomes
