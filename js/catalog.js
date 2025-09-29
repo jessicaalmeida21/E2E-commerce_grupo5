@@ -166,15 +166,54 @@ async function loadProducts(page = 1) {
             }
         }
         
-        // Se ainda não há produtos, carregar da API diretamente
-        if (!products || products.length === 0) {
-            console.log('Carregando da API diretamente...');
-            try {
-                const response = await fetch('https://catalogo-products.pages.dev/api/products?page=1&pageSize=20');
-                const data = await response.json();
-                
-                if (data.products && data.products.length > 0) {
-                    products = data.products.map(product => ({
+        // SEMPRE carregar da API diretamente primeiro
+        console.log('Carregando da API diretamente...');
+        try {
+            const response = await fetch('https://catalogo-products.pages.dev/api/products?page=1&pageSize=20');
+            const data = await response.json();
+            
+            if (data.products && data.products.length > 0) {
+                products = data.products.map(product => {
+                    // Aplicar imagem específica baseada no nome
+                    const title = product.title?.toLowerCase() || '';
+                    let specificImage = null;
+                    
+                    // Imagens específicas
+                    if (title.includes('aspirador') && title.includes('robô')) {
+                        specificImage = 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                    } else if (title.includes('liquidificador')) {
+                        specificImage = 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                    } else if (title.includes('air fryer')) {
+                        specificImage = 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                    } else if (title.includes('iphone')) {
+                        specificImage = 'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                    } else if (title.includes('galaxy') || title.includes('samsung')) {
+                        specificImage = 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                    } else if (title.includes('notebook') || title.includes('laptop')) {
+                        specificImage = 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                    } else if (title.includes('tv')) {
+                        specificImage = 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                    } else if (title.includes('fone') || title.includes('headphone')) {
+                        specificImage = 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                    } else if (title.includes('tênis') || title.includes('sneaker')) {
+                        specificImage = 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                    } else if (title.includes('camiseta')) {
+                        specificImage = 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                    } else if (title.includes('bicicleta')) {
+                        specificImage = 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                    } else if (title.includes('skate')) {
+                        specificImage = 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                    } else if (title.includes('halteres')) {
+                        specificImage = 'https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                    } else if (title.includes('monitor')) {
+                        specificImage = 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                    } else if (title.includes('relógio') || title.includes('watch')) {
+                        specificImage = 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                    } else {
+                        specificImage = 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+                    }
+                    
+                    return {
                         id: product.id,
                         title: product.title,
                         description: product.description,
@@ -183,16 +222,16 @@ async function loadProducts(page = 1) {
                         discount: product.price?.discount_percent || 0,
                         category: product.category,
                         brand: product.brand,
-                        image: product.image || 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&crop=center&auto=format&q=80',
+                        image: specificImage,
                         stock: product.stock?.quantity || Math.floor(Math.random() * 100) + 10,
                         rating: product.rating?.average || Math.round((Math.random() * 2 + 3) * 10) / 10,
                         ratingCount: product.rating?.count || Math.floor(Math.random() * 500) + 50
-                    }));
-                    console.log('Produtos carregados da API diretamente:', products.length);
-                }
-            } catch (error) {
-                console.error('Erro ao carregar da API diretamente:', error);
+                    };
+                });
+                console.log('✅ Produtos carregados da API diretamente:', products.length);
             }
+        } catch (error) {
+            console.error('❌ Erro ao carregar da API diretamente:', error);
         }
         
         // Se ainda não há produtos, usar database.js diretamente
