@@ -1,7 +1,8 @@
 // Serviço de API para produtos
 class ApiService {
     constructor() {
-        this.baseUrl = 'https://fakestoreapi.com';
+        // Usar a API do repositório catalogo-products
+        this.baseUrl = 'https://catalogo-products.pages.dev';
         this.imageCache = new Map();
         this.imageIndex = 0;
         
@@ -515,13 +516,41 @@ class ApiService {
     // Método para obter produto por ID
     async getProductById(id) {
         try {
-            // Primeiro tentar buscar na API
-            const response = await fetch(`${this.baseUrl}/products/${id}`);
+            // Primeiro tentar buscar na API catalogo-products
+            const response = await fetch(`${this.baseUrl}/api/products/${id}`);
             if (response.ok) {
-                return await response.json();
+                const product = await response.json();
+                return {
+                    ...product,
+                    image: product.image || this.getProductImage(product),
+                    originalPrice: product.price?.original || (product.price?.final * 1.2),
+                    discount: product.price?.discount_percent || 0,
+                    stock: product.stock?.quantity || Math.floor(Math.random() * 100) + 10,
+                    rating: product.rating?.average || Math.round((Math.random() * 2 + 3) * 10) / 10,
+                    ratingCount: product.rating?.count || Math.floor(Math.random() * 500) + 50
+                };
             }
         } catch (error) {
-            console.log('Erro ao buscar produto na API:', error);
+            console.log('Erro ao buscar produto na API catalogo-products:', error);
+            
+            // Fallback para FakeStore API
+            try {
+                const response = await fetch(`https://fakestoreapi.com/products/${id}`);
+                if (response.ok) {
+                    const product = await response.json();
+                    return {
+                        ...product,
+                        image: this.getProductImage(product),
+                        originalPrice: product.price * 1.2,
+                        discount: Math.floor(Math.random() * 30) + 5,
+                        stock: Math.floor(Math.random() * 100) + 10,
+                        rating: Math.round((Math.random() * 2 + 3) * 10) / 10,
+                        ratingCount: Math.floor(Math.random() * 500) + 50
+                    };
+                }
+            } catch (fakeStoreError) {
+                console.log('Erro ao buscar produto na FakeStore API:', fakeStoreError);
+            }
         }
         
         // Se não encontrar na API, buscar no database.js
@@ -649,19 +678,82 @@ class ApiService {
     }
     
     // Método para obter produtos da API
-    async getProducts(page = 1, limit = 20) {
+    async getProducts(page = 1, pageSize = 20) {
         try {
-            console.log(`=== CARREGANDO PRODUTOS DA API ===`);
+            console.log(`=== CARREGANDO PRODUTOS DA API CATALOGO-PRODUCTS ===`);
+            console.log(`Página: ${page}, PageSize: ${pageSize}`);
+            
+            const response = await fetch(`${this.baseUrl}/api/products?page=${page}&pageSize=${pageSize}`);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            console.log(`✅ API Response:`, data);
+            
+            if (data.products && Array.isArray(data.products)) {
+                const products = data.products;
+                console.log(`✅ ${products.length} produtos carregados da API`);
+                
+                // Processar produtos da API catalogo-products
+                const productsWithImages = products.map(product => {
+                    // A API já vem com estrutura completa, só precisamos adicionar imagens se necessário
+                    const imageUrl = product.image || this.getProductImage(product);
+                    
+                    return {
+                        id: product.id,
+                        title: product.title,
+                        description: product.description,
+                        price: product.price?.final || product.price?.original || 0,
+                        originalPrice: product.price?.original || (product.price?.final * 1.2),
+                        discount: product.price?.discount_percent || 0,
+                        category: product.category,
+                        brand: product.brand,
+                        image: imageUrl,
+                        stock: product.stock?.quantity || Math.floor(Math.random() * 100) + 10,
+                        rating: product.rating?.average || Math.round((Math.random() * 2 + 3) * 10) / 10,
+                        ratingCount: product.rating?.count || Math.floor(Math.random() * 500) + 50
+                    };
+                });
+                
+                console.log('Primeiros 3 produtos processados:', productsWithImages.slice(0, 3));
+                
+                return {
+                    products: productsWithImages,
+                    meta: data.meta || {
+                        total: productsWithImages.length,
+                        page: page,
+                        pageSize: pageSize
+                    }
+                };
+            } else {
+                throw new Error('Formato de resposta inválido da API');
+            }
+            
+        } catch (error) {
+            console.error('❌ Erro ao carregar produtos da API catalogo-products:', error);
+            
+            // Fallback para FakeStore API
+            console.log('🔄 Tentando FakeStore API como fallback...');
+            return this.getFakeStoreProducts(page, pageSize);
+        }
+    }
+
+    // Método para obter produtos da FakeStore API (fallback)
+    async getFakeStoreProducts(page = 1, limit = 20) {
+        try {
+            console.log(`=== CARREGANDO PRODUTOS DA FAKESTORE API ===`);
             console.log(`Página: ${page}, Limite: ${limit}`);
             
-            const response = await fetch(`${this.baseUrl}/products?limit=${limit}`);
+            const response = await fetch(`https://fakestoreapi.com/products?limit=${limit}`);
             
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
             }
             
             const products = await response.json();
-            console.log(`✅ ${products.length} produtos carregados da API`);
+            console.log(`✅ ${products.length} produtos carregados da FakeStore API`);
             
             // Adicionar imagens do Unsplash aos produtos
             const productsWithImages = products.map(product => {
@@ -689,10 +781,10 @@ class ApiService {
             };
             
         } catch (error) {
-            console.error('❌ Erro ao carregar produtos da API:', error);
+            console.error('❌ Erro ao carregar produtos da FakeStore API:', error);
             
-            // Fallback para produtos locais se a API falhar
-            console.log('🔄 Usando produtos locais como fallback...');
+            // Fallback final para produtos locais
+            console.log('🔄 Usando produtos locais como fallback final...');
             return this.getLocalProducts();
         }
     }
@@ -735,4 +827,4 @@ class ApiService {
 
 // Criar instância global
 window.apiService = new ApiService();
-console.log('=== API SERVICE RESTAURADO E FUNCIONANDO ===');
+console.log('=== API SERVICE ATUALIZADO PARA CATALOGO-PRODUCTS ===');
