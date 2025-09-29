@@ -586,61 +586,114 @@ class ApiService {
         const brand = product.brand?.toLowerCase() || '';
         const category = product.category?.toLowerCase() || '';
         
-        console.log('=== GERANDO IMAGEM REAL ===');
+        console.log('=== GERANDO IMAGEM ESPECÍFICA ===');
         console.log('Título:', title);
         console.log('Marca:', brand);
         console.log('Categoria:', category);
         
-        // Sistema inteligente de seleção de imagens
+        // Sistema específico de seleção de imagens baseado no nome exato
         let selectedImage = null;
         
-        // Smartphones
-        if (title.includes('smartphone') || title.includes('iphone') || title.includes('galaxy') || title.includes('xiaomi') || title.includes('phone')) {
-            selectedImage = this.getImageByCategory('smartphone');
+        // Aspirador Robô - Imagem específica de aspirador robô
+        if (title.includes('aspirador') && title.includes('robô')) {
+            selectedImage = 'https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
-        // Notebooks/Laptops
-        else if (title.includes('notebook') || title.includes('laptop') || title.includes('macbook') || title.includes('pc')) {
-            selectedImage = this.getImageByCategory('notebook');
+        // Liquidificador - Imagem específica de liquidificador
+        else if (title.includes('liquidificador')) {
+            selectedImage = 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
-        // TVs
-        else if (title.includes('smart tv') || title.includes('tv') || title.includes('televisão') || title.includes('television')) {
-            selectedImage = this.getImageByCategory('tv');
+        // Air Fryer - Imagem específica de air fryer
+        else if (title.includes('air fryer') || title.includes('fritadeira')) {
+            selectedImage = 'https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
-        // Fones de ouvido
-        else if (title.includes('fone') || title.includes('headphone') || title.includes('headset') || title.includes('bluetooth')) {
-            selectedImage = this.getImageByCategory('headphone');
+        // Smartphones específicos
+        else if (title.includes('iphone')) {
+            selectedImage = 'https://images.unsplash.com/photo-1592899677977-9c10ca588bbd?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
-        // Tênis/Calçados
-        else if (title.includes('tênis') || title.includes('sneaker') || title.includes('shoe') || title.includes('nike') || title.includes('adidas')) {
-            selectedImage = this.getImageByCategory('shoe');
+        else if (title.includes('galaxy') || title.includes('samsung')) {
+            selectedImage = 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
-        // Roupas
-        else if (title.includes('camiseta') || title.includes('shirt') || title.includes('dress') || title.includes('clothing')) {
-            selectedImage = this.getImageByCategory('clothing');
+        else if (title.includes('xiaomi') || title.includes('redmi')) {
+            selectedImage = 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
-        // Eletrodomésticos
-        else if (title.includes('liquidificador') || title.includes('blender') || title.includes('air fryer') || title.includes('aspirador')) {
-            selectedImage = this.getImageByCategory('appliance');
+        // Notebooks específicos
+        else if (title.includes('notebook') || title.includes('laptop')) {
+            if (title.includes('dell')) {
+                selectedImage = 'https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else if (title.includes('lenovo')) {
+                selectedImage = 'https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else {
+                selectedImage = 'https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            }
         }
-        // Esportes
-        else if (title.includes('bicicleta') || title.includes('bike') || title.includes('skate') || title.includes('halteres')) {
-            selectedImage = this.getImageByCategory('sports');
+        // TVs específicas
+        else if (title.includes('tv') || title.includes('televisão')) {
+            selectedImage = 'https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
-        // Joias
-        else if (title.includes('anel') || title.includes('ring') || title.includes('colar') || title.includes('necklace')) {
-            selectedImage = this.getImageByCategory('jewelry');
+        // Fones específicos
+        else if (title.includes('fone') || title.includes('headphone')) {
+            if (title.includes('sony')) {
+                selectedImage = 'https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else if (title.includes('jbl')) {
+                selectedImage = 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else {
+                selectedImage = 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            }
+        }
+        // Tênis específicos
+        else if (title.includes('tênis') || title.includes('sneaker')) {
+            if (title.includes('nike')) {
+                selectedImage = 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else if (title.includes('adidas')) {
+                selectedImage = 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            } else {
+                selectedImage = 'https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+            }
+        }
+        // Roupas específicas
+        else if (title.includes('camiseta') || title.includes('shirt')) {
+            selectedImage = 'https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
+        else if (title.includes('calça') || title.includes('jeans')) {
+            selectedImage = 'https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
+        else if (title.includes('jaqueta') || title.includes('jacket')) {
+            selectedImage = 'https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
+        // Esportes específicos
+        else if (title.includes('bicicleta') || title.includes('bike')) {
+            selectedImage = 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
+        else if (title.includes('skate')) {
+            selectedImage = 'https://images.unsplash.com/photo-1606144042614-b2417e99c4e3?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
+        else if (title.includes('halteres') || title.includes('peso')) {
+            selectedImage = 'https://images.unsplash.com/photo-1534258936925-c58bed479fcb?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
+        else if (title.includes('bola') && title.includes('futebol')) {
+            selectedImage = 'https://images.unsplash.com/photo-1431326005620-6d0e44b482f8?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         // Monitores
-        else if (title.includes('monitor') || title.includes('display') || title.includes('screen')) {
-            selectedImage = this.getImageByCategory('monitor');
+        else if (title.includes('monitor')) {
+            selectedImage = 'https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
         // Relógios
-        else if (title.includes('relógio') || title.includes('watch') || title.includes('smartwatch')) {
-            selectedImage = this.getImageByCategory('watch');
+        else if (title.includes('relógio') || title.includes('watch')) {
+            selectedImage = 'https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
         }
-        // Fallback genérico
+        // Joias específicas
+        else if (title.includes('anel') || title.includes('ring')) {
+            selectedImage = 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
+        else if (title.includes('colar') || title.includes('necklace')) {
+            selectedImage = 'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
+        else if (title.includes('brinco') || title.includes('earring')) {
+            selectedImage = 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
+        }
+        // Fallback baseado na categoria
         else {
-            selectedImage = this.getRandomImage();
+            selectedImage = this.getImageByCategory(category);
         }
         
         console.log('✓ Imagem selecionada:', selectedImage);
