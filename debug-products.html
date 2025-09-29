@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Produtos - E2E Commerce</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .debug-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        .info { background-color: #d1ecf1; border-color: #bee5eb; }
+        pre { background-color: #f8f9fa; padding: 10px; border-radius: 3px; overflow-x: auto; }
+        .product-item { margin: 10px 0; padding: 10px; border: 1px solid #ddd; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Debug de Produtos - E2E Commerce</h1>
+    
+    <div id="status" class="debug-section info">
+        <h3>Status do Sistema</h3>
+        <p>Carregando...</p>
+    </div>
+
+    <div id="api-test" class="debug-section">
+        <h3>Teste da API</h3>
+        <p>Testando conexão com a API...</p>
+    </div>
+
+    <div id="products-test" class="debug-section">
+        <h3>Carregamento de Produtos</h3>
+        <p>Testando carregamento de produtos...</p>
+    </div>
+
+    <div id="products-list" class="debug-section">
+        <h3>Lista de Produtos</h3>
+        <div id="products-container"></div>
+    </div>
+
+    <!-- Scripts necessários -->
+    <script src="../js/database.js"></script>
+    <script src="../js/api-service.js"></script>
+    <script src="../js/products.js"></script>
+    
+    <script>
+        console.log('=== INICIANDO DEBUG DE PRODUTOS ===');
+        
+        async function runDebugTests() {
+            const statusDiv = document.getElementById('status');
+            const apiTestDiv = document.getElementById('api-test');
+            const productsTestDiv = document.getElementById('products-test');
+            const productsContainer = document.getElementById('products-container');
+            
+            try {
+                // Teste 1: Verificar se as dependências estão carregadas
+                statusDiv.innerHTML = `
+                    <h3>Status do Sistema</h3>
+                    <p>✅ Database.js: ${typeof productsDatabase !== 'undefined' ? 'Carregado' : '❌ Não carregado'}</p>
+                    <p>✅ ApiService: ${typeof window.apiService !== 'undefined' ? 'Carregado' : '❌ Não carregado'}</p>
+                    <p>✅ ProductsModule: ${typeof productsModule !== 'undefined' ? 'Carregado' : '❌ Não carregado'}</p>
+                `;
+                
+                // Teste 2: Testar API diretamente
+                apiTestDiv.innerHTML = '<h3>Teste da API</h3><p>Testando conexão...</p>';
+                
+                try {
+                    const response = await fetch('https://catalogo-products.pages.dev/api/products?page=1&pageSize=5');
+                    const data = await response.json();
+                    
+                    apiTestDiv.className = 'debug-section success';
+                    apiTestDiv.innerHTML = `
+                        <h3>Teste da API</h3>
+                        <p>✅ API respondendo corretamente</p>
+                        <p>Total de produtos: ${data.meta.total}</p>
+                        <p>Produtos nesta página: ${data.products.length}</p>
+                        <pre>${JSON.stringify(data.products[0], null, 2)}</pre>
+                    `;
+                } catch (error) {
+                    apiTestDiv.className = 'debug-section error';
+                    apiTestDiv.innerHTML = `
+                        <h3>Teste da API</h3>
+                        <p>❌ Erro na API: ${error.message}</p>
+                    `;
+                }
+                
+                // Teste 3: Testar carregamento via productsModule
+                productsTestDiv.innerHTML = '<h3>Carregamento de Produtos</h3><p>Testando productsModule...</p>';
+                
+                if (typeof productsModule !== 'undefined') {
+                    try {
+                        const products = await productsModule.loadProducts(1, 10);
+                        
+                        productsTestDiv.className = 'debug-section success';
+                        productsTestDiv.innerHTML = `
+                            <h3>Carregamento de Produtos</h3>
+                            <p>✅ ProductsModule funcionando</p>
+                            <p>Produtos carregados: ${products.length}</p>
+                        `;
+                        
+                        // Exibir produtos
+                        if (products.length > 0) {
+                            productsContainer.innerHTML = products.map(product => `
+                                <div class="product-item">
+                                    <h4>${product.title}</h4>
+                                    <p><strong>Categoria:</strong> ${product.category}</p>
+                                    <p><strong>Preço:</strong> R$ ${product.price.toFixed(2)}</p>
+                                    <p><strong>Estoque:</strong> ${product.stock}</p>
+                                    <p><strong>Imagem:</strong> ${product.image ? '✅' : '❌'}</p>
+                                </div>
+                            `).join('');
+                        } else {
+                            productsContainer.innerHTML = '<p>❌ Nenhum produto carregado</p>';
+                        }
+                        
+                    } catch (error) {
+                        productsTestDiv.className = 'debug-section error';
+                        productsTestDiv.innerHTML = `
+                            <h3>Carregamento de Produtos</h3>
+                            <p>❌ Erro no productsModule: ${error.message}</p>
+                            <pre>${error.stack}</pre>
+                        `;
+                    }
+                } else {
+                    productsTestDiv.className = 'debug-section error';
+                    productsTestDiv.innerHTML = `
+                        <h3>Carregamento de Produtos</h3>
+                        <p>❌ productsModule não está disponível</p>
+                    `;
+                }
+                
+            } catch (error) {
+                console.error('Erro geral no debug:', error);
+                statusDiv.className = 'debug-section error';
+                statusDiv.innerHTML = `
+                    <h3>Status do Sistema</h3>
+                    <p>❌ Erro geral: ${error.message}</p>
+                    <pre>${error.stack}</pre>
+                `;
+            }
+        }
+        
+        // Executar testes quando a página carregar
+        window.addEventListener('load', runDebugTests);
+        
+        // Executar testes também após 2 segundos para garantir que tudo carregou
+        setTimeout(runDebugTests, 2000);
+    </script>
+</body>
+</html>

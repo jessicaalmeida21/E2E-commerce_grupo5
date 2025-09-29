@@ -120,44 +120,50 @@ async function loadProducts(page = 1) {
     showLoading(true);
     
     try {
-        console.log('Carregando produtos da API...');
+        console.log('=== INICIANDO CARREGAMENTO DE PRODUTOS ===');
+        console.log('productsModule disponível:', typeof productsModule);
+        console.log('window.apiService disponível:', typeof window.apiService);
         
-        // Carregar produtos da API em lotes para garantir 500 produtos
         let products = [];
-        const pageSize = 200; // API limita a 200 por página
         
-        // Carregar página 1 (produtos 1-200)
-        console.log('Carregando página 1...');
-        const page1Products = await productsModule.loadProducts(1, pageSize);
-        if (page1Products && page1Products.length > 0) {
-            products = [...products, ...page1Products];
-            console.log(`Página 1: ${page1Products.length} produtos. Total: ${products.length}`);
+        // Tentar carregar produtos via productsModule primeiro
+        if (typeof productsModule !== 'undefined') {
+            try {
+                console.log('Tentando carregar via productsModule...');
+                products = await productsModule.loadProducts(1, 20); // Carregar apenas 20 produtos primeiro
+                console.log('Produtos carregados via productsModule:', products.length);
+            } catch (error) {
+                console.error('Erro no productsModule:', error);
+            }
         }
         
-        // Carregar página 2 (produtos 201-400)
-        console.log('Carregando página 2...');
-        const page2Products = await productsModule.loadProducts(2, pageSize);
-        if (page2Products && page2Products.length > 0) {
-            products = [...products, ...page2Products];
-            console.log(`Página 2: ${page2Products.length} produtos. Total: ${products.length}`);
-        }
-        
-        // Carregar página 3 (produtos 401-500)
-        console.log('Carregando página 3...');
-        const page3Products = await productsModule.loadProducts(3, pageSize);
-        if (page3Products && page3Products.length > 0) {
-            products = [...products, ...page3Products];
-            console.log(`Página 3: ${page3Products.length} produtos. Total: ${products.length}`);
-        }
-        
-        console.log(`Total de produtos carregados: ${products.length}`);
-        console.log('Produtos carregados:', products.length);
-        console.log('Primeiros 3 produtos:', products.slice(0, 3));
-        
+        // Se não conseguiu carregar, tentar via apiService diretamente
         if (!products || products.length === 0) {
-            console.log('Nenhum produto encontrado, usando fallback...');
-            products = await productsModule.loadLocalProducts();
-            console.log('Produtos locais carregados:', products.length);
+            console.log('Tentando carregar via apiService diretamente...');
+            try {
+                if (typeof window.apiService !== 'undefined') {
+                    const response = await window.apiService.getProducts(1, 20);
+                    products = response.products || [];
+                    console.log('Produtos carregados via apiService:', products.length);
+                }
+            } catch (error) {
+                console.error('Erro no apiService:', error);
+            }
+        }
+        
+        // Se ainda não há produtos, usar produtos locais
+        if (!products || products.length === 0) {
+            console.log('Usando produtos locais como fallback...');
+            if (typeof productsDatabase !== 'undefined') {
+                const allProducts = [];
+                Object.values(productsDatabase).forEach(category => {
+                    if (Array.isArray(category)) {
+                        allProducts.push(...category);
+                    }
+                });
+                products = allProducts;
+                console.log('Produtos locais carregados:', products.length);
+            }
         }
         
         // Se ainda não há produtos, usar database.js diretamente
