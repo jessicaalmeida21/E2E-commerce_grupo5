@@ -1,6 +1,18 @@
-// Script para gerenciar a página de catálogo
+// Script para gerenciar a página de catálogo - v42 (forçar atualização)
 document.addEventListener('DOMContentLoaded', function() {
-    initializeCatalog();
+    // Forçar carregamento do database com timestamp único
+    const timestamp = new Date().getTime();
+    const script = document.createElement('script');
+    script.src = `./js/database.js?v=${timestamp}`;
+    script.onload = () => {
+        console.log('Database carregado com timestamp:', timestamp);
+        initializeCatalog();
+    };
+    script.onerror = () => {
+        console.error('Erro ao carregar database');
+        initializeCatalog(); // Tentar mesmo assim
+    };
+    document.head.appendChild(script);
 });
 
 let currentPage = 1;
