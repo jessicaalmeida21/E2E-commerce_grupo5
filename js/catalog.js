@@ -316,11 +316,10 @@ function createProductCard(product) {
         </div>` : '';
 
     // Verificar se o produto tem estoque disponível
-    const stockAvailable = window.orderManager ? 
-        (window.orderManager.stockData[product.id] || 0) > 0 : 
-        product.stock > 0;
+    const stockQuantity = product.stock || 0;
+    const stockAvailable = stockQuantity > 0;
     
-    const stockText = stockAvailable ? 'Em estoque' : 'Fora de estoque';
+    const stockText = stockAvailable ? `Em estoque (${stockQuantity})` : 'Fora de estoque';
     const stockClass = stockAvailable ? 'in-stock' : 'out-of-stock';
     
     const stockStatus = `<span class="stock-status ${stockClass}">${stockText}</span>`;
