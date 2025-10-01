@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Galaxy S24 Ultra</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .product-info { border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 8px; }
+        .stock-ok { color: green; font-weight: bold; }
+        .stock-zero { color: red; font-weight: bold; }
+        .debug { background: #f0f0f0; padding: 10px; margin: 10px 0; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Verificação Específica: Galaxy S24 Ultra</h1>
+    
+    <div id="results"></div>
+
+    <script src="js/database.js?v=41"></script>
+    <script>
+        function log(message) {
+            console.log(message);
+            const div = document.createElement('div');
+            div.innerHTML = message;
+            document.getElementById('results').appendChild(div);
+        }
+
+        function checkGalaxyS24() {
+            log('<h3>🔍 Procurando Galaxy S24 Ultra...</h3>');
+            
+            const products = getAllProducts();
+            log(`<div class="debug">Total de produtos: ${products.length}</div>`);
+            
+            // Procurar Galaxy S24 Ultra
+            const galaxy = products.find(p => 
+                p.name && p.name.toLowerCase().includes('galaxy') && 
+                p.name.toLowerCase().includes('s24')
+            );
+            
+            if (galaxy) {
+                log('<div class="product-info">');
+                log(`<h4>✅ Produto encontrado: ${galaxy.name}</h4>`);
+                log(`<p><strong>ID:</strong> ${galaxy.id}</p>`);
+                log(`<p><strong>Preço:</strong> R$ ${galaxy.price}</p>`);
+                log(`<p><strong>Categoria:</strong> ${galaxy.category}</p>`);
+                log(`<p><strong>Stock (raw):</strong> ${JSON.stringify(galaxy.stock)}</p>`);
+                log(`<p><strong>Stock (number):</strong> ${Number(galaxy.stock)}</p>`);
+                log(`<p><strong>Stock > 0:</strong> ${galaxy.stock > 0}</p>`);
+                
+                const stockQuantity = galaxy.stock || 0;
+                const stockAvailable = stockQuantity > 0;
+                
+                if (stockAvailable) {
+                    log(`<p class="stock-ok">✅ EM ESTOQUE: ${stockQuantity} unidades</p>`);
+                } else {
+                    log(`<p class="stock-zero">❌ FORA DE ESTOQUE (${stockQuantity})</p>`);
+                }
+                
+                log('</div>');
+                
+                // Testar outros produtos para comparação
+                log('<h3>📊 Comparação com outros produtos:</h3>');
+                const otherProducts = products.slice(0, 5);
+                otherProducts.forEach(product => {
+                    const stock = product.stock || 0;
+                    const status = stock > 0 ? `✅ ${stock}` : `❌ ${stock}`;
+                    log(`<div class="debug">${product.name}: ${status}</div>`);
+                });
+                
+            } else {
+                log('<p class="stock-zero">❌ Galaxy S24 Ultra não encontrado!</p>');
+                
+                // Mostrar produtos que contêm "galaxy"
+                const galaxyProducts = products.filter(p => 
+                    p.name && p.name.toLowerCase().includes('galaxy')
+                );
+                
+                log(`<h4>Produtos Galaxy encontrados: ${galaxyProducts.length}</h4>`);
+                galaxyProducts.forEach(p => {
+                    log(`<div class="debug">${p.name} - Stock: ${p.stock}</div>`);
+                });
+            }
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(checkGalaxyS24, 100);
+        });
+    </script>
+</body>
+</html>

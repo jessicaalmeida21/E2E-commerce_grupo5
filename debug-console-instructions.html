@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Instruções de Debug - Console</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        .instruction-box { background: #f0f8ff; border: 1px solid #0066cc; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .warning-box { background: #fff3cd; border: 1px solid #ffc107; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .code-box { background: #f8f9fa; border: 1px solid #dee2e6; padding: 10px; font-family: monospace; margin: 10px 0; border-radius: 3px; }
+        .step { margin: 15px 0; }
+        .step-number { background: #007bff; color: white; border-radius: 50%; width: 25px; height: 25px; display: inline-flex; align-items: center; justify-content: center; margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Instruções para Debug do Console</h1>
+    
+    <div class="warning-box">
+        <h3>⚠️ IMPORTANTE</h3>
+        <p>Se o estoque ainda não está aparecendo, precisamos verificar o que está acontecendo no console do navegador. Siga estas instruções:</p>
+    </div>
+
+    <div class="step">
+        <span class="step-number">1</span>
+        <strong>Abrir o Console do Navegador:</strong>
+        <div class="instruction-box">
+            <p>Pressione <strong>F12</strong> ou <strong>Ctrl+Shift+I</strong> para abrir as ferramentas de desenvolvedor</p>
+            <p>Clique na aba <strong>"Console"</strong></p>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">2</span>
+        <strong>Limpar Cache Completamente:</strong>
+        <div class="instruction-box">
+            <p>Com as ferramentas abertas, clique na aba <strong>"Network"</strong></p>
+            <p>Marque a opção <strong>"Disable cache"</strong></p>
+            <p>Pressione <strong>Ctrl+Shift+R</strong> para forçar refresh</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">3</span>
+        <strong>Verificar Erros no Console:</strong>
+        <div class="instruction-box">
+            <p>Volte para a aba <strong>"Console"</strong></p>
+            <p>Procure por mensagens em <span style="color: red;">vermelho (erros)</span> ou <span style="color: orange;">laranja (avisos)</span></p>
+            <p>Anote qualquer erro que aparecer</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">4</span>
+        <strong>Testar Funções Manualmente:</strong>
+        <div class="instruction-box">
+            <p>No console, digite os seguintes comandos (um por vez) e pressione Enter:</p>
+            <div class="code-box">
+                typeof getAllProducts<br>
+                getAllProducts()<br>
+                getAllProducts()[0]<br>
+                getAllProducts()[0].stock
+            </div>
+            <p>Anote o que cada comando retorna</p>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">5</span>
+        <strong>Verificar Carregamento dos Scripts:</strong>
+        <div class="instruction-box">
+            <p>Na aba <strong>"Network"</strong>, procure pelos arquivos:</p>
+            <ul>
+                <li>database.js?v=41</li>
+                <li>catalog.js?v=41</li>
+                <li>products.js?v=41</li>
+            </ul>
+            <p>Verifique se todos têm status <strong>200 OK</strong></p>
+        </div>
+    </div>
+
+    <div class="step">
+        <span class="step-number">6</span>
+        <strong>Testar Criação de Card:</strong>
+        <div class="instruction-box">
+            <p>No console, cole e execute este código:</p>
+            <div class="code-box">
+const testProduct = getAllProducts()[0];<br>
+console.log('Produto teste:', testProduct.name);<br>
+console.log('Stock:', testProduct.stock);<br>
+console.log('Stock > 0:', testProduct.stock > 0);
+            </div>
+        </div>
+    </div>
+
+    <div class="warning-box">
+        <h3>📋 O que reportar:</h3>
+        <ul>
+            <li>Qualquer erro que aparecer no console</li>
+            <li>O resultado dos comandos do passo 4</li>
+            <li>Se algum script não carregou (status diferente de 200)</li>
+            <li>O resultado do teste do passo 6</li>
+        </ul>
+    </div>
+
+    <div class="instruction-box">
+        <h3>🔗 Links para testar:</h3>
+        <p><a href="pages/catalog.html" target="_blank">Catálogo Principal</a></p>
+        <p><a href="test-estoque-atual.html" target="_blank">Teste de Estoque</a></p>
+        <p><a href="force-refresh-test.html" target="_blank">Teste Force Refresh</a></p>
+    </div>
+
+</body>
+</html>

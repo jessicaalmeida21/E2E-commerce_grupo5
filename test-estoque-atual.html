@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Estoque Atual</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .product-card { border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 8px; }
+        .stock-info { font-weight: bold; margin: 10px 0; }
+        .in-stock { color: green; }
+        .out-of-stock { color: red; }
+        .debug-info { background: #f0f0f0; padding: 10px; margin: 10px 0; font-family: monospace; }
+    </style>
+</head>
+<body>
+    <h1>Teste de Estoque - Estado Atual</h1>
+    <div id="debug-panel" class="debug-info">
+        <h3>Debug Info:</h3>
+        <div id="debug-logs"></div>
+    </div>
+    <div id="products-container"></div>
+
+    <script src="js/database.js?v=40"></script>
+    <script>
+        function log(message) {
+            console.log(message);
+            const debugLogs = document.getElementById('debug-logs');
+            debugLogs.innerHTML += '<div>' + new Date().toLocaleTimeString() + ': ' + message + '</div>';
+        }
+
+        function createProductCard(product) {
+            const stockQuantity = product.stock || 0;
+            const stockAvailable = stockQuantity > 0;
+            
+            log(`Produto: ${product.name}, Stock: ${stockQuantity}, Disponível: ${stockAvailable}`);
+            
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            
+            const stockClass = stockAvailable ? 'in-stock' : 'out-of-stock';
+            const stockText = stockAvailable ? `Em estoque (${stockQuantity})` : 'Fora de estoque';
+            
+            card.innerHTML = `
+                <h3>${product.name}</h3>
+                <p>Preço: R$ ${product.price}</p>
+                <div class="stock-info ${stockClass}">${stockText}</div>
+                <button ${!stockAvailable ? 'disabled' : ''}>
+                    ${stockAvailable ? 'Adicionar ao Carrinho' : 'Indisponível'}
+                </button>
+            `;
+            
+            return card;
+        }
+
+        function testStock() {
+            log('Iniciando teste de estoque...');
+            
+            if (typeof getAllProducts !== 'function') {
+                log('ERRO: getAllProducts não encontrada!');
+                return;
+            }
+            
+            const products = getAllProducts();
+            log(`Total de produtos carregados: ${products.length}`);
+            
+            const container = document.getElementById('products-container');
+            
+            // Testar os primeiros 10 produtos
+            const testProducts = products.slice(0, 10);
+            
+            testProducts.forEach(product => {
+                const card = createProductCard(product);
+                container.appendChild(card);
+            });
+            
+            log('Teste concluído!');
+        }
+
+        // Executar teste quando a página carregar
+        window.addEventListener('load', () => {
+            log('Página carregada, iniciando teste...');
+            setTimeout(testStock, 100);
+        });
+    </script>
+</body>
+</html>

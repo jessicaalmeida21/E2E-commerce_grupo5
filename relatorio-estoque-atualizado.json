@@ -1,0 +1,42 @@
+{
+  "timestamp": "2025-10-01T23:14:34.395Z",
+  "totalProdutos": 500,
+  "comEstoque": 313,
+  "estoqueBaixo": 94,
+  "semEstoque": 93,
+  "produtosEspeciais": [
+    {
+      "nome": "iPhone 15 Pro Max",
+      "estoque": 25
+    },
+    {
+      "nome": "Galaxy S24 Ultra",
+      "estoque": 15
+    },
+    {
+      "nome": "iPhone 14 Pro",
+      "estoque": 3
+    },
+    {
+      "nome": "MacBook Pro",
+      "estoque": 8
+    },
+    {
+      "nome": "iPad Pro",
+      "estoque": 0
+    },
+    {
+      "nome": "AirPods Pro",
+      "estoque": 45
+    },
+    {
+      "nome": "Samsung Galaxy Watch",
+      "estoque": 2
+    },
+    {
+      "nome": "PlayStation 5",
+      "estoque": 12
+    }
+  ],
+  "categorias": 10
+}

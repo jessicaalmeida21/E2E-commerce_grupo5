@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Force Refresh</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { border: 1px solid #ccc; padding: 15px; margin: 10px 0; }
+        .success { color: green; }
+        .error { color: red; }
+        .product-card { border: 1px solid #ddd; padding: 10px; margin: 5px 0; border-radius: 5px; }
+        .stock-info { font-weight: bold; margin: 5px 0; }
+        .in-stock { color: green; }
+        .out-of-stock { color: red; }
+        button:disabled { background: #ccc; cursor: not-allowed; }
+    </style>
+</head>
+<body>
+    <h1>Teste Force Refresh - Sem Cache</h1>
+    
+    <div class="test-section">
+        <h3>Instruções para o usuário:</h3>
+        <p><strong>1. Pressione Ctrl+Shift+R para forçar refresh completo</strong></p>
+        <p><strong>2. Ou pressione F12 → Network → Disable cache → F5</strong></p>
+        <p><strong>3. Verifique se os produtos abaixo mostram estoque correto</strong></p>
+    </div>
+    
+    <div class="test-section">
+        <h3>Teste de Carregamento:</h3>
+        <div id="loading-test"></div>
+    </div>
+    
+    <div class="test-section">
+        <h3>Produtos de Teste:</h3>
+        <div id="products-container"></div>
+    </div>
+
+    <script>
+        const timestamp = Date.now();
+        
+        function log(message, type = 'info') {
+            const container = document.getElementById('loading-test');
+            const div = document.createElement('div');
+            div.className = type;
+            div.innerHTML = `[${new Date().toLocaleTimeString()}] ${message}`;
+            container.appendChild(div);
+            console.log(message);
+        }
+
+        function createProductCard(product) {
+            const stockQuantity = product.stock || 0;
+            const stockAvailable = stockQuantity > 0;
+            
+            const card = document.createElement('div');
+            card.className = 'product-card';
+            
+            const stockClass = stockAvailable ? 'in-stock' : 'out-of-stock';
+            const stockText = stockAvailable ? `Em estoque (${stockQuantity})` : 'Fora de estoque';
+            
+            card.innerHTML = `
+                <h4>${product.name}</h4>
+                <p>Preço: R$ ${product.price}</p>
+                <div class="stock-info ${stockClass}">${stockText}</div>
+                <button ${!stockAvailable ? 'disabled' : ''}>
+                    ${stockAvailable ? 'Adicionar ao Carrinho' : 'Indisponível'}
+                </button>
+                <small style="display: block; margin-top: 5px; color: #666;">
+                    Debug: stock = ${JSON.stringify(product.stock)}
+                </small>
+            `;
+            
+            return card;
+        }
+
+        // Carregar script com timestamp único para evitar cache
+        function loadScript(src) {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = `${src}?v=40&nocache=${timestamp}&t=${Math.random()}`;
+                script.onload = resolve;
+                script.onerror = reject;
+                document.head.appendChild(script);
+            });
+        }
+
+        async function runTest() {
+            log('Iniciando teste sem cache...', 'success');
+            log(`Timestamp: ${timestamp}`);
+            
+            try {
+                log('Carregando database.js...');
+                await loadScript('js/database.js');
+                log('Database.js carregado!', 'success');
+                
+                if (typeof getAllProducts === 'function') {
+                    log('getAllProducts encontrada!', 'success');
+                    
+                    const products = getAllProducts();
+                    log(`${products.length} produtos carregados`, 'success');
+                    
+                    // Mostrar primeiros 5 produtos
+                    const testProducts = products.slice(0, 5);
+                    const container = document.getElementById('products-container');
+                    
+                    testProducts.forEach(product => {
+                        const card = createProductCard(product);
+                        container.appendChild(card);
+                    });
+                    
+                    log('Teste concluído! Verifique os produtos acima.', 'success');
+                    
+                } else {
+                    log('ERRO: getAllProducts não encontrada!', 'error');
+                }
+                
+            } catch (error) {
+                log(`ERRO: ${error.message}`, 'error');
+            }
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(runTest, 100);
+        });
+    </script>
+</body>
+</html>

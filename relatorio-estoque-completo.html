@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatório Completo de Estoque</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; line-height: 1.6; }
+        .header { background: #f8f9fa; padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+        .summary { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin: 20px 0; }
+        .summary-card { background: #fff; border: 1px solid #ddd; padding: 15px; border-radius: 8px; text-align: center; }
+        .summary-card.in-stock { border-left: 4px solid #28a745; }
+        .summary-card.out-of-stock { border-left: 4px solid #dc3545; }
+        .summary-card.low-stock { border-left: 4px solid #ffc107; }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 15px; margin: 20px 0; }
+        .product-card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; }
+        .product-card.in-stock { border-left: 4px solid #28a745; }
+        .product-card.out-of-stock { border-left: 4px solid #dc3545; }
+        .product-card.low-stock { border-left: 4px solid #ffc107; }
+        .stock-info { font-weight: bold; margin: 10px 0; }
+        .in-stock { color: #28a745; }
+        .out-of-stock { color: #dc3545; }
+        .low-stock { color: #ffc107; }
+        .filters { background: #f8f9fa; padding: 15px; border-radius: 8px; margin: 20px 0; }
+        .filter-btn { padding: 8px 16px; margin: 5px; border: none; border-radius: 4px; cursor: pointer; }
+        .filter-btn.active { background: #007bff; color: white; }
+        .filter-btn:not(.active) { background: #e9ecef; }
+        .loading { text-align: center; padding: 40px; }
+        .progress-bar { width: 100%; height: 20px; background: #e9ecef; border-radius: 10px; overflow: hidden; margin: 10px 0; }
+        .progress-fill { height: 100%; background: #007bff; transition: width 0.3s ease; }
+        .category-section { margin: 30px 0; }
+        .category-title { background: #e9ecef; padding: 10px; border-radius: 4px; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 Relatório Completo de Estoque</h1>
+        <p>Análise detalhada de todos os produtos no sistema</p>
+        <div id="loading" class="loading">
+            <div>Carregando produtos...</div>
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill" style="width: 0%"></div>
+            </div>
+            <div id="progress-text">0 / 0 produtos processados</div>
+        </div>
+    </div>
+
+    <div id="summary" class="summary" style="display: none;"></div>
+
+    <div class="filters" id="filters" style="display: none;">
+        <h3>Filtros:</h3>
+        <button class="filter-btn active" onclick="filterProducts('all')">Todos</button>
+        <button class="filter-btn" onclick="filterProducts('in-stock')">Em Estoque</button>
+        <button class="filter-btn" onclick="filterProducts('out-of-stock')">Fora de Estoque</button>
+        <button class="filter-btn" onclick="filterProducts('low-stock')">Estoque Baixo (≤5)</button>
+    </div>
+
+    <div id="categories-report" style="display: none;"></div>
+    <div id="products-container" class="products-grid"></div>
+
+    <script src="js/database.js?v=41"></script>
+    <script>
+        let allProducts = [];
+        let currentFilter = 'all';
+
+        function updateProgress(current, total) {
+            const percentage = (current / total) * 100;
+            document.getElementById('progress-fill').style.width = percentage + '%';
+            document.getElementById('progress-text').textContent = `${current} / ${total} produtos processados`;
+        }
+
+        function getStockStatus(stock) {
+            if (stock <= 0) return 'out-of-stock';
+            if (stock <= 5) return 'low-stock';
+            return 'in-stock';
+        }
+
+        function getStockText(stock) {
+            if (stock <= 0) return `Fora de estoque (${stock})`;
+            if (stock <= 5) return `Estoque baixo (${stock})`;
+            return `Em estoque (${stock})`;
+        }
+
+        function createSummary(products) {
+            const summary = {
+                total: products.length,
+                inStock: 0,
+                outOfStock: 0,
+                lowStock: 0,
+                totalStockValue: 0
+            };
+
+            products.forEach(product => {
+                const stock = product.stock || 0;
+                if (stock <= 0) {
+                    summary.outOfStock++;
+                } else if (stock <= 5) {
+                    summary.lowStock++;
+                } else {
+                    summary.inStock++;
+                }
+                summary.totalStockValue += stock;
+            });
+
+            const summaryHTML = `
+                <div class="summary-card">
+                    <h3>${summary.total}</h3>
+                    <p>Total de Produtos</p>
+                </div>
+                <div class="summary-card in-stock">
+                    <h3>${summary.inStock}</h3>
+                    <p>Em Estoque</p>
+                </div>
+                <div class="summary-card low-stock">
+                    <h3>${summary.lowStock}</h3>
+                    <p>Estoque Baixo (≤5)</p>
+                </div>
+                <div class="summary-card out-of-stock">
+                    <h3>${summary.outOfStock}</h3>
+                    <p>Fora de Estoque</p>
+                </div>
+                <div class="summary-card">
+                    <h3>${summary.totalStockValue}</h3>
+                    <p>Total de Unidades</p>
+                </div>
+            `;
+
+            document.getElementById('summary').innerHTML = summaryHTML;
+            document.getElementById('summary').style.display = 'grid';
+        }
+
+        function createCategoriesReport(products) {
+            const categories = {};
+            
+            products.forEach(product => {
+                const category = product.category || 'Sem categoria';
+                if (!categories[category]) {
+                    categories[category] = { total: 0, inStock: 0, outOfStock: 0, lowStock: 0 };
+                }
+                
+                categories[category].total++;
+                const stock = product.stock || 0;
+                if (stock <= 0) {
+                    categories[category].outOfStock++;
+                } else if (stock <= 5) {
+                    categories[category].lowStock++;
+                } else {
+                    categories[category].inStock++;
+                }
+            });
+
+            let categoriesHTML = '<h2>📋 Relatório por Categoria</h2>';
+            
+            Object.entries(categories).forEach(([category, stats]) => {
+                categoriesHTML += `
+                    <div class="category-section">
+                        <div class="category-title">
+                            <strong>${category}</strong> (${stats.total} produtos)
+                        </div>
+                        <div class="summary">
+                            <div class="summary-card in-stock">
+                                <h4>${stats.inStock}</h4>
+                                <p>Em Estoque</p>
+                            </div>
+                            <div class="summary-card low-stock">
+                                <h4>${stats.lowStock}</h4>
+                                <p>Estoque Baixo</p>
+                            </div>
+                            <div class="summary-card out-of-stock">
+                                <h4>${stats.outOfStock}</h4>
+                                <p>Fora de Estoque</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            document.getElementById('categories-report').innerHTML = categoriesHTML;
+            document.getElementById('categories-report').style.display = 'block';
+        }
+
+        function createProductCard(product) {
+            const stock = product.stock || 0;
+            const status = getStockStatus(stock);
+            const stockText = getStockText(stock);
+
+            return `
+                <div class="product-card ${status}" data-status="${status}">
+                    <h4>${product.name}</h4>
+                    <p><strong>Categoria:</strong> ${product.category || 'N/A'}</p>
+                    <p><strong>Preço:</strong> R$ ${product.price}</p>
+                    <div class="stock-info ${status}">${stockText}</div>
+                    <small>ID: ${product.id}</small>
+                </div>
+            `;
+        }
+
+        function filterProducts(filter) {
+            currentFilter = filter;
+            
+            // Atualizar botões
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+
+            // Filtrar produtos
+            const cards = document.querySelectorAll('.product-card');
+            cards.forEach(card => {
+                if (filter === 'all' || card.dataset.status === filter) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        async function loadAndAnalyzeProducts() {
+            try {
+                console.log('Carregando produtos...');
+                allProducts = getAllProducts();
+                console.log(`${allProducts.length} produtos carregados`);
+
+                // Simular processamento com progress bar
+                const container = document.getElementById('products-container');
+                let productsHTML = '';
+
+                for (let i = 0; i < allProducts.length; i++) {
+                    const product = allProducts[i];
+                    productsHTML += createProductCard(product);
+                    
+                    // Atualizar progress bar a cada 50 produtos
+                    if (i % 50 === 0 || i === allProducts.length - 1) {
+                        updateProgress(i + 1, allProducts.length);
+                        await new Promise(resolve => setTimeout(resolve, 10)); // Pequena pausa para UI
+                    }
+                }
+
+                container.innerHTML = productsHTML;
+
+                // Criar resumos
+                createSummary(allProducts);
+                createCategoriesReport(allProducts);
+
+                // Mostrar controles
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('filters').style.display = 'block';
+
+                console.log('Relatório completo gerado!');
+
+            } catch (error) {
+                console.error('Erro ao carregar produtos:', error);
+                document.getElementById('loading').innerHTML = `<div style="color: red;">Erro: ${error.message}</div>`;
+            }
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(loadAndAnalyzeProducts, 100);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Cache Completo</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .debug-section { border: 1px solid #ccc; padding: 15px; margin: 10px 0; }
+        .success { color: green; }
+        .error { color: red; }
+        .warning { color: orange; }
+        .product-test { border: 1px solid #ddd; padding: 10px; margin: 5px 0; }
+        .stock-display { font-weight: bold; padding: 5px; }
+        .in-stock { background: #d4edda; color: #155724; }
+        .out-of-stock { background: #f8d7da; color: #721c24; }
+    </style>
+</head>
+<body>
+    <h1>Debug Cache e Carregamento Completo</h1>
+    
+    <div class="debug-section">
+        <h3>1. Informações de Cache</h3>
+        <div id="cache-info"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h3>2. Scripts Carregados</h3>
+        <div id="scripts-info"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h3>3. Teste de Funções</h3>
+        <div id="functions-test"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h3>4. Teste de Produtos com Estoque</h3>
+        <div id="products-test"></div>
+    </div>
+
+    <script>
+        // Função para adicionar timestamp único
+        const timestamp = Date.now();
+        
+        function addLog(containerId, message, type = 'info') {
+            const container = document.getElementById(containerId);
+            const div = document.createElement('div');
+            div.className = type;
+            div.innerHTML = `[${new Date().toLocaleTimeString()}] ${message}`;
+            container.appendChild(div);
+            console.log(`${type.toUpperCase()}: ${message}`);
+        }
+
+        // 1. Verificar informações de cache
+        function checkCacheInfo() {
+            addLog('cache-info', `Timestamp atual: ${timestamp}`);
+            addLog('cache-info', `User Agent: ${navigator.userAgent}`);
+            addLog('cache-info', `URL atual: ${window.location.href}`);
+            
+            // Verificar se há service workers
+            if ('serviceWorker' in navigator) {
+                navigator.serviceWorker.getRegistrations().then(registrations => {
+                    if (registrations.length > 0) {
+                        addLog('cache-info', `Service Workers encontrados: ${registrations.length}`, 'warning');
+                    } else {
+                        addLog('cache-info', 'Nenhum Service Worker encontrado', 'success');
+                    }
+                });
+            }
+        }
+
+        // 2. Verificar scripts carregados
+        function checkScripts() {
+            const scripts = document.querySelectorAll('script[src]');
+            addLog('scripts-info', `Total de scripts externos: ${scripts.length}`);
+            
+            scripts.forEach(script => {
+                addLog('scripts-info', `Script: ${script.src}`);
+            });
+        }
+
+        // 3. Carregar e testar database.js
+        function loadAndTestDatabase() {
+            const script = document.createElement('script');
+            script.src = `js/database.js?v=40&t=${timestamp}`;
+            script.onload = function() {
+                addLog('functions-test', 'database.js carregado com sucesso', 'success');
+                testFunctions();
+            };
+            script.onerror = function() {
+                addLog('functions-test', 'ERRO ao carregar database.js', 'error');
+            };
+            document.head.appendChild(script);
+        }
+
+        // 4. Testar funções
+        function testFunctions() {
+            // Testar getAllProducts
+            if (typeof getAllProducts === 'function') {
+                addLog('functions-test', 'getAllProducts encontrada', 'success');
+                try {
+                    const products = getAllProducts();
+                    addLog('functions-test', `Total de produtos: ${products.length}`, 'success');
+                    testProductsStock(products);
+                } catch (error) {
+                    addLog('functions-test', `Erro ao executar getAllProducts: ${error.message}`, 'error');
+                }
+            } else {
+                addLog('functions-test', 'getAllProducts NÃO encontrada', 'error');
+            }
+
+            // Testar productsDatabase
+            if (typeof productsDatabase !== 'undefined') {
+                addLog('functions-test', 'productsDatabase encontrada', 'success');
+                const categories = Object.keys(productsDatabase);
+                addLog('functions-test', `Categorias: ${categories.join(', ')}`, 'success');
+            } else {
+                addLog('functions-test', 'productsDatabase NÃO encontrada', 'error');
+            }
+        }
+
+        // 5. Testar produtos com estoque
+        function testProductsStock(products) {
+            const testProducts = products.slice(0, 5); // Primeiros 5 produtos
+            
+            testProducts.forEach((product, index) => {
+                const stockQuantity = product.stock || 0;
+                const stockAvailable = stockQuantity > 0;
+                
+                const div = document.createElement('div');
+                div.className = 'product-test';
+                
+                const stockClass = stockAvailable ? 'in-stock' : 'out-of-stock';
+                const stockText = stockAvailable ? `Em estoque (${stockQuantity})` : 'Fora de estoque';
+                
+                div.innerHTML = `
+                    <strong>${product.name}</strong><br>
+                    Preço: R$ ${product.price}<br>
+                    <div class="stock-display ${stockClass}">${stockText}</div>
+                    <small>Stock raw: ${JSON.stringify(product.stock)}</small>
+                `;
+                
+                document.getElementById('products-test').appendChild(div);
+                
+                addLog('functions-test', `Produto ${index + 1}: ${product.name} - Stock: ${stockQuantity}`, 
+                      stockAvailable ? 'success' : 'warning');
+            });
+        }
+
+        // Executar testes
+        window.addEventListener('load', function() {
+            addLog('cache-info', 'Página carregada, iniciando testes...', 'success');
+            
+            checkCacheInfo();
+            checkScripts();
+            
+            // Aguardar um pouco antes de carregar o database
+            setTimeout(loadAndTestDatabase, 500);
+        });
+    </script>
+</body>
+</html>
