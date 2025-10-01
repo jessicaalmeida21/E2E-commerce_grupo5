@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🚀 Forçar Atualização GitHub Pages</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .status-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 12px;
+            border-left: 5px solid;
+        }
+        .success { border-color: #4CAF50; }
+        .warning { border-color: #FF9800; }
+        .error { border-color: #F44336; }
+        .info { border-color: #2196F3; }
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        button {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        .danger {
+            background: linear-gradient(45deg, #F44336, #d32f2f);
+        }
+        .warning-btn {
+            background: linear-gradient(45deg, #FF9800, #f57c00);
+        }
+        .info-btn {
+            background: linear-gradient(45deg, #2196F3, #1976d2);
+        }
+        .log-area {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            max-height: 400px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .timestamp {
+            opacity: 0.7;
+            font-size: 12px;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 10px 0;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #4CAF50, #8BC34A);
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+        .links-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+        }
+        .link-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .link-item:last-child {
+            border-bottom: none;
+        }
+        a {
+            color: #81C784;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        a:hover {
+            color: #A5D6A7;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Forçar Atualização GitHub Pages</h1>
+        
+        <div class="status-card info">
+            <strong>📊 Status Atual:</strong>
+            <div>Última atualização: <span id="lastUpdate"></span></div>
+            <div>Versão do catálogo: v42</div>
+            <div>Sistema de estoque: ✅ Implementado</div>
+        </div>
+
+        <div class="status-card warning">
+            <strong>⚠️ Problema Identificado:</strong>
+            O GitHub Pages pode estar usando cache antigo. Vamos forçar múltiplas atualizações.
+        </div>
+
+        <div class="button-grid">
+            <button onclick="testLocalCatalog()" class="info-btn">🧪 Testar Local</button>
+            <button onclick="testGitHubPages()" class="warning-btn">🌐 Testar GitHub</button>
+            <button onclick="forceRefresh()" class="danger">🔄 Forçar Refresh</button>
+            <button onclick="clearAllCache()">🗑️ Limpar Cache</button>
+            <button onclick="testStockSystem()">📦 Testar Estoque</button>
+            <button onclick="openCatalog()">📋 Abrir Catálogo</button>
+        </div>
+
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressBar"></div>
+        </div>
+
+        <div id="logArea" class="log-area">
+            <div>🚀 Sistema de diagnóstico iniciado...</div>
+            <div class="timestamp">Aguardando comandos...</div>
+        </div>
+
+        <div class="links-section">
+            <h3>🔗 Links Diretos</h3>
+            <div class="link-item">
+                <span>Catálogo Local:</span>
+                <a href="./pages/catalog.html?v=42" target="_blank">Abrir Local</a>
+            </div>
+            <div class="link-item">
+                <span>Catálogo GitHub:</span>
+                <a href="https://jessicaalmeida21.github.io/E2E-commerce_grupo5/pages/catalog.html?v=42" target="_blank">Abrir GitHub</a>
+            </div>
+            <div class="link-item">
+                <span>Teste GitHub:</span>
+                <a href="https://jessicaalmeida21.github.io/E2E-commerce_grupo5/test-github-pages.html" target="_blank">Página de Teste</a>
+            </div>
+            <div class="link-item">
+                <span>Database Direto:</span>
+                <a href="https://jessicaalmeida21.github.io/E2E-commerce_grupo5/js/database.js" target="_blank">Ver Database</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let logCount = 0;
+        
+        function log(message, type = 'info') {
+            const logArea = document.getElementById('logArea');
+            const timestamp = new Date().toLocaleTimeString('pt-BR');
+            const icons = {
+                success: '✅',
+                error: '❌',
+                warning: '⚠️',
+                info: 'ℹ️'
+            };
+            
+            logArea.innerHTML += `<div class="${type}">${icons[type] || 'ℹ️'} [${timestamp}] ${message}</div>`;
+            logArea.scrollTop = logArea.scrollHeight;
+            logCount++;
+            
+            // Atualizar barra de progresso
+            const progress = Math.min((logCount * 10), 100);
+            document.getElementById('progressBar').style.width = progress + '%';
+        }
+
+        function updateTimestamp() {
+            document.getElementById('lastUpdate').textContent = new Date().toLocaleString('pt-BR');
+        }
+
+        async function testLocalCatalog() {
+            log('🧪 Testando catálogo local...', 'info');
+            
+            try {
+                const response = await fetch('./pages/catalog.html?v=42');
+                if (response.ok) {
+                    log('✅ Catálogo local acessível!', 'success');
+                    
+                    // Testar database local
+                    const dbResponse = await fetch('./js/database.js?v=' + Date.now());
+                    if (dbResponse.ok) {
+                        log('✅ Database local carregado!', 'success');
+                    } else {
+                        log('❌ Erro ao carregar database local', 'error');
+                    }
+                } else {
+                    log('❌ Erro ao acessar catálogo local', 'error');
+                }
+            } catch (error) {
+                log(`❌ Erro: ${error.message}`, 'error');
+            }
+        }
+
+        async function testGitHubPages() {
+            log('🌐 Testando GitHub Pages...', 'info');
+            
+            const urls = [
+                'https://jessicaalmeida21.github.io/E2E-commerce_grupo5/pages/catalog.html?v=42',
+                'https://jessicaalmeida21.github.io/E2E-commerce_grupo5/js/database.js?v=' + Date.now(),
+                'https://jessicaalmeida21.github.io/E2E-commerce_grupo5/js/catalog.js?v=42'
+            ];
+            
+            for (const url of urls) {
+                try {
+                    const response = await fetch(url, { 
+                        method: 'HEAD',
+                        cache: 'no-cache'
+                    });
+                    
+                    const fileName = url.split('/').pop().split('?')[0];
+                    if (response.ok) {
+                        log(`✅ ${fileName} disponível no GitHub`, 'success');
+                    } else {
+                        log(`❌ ${fileName} não encontrado (${response.status})`, 'error');
+                    }
+                } catch (error) {
+                    log(`❌ Erro ao testar ${url}: ${error.message}`, 'error');
+                }
+                
+                // Pequena pausa entre requests
+                await new Promise(resolve => setTimeout(resolve, 500));
+            }
+        }
+
+        function forceRefresh() {
+            log('🔄 Forçando refresh completo...', 'warning');
+            
+            // Limpar todos os caches
+            clearAllCache();
+            
+            // Aguardar um pouco e recarregar
+            setTimeout(() => {
+                log('🔄 Recarregando página...', 'info');
+                window.location.reload(true);
+            }, 2000);
+        }
+
+        function clearAllCache() {
+            log('🗑️ Limpando todos os caches...', 'warning');
+            
+            // LocalStorage
+            if (typeof localStorage !== 'undefined') {
+                localStorage.clear();
+                log('✅ LocalStorage limpo', 'success');
+            }
+            
+            // SessionStorage
+            if (typeof sessionStorage !== 'undefined') {
+                sessionStorage.clear();
+                log('✅ SessionStorage limpo', 'success');
+            }
+            
+            // Cache API (se disponível)
+            if ('caches' in window) {
+                caches.keys().then(names => {
+                    names.forEach(name => {
+                        caches.delete(name);
+                    });
+                    log('✅ Cache API limpo', 'success');
+                });
+            }
+            
+            log('⚠️ Recomendado: Ctrl+Shift+R para refresh completo', 'warning');
+        }
+
+        async function testStockSystem() {
+            log('📦 Testando sistema de estoque...', 'info');
+            
+            try {
+                // Tentar carregar database
+                const script = document.createElement('script');
+                script.src = './js/database.js?v=' + Date.now();
+                
+                script.onload = () => {
+                    if (typeof getAllProducts === 'function') {
+                        const products = getAllProducts();
+                        log(`📊 Total de produtos: ${products.length}`, 'success');
+                        
+                        const withStock = products.filter(p => p.stock > 0);
+                        const noStock = products.filter(p => p.stock === 0);
+                        
+                        log(`✅ Com estoque: ${withStock.length}`, 'success');
+                        log(`❌ Sem estoque: ${noStock.length}`, 'error');
+                        
+                        // Testar produtos específicos
+                        const testProducts = ['iPhone 15 Pro Max', 'Galaxy S24 Ultra'];
+                        testProducts.forEach(name => {
+                            const product = products.find(p => 
+                                p.title && p.title.toLowerCase().includes(name.toLowerCase())
+                            );
+                            if (product) {
+                                log(`📱 ${product.title}: ${product.stock} unidades`, 'info');
+                            }
+                        });
+                    } else {
+                        log('❌ Função getAllProducts não encontrada', 'error');
+                    }
+                };
+                
+                script.onerror = () => {
+                    log('❌ Erro ao carregar database', 'error');
+                };
+                
+                document.head.appendChild(script);
+            } catch (error) {
+                log(`❌ Erro no teste: ${error.message}`, 'error');
+            }
+        }
+
+        function openCatalog() {
+            log('📋 Abrindo catálogo em nova aba...', 'info');
+            window.open('./pages/catalog.html?v=42&force=' + Date.now(), '_blank');
+        }
+
+        // Inicialização
+        updateTimestamp();
+        log('🚀 Sistema de diagnóstico pronto!', 'success');
+        log('💡 Clique nos botões para executar testes', 'info');
+        
+        // Auto-teste inicial
+        setTimeout(() => {
+            log('🔄 Executando auto-teste...', 'info');
+            testLocalCatalog();
+        }, 2000);
+    </script>
+</body>
+</html>
