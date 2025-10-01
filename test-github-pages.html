@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste GitHub Pages - Sistema de Estoque</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+        .status {
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+        .success { background: rgba(76, 175, 80, 0.3); }
+        .warning { background: rgba(255, 193, 7, 0.3); }
+        .error { background: rgba(244, 67, 54, 0.3); }
+        .info { background: rgba(33, 150, 243, 0.3); }
+        button {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            margin: 10px 5px;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #45a049;
+        }
+        .test-results {
+            margin-top: 20px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+        }
+        .timestamp {
+            font-size: 12px;
+            opacity: 0.8;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧪 Teste do Sistema de Estoque - GitHub Pages</h1>
+        
+        <div class="status info">
+            <strong>📅 Última atualização:</strong> <span id="lastUpdate"></span>
+        </div>
+        
+        <div class="status warning">
+            <strong>⚠️ Atenção:</strong> O GitHub Pages pode levar até 10 minutos para atualizar após o push.
+        </div>
+        
+        <h2>🔍 Testes Automáticos</h2>
+        
+        <button onclick="testDatabase()">Testar Database</button>
+        <button onclick="testStock()">Testar Estoque</button>
+        <button onclick="testCatalog()">Testar Catálogo</button>
+        <button onclick="clearCache()">Limpar Cache</button>
+        <button onclick="goToCatalog()">Ir para Catálogo</button>
+        
+        <div id="testResults" class="test-results">
+            <p>Clique nos botões acima para executar os testes...</p>
+        </div>
+        
+        <div class="timestamp">
+            Página gerada em: <span id="pageTimestamp"></span>
+        </div>
+    </div>
+
+    <script>
+        // Mostrar timestamp da página
+        document.getElementById('pageTimestamp').textContent = new Date().toLocaleString('pt-BR');
+        document.getElementById('lastUpdate').textContent = new Date().toLocaleString('pt-BR');
+        
+        function log(message, type = 'info') {
+            const results = document.getElementById('testResults');
+            const timestamp = new Date().toLocaleTimeString('pt-BR');
+            results.innerHTML += `<div class="status ${type}">[${timestamp}] ${message}</div>`;
+            results.scrollTop = results.scrollHeight;
+        }
+        
+        function clearResults() {
+            document.getElementById('testResults').innerHTML = '';
+        }
+        
+        async function testDatabase() {
+            clearResults();
+            log('🔄 Testando carregamento do database...', 'info');
+            
+            try {
+                // Tentar carregar o database com timestamp para evitar cache
+                const timestamp = new Date().getTime();
+                const response = await fetch(`./js/database.js?v=${timestamp}`);
+                
+                if (response.ok) {
+                    log('✅ Database carregado com sucesso!', 'success');
+                    
+                    // Tentar executar o script
+                    const script = document.createElement('script');
+                    script.src = `./js/database.js?v=${timestamp}`;
+                    script.onload = () => {
+                        if (typeof getAllProducts === 'function') {
+                            const products = getAllProducts();
+                            log(`📦 Total de produtos: ${products.length}`, 'success');
+                            
+                            // Verificar estoque
+                            const withStock = products.filter(p => p.stock > 0);
+                            const lowStock = products.filter(p => p.stock > 0 && p.stock <= 5);
+                            const noStock = products.filter(p => p.stock === 0);
+                            
+                            log(`✅ Com estoque: ${withStock.length}`, 'success');
+                            log(`⚠️ Estoque baixo: ${lowStock.length}`, 'warning');
+                            log(`❌ Sem estoque: ${noStock.length}`, 'error');
+                        } else {
+                            log('❌ Função getAllProducts não encontrada', 'error');
+                        }
+                    };
+                    script.onerror = () => {
+                        log('❌ Erro ao executar database.js', 'error');
+                    };
+                    document.head.appendChild(script);
+                } else {
+                    log(`❌ Erro ao carregar database: ${response.status}`, 'error');
+                }
+            } catch (error) {
+                log(`❌ Erro: ${error.message}`, 'error');
+            }
+        }
+        
+        function testStock() {
+            clearResults();
+            log('🔄 Testando sistema de estoque...', 'info');
+            
+            if (typeof getAllProducts === 'function') {
+                const products = getAllProducts();
+                
+                // Testar produtos específicos
+                const testProducts = [
+                    'iPhone 15 Pro Max',
+                    'Galaxy S24 Ultra',
+                    'iPhone 14 Pro',
+                    'MacBook Pro',
+                    'AirPods Pro'
+                ];
+                
+                testProducts.forEach(productName => {
+                    const product = products.find(p => 
+                        p.title && p.title.toLowerCase().includes(productName.toLowerCase())
+                    );
+                    
+                    if (product) {
+                        const stockStatus = product.stock > 5 ? '✅' : product.stock > 0 ? '⚠️' : '❌';
+                        log(`${stockStatus} ${product.title}: ${product.stock} unidades`, 
+                            product.stock > 5 ? 'success' : product.stock > 0 ? 'warning' : 'error');
+                    } else {
+                        log(`❌ Produto não encontrado: ${productName}`, 'error');
+                    }
+                });
+            } else {
+                log('❌ Database não carregado. Execute "Testar Database" primeiro.', 'error');
+            }
+        }
+        
+        function testCatalog() {
+            clearResults();
+            log('🔄 Testando página do catálogo...', 'info');
+            
+            // Verificar se a página do catálogo existe
+            fetch('./pages/catalog.html')
+                .then(response => {
+                    if (response.ok) {
+                        log('✅ Página do catálogo encontrada!', 'success');
+                        log('🔗 Você pode acessar em: ./pages/catalog.html', 'info');
+                    } else {
+                        log(`❌ Erro ao acessar catálogo: ${response.status}`, 'error');
+                    }
+                })
+                .catch(error => {
+                    log(`❌ Erro: ${error.message}`, 'error');
+                });
+        }
+        
+        function clearCache() {
+            clearResults();
+            log('🔄 Limpando cache do navegador...', 'info');
+            
+            // Limpar localStorage
+            if (typeof localStorage !== 'undefined') {
+                localStorage.clear();
+                log('✅ LocalStorage limpo', 'success');
+            }
+            
+            // Limpar sessionStorage
+            if (typeof sessionStorage !== 'undefined') {
+                sessionStorage.clear();
+                log('✅ SessionStorage limpo', 'success');
+            }
+            
+            log('🔄 Recomendado: Pressione Ctrl+Shift+R para recarregar sem cache', 'warning');
+        }
+        
+        function goToCatalog() {
+            window.open('./pages/catalog.html', '_blank');
+        }
+        
+        // Executar teste automático ao carregar
+        setTimeout(() => {
+            log('🚀 Executando teste automático...', 'info');
+            testDatabase();
+        }, 1000);
+    </script>
+</body>
+</html>
