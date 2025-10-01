@@ -518,7 +518,7 @@ class ApiService {
             console.log('=== CARREGANDO PRODUTOS ===');
             console.log('Página:', page, 'Tamanho:', pageSize);
             
-            // Primeiro tentar carregar do database.js local
+            // Carregar do database.js local
             if (typeof productsDatabase !== 'undefined') {
                 console.log('✓ Database.js encontrado, carregando produtos locais...');
                 const allProducts = [];
@@ -547,67 +547,74 @@ class ApiService {
                 };
             }
             
-            // Se não há database.js, tentar API externa
-            console.log('Database.js não encontrado, tentando API externa...');
-            const response = await fetch(`${this.baseUrl}/products?page=${page}&limit=${pageSize}`);
+            // Se database.js não estiver disponível, usar produtos de fallback
+            console.log('⚠️ Database.js não encontrado, usando produtos de fallback...');
+            const fallbackProducts = [
+                {
+                    id: 1,
+                    title: 'Produto de Exemplo',
+                    price: 99.99,
+                    category: 'eletrônicos',
+                    description: 'Produto de exemplo para demonstração',
+                    image: this.getFallbackImage(),
+                    stock: 10,
+                    active: true
+                }
+            ];
             
-            if (response.ok) {
-                const products = await response.json();
-                console.log('✓ Produtos carregados da API externa:', products.length);
-                
-                return {
-                    products: products,
-                    total: products.length,
-                    page: page,
-                    pageSize: pageSize,
-                    totalPages: 1
-                };
-            }
+            return {
+                products: fallbackProducts,
+                total: fallbackProducts.length,
+                page: page,
+                pageSize: pageSize,
+                totalPages: 1
+            };
             
         } catch (error) {
             console.error('Erro ao carregar produtos:', error);
+            
+            // Fallback: retornar array vazio
+            console.log('❌ Retornando array vazio devido ao erro');
+            return {
+                products: [],
+                total: 0,
+                page: page,
+                pageSize: pageSize,
+                totalPages: 0
+            };
         }
-        
-        // Fallback: retornar array vazio
-        console.log('❌ Nenhum produto encontrado');
-        return {
-            products: [],
-            total: 0,
-            page: page,
-            pageSize: pageSize,
-            totalPages: 0
-        };
     }
 
     // Método para obter produto por ID
     async getProductById(id) {
         try {
-            // Primeiro tentar buscar na API
-            const response = await fetch(`${this.baseUrl}/products/${id}`);
-            if (response.ok) {
-                return await response.json();
-            }
-        } catch (error) {
-            console.log('Erro ao buscar produto na API:', error);
-        }
-        
-        // Se não encontrar na API, buscar no database.js
-        if (typeof productsDatabase !== 'undefined') {
-            const allProducts = [];
-            Object.values(productsDatabase).forEach(category => {
-                if (Array.isArray(category)) {
-                    allProducts.push(...category);
+            console.log('🔍 Buscando produto por ID:', id);
+            
+            // Buscar no database.js local
+            if (typeof productsDatabase !== 'undefined') {
+                console.log('✓ Database.js encontrado, buscando produto...');
+                const allProducts = [];
+                
+                Object.values(productsDatabase).forEach(category => {
+                    if (Array.isArray(category)) {
+                        allProducts.push(...category);
+                    }
+                });
+                
+                const product = allProducts.find(p => p.id === parseInt(id));
+                if (product) {
+                    console.log('✅ Produto encontrado no database.js:', product);
+                    return product;
                 }
-            });
-            const product = allProducts.find(p => p.id === id);
-            if (product) {
-                console.log('✅ Produto encontrado no database.js:', product);
-                return product;
             }
+            
+            console.log('❌ Produto não encontrado:', id);
+            return null;
+            
+        } catch (error) {
+            console.error('❌ Erro ao buscar produto:', error);
+            return null;
         }
-        
-        console.log('❌ Produto não encontrado:', id);
-        return null;
     }
 
     // Método para obter imagem do produto com sistema de 500 imagens
@@ -726,16 +733,39 @@ class ApiService {
             console.log('🔍 Carregando categorias via API Service...');
             
             // Tentar carregar do database.js primeiro
-            if (typeof getCategories === 'function') {
-                const categories = getCategories();
+            if (typeof window !== 'undefined' && typeof window.getCategories === 'function') {
+                const categories = window.getCategories();
                 console.log('✅ Categorias carregadas do database.js:', categories);
+                return categories.map(cat => cat.name || cat.key || cat);
+            }
+            
+            // Se getCategories não estiver disponível, tentar acessar diretamente o productsDatabase
+            if (typeof productsDatabase !== 'undefined') {
+                const categoryKeys = Object.keys(productsDatabase);
+                const categories = categoryKeys.map(key => {
+                    const displayNames = {
+                        'smartphones': 'Smartphones',
+                        'notebooks': 'Notebooks',
+                        'televisoes': 'Televisões',
+                        'audio': 'Áudio e Som',
+                        'calcados': 'Calçados',
+                        'roupas': 'Roupas',
+                        'eletrodomesticos': 'Eletrodomésticos',
+                        'esportes': 'Esportes e Lazer',
+                        'monitores': 'Monitores',
+                        'relogios': 'Relógios'
+                    };
+                    return displayNames[key] || key.charAt(0).toUpperCase() + key.slice(1);
+                });
+                console.log('✅ Categorias extraídas do productsDatabase:', categories);
                 return categories;
             }
             
             // Fallback para categorias padrão
             const defaultCategories = [
-                'casa', 'eletrônicos', 'eletrodomésticos', 'móveis', 
-                'roupas', 'esportes', 'livros', 'beleza', 'saúde', 'automotivo'
+                'Smartphones', 'Notebooks', 'Televisões', 'Áudio e Som', 
+                'Calçados', 'Roupas', 'Eletrodomésticos', 'Esportes e Lazer', 
+                'Monitores', 'Relógios'
             ];
             
             console.log('⚠️ Usando categorias padrão:', defaultCategories);
@@ -743,7 +773,7 @@ class ApiService {
             
         } catch (error) {
             console.error('❌ Erro ao carregar categorias:', error);
-            return ['casa', 'eletrônicos', 'eletrodomésticos', 'móveis', 'roupas', 'esportes', 'livros', 'beleza', 'saúde', 'automotivo'];
+            return ['Smartphones', 'Notebooks', 'Televisões', 'Áudio e Som', 'Calçados', 'Roupas', 'Eletrodomésticos', 'Esportes e Lazer', 'Monitores', 'Relógios'];
         }
     }
 }
