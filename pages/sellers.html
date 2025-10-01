@@ -6,6 +6,7 @@
     <title>Fornecedores | E2E-Commerce</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/sellers.css">
+    <link rel="stylesheet" href="../css/catalog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -51,10 +52,71 @@
             <p>Conheça as marcas e fornecedores parceiros do E2E-Commerce</p>
         </div>
 
+        <!-- Filtros e Busca -->
+        <div class="catalog-filters">
+            <div class="filters-row">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Buscar produtos..." class="search-input">
+                    <button id="search-btn" class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                
+                <div class="filter-group">
+                    <select id="category-filter" class="filter-select">
+                        <option value="">Todas as Categorias</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <select id="sort-filter" class="filter-select">
+                        <option value="">Ordenar por</option>
+                        <option value="name-asc">Nome A-Z</option>
+                        <option value="name-desc">Nome Z-A</option>
+                        <option value="price-asc">Menor Preço</option>
+                        <option value="price-desc">Maior Preço</option>
+                        <option value="rating-desc">Melhor Avaliação</option>
+                    </select>
+                </div>
+                
+                <div class="view-toggle">
+                    <button id="view-sellers" class="view-btn active" title="Ver Fornecedores">
+                        <i class="fas fa-store"></i>
+                    </button>
+                    <button id="view-products" class="view-btn" title="Ver Produtos">
+                        <i class="fas fa-th-large"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Resultados -->
+        <div class="results-info">
+            <span id="results-count">Carregando...</span>
+            <div class="loading" id="loading" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i> Carregando...
+            </div>
+        </div>
+
         <div class="sellers-content">
+            <!-- Grid de Fornecedores -->
             <div class="sellers-grid" id="sellers-grid">
                 <!-- Fornecedores serão carregados via JavaScript -->
             </div>
+            
+            <!-- Grid de Produtos -->
+            <div class="products-grid" id="products-grid" style="display: none;">
+                <!-- Produtos serão carregados via JavaScript -->
+            </div>
+        </div>
+
+        <!-- Paginação -->
+        <div class="pagination" id="pagination" style="display: none;">
+            <button id="prev-page" class="page-btn" disabled>
+                <i class="fas fa-chevron-left"></i> Anterior
+            </button>
+            <div class="page-numbers" id="page-numbers"></div>
+            <button id="next-page" class="page-btn">
+                Próximo <i class="fas fa-chevron-right"></i>
+            </button>
         </div>
     </main>
 
