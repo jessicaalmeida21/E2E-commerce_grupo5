@@ -1,0 +1,3 @@
+FORCE GITHUB PAGES CACHE CLEAR - TIMESTAMP: 1759362641
+This file forces GitHub Pages to rebuild and clear all cached JavaScript files.
+The persistent SyntaxError indicates GitHub Pages is still serving cached versions.
