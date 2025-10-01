@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🔍 Teste Direto - Sistema de Estoque GitHub Pages</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .test-section {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 12px;
+            border-left: 5px solid #4CAF50;
+        }
+        .error { border-color: #F44336; }
+        .warning { border-color: #FF9800; }
+        .success { border-color: #4CAF50; }
+        .info { border-color: #2196F3; }
+        button {
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            border: none;
+            padding: 15px 25px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            margin: 10px 5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+        .danger {
+            background: linear-gradient(45deg, #F44336, #d32f2f);
+        }
+        .warning-btn {
+            background: linear-gradient(45deg, #FF9800, #f57c00);
+        }
+        .log-area {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            max-height: 500px;
+            overflow-y: auto;
+            font-family: 'Courier New', monospace;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .product-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 4px solid;
+        }
+        .stock-high { border-color: #4CAF50; }
+        .stock-low { border-color: #FF9800; }
+        .stock-none { border-color: #F44336; }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2em;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Teste Direto - Sistema de Estoque</h1>
+        
+        <div class="test-section info">
+            <h3>📊 Status do Teste</h3>
+            <div id="testStatus">Aguardando início dos testes...</div>
+        </div>
+
+        <div class="test-section">
+            <h3>🛠️ Controles de Teste</h3>
+            <button onclick="testLocalDatabase()">🏠 Testar Local</button>
+            <button onclick="testGitHubDatabase()" class="warning-btn">🌐 Testar GitHub</button>
+            <button onclick="compareVersions()" class="danger">⚖️ Comparar Versões</button>
+            <button onclick="testSpecificProducts()">📱 Testar Produtos Específicos</button>
+            <button onclick="clearResults()">🗑️ Limpar Resultados</button>
+        </div>
+
+        <div class="stats-grid" id="statsGrid" style="display: none;">
+            <div class="stat-card">
+                <div class="stat-number" id="totalProducts">0</div>
+                <div>Total de Produtos</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="withStock">0</div>
+                <div>Com Estoque</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="lowStock">0</div>
+                <div>Estoque Baixo</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number" id="noStock">0</div>
+                <div>Sem Estoque</div>
+            </div>
+        </div>
+
+        <div id="logArea" class="log-area">
+            <div>🚀 Sistema de teste iniciado...</div>
+            <div>💡 Clique nos botões para executar testes específicos</div>
+        </div>
+
+        <div id="productResults" class="product-grid" style="display: none;"></div>
+    </div>
+
+    <script>
+        let testResults = {
+            local: null,
+            github: null
+        };
+
+        function log(message, type = 'info') {
+            const logArea = document.getElementById('logArea');
+            const timestamp = new Date().toLocaleTimeString('pt-BR');
+            const icons = {
+                success: '✅',
+                error: '❌',
+                warning: '⚠️',
+                info: 'ℹ️'
+            };
+            
+            logArea.innerHTML += `<div class="${type}">${icons[type] || 'ℹ️'} [${timestamp}] ${message}</div>`;
+            logArea.scrollTop = logArea.scrollHeight;
+        }
+
+        function updateStatus(message, type = 'info') {
+            const statusDiv = document.getElementById('testStatus');
+            const icons = {
+                success: '✅',
+                error: '❌',
+                warning: '⚠️',
+                info: 'ℹ️'
+            };
+            statusDiv.innerHTML = `${icons[type]} ${message}`;
+            statusDiv.className = type;
+        }
+
+        function updateStats(products) {
+            const withStock = products.filter(p => p.stock > 5).length;
+            const lowStock = products.filter(p => p.stock > 0 && p.stock <= 5).length;
+            const noStock = products.filter(p => p.stock === 0).length;
+
+            document.getElementById('totalProducts').textContent = products.length;
+            document.getElementById('withStock').textContent = withStock;
+            document.getElementById('lowStock').textContent = lowStock;
+            document.getElementById('noStock').textContent = noStock;
+            document.getElementById('statsGrid').style.display = 'grid';
+        }
+
+        async function testLocalDatabase() {
+            log('🏠 Testando database local...', 'info');
+            updateStatus('Testando database local...', 'warning');
+            
+            try {
+                // Limpar scripts anteriores
+                const oldScript = document.getElementById('localDatabase');
+                if (oldScript) oldScript.remove();
+
+                const script = document.createElement('script');
+                script.id = 'localDatabase';
+                script.src = './js/database.js?v=' + Date.now();
+                
+                script.onload = () => {
+                    try {
+                        if (typeof getAllProducts === 'function') {
+                            const products = getAllProducts();
+                            testResults.local = products;
+                            
+                            log(`✅ Database local carregado: ${products.length} produtos`, 'success');
+                            updateStats(products);
+                            updateStatus(`Database local OK - ${products.length} produtos`, 'success');
+                            
+                            // Verificar produtos específicos
+                            const testProducts = [
+                                'iPhone 15 Pro Max',
+                                'Galaxy S24 Ultra',
+                                'MacBook Pro 16"',
+                                'AirPods Pro 2'
+                            ];
+                            
+                            testProducts.forEach(name => {
+                                const product = products.find(p => 
+                                    p.title && p.title.toLowerCase().includes(name.toLowerCase())
+                                );
+                                if (product) {
+                                    log(`📱 ${product.title}: ${product.stock} unidades`, 'info');
+                                }
+                            });
+                            
+                        } else {
+                            log('❌ Função getAllProducts não encontrada', 'error');
+                            updateStatus('Erro: getAllProducts não encontrada', 'error');
+                        }
+                    } catch (error) {
+                        log(`❌ Erro ao processar database local: ${error.message}`, 'error');
+                        updateStatus('Erro ao processar database local', 'error');
+                    }
+                };
+                
+                script.onerror = () => {
+                    log('❌ Erro ao carregar database local', 'error');
+                    updateStatus('Erro ao carregar database local', 'error');
+                };
+                
+                document.head.appendChild(script);
+            } catch (error) {
+                log(`❌ Erro no teste local: ${error.message}`, 'error');
+                updateStatus('Erro no teste local', 'error');
+            }
+        }
+
+        async function testGitHubDatabase() {
+            log('🌐 Testando database do GitHub Pages...', 'info');
+            updateStatus('Testando database do GitHub Pages...', 'warning');
+            
+            try {
+                // Limpar scripts anteriores
+                const oldScript = document.getElementById('githubDatabase');
+                if (oldScript) oldScript.remove();
+
+                const script = document.createElement('script');
+                script.id = 'githubDatabase';
+                script.src = 'https://jessicaalmeida21.github.io/E2E-commerce_grupo5/js/database.js?v=' + Date.now();
+                
+                script.onload = () => {
+                    try {
+                        if (typeof getAllProducts === 'function') {
+                            const products = getAllProducts();
+                            testResults.github = products;
+                            
+                            log(`✅ Database GitHub carregado: ${products.length} produtos`, 'success');
+                            updateStats(products);
+                            updateStatus(`Database GitHub OK - ${products.length} produtos`, 'success');
+                            
+                            // Verificar se tem sistema de estoque
+                            const withStock = products.filter(p => p.stock > 0).length;
+                            const noStock = products.filter(p => p.stock === 0).length;
+                            
+                            if (withStock > 0 || noStock > 0) {
+                                log(`✅ Sistema de estoque detectado! ${withStock} com estoque, ${noStock} sem estoque`, 'success');
+                            } else {
+                                log('❌ Sistema de estoque NÃO detectado - todos os produtos sem propriedade stock', 'error');
+                            }
+                            
+                        } else {
+                            log('❌ Função getAllProducts não encontrada no GitHub', 'error');
+                            updateStatus('Erro: getAllProducts não encontrada no GitHub', 'error');
+                        }
+                    } catch (error) {
+                        log(`❌ Erro ao processar database GitHub: ${error.message}`, 'error');
+                        updateStatus('Erro ao processar database GitHub', 'error');
+                    }
+                };
+                
+                script.onerror = () => {
+                    log('❌ Erro ao carregar database do GitHub Pages', 'error');
+                    updateStatus('Erro ao carregar database do GitHub', 'error');
+                };
+                
+                document.head.appendChild(script);
+            } catch (error) {
+                log(`❌ Erro no teste GitHub: ${error.message}`, 'error');
+                updateStatus('Erro no teste GitHub', 'error');
+            }
+        }
+
+        async function compareVersions() {
+            log('⚖️ Comparando versões local vs GitHub...', 'info');
+            
+            if (!testResults.local || !testResults.github) {
+                log('⚠️ Execute primeiro os testes local e GitHub', 'warning');
+                return;
+            }
+            
+            const localCount = testResults.local.length;
+            const githubCount = testResults.github.length;
+            
+            log(`📊 Local: ${localCount} produtos | GitHub: ${githubCount} produtos`, 'info');
+            
+            if (localCount === githubCount) {
+                log('✅ Mesmo número de produtos nas duas versões', 'success');
+                
+                // Comparar estoque de produtos específicos
+                const testProducts = ['iPhone 15 Pro Max', 'Galaxy S24 Ultra'];
+                testProducts.forEach(name => {
+                    const localProduct = testResults.local.find(p => 
+                        p.title && p.title.toLowerCase().includes(name.toLowerCase())
+                    );
+                    const githubProduct = testResults.github.find(p => 
+                        p.title && p.title.toLowerCase().includes(name.toLowerCase())
+                    );
+                    
+                    if (localProduct && githubProduct) {
+                        const localStock = localProduct.stock || 0;
+                        const githubStock = githubProduct.stock || 0;
+                        
+                        if (localStock === githubStock) {
+                            log(`✅ ${name}: Estoque igual (${localStock} unidades)`, 'success');
+                        } else {
+                            log(`❌ ${name}: Estoque diferente - Local: ${localStock}, GitHub: ${githubStock}`, 'error');
+                        }
+                    }
+                });
+                
+            } else {
+                log(`❌ Número de produtos diferente! Possível problema de sincronização`, 'error');
+            }
+        }
+
+        async function testSpecificProducts() {
+            log('📱 Testando produtos específicos...', 'info');
+            
+            const products = testResults.github || testResults.local;
+            if (!products) {
+                log('⚠️ Execute primeiro um teste de database', 'warning');
+                return;
+            }
+            
+            const specificProducts = [
+                'iPhone 15 Pro Max',
+                'Galaxy S24 Ultra', 
+                'iPhone 14 Pro',
+                'MacBook Pro 16"',
+                'AirPods Pro 2',
+                'Samsung Galaxy Watch 6'
+            ];
+            
+            const resultsDiv = document.getElementById('productResults');
+            resultsDiv.innerHTML = '';
+            resultsDiv.style.display = 'grid';
+            
+            specificProducts.forEach(name => {
+                const product = products.find(p => 
+                    p.title && p.title.toLowerCase().includes(name.toLowerCase())
+                );
+                
+                if (product) {
+                    const stock = product.stock || 0;
+                    let stockClass = 'stock-none';
+                    let stockText = 'Sem estoque';
+                    
+                    if (stock > 5) {
+                        stockClass = 'stock-high';
+                        stockText = `${stock} unidades`;
+                    } else if (stock > 0) {
+                        stockClass = 'stock-low';
+                        stockText = `${stock} unidades (baixo)`;
+                    }
+                    
+                    resultsDiv.innerHTML += `
+                        <div class="product-card ${stockClass}">
+                            <h4>${product.title}</h4>
+                            <p><strong>Estoque:</strong> ${stockText}</p>
+                            <p><strong>Preço:</strong> R$ ${product.price}</p>
+                            <p><strong>Categoria:</strong> ${product.category}</p>
+                        </div>
+                    `;
+                    
+                    log(`📱 ${product.title}: ${stockText}`, stock > 0 ? 'success' : 'error');
+                } else {
+                    log(`❌ Produto não encontrado: ${name}`, 'error');
+                }
+            });
+        }
+
+        function clearResults() {
+            document.getElementById('logArea').innerHTML = '<div>🗑️ Resultados limpos. Pronto para novos testes.</div>';
+            document.getElementById('productResults').style.display = 'none';
+            document.getElementById('statsGrid').style.display = 'none';
+            testResults = { local: null, github: null };
+            updateStatus('Aguardando novos testes...', 'info');
+        }
+
+        // Auto-inicialização
+        log('🚀 Sistema de teste carregado!', 'success');
+        log('💡 Recomendação: Execute primeiro "Testar GitHub" para verificar o problema', 'info');
+    </script>
+</body>
+</html>
