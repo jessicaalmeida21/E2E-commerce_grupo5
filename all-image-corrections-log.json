@@ -1,0 +1,152 @@
+[
+  {
+    "category": "smartphones",
+    "index": 0,
+    "id": "PROD-001",
+    "title": "Apple iPhone Lite",
+    "brand": "Apple",
+    "originalImage": "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "reason": "Imagem específica para produto"
+  },
+  {
+    "category": "smartphones",
+    "index": 1,
+    "id": "PROD-002",
+    "title": "Sony Xperia FE",
+    "brand": "Sony",
+    "originalImage": "https://images.unsplash.com/photo-1567581935884-3349723552ca?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&h=400&fit=crop",
+    "reason": "Imagem específica para produto"
+  },
+  {
+    "category": "smartphones",
+    "index": 2,
+    "id": "PROD-003",
+    "title": "Apple iPhone 15 Lite",
+    "brand": "Apple",
+    "originalImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1567581935884-3349723552ca?w=400&h=400&fit=crop",
+    "reason": "Imagem específica para produto"
+  },
+  {
+    "category": "smartphones",
+    "index": 3,
+    "id": "PROD-004",
+    "title": "LG C55 Lite",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1512499617640-c74ae3a79d37?w=400&h=400&fit=crop",
+    "reason": "Imagem específica para produto"
+  },
+  {
+    "category": "smartphones",
+    "index": 4,
+    "id": "PROD-005",
+    "title": "Xiaomi Redmi FE",
+    "brand": "Xiaomi",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1585060544812-6b45742d762f?w=400&h=400&fit=crop",
+    "reason": "Imagem específica para produto"
+  },
+  {
+    "category": "smartphones",
+    "index": 5,
+    "id": "PROD-006",
+    "title": "Google Pixel Max",
+    "brand": "Google",
+    "originalImage": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&h=400&fit=crop",
+    "reason": "Imagem específica para produto"
+  },
+  {
+    "category": "smartphones",
+    "index": 6,
+    "id": "PROD-007",
+    "title": "Motorola Nord Pro",
+    "brand": "Motorola",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "reason": "Imagem específica para produto"
+  },
+  {
+    "category": "smartphones",
+    "index": 7,
+    "id": "PROD-008",
+    "title": "OnePlus 15 Pro Max",
+    "brand": "OnePlus",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=400&h=400&fit=crop",
+    "reason": "Imagem específica para produto"
+  },
+  {
+    "category": "smartphones",
+    "index": 8,
+    "id": "PROD-009",
+    "title": "Google Pixel Plus",
+    "brand": "Google",
+    "originalImage": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "reason": "Imagem específica para produto"
+  },
+  {
+    "category": "smartphones",
+    "index": 9,
+    "id": "PROD-010",
+    "title": "Sony G73 Pro",
+    "brand": "Sony",
+    "originalImage": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop",
+    "reason": "Imagem específica para produto"
+  },
+  {
+    "category": "smartphones",
+    "index": 10,
+    "id": "PROD-011",
+    "title": "Xiaomi Redmi Pro",
+    "brand": "Xiaomi",
+    "originalImage": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1616348436168-de43ad0db179?w=400&h=400&fit=crop",
+    "reason": "Imagem específica para produto"
+  },
+  {
+    "category": "smartphones",
+    "index": 11,
+    "id": "PROD-012",
+    "title": "Sony G73 Plus",
+    "brand": "Sony",
+    "originalImage": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1607936854279-55e8f4bc0b9a?w=400&h=400&fit=crop",
+    "reason": "Imagem específica para produto"
+  },
+  {
+    "category": "smartphones",
+    "index": 12,
+    "id": "PROD-013",
+    "title": "OnePlus C55 Ultra",
+    "brand": "OnePlus",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=400&h=400&fit=crop",
+    "reason": "Imagem específica para produto"
+  },
+  {
+    "category": "smartphones",
+    "index": 13,
+    "id": "PROD-014",
+    "title": "Apple iPhone Note FE",
+    "brand": "Apple",
+    "originalImage": "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&h=400&fit=crop",
+    "reason": "Imagem específica para produto"
+  },
+  {
+    "category": "smartphones",
+    "index": 14,
+    "id": "PROD-015",
+    "title": "Apple iPhone Lite",
+    "brand": "Apple",
+    "originalImage": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1605236453806-6ff36851218e?w=400&h=400&fit=crop",
+    "reason": "Imagem específica para produto"
+  }
+]

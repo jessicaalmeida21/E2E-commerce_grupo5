@@ -1,0 +1,3962 @@
+[
+  {
+    "id": "PROD-061",
+    "title": "Dell Gaming Slim",
+    "category": "notebooks",
+    "brand": "Dell",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-062",
+    "title": "Lenovo Motion 15",
+    "category": "notebooks",
+    "brand": "Lenovo",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-063",
+    "title": "LG VivoBook Air",
+    "category": "notebooks",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-064",
+    "title": "LG Book Air",
+    "category": "notebooks",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-065",
+    "title": "ASUS Pavilion Ultra",
+    "category": "notebooks",
+    "brand": "ASUS",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-066",
+    "title": "Apple Pavilion i5",
+    "category": "notebooks",
+    "brand": "Apple",
+    "originalImage": "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-067",
+    "title": "Dell Gram Pro",
+    "category": "notebooks",
+    "brand": "Dell",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-068",
+    "title": "Dell Gaming Gaming",
+    "category": "notebooks",
+    "brand": "Dell",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-069",
+    "title": "Positivo MacBook Air",
+    "category": "notebooks",
+    "brand": "Positivo",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-070",
+    "title": "MSI Pavilion 14",
+    "category": "notebooks",
+    "brand": "MSI",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-071",
+    "title": "Lenovo Book Touch",
+    "category": "notebooks",
+    "brand": "Lenovo",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-072",
+    "title": "LG ThinkPad Pro",
+    "category": "notebooks",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-073",
+    "title": "HP Gram Slim",
+    "category": "notebooks",
+    "brand": "HP",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-074",
+    "title": "Positivo ThinkPad Gaming",
+    "category": "notebooks",
+    "brand": "Positivo",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-075",
+    "title": "Dell MacBook 14",
+    "category": "notebooks",
+    "brand": "Dell",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-076",
+    "title": "Apple Book Touch",
+    "category": "notebooks",
+    "brand": "Apple",
+    "originalImage": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-077",
+    "title": "Acer MacBook Air",
+    "category": "notebooks",
+    "brand": "Acer",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-078",
+    "title": "ASUS Gram 13",
+    "category": "notebooks",
+    "brand": "ASUS",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-079",
+    "title": "ASUS Gram i5",
+    "category": "notebooks",
+    "brand": "ASUS",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-080",
+    "title": "Acer Book Ultra",
+    "category": "notebooks",
+    "brand": "Acer",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-081",
+    "title": "MSI MacBook Ultra",
+    "category": "notebooks",
+    "brand": "MSI",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-082",
+    "title": "LG Gram Air",
+    "category": "notebooks",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-083",
+    "title": "Positivo Gram 14",
+    "category": "notebooks",
+    "brand": "Positivo",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-084",
+    "title": "MSI Book i5",
+    "category": "notebooks",
+    "brand": "MSI",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-085",
+    "title": "MSI Motion Air",
+    "category": "notebooks",
+    "brand": "MSI",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-086",
+    "title": "ASUS Motion Air",
+    "category": "notebooks",
+    "brand": "ASUS",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-087",
+    "title": "LG Pavilion Pro",
+    "category": "notebooks",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-088",
+    "title": "LG Aspire Gaming",
+    "category": "notebooks",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-089",
+    "title": "Acer MacBook 13",
+    "category": "notebooks",
+    "brand": "Acer",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-090",
+    "title": "Acer Gaming i5",
+    "category": "notebooks",
+    "brand": "Acer",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-091",
+    "title": "MSI ThinkPad 13",
+    "category": "notebooks",
+    "brand": "MSI",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-092",
+    "title": "Apple MacBook Air",
+    "category": "notebooks",
+    "brand": "Apple",
+    "originalImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-093",
+    "title": "Samsung Motion 13",
+    "category": "notebooks",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-094",
+    "title": "ASUS ThinkPad Gaming",
+    "category": "notebooks",
+    "brand": "ASUS",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-095",
+    "title": "HP Pavilion Ultra",
+    "category": "notebooks",
+    "brand": "HP",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-096",
+    "title": "Dell Inspiron Pro",
+    "category": "notebooks",
+    "brand": "Dell",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-097",
+    "title": "LG Gaming Ultra",
+    "category": "notebooks",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-098",
+    "title": "Acer ThinkPad i5",
+    "category": "notebooks",
+    "brand": "Acer",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-099",
+    "title": "HP Gram Slim",
+    "category": "notebooks",
+    "brand": "HP",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-100",
+    "title": "HP ThinkPad Slim",
+    "category": "notebooks",
+    "brand": "HP",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-101",
+    "title": "MSI ThinkPad Slim",
+    "category": "notebooks",
+    "brand": "MSI",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-102",
+    "title": "LG Gaming Ultra",
+    "category": "notebooks",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-103",
+    "title": "Samsung Inspiron Pro",
+    "category": "notebooks",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-104",
+    "title": "LG Aspire Slim",
+    "category": "notebooks",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-105",
+    "title": "Acer Inspiron Slim",
+    "category": "notebooks",
+    "brand": "Acer",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-106",
+    "title": "Samsung Gaming 15",
+    "category": "notebooks",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-107",
+    "title": "MSI ThinkPad 13",
+    "category": "notebooks",
+    "brand": "MSI",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-108",
+    "title": "Samsung Motion Gaming",
+    "category": "notebooks",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-109",
+    "title": "Samsung VivoBook Gaming",
+    "category": "notebooks",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-110",
+    "title": "HP Aspire i5",
+    "category": "notebooks",
+    "brand": "HP",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para notebooks"
+  },
+  {
+    "id": "PROD-111",
+    "title": "Hisense 8K HDR",
+    "category": "televisoes",
+    "brand": "Hisense",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-112",
+    "title": "Hisense 8K 65\"",
+    "category": "televisoes",
+    "brand": "Hisense",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-113",
+    "title": "Hisense 4K Android",
+    "category": "televisoes",
+    "brand": "Hisense",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-114",
+    "title": "Sony Neo QLED 85\"",
+    "category": "televisoes",
+    "brand": "Sony",
+    "originalImage": "https://images.unsplash.com/photo-1567581935884-3349723552ca?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-115",
+    "title": "Samsung 4K 75\"",
+    "category": "televisoes",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-116",
+    "title": "Hisense Crystal 65\"",
+    "category": "televisoes",
+    "brand": "Hisense",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-117",
+    "title": "Panasonic Neo QLED 85\"",
+    "category": "televisoes",
+    "brand": "Panasonic",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-118",
+    "title": "Panasonic NanoCell 85\"",
+    "category": "televisoes",
+    "brand": "Panasonic",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-119",
+    "title": "Multilaser OLED Android",
+    "category": "televisoes",
+    "brand": "Multilaser",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-120",
+    "title": "Panasonic 4K Android",
+    "category": "televisoes",
+    "brand": "Panasonic",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-121",
+    "title": "Sony Neo QLED HDR",
+    "category": "televisoes",
+    "brand": "Sony",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-122",
+    "title": "Semp Smart TV Dolby",
+    "category": "televisoes",
+    "brand": "Semp",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-123",
+    "title": "Panasonic Neo QLED Android",
+    "category": "televisoes",
+    "brand": "Panasonic",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-124",
+    "title": "Philips OLED 50\"",
+    "category": "televisoes",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-125",
+    "title": "Panasonic Full HD Android",
+    "category": "televisoes",
+    "brand": "Panasonic",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-126",
+    "title": "Philips 4K 75\"",
+    "category": "televisoes",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-127",
+    "title": "Panasonic NanoCell HDR",
+    "category": "televisoes",
+    "brand": "Panasonic",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-128",
+    "title": "AOC 8K 75\"",
+    "category": "televisoes",
+    "brand": "AOC",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-129",
+    "title": "Semp 8K 43\"",
+    "category": "televisoes",
+    "brand": "Semp",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-130",
+    "title": "AOC UHD 50\"",
+    "category": "televisoes",
+    "brand": "AOC",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-131",
+    "title": "Samsung QLED 43\"",
+    "category": "televisoes",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-132",
+    "title": "LG Smart TV 65\"",
+    "category": "televisoes",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-133",
+    "title": "Semp OLED HDR",
+    "category": "televisoes",
+    "brand": "Semp",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-134",
+    "title": "Panasonic NanoCell 85\"",
+    "category": "televisoes",
+    "brand": "Panasonic",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-135",
+    "title": "LG 8K HDR",
+    "category": "televisoes",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-136",
+    "title": "Hisense NanoCell 55\"",
+    "category": "televisoes",
+    "brand": "Hisense",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-137",
+    "title": "Philips Full HD 75\"",
+    "category": "televisoes",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-138",
+    "title": "Philips 4K 32\"",
+    "category": "televisoes",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-139",
+    "title": "Hisense NanoCell 65\"",
+    "category": "televisoes",
+    "brand": "Hisense",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-140",
+    "title": "Multilaser OLED Android",
+    "category": "televisoes",
+    "brand": "Multilaser",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-141",
+    "title": "Hisense 4K Dolby",
+    "category": "televisoes",
+    "brand": "Hisense",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-142",
+    "title": "Semp QLED 85\"",
+    "category": "televisoes",
+    "brand": "Semp",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-143",
+    "title": "TCL OLED 50\"",
+    "category": "televisoes",
+    "brand": "TCL",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-144",
+    "title": "Hisense Full HD 85\"",
+    "category": "televisoes",
+    "brand": "Hisense",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-145",
+    "title": "Philips 4K HDR",
+    "category": "televisoes",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-146",
+    "title": "Panasonic UHD HDR",
+    "category": "televisoes",
+    "brand": "Panasonic",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-147",
+    "title": "Semp 4K 75\"",
+    "category": "televisoes",
+    "brand": "Semp",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-148",
+    "title": "Sony Neo QLED Android",
+    "category": "televisoes",
+    "brand": "Sony",
+    "originalImage": "https://images.unsplash.com/photo-1567581935884-3349723552ca?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-149",
+    "title": "Philips Neo QLED 32\"",
+    "category": "televisoes",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-150",
+    "title": "TCL Crystal 43\"",
+    "category": "televisoes",
+    "brand": "TCL",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-151",
+    "title": "Samsung UHD 85\"",
+    "category": "televisoes",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-152",
+    "title": "TCL Smart TV 85\"",
+    "category": "televisoes",
+    "brand": "TCL",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-153",
+    "title": "Multilaser Smart TV Android",
+    "category": "televisoes",
+    "brand": "Multilaser",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-154",
+    "title": "LG Smart TV 50\"",
+    "category": "televisoes",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-155",
+    "title": "Panasonic 4K Dolby",
+    "category": "televisoes",
+    "brand": "Panasonic",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para televisoes"
+  },
+  {
+    "id": "PROD-156",
+    "title": "Sony Wireless 5.1",
+    "category": "audio",
+    "brand": "Sony",
+    "originalImage": "https://images.unsplash.com/photo-1567581935884-3349723552ca?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-157",
+    "title": "JBL Fone Bass",
+    "category": "audio",
+    "brand": "JBL",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-158",
+    "title": "Beats Headphone Max",
+    "category": "audio",
+    "brand": "Beats",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-159",
+    "title": "JBL Fone Max",
+    "category": "audio",
+    "brand": "JBL",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-160",
+    "title": "JBL Bluetooth Premium",
+    "category": "audio",
+    "brand": "JBL",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-161",
+    "title": "Philips Gaming 5.1",
+    "category": "audio",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-162",
+    "title": "JBL Gaming Ultra",
+    "category": "audio",
+    "brand": "JBL",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-163",
+    "title": "Audio-Technica Speaker Surround",
+    "category": "audio",
+    "brand": "Audio-Technica",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-164",
+    "title": "JBL Soundbar Portable",
+    "category": "audio",
+    "brand": "JBL",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-165",
+    "title": "JBL Studio Mini",
+    "category": "audio",
+    "brand": "JBL",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-166",
+    "title": "Sennheiser Studio Max",
+    "category": "audio",
+    "brand": "Sennheiser",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-167",
+    "title": "Philips Caixa Premium",
+    "category": "audio",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-168",
+    "title": "JBL Wireless Noise Cancel",
+    "category": "audio",
+    "brand": "JBL",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-169",
+    "title": "Sennheiser Speaker Premium",
+    "category": "audio",
+    "brand": "Sennheiser",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-170",
+    "title": "Bose Earbuds Premium",
+    "category": "audio",
+    "brand": "Bose",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-171",
+    "title": "Sony Wireless Mini",
+    "category": "audio",
+    "brand": "Sony",
+    "originalImage": "https://images.unsplash.com/photo-1567581935884-3349723552ca?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-172",
+    "title": "Audio-Technica Bluetooth Mini",
+    "category": "audio",
+    "brand": "Audio-Technica",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-173",
+    "title": "Philips Speaker Pro",
+    "category": "audio",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-174",
+    "title": "JBL Wireless Noise Cancel",
+    "category": "audio",
+    "brand": "JBL",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-175",
+    "title": "Beats Headphone Pro",
+    "category": "audio",
+    "brand": "Beats",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-176",
+    "title": "Philips Speaker Max",
+    "category": "audio",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-177",
+    "title": "Harman Kardon Speaker Portable",
+    "category": "audio",
+    "brand": "Harman Kardon",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-178",
+    "title": "Sony Headphone Surround",
+    "category": "audio",
+    "brand": "Sony",
+    "originalImage": "https://images.unsplash.com/photo-1567581935884-3349723552ca?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-179",
+    "title": "Bose Caixa Ultra",
+    "category": "audio",
+    "brand": "Bose",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-180",
+    "title": "Beats Bluetooth Pro",
+    "category": "audio",
+    "brand": "Beats",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-181",
+    "title": "Harman Kardon Headphone Portable",
+    "category": "audio",
+    "brand": "Harman Kardon",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-182",
+    "title": "JBL Soundbar Bass",
+    "category": "audio",
+    "brand": "JBL",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-183",
+    "title": "Bose Soundbar Mini",
+    "category": "audio",
+    "brand": "Bose",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-184",
+    "title": "JBL Wireless Mini",
+    "category": "audio",
+    "brand": "JBL",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-185",
+    "title": "Audio-Technica Caixa 5.1",
+    "category": "audio",
+    "brand": "Audio-Technica",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-186",
+    "title": "Beats Wireless Ultra",
+    "category": "audio",
+    "brand": "Beats",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-187",
+    "title": "Sennheiser Studio Ultra",
+    "category": "audio",
+    "brand": "Sennheiser",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-188",
+    "title": "Sennheiser Soundbar Max",
+    "category": "audio",
+    "brand": "Sennheiser",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-189",
+    "title": "JBL Bluetooth Max",
+    "category": "audio",
+    "brand": "JBL",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-190",
+    "title": "Sony Headphone Max",
+    "category": "audio",
+    "brand": "Sony",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-191",
+    "title": "Marshall Studio Noise Cancel",
+    "category": "audio",
+    "brand": "Marshall",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-192",
+    "title": "Harman Kardon Soundbar Premium",
+    "category": "audio",
+    "brand": "Harman Kardon",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-193",
+    "title": "Beats Headphone Bass",
+    "category": "audio",
+    "brand": "Beats",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-194",
+    "title": "Sony Soundbar Premium",
+    "category": "audio",
+    "brand": "Sony",
+    "originalImage": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-195",
+    "title": "Philips Gaming Noise Cancel",
+    "category": "audio",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-196",
+    "title": "Bose Fone Max",
+    "category": "audio",
+    "brand": "Bose",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-197",
+    "title": "Edifier Earbuds Mini",
+    "category": "audio",
+    "brand": "Edifier",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-198",
+    "title": "Philips Caixa Pro",
+    "category": "audio",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-199",
+    "title": "Bose Studio Noise Cancel",
+    "category": "audio",
+    "brand": "Bose",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-200",
+    "title": "Marshall Soundbar Max",
+    "category": "audio",
+    "brand": "Marshall",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-201",
+    "title": "Beats Gaming Pro",
+    "category": "audio",
+    "brand": "Beats",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-202",
+    "title": "Sennheiser Speaker Pro",
+    "category": "audio",
+    "brand": "Sennheiser",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-203",
+    "title": "Audio-Technica Soundbar Mini",
+    "category": "audio",
+    "brand": "Audio-Technica",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-204",
+    "title": "Sony Wireless Portable",
+    "category": "audio",
+    "brand": "Sony",
+    "originalImage": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-205",
+    "title": "Sony Fone 5.1",
+    "category": "audio",
+    "brand": "Sony",
+    "originalImage": "https://images.unsplash.com/photo-1567581935884-3349723552ca?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-206",
+    "title": "Sennheiser Headphone 5.1",
+    "category": "audio",
+    "brand": "Sennheiser",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-207",
+    "title": "Audio-Technica Fone 5.1",
+    "category": "audio",
+    "brand": "Audio-Technica",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-208",
+    "title": "Bose Earbuds Ultra",
+    "category": "audio",
+    "brand": "Bose",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-209",
+    "title": "JBL Soundbar Premium",
+    "category": "audio",
+    "brand": "JBL",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-210",
+    "title": "Harman Kardon Bluetooth Noise Cancel",
+    "category": "audio",
+    "brand": "Harman Kardon",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para audio"
+  },
+  {
+    "id": "PROD-211",
+    "title": "Asics Disruptor II",
+    "category": "calcados",
+    "brand": "Asics",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-212",
+    "title": "Fila Disruptor Classic",
+    "category": "calcados",
+    "brand": "Fila",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-213",
+    "title": "Converse Air Max Hi",
+    "category": "calcados",
+    "brand": "Converse",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-214",
+    "title": "Olympikus Gel V3",
+    "category": "calcados",
+    "brand": "Olympikus",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-215",
+    "title": "Puma Fresh Foam Rider",
+    "category": "calcados",
+    "brand": "Puma",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-216",
+    "title": "Olympikus Suede II",
+    "category": "calcados",
+    "brand": "Olympikus",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-217",
+    "title": "Mizuno Gel 90",
+    "category": "calcados",
+    "brand": "Mizuno",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-218",
+    "title": "Adidas Correct Kayano",
+    "category": "calcados",
+    "brand": "Adidas",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-219",
+    "title": "Asics Wave 270",
+    "category": "calcados",
+    "brand": "Asics",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-220",
+    "title": "Olympikus Chuck Taylor Hi",
+    "category": "calcados",
+    "brand": "Olympikus",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-221",
+    "title": "Converse Wave V3",
+    "category": "calcados",
+    "brand": "Converse",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-222",
+    "title": "Asics Old Skool 270",
+    "category": "calcados",
+    "brand": "Asics",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-223",
+    "title": "Vans Old Skool Classic",
+    "category": "calcados",
+    "brand": "Vans",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-224",
+    "title": "New Balance Disruptor Hi",
+    "category": "calcados",
+    "brand": "New Balance",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-225",
+    "title": "Mizuno Old Skool Rider",
+    "category": "calcados",
+    "brand": "Mizuno",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-226",
+    "title": "Converse Wave 270",
+    "category": "calcados",
+    "brand": "Converse",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-227",
+    "title": "Vans Wave V3",
+    "category": "calcados",
+    "brand": "Vans",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-228",
+    "title": "Converse Disruptor Force",
+    "category": "calcados",
+    "brand": "Converse",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-229",
+    "title": "Asics Disruptor V3",
+    "category": "calcados",
+    "brand": "Asics",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-230",
+    "title": "Fila Suede Classic",
+    "category": "calcados",
+    "brand": "Fila",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-231",
+    "title": "Puma Old Skool II",
+    "category": "calcados",
+    "brand": "Puma",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-232",
+    "title": "Puma Ultraboost 90",
+    "category": "calcados",
+    "brand": "Puma",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-233",
+    "title": "Nike Gel V3",
+    "category": "calcados",
+    "brand": "Nike",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-234",
+    "title": "Nike Suede Rider",
+    "category": "calcados",
+    "brand": "Nike",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-235",
+    "title": "Olympikus Old Skool Rider",
+    "category": "calcados",
+    "brand": "Olympikus",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-236",
+    "title": "Vans Suede Hi",
+    "category": "calcados",
+    "brand": "Vans",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-237",
+    "title": "Olympikus Old Skool Force",
+    "category": "calcados",
+    "brand": "Olympikus",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-238",
+    "title": "Adidas Wave Force",
+    "category": "calcados",
+    "brand": "Adidas",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-239",
+    "title": "Puma Fresh Foam Rider",
+    "category": "calcados",
+    "brand": "Puma",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-240",
+    "title": "Fila Chuck Taylor Force",
+    "category": "calcados",
+    "brand": "Fila",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-241",
+    "title": "Olympikus Wave II",
+    "category": "calcados",
+    "brand": "Olympikus",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-242",
+    "title": "Olympikus Ultraboost V3",
+    "category": "calcados",
+    "brand": "Olympikus",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-243",
+    "title": "Asics Disruptor Hi",
+    "category": "calcados",
+    "brand": "Asics",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-244",
+    "title": "Mizuno Wave Classic",
+    "category": "calcados",
+    "brand": "Mizuno",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-245",
+    "title": "Puma Disruptor Hi",
+    "category": "calcados",
+    "brand": "Puma",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-246",
+    "title": "Fila Wave Force",
+    "category": "calcados",
+    "brand": "Fila",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-247",
+    "title": "Olympikus Disruptor 90",
+    "category": "calcados",
+    "brand": "Olympikus",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-248",
+    "title": "Mizuno Air Max Force",
+    "category": "calcados",
+    "brand": "Mizuno",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-249",
+    "title": "Puma Wave V3",
+    "category": "calcados",
+    "brand": "Puma",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-250",
+    "title": "New Balance Wave V3",
+    "category": "calcados",
+    "brand": "New Balance",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-251",
+    "title": "Nike Gel Classic",
+    "category": "calcados",
+    "brand": "Nike",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-252",
+    "title": "Olympikus Wave 90",
+    "category": "calcados",
+    "brand": "Olympikus",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-253",
+    "title": "Puma Old Skool 270",
+    "category": "calcados",
+    "brand": "Puma",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-254",
+    "title": "New Balance Air Max Kayano",
+    "category": "calcados",
+    "brand": "New Balance",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-255",
+    "title": "Vans Gel 270",
+    "category": "calcados",
+    "brand": "Vans",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-256",
+    "title": "Olympikus Chuck Taylor II",
+    "category": "calcados",
+    "brand": "Olympikus",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-257",
+    "title": "Nike Disruptor Classic",
+    "category": "calcados",
+    "brand": "Nike",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-258",
+    "title": "Nike Chuck Taylor Rider",
+    "category": "calcados",
+    "brand": "Nike",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-259",
+    "title": "Olympikus Ultraboost Kayano",
+    "category": "calcados",
+    "brand": "Olympikus",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-260",
+    "title": "Olympikus Suede V3",
+    "category": "calcados",
+    "brand": "Olympikus",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-261",
+    "title": "Converse Disruptor Rider",
+    "category": "calcados",
+    "brand": "Converse",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-262",
+    "title": "Olympikus Correct Kayano",
+    "category": "calcados",
+    "brand": "Olympikus",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-263",
+    "title": "New Balance Wave Rider",
+    "category": "calcados",
+    "brand": "New Balance",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-264",
+    "title": "Adidas Fresh Foam V3",
+    "category": "calcados",
+    "brand": "Adidas",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-265",
+    "title": "Fila Old Skool 22",
+    "category": "calcados",
+    "brand": "Fila",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-266",
+    "title": "Puma Ultraboost Kayano",
+    "category": "calcados",
+    "brand": "Puma",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-267",
+    "title": "Puma Air Max Force",
+    "category": "calcados",
+    "brand": "Puma",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-268",
+    "title": "Puma Chuck Taylor Classic",
+    "category": "calcados",
+    "brand": "Puma",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-269",
+    "title": "Puma Wave Force",
+    "category": "calcados",
+    "brand": "Puma",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-270",
+    "title": "Fila Ultraboost Classic",
+    "category": "calcados",
+    "brand": "Fila",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-271",
+    "title": "Converse Ultraboost II",
+    "category": "calcados",
+    "brand": "Converse",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-272",
+    "title": "Olympikus Air Max Classic",
+    "category": "calcados",
+    "brand": "Olympikus",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-273",
+    "title": "New Balance Air Max Rider",
+    "category": "calcados",
+    "brand": "New Balance",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-274",
+    "title": "Converse Ultraboost 90",
+    "category": "calcados",
+    "brand": "Converse",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-275",
+    "title": "Converse Air Max V3",
+    "category": "calcados",
+    "brand": "Converse",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para calcados"
+  },
+  {
+    "id": "PROD-276",
+    "title": "Adidas Vestido Premium",
+    "category": "roupas",
+    "brand": "Adidas",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-277",
+    "title": "Tommy Vestido Oversized",
+    "category": "roupas",
+    "brand": "Tommy",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-278",
+    "title": "Calvin Klein Jaqueta Basic",
+    "category": "roupas",
+    "brand": "Calvin Klein",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-279",
+    "title": "Calvin Klein Bermuda Classic",
+    "category": "roupas",
+    "brand": "Calvin Klein",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-280",
+    "title": "Tommy Bermuda Slim",
+    "category": "roupas",
+    "brand": "Tommy",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-281",
+    "title": "Zara Jaqueta Regular",
+    "category": "roupas",
+    "brand": "Zara",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-282",
+    "title": "H&M Camisa Oversized",
+    "category": "roupas",
+    "brand": "H&M",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-283",
+    "title": "Levi's Short Sport",
+    "category": "roupas",
+    "brand": "Levi's",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-284",
+    "title": "Lacoste Polo Oversized",
+    "category": "roupas",
+    "brand": "Lacoste",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-285",
+    "title": "Nike Moletom Essentials",
+    "category": "roupas",
+    "brand": "Nike",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-286",
+    "title": "Lacoste Blusa Premium",
+    "category": "roupas",
+    "brand": "Lacoste",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-287",
+    "title": "H&M Jaqueta Sport",
+    "category": "roupas",
+    "brand": "H&M",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-288",
+    "title": "Zara Bermuda Dri-FIT",
+    "category": "roupas",
+    "brand": "Zara",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-289",
+    "title": "Calvin Klein Polo Sport",
+    "category": "roupas",
+    "brand": "Calvin Klein",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-290",
+    "title": "Tommy Camiseta Cropped",
+    "category": "roupas",
+    "brand": "Tommy",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-291",
+    "title": "Nike Short Premium",
+    "category": "roupas",
+    "brand": "Nike",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-292",
+    "title": "Adidas Camisa Cropped",
+    "category": "roupas",
+    "brand": "Adidas",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-293",
+    "title": "Zara Bermuda Premium",
+    "category": "roupas",
+    "brand": "Zara",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-294",
+    "title": "Levi's Blusa Dri-FIT",
+    "category": "roupas",
+    "brand": "Levi's",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-295",
+    "title": "H&M Moletom Slim",
+    "category": "roupas",
+    "brand": "H&M",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-296",
+    "title": "Puma Blusa Premium",
+    "category": "roupas",
+    "brand": "Puma",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-297",
+    "title": "Lacoste Jaqueta Slim",
+    "category": "roupas",
+    "brand": "Lacoste",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-298",
+    "title": "Adidas Moletom Slim",
+    "category": "roupas",
+    "brand": "Adidas",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-299",
+    "title": "Polo Camiseta Essentials",
+    "category": "roupas",
+    "brand": "Polo",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-300",
+    "title": "Zara Polo Classic",
+    "category": "roupas",
+    "brand": "Zara",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-301",
+    "title": "Zara Polo Cropped",
+    "category": "roupas",
+    "brand": "Zara",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-302",
+    "title": "Zara Vestido Slim",
+    "category": "roupas",
+    "brand": "Zara",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-303",
+    "title": "Zara Jaqueta Oversized",
+    "category": "roupas",
+    "brand": "Zara",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-304",
+    "title": "Levi's Bermuda Dri-FIT",
+    "category": "roupas",
+    "brand": "Levi's",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-305",
+    "title": "Polo Jaqueta Regular",
+    "category": "roupas",
+    "brand": "Polo",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-306",
+    "title": "Zara Polo Dri-FIT",
+    "category": "roupas",
+    "brand": "Zara",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-307",
+    "title": "Zara Calça Sport",
+    "category": "roupas",
+    "brand": "Zara",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-308",
+    "title": "H&M Moletom Sport",
+    "category": "roupas",
+    "brand": "H&M",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-309",
+    "title": "Tommy Bermuda Premium",
+    "category": "roupas",
+    "brand": "Tommy",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-310",
+    "title": "H&M Polo Sport",
+    "category": "roupas",
+    "brand": "H&M",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-311",
+    "title": "Adidas Blusa Dri-FIT",
+    "category": "roupas",
+    "brand": "Adidas",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-312",
+    "title": "Adidas Moletom Essentials",
+    "category": "roupas",
+    "brand": "Adidas",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-313",
+    "title": "Levi's Calça Oversized",
+    "category": "roupas",
+    "brand": "Levi's",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-314",
+    "title": "Lacoste Blusa Basic",
+    "category": "roupas",
+    "brand": "Lacoste",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-315",
+    "title": "Nike Vestido Regular",
+    "category": "roupas",
+    "brand": "Nike",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-316",
+    "title": "Adidas Short Essentials",
+    "category": "roupas",
+    "brand": "Adidas",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-317",
+    "title": "Calvin Klein Blusa Sport",
+    "category": "roupas",
+    "brand": "Calvin Klein",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-318",
+    "title": "Puma Calça Dri-FIT",
+    "category": "roupas",
+    "brand": "Puma",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-319",
+    "title": "Zara Calça Essentials",
+    "category": "roupas",
+    "brand": "Zara",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-320",
+    "title": "Tommy Bermuda Cropped",
+    "category": "roupas",
+    "brand": "Tommy",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-321",
+    "title": "Tommy Short Essentials",
+    "category": "roupas",
+    "brand": "Tommy",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-322",
+    "title": "Levi's Short Basic",
+    "category": "roupas",
+    "brand": "Levi's",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-323",
+    "title": "Nike Blusa Classic",
+    "category": "roupas",
+    "brand": "Nike",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-324",
+    "title": "Adidas Polo Premium",
+    "category": "roupas",
+    "brand": "Adidas",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-325",
+    "title": "Lacoste Vestido Cropped",
+    "category": "roupas",
+    "brand": "Lacoste",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-326",
+    "title": "Levi's Jaqueta Slim",
+    "category": "roupas",
+    "brand": "Levi's",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-327",
+    "title": "Nike Bermuda Classic",
+    "category": "roupas",
+    "brand": "Nike",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-328",
+    "title": "Puma Moletom Slim",
+    "category": "roupas",
+    "brand": "Puma",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-329",
+    "title": "Nike Camiseta Essentials",
+    "category": "roupas",
+    "brand": "Nike",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-330",
+    "title": "Lacoste Camisa Premium",
+    "category": "roupas",
+    "brand": "Lacoste",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-331",
+    "title": "H&M Blusa Dri-FIT",
+    "category": "roupas",
+    "brand": "H&M",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-332",
+    "title": "Adidas Polo Sport",
+    "category": "roupas",
+    "brand": "Adidas",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-333",
+    "title": "Adidas Calça Premium",
+    "category": "roupas",
+    "brand": "Adidas",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-334",
+    "title": "Zara Calça Classic",
+    "category": "roupas",
+    "brand": "Zara",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-335",
+    "title": "H&M Camisa Dri-FIT",
+    "category": "roupas",
+    "brand": "H&M",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-336",
+    "title": "Nike Calça Basic",
+    "category": "roupas",
+    "brand": "Nike",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-337",
+    "title": "Adidas Jaqueta Dri-FIT",
+    "category": "roupas",
+    "brand": "Adidas",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-338",
+    "title": "Polo Jaqueta Oversized",
+    "category": "roupas",
+    "brand": "Polo",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-339",
+    "title": "Calvin Klein Camiseta Classic",
+    "category": "roupas",
+    "brand": "Calvin Klein",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-340",
+    "title": "H&M Polo Cropped",
+    "category": "roupas",
+    "brand": "H&M",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-341",
+    "title": "Adidas Calça Slim",
+    "category": "roupas",
+    "brand": "Adidas",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-342",
+    "title": "Nike Camisa Basic",
+    "category": "roupas",
+    "brand": "Nike",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-343",
+    "title": "H&M Camisa Regular",
+    "category": "roupas",
+    "brand": "H&M",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-344",
+    "title": "Adidas Camisa Essentials",
+    "category": "roupas",
+    "brand": "Adidas",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-345",
+    "title": "Levi's Blusa Slim",
+    "category": "roupas",
+    "brand": "Levi's",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para roupas"
+  },
+  {
+    "id": "PROD-346",
+    "title": "Samsung Liquidificador Frost Free",
+    "category": "eletrodomesticos",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-347",
+    "title": "Brastemp Air Fryer Turbo",
+    "category": "eletrodomesticos",
+    "brand": "Brastemp",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-348",
+    "title": "Mondial Air Fryer Premium",
+    "category": "eletrodomesticos",
+    "brand": "Mondial",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-349",
+    "title": "Brastemp Cafeteira Turbo",
+    "category": "eletrodomesticos",
+    "brand": "Brastemp",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-350",
+    "title": "LG Aspirador Premium",
+    "category": "eletrodomesticos",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-351",
+    "title": "LG Mixer Pro",
+    "category": "eletrodomesticos",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-352",
+    "title": "Electrolux Geladeira Turbo",
+    "category": "eletrodomesticos",
+    "brand": "Electrolux",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-353",
+    "title": "Philips Aspirador Digital",
+    "category": "eletrodomesticos",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-354",
+    "title": "Brastemp Air Fryer Max",
+    "category": "eletrodomesticos",
+    "brand": "Brastemp",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-355",
+    "title": "Consul Lava-louças Compact",
+    "category": "eletrodomesticos",
+    "brand": "Consul",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-356",
+    "title": "LG Lava-louças 4L",
+    "category": "eletrodomesticos",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-357",
+    "title": "Philips Fogão Turbo",
+    "category": "eletrodomesticos",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-358",
+    "title": "Consul Air Fryer Turbo",
+    "category": "eletrodomesticos",
+    "brand": "Consul",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-359",
+    "title": "LG Micro-ondas 6L",
+    "category": "eletrodomesticos",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-360",
+    "title": "Mondial Micro-ondas Pro",
+    "category": "eletrodomesticos",
+    "brand": "Mondial",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-361",
+    "title": "Electrolux Micro-ondas Premium",
+    "category": "eletrodomesticos",
+    "brand": "Electrolux",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-362",
+    "title": "Philips Lava-louças Premium",
+    "category": "eletrodomesticos",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-363",
+    "title": "Mondial Sanduicheira Compact",
+    "category": "eletrodomesticos",
+    "brand": "Mondial",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-364",
+    "title": "Oster Liquidificador Turbo",
+    "category": "eletrodomesticos",
+    "brand": "Oster",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-365",
+    "title": "Brastemp Lava-louças Premium",
+    "category": "eletrodomesticos",
+    "brand": "Brastemp",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-366",
+    "title": "Consul Micro-ondas 6L",
+    "category": "eletrodomesticos",
+    "brand": "Consul",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-367",
+    "title": "Brastemp Sanduicheira Frost Free",
+    "category": "eletrodomesticos",
+    "brand": "Brastemp",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-368",
+    "title": "Britânia Liquidificador Digital",
+    "category": "eletrodomesticos",
+    "brand": "Britânia",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-369",
+    "title": "Philips Fogão 4L",
+    "category": "eletrodomesticos",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-370",
+    "title": "Philips Aspirador Premium",
+    "category": "eletrodomesticos",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-371",
+    "title": "LG Geladeira Frost Free",
+    "category": "eletrodomesticos",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-372",
+    "title": "Oster Micro-ondas Inox",
+    "category": "eletrodomesticos",
+    "brand": "Oster",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-373",
+    "title": "Britânia Lava-louças Inox",
+    "category": "eletrodomesticos",
+    "brand": "Britânia",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-374",
+    "title": "Electrolux Air Fryer 6L",
+    "category": "eletrodomesticos",
+    "brand": "Electrolux",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-375",
+    "title": "Samsung Micro-ondas 6L",
+    "category": "eletrodomesticos",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-376",
+    "title": "Britânia Micro-ondas Inox",
+    "category": "eletrodomesticos",
+    "brand": "Britânia",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-377",
+    "title": "Oster Aspirador Digital",
+    "category": "eletrodomesticos",
+    "brand": "Oster",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-378",
+    "title": "Brastemp Cafeteira Inox",
+    "category": "eletrodomesticos",
+    "brand": "Brastemp",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-379",
+    "title": "Samsung Lava-louças 4L",
+    "category": "eletrodomesticos",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-380",
+    "title": "Samsung Liquidificador Compact",
+    "category": "eletrodomesticos",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-381",
+    "title": "LG Mixer Max",
+    "category": "eletrodomesticos",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-382",
+    "title": "Oster Micro-ondas Frost Free",
+    "category": "eletrodomesticos",
+    "brand": "Oster",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-383",
+    "title": "Oster Aspirador Digital",
+    "category": "eletrodomesticos",
+    "brand": "Oster",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-384",
+    "title": "Brastemp Sanduicheira Compact",
+    "category": "eletrodomesticos",
+    "brand": "Brastemp",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-385",
+    "title": "Philips Fogão Frost Free",
+    "category": "eletrodomesticos",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-386",
+    "title": "Philips Fogão 4L",
+    "category": "eletrodomesticos",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-387",
+    "title": "LG Sanduicheira Frost Free",
+    "category": "eletrodomesticos",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-388",
+    "title": "Oster Fogão Pro",
+    "category": "eletrodomesticos",
+    "brand": "Oster",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-389",
+    "title": "Brastemp Cafeteira Frost Free",
+    "category": "eletrodomesticos",
+    "brand": "Brastemp",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-390",
+    "title": "Brastemp Fogão Compact",
+    "category": "eletrodomesticos",
+    "brand": "Brastemp",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-391",
+    "title": "Samsung Liquidificador Frost Free",
+    "category": "eletrodomesticos",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-392",
+    "title": "Consul Mixer Pro",
+    "category": "eletrodomesticos",
+    "brand": "Consul",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-393",
+    "title": "Mondial Sanduicheira Inox",
+    "category": "eletrodomesticos",
+    "brand": "Mondial",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-394",
+    "title": "LG Micro-ondas Max",
+    "category": "eletrodomesticos",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-395",
+    "title": "Samsung Fogão Turbo",
+    "category": "eletrodomesticos",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para eletrodomesticos"
+  },
+  {
+    "id": "PROD-396",
+    "title": "Trek Halteres Dobrável",
+    "category": "esportes",
+    "brand": "Trek",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-397",
+    "title": "Trek Banco Home",
+    "category": "esportes",
+    "brand": "Trek",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-398",
+    "title": "Koga Esteira Fitness",
+    "category": "esportes",
+    "brand": "Koga",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-399",
+    "title": "Poker Banco Speed",
+    "category": "esportes",
+    "brand": "Poker",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-400",
+    "title": "Poker Elíptico Home",
+    "category": "esportes",
+    "brand": "Poker",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-401",
+    "title": "Koga Esteira Ajustável",
+    "category": "esportes",
+    "brand": "Koga",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-402",
+    "title": "Koga Elíptico Elétrica",
+    "category": "esportes",
+    "brand": "Koga",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-403",
+    "title": "Trek Kit Mountain",
+    "category": "esportes",
+    "brand": "Trek",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-404",
+    "title": "WCT Elíptico Mountain",
+    "category": "esportes",
+    "brand": "WCT",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-405",
+    "title": "Acte Barra Elétrica",
+    "category": "esportes",
+    "brand": "Acte",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-406",
+    "title": "Gonew Halteres Dobrável",
+    "category": "esportes",
+    "brand": "Gonew",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-407",
+    "title": "Koga Corda Elite",
+    "category": "esportes",
+    "brand": "Koga",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-408",
+    "title": "Acte Colchonete Speed",
+    "category": "esportes",
+    "brand": "Acte",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-409",
+    "title": "Gonew Corda Mountain",
+    "category": "esportes",
+    "brand": "Gonew",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-410",
+    "title": "Specialized Spinning Home",
+    "category": "esportes",
+    "brand": "Specialized",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-411",
+    "title": "Oxer Kit Dobrável",
+    "category": "esportes",
+    "brand": "Oxer",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-412",
+    "title": "Decathlon Halteres Profissional",
+    "category": "esportes",
+    "brand": "Decathlon",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-413",
+    "title": "Poker Spinning Home",
+    "category": "esportes",
+    "brand": "Poker",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-414",
+    "title": "Acte Esteira Profissional",
+    "category": "esportes",
+    "brand": "Acte",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-415",
+    "title": "Koga Kit Elétrica",
+    "category": "esportes",
+    "brand": "Koga",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-416",
+    "title": "WCT Barra Speed",
+    "category": "esportes",
+    "brand": "WCT",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-417",
+    "title": "Caloi Bicicleta Elite",
+    "category": "esportes",
+    "brand": "Caloi",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-418",
+    "title": "Acte Bicicleta Elétrica",
+    "category": "esportes",
+    "brand": "Acte",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-419",
+    "title": "Gonew Barra Carbon",
+    "category": "esportes",
+    "brand": "Gonew",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-420",
+    "title": "Oxer Kit Home",
+    "category": "esportes",
+    "brand": "Oxer",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-421",
+    "title": "Trek Colchonete Dobrável",
+    "category": "esportes",
+    "brand": "Trek",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-422",
+    "title": "Specialized Banco Carbon",
+    "category": "esportes",
+    "brand": "Specialized",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-423",
+    "title": "Koga Spinning Dobrável",
+    "category": "esportes",
+    "brand": "Koga",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-424",
+    "title": "Specialized Halteres Home",
+    "category": "esportes",
+    "brand": "Specialized",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-425",
+    "title": "WCT Elíptico Fitness",
+    "category": "esportes",
+    "brand": "WCT",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-426",
+    "title": "Trek Corda Speed",
+    "category": "esportes",
+    "brand": "Trek",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-427",
+    "title": "Specialized Kit Elétrica",
+    "category": "esportes",
+    "brand": "Specialized",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-428",
+    "title": "Decathlon Colchonete Fitness",
+    "category": "esportes",
+    "brand": "Decathlon",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-429",
+    "title": "Gonew Kit Dobrável",
+    "category": "esportes",
+    "brand": "Gonew",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-430",
+    "title": "Oxer Colchonete Home",
+    "category": "esportes",
+    "brand": "Oxer",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-431",
+    "title": "Gonew Banco Mountain",
+    "category": "esportes",
+    "brand": "Gonew",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-432",
+    "title": "Poker Banco Home",
+    "category": "esportes",
+    "brand": "Poker",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-433",
+    "title": "Trek Barra Elite",
+    "category": "esportes",
+    "brand": "Trek",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-434",
+    "title": "Specialized Barra Home",
+    "category": "esportes",
+    "brand": "Specialized",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-435",
+    "title": "WCT Halteres Mountain",
+    "category": "esportes",
+    "brand": "WCT",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para esportes"
+  },
+  {
+    "id": "PROD-436",
+    "title": "Acer Hero Full HD",
+    "category": "monitores",
+    "brand": "Acer",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-437",
+    "title": "MSI Optix 34\"",
+    "category": "monitores",
+    "brand": "MSI",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-438",
+    "title": "BenQ Professional 165Hz",
+    "category": "monitores",
+    "brand": "BenQ",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-439",
+    "title": "HP UltraWide 34\"",
+    "category": "monitores",
+    "brand": "HP",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-440",
+    "title": "LG Hero 144Hz",
+    "category": "monitores",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-441",
+    "title": "BenQ Professional 4K",
+    "category": "monitores",
+    "brand": "BenQ",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-442",
+    "title": "AOC Gaming 34\"",
+    "category": "monitores",
+    "brand": "AOC",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-443",
+    "title": "HP TUF 144Hz",
+    "category": "monitores",
+    "brand": "HP",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-444",
+    "title": "LG Odyssey 240Hz",
+    "category": "monitores",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-445",
+    "title": "AOC Gaming 32\"",
+    "category": "monitores",
+    "brand": "AOC",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-446",
+    "title": "LG UltraSharp 144Hz",
+    "category": "monitores",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-447",
+    "title": "HP UltraSharp 34\"",
+    "category": "monitores",
+    "brand": "HP",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-448",
+    "title": "Samsung Odyssey QHD",
+    "category": "monitores",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-449",
+    "title": "Dell Professional 144Hz",
+    "category": "monitores",
+    "brand": "Dell",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-450",
+    "title": "Samsung Optix 240Hz",
+    "category": "monitores",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-451",
+    "title": "LG TUF 32\"",
+    "category": "monitores",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-452",
+    "title": "BenQ UltraSharp 4K",
+    "category": "monitores",
+    "brand": "BenQ",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-453",
+    "title": "ASUS Odyssey 24\"",
+    "category": "monitores",
+    "brand": "ASUS",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-454",
+    "title": "Samsung Hero QHD",
+    "category": "monitores",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-455",
+    "title": "MSI Curved 27\"",
+    "category": "monitores",
+    "brand": "MSI",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-456",
+    "title": "ASUS Professional 240Hz",
+    "category": "monitores",
+    "brand": "ASUS",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-457",
+    "title": "BenQ Professional 27\"",
+    "category": "monitores",
+    "brand": "BenQ",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-458",
+    "title": "LG Gaming 27\"",
+    "category": "monitores",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-459",
+    "title": "LG ROG 32\"",
+    "category": "monitores",
+    "brand": "LG",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-460",
+    "title": "Acer Professional 27\"",
+    "category": "monitores",
+    "brand": "Acer",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-461",
+    "title": "AOC ROG 240Hz",
+    "category": "monitores",
+    "brand": "AOC",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-462",
+    "title": "AOC UltraWide 4K",
+    "category": "monitores",
+    "brand": "AOC",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-463",
+    "title": "Dell Professional Full HD",
+    "category": "monitores",
+    "brand": "Dell",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-464",
+    "title": "MSI UltraSharp 27\"",
+    "category": "monitores",
+    "brand": "MSI",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-465",
+    "title": "HP UltraWide 144Hz",
+    "category": "monitores",
+    "brand": "HP",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-466",
+    "title": "Acer UltraWide Full HD",
+    "category": "monitores",
+    "brand": "Acer",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-467",
+    "title": "ASUS Odyssey 34\"",
+    "category": "monitores",
+    "brand": "ASUS",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-468",
+    "title": "Philips Odyssey QHD",
+    "category": "monitores",
+    "brand": "Philips",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-469",
+    "title": "BenQ Odyssey 4K",
+    "category": "monitores",
+    "brand": "BenQ",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-470",
+    "title": "ASUS Odyssey 24\"",
+    "category": "monitores",
+    "brand": "ASUS",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para monitores"
+  },
+  {
+    "id": "PROD-471",
+    "title": "Fitbit Galaxy Watch 5",
+    "category": "relogios",
+    "brand": "Fitbit",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-472",
+    "title": "Apple G-Shock Ultra",
+    "category": "relogios",
+    "brand": "Apple",
+    "originalImage": "https://images.unsplash.com/photo-1510557880182-3d4d3cba35a5?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-473",
+    "title": "Amazfit G-Shock 2",
+    "category": "relogios",
+    "brand": "Amazfit",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-474",
+    "title": "Seiko Watch 3",
+    "category": "relogios",
+    "brand": "Seiko",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-475",
+    "title": "Citizen GT Ultra",
+    "category": "relogios",
+    "brand": "Citizen",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-476",
+    "title": "Samsung Gen 5",
+    "category": "relogios",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-477",
+    "title": "Casio Eco-Drive Active",
+    "category": "relogios",
+    "brand": "Casio",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-478",
+    "title": "Fossil Versa 5",
+    "category": "relogios",
+    "brand": "Fossil",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-479",
+    "title": "Fossil Prospex Pro",
+    "category": "relogios",
+    "brand": "Fossil",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-480",
+    "title": "Samsung GTR Active",
+    "category": "relogios",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-481",
+    "title": "Garmin GTR Series 9",
+    "category": "relogios",
+    "brand": "Garmin",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-482",
+    "title": "Casio Gen Classic",
+    "category": "relogios",
+    "brand": "Casio",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-483",
+    "title": "Citizen G-Shock Active",
+    "category": "relogios",
+    "brand": "Citizen",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-484",
+    "title": "Citizen G-Shock 3",
+    "category": "relogios",
+    "brand": "Citizen",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1587614295999-6c1c3a7b98d0?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-485",
+    "title": "Seiko Watch Pro",
+    "category": "relogios",
+    "brand": "Seiko",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-486",
+    "title": "Samsung GTR 2",
+    "category": "relogios",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-487",
+    "title": "Huawei G-Shock Pro",
+    "category": "relogios",
+    "brand": "Huawei",
+    "originalImage": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-488",
+    "title": "Fitbit G-Shock Pro",
+    "category": "relogios",
+    "brand": "Fitbit",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-489",
+    "title": "Huawei Galaxy Watch 4",
+    "category": "relogios",
+    "brand": "Huawei",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-490",
+    "title": "Casio Gen Active",
+    "category": "relogios",
+    "brand": "Casio",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-491",
+    "title": "Samsung Forerunner Classic",
+    "category": "relogios",
+    "brand": "Samsung",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-492",
+    "title": "Casio Versa 5",
+    "category": "relogios",
+    "brand": "Casio",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-493",
+    "title": "Huawei Gen Classic",
+    "category": "relogios",
+    "brand": "Huawei",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-494",
+    "title": "Apple Forerunner 5",
+    "category": "relogios",
+    "brand": "Apple",
+    "originalImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-495",
+    "title": "Apple Forerunner Series 9",
+    "category": "relogios",
+    "brand": "Apple",
+    "originalImage": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-496",
+    "title": "Amazfit Gen 2",
+    "category": "relogios",
+    "brand": "Amazfit",
+    "originalImage": "https://images.unsplash.com/photo-1565849904461-04a58ad377e0?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-497",
+    "title": "Fitbit Galaxy Watch 5",
+    "category": "relogios",
+    "brand": "Fitbit",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-498",
+    "title": "Citizen GT 6",
+    "category": "relogios",
+    "brand": "Citizen",
+    "originalImage": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-499",
+    "title": "Apple Galaxy Watch Classic",
+    "category": "relogios",
+    "brand": "Apple",
+    "originalImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  },
+  {
+    "id": "PROD-500",
+    "title": "Fossil GTR Series 9",
+    "category": "relogios",
+    "brand": "Fossil",
+    "originalImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop",
+    "reason": "Imagem de smartphone corrigida para relogios"
+  }
+]

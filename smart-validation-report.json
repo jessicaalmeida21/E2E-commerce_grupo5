@@ -1,0 +1,170 @@
+{
+  "timestamp": "2025-10-01T02:06:27.053Z",
+  "totalProducts": 500,
+  "correctMatches": 294,
+  "incorrectMatches": 206,
+  "correctPercentage": "58.8",
+  "incorrectPercentage": "41.2",
+  "problemsByCategory": {
+    "Notebooks": 10,
+    "Televisões": 18,
+    "Áudio e Som": 24,
+    "Calçados": 28,
+    "Roupas": 47,
+    "Eletrodomésticos": 50,
+    "Esportes e Lazer": 20,
+    "Monitores": 9
+  },
+  "problemExamples": [
+    {
+      "id": "PROD-069",
+      "name": "MSI Gaming Laptop",
+      "category": "Notebooks",
+      "brand": "MSI",
+      "image": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&auto=format",
+      "confidence": 0,
+      "reason": "Correspondência baseada em análise inteligente",
+      "productKeywords": [
+        "msi",
+        "gaming",
+        "laptop"
+      ],
+      "imageKeywords": [],
+      "isUnsplash": true
+    },
+    {
+      "id": "PROD-070",
+      "name": "LG Gram 17",
+      "category": "Notebooks",
+      "brand": "LG",
+      "image": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&auto=format",
+      "confidence": 0,
+      "reason": "Correspondência baseada em análise inteligente",
+      "productKeywords": [
+        "gram"
+      ],
+      "imageKeywords": [],
+      "isUnsplash": true
+    },
+    {
+      "id": "PROD-079",
+      "name": "MSI Gaming Laptop",
+      "category": "Notebooks",
+      "brand": "MSI",
+      "image": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&auto=format",
+      "confidence": 0,
+      "reason": "Correspondência baseada em análise inteligente",
+      "productKeywords": [
+        "msi",
+        "gaming",
+        "laptop"
+      ],
+      "imageKeywords": [],
+      "isUnsplash": true
+    },
+    {
+      "id": "PROD-080",
+      "name": "LG Gram 17",
+      "category": "Notebooks",
+      "brand": "LG",
+      "image": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&auto=format",
+      "confidence": 0,
+      "reason": "Correspondência baseada em análise inteligente",
+      "productKeywords": [
+        "gram"
+      ],
+      "imageKeywords": [],
+      "isUnsplash": true
+    },
+    {
+      "id": "PROD-089",
+      "name": "MSI Gaming Laptop",
+      "category": "Notebooks",
+      "brand": "MSI",
+      "image": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&auto=format",
+      "confidence": 0,
+      "reason": "Correspondência baseada em análise inteligente",
+      "productKeywords": [
+        "msi",
+        "gaming",
+        "laptop"
+      ],
+      "imageKeywords": [],
+      "isUnsplash": true
+    },
+    {
+      "id": "PROD-090",
+      "name": "LG Gram 17",
+      "category": "Notebooks",
+      "brand": "LG",
+      "image": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&auto=format",
+      "confidence": 0,
+      "reason": "Correspondência baseada em análise inteligente",
+      "productKeywords": [
+        "gram"
+      ],
+      "imageKeywords": [],
+      "isUnsplash": true
+    },
+    {
+      "id": "PROD-099",
+      "name": "MSI Gaming Laptop",
+      "category": "Notebooks",
+      "brand": "MSI",
+      "image": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&auto=format",
+      "confidence": 0,
+      "reason": "Correspondência baseada em análise inteligente",
+      "productKeywords": [
+        "msi",
+        "gaming",
+        "laptop"
+      ],
+      "imageKeywords": [],
+      "isUnsplash": true
+    },
+    {
+      "id": "PROD-100",
+      "name": "LG Gram 17",
+      "category": "Notebooks",
+      "brand": "LG",
+      "image": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&auto=format",
+      "confidence": 0,
+      "reason": "Correspondência baseada em análise inteligente",
+      "productKeywords": [
+        "gram"
+      ],
+      "imageKeywords": [],
+      "isUnsplash": true
+    },
+    {
+      "id": "PROD-109",
+      "name": "MSI Gaming Laptop",
+      "category": "Notebooks",
+      "brand": "MSI",
+      "image": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&auto=format",
+      "confidence": 0,
+      "reason": "Correspondência baseada em análise inteligente",
+      "productKeywords": [
+        "msi",
+        "gaming",
+        "laptop"
+      ],
+      "imageKeywords": [],
+      "isUnsplash": true
+    },
+    {
+      "id": "PROD-110",
+      "name": "LG Gram 17",
+      "category": "Notebooks",
+      "brand": "LG",
+      "image": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&auto=format",
+      "confidence": 0,
+      "reason": "Correspondência baseada em análise inteligente",
+      "productKeywords": [
+        "gram"
+      ],
+      "imageKeywords": [],
+      "isUnsplash": true
+    }
+  ]
+}

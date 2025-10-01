@@ -40,6 +40,7 @@
                 
                 <div class="tab-content active" id="login-tab">
                     <h2>Login</h2>
+                    
                     <form id="login-form">
                         <div class="form-group">
                             <label for="login-email">E-mail</label>
@@ -68,6 +69,15 @@
                         </div>
                         <div class="form-message" id="login-message"></div>
                     </form>
+                    
+                    <!-- Perfis de Teste Simplificados -->
+                    <div class="simple-test-profiles">
+                        <p><small>Perfis de teste:</small></p>
+                        <div class="test-buttons">
+                            <button type="button" class="btn-simple-test" onclick="fillTestProfile('cliente')">👤 Cliente</button>
+                            <button type="button" class="btn-simple-test" onclick="fillTestProfile('vendedor')">🏪 Vendedor</button>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="tab-content" id="register-tab">
@@ -86,18 +96,18 @@
                         <div class="form-group">
                             <label for="register-password">Senha</label>
                             <div class="password-input-container">
-                                <input type="password" id="register-password" required maxlength="10" minlength="6">
+                                <input type="password" id="register-password" required minlength="10">
                                 <button type="button" class="password-toggle" onclick="togglePassword('register-password')">
                                     <span class="show-password">👁️</span>
                                 </button>
                             </div>
                             <span class="error-message" id="register-password-error"></span>
-                            <small>A senha deve ter entre 6 e 10 caracteres, incluindo números e letras.</small>
+                            <small>A senha deve ter no mínimo 10 caracteres, incluindo números, letras e símbolos especiais.</small>
                         </div>
                         <div class="form-group">
                             <label for="register-confirm-password">Confirmar Senha</label>
                             <div class="password-input-container">
-                                <input type="password" id="register-confirm-password" required maxlength="10" minlength="6">
+                                <input type="password" id="register-confirm-password" required minlength="10">
                                 <button type="button" class="password-toggle" onclick="togglePassword('register-confirm-password')">
                                     <span class="show-password">👁️</span>
                                 </button>

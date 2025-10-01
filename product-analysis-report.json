@@ -1,0 +1,205 @@
+{
+  "summary": {
+    "totalProducts": 500,
+    "totalCategories": 10,
+    "productNameIssues": 0,
+    "brandIssues": 0,
+    "categoryMismatches": 0,
+    "duplicateNames": 17
+  },
+  "categories": [
+    {
+      "key": "smartphones",
+      "name": "Smartphones",
+      "productCount": 60
+    },
+    {
+      "key": "notebooks",
+      "name": "Notebooks",
+      "productCount": 50
+    },
+    {
+      "key": "televisoes",
+      "name": "Televisões",
+      "productCount": 45
+    },
+    {
+      "key": "audio",
+      "name": "Áudio e Som",
+      "productCount": 55
+    },
+    {
+      "key": "calcados",
+      "name": "Calçados",
+      "productCount": 65
+    },
+    {
+      "key": "roupas",
+      "name": "Roupas",
+      "productCount": 70
+    },
+    {
+      "key": "eletrodomesticos",
+      "name": "Eletrodomésticos",
+      "productCount": 50
+    },
+    {
+      "key": "esportes",
+      "name": "Esportes e Lazer",
+      "productCount": 40
+    },
+    {
+      "key": "monitores",
+      "name": "Monitores",
+      "productCount": 35
+    },
+    {
+      "key": "relogios",
+      "name": "Relógios",
+      "productCount": 30
+    }
+  ],
+  "issues": {
+    "productNameIssues": [],
+    "brandIssues": [],
+    "categoryMismatches": [],
+    "duplicateNames": [
+      {
+        "name": "Apple iPhone Lite",
+        "ids": [
+          "PROD-001",
+          "PROD-015"
+        ],
+        "category": "smartphones"
+      },
+      {
+        "name": "Xiaomi G73 FE",
+        "ids": [
+          "PROD-017",
+          "PROD-034"
+        ],
+        "category": "smartphones"
+      },
+      {
+        "name": "Google Pixel Max",
+        "ids": [
+          "PROD-006",
+          "PROD-039"
+        ],
+        "category": "smartphones"
+      },
+      {
+        "name": "LG C55 Lite",
+        "ids": [
+          "PROD-004",
+          "PROD-041"
+        ],
+        "category": "smartphones"
+      },
+      {
+        "name": "LG C55 Lite",
+        "ids": [
+          "PROD-004",
+          "PROD-042"
+        ],
+        "category": "smartphones"
+      },
+      {
+        "name": "HP Gram Slim",
+        "ids": [
+          "PROD-073",
+          "PROD-099"
+        ],
+        "category": "notebooks"
+      },
+      {
+        "name": "LG Gaming Ultra",
+        "ids": [
+          "PROD-097",
+          "PROD-102"
+        ],
+        "category": "notebooks"
+      },
+      {
+        "name": "MSI ThinkPad 13",
+        "ids": [
+          "PROD-091",
+          "PROD-107"
+        ],
+        "category": "notebooks"
+      },
+      {
+        "name": "Panasonic NanoCell 85\"",
+        "ids": [
+          "PROD-118",
+          "PROD-134"
+        ],
+        "category": "televisoes"
+      },
+      {
+        "name": "Multilaser OLED Android",
+        "ids": [
+          "PROD-119",
+          "PROD-140"
+        ],
+        "category": "televisoes"
+      },
+      {
+        "name": "JBL Wireless Noise Cancel",
+        "ids": [
+          "PROD-168",
+          "PROD-174"
+        ],
+        "category": "audio"
+      },
+      {
+        "name": "Puma Fresh Foam Rider",
+        "ids": [
+          "PROD-215",
+          "PROD-239"
+        ],
+        "category": "calcados"
+      },
+      {
+        "name": "Oster Aspirador Digital",
+        "ids": [
+          "PROD-377",
+          "PROD-383"
+        ],
+        "category": "eletrodomesticos"
+      },
+      {
+        "name": "Philips Fogão 4L",
+        "ids": [
+          "PROD-369",
+          "PROD-386"
+        ],
+        "category": "eletrodomesticos"
+      },
+      {
+        "name": "Samsung Liquidificador Frost Free",
+        "ids": [
+          "PROD-346",
+          "PROD-391"
+        ],
+        "category": "eletrodomesticos"
+      },
+      {
+        "name": "ASUS Odyssey 24\"",
+        "ids": [
+          "PROD-453",
+          "PROD-470"
+        ],
+        "category": "monitores"
+      },
+      {
+        "name": "Fitbit Galaxy Watch 5",
+        "ids": [
+          "PROD-471",
+          "PROD-497"
+        ],
+        "category": "relogios"
+      }
+    ]
+  }
+}

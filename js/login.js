@@ -106,7 +106,7 @@ function initializeUsers() {
             id: 'test-001',
             name: 'Cliente Teste',
             email: 'teste@gmail.com',
-            password: 'teste123', // Senha com 10 caracteres
+            password: 'teste123!@', // Senha atualizada com 10 caracteres e símbolos
             profile: 'customer',
             createdAt: new Date().toISOString(),
             isFixed: true
@@ -115,7 +115,7 @@ function initializeUsers() {
             id: 'test-002',
             name: 'Vendedor Teste',
             email: 'vendedor@teste.com',
-            password: 'vendedor1', // Senha com 10 caracteres
+            password: 'vendedor1!@', // Senha atualizada com 10 caracteres e símbolos
             profile: 'seller',
             createdAt: new Date().toISOString(),
             isFixed: true
@@ -133,9 +133,30 @@ function initializeUsers() {
             
             // Adicionar usuários cadastrados (que não sejam fixos)
             const customUsers = loadedUsers.filter(user => !user.isFixed);
-            users = [...users, ...customUsers];
             
-            console.log('Usuários finais:', users.length, '(2 fixos +', customUsers.length, 'cadastrados)');
+            // Migrar senhas não criptografadas para formato criptografado
+            const migratedUsers = customUsers.map(user => {
+                if (!user.passwordHash && user.password) {
+                    console.log('Migrando senha para usuário:', user.email);
+                    const { hash, salt } = hashPassword(user.password);
+                    return {
+                        ...user,
+                        passwordHash: hash,
+                        passwordSalt: salt,
+                        password: undefined // Remover senha em texto plano
+                    };
+                }
+                return user;
+            });
+            
+            users = [...users, ...migratedUsers];
+            
+            console.log('Usuários finais:', users.length, '(2 fixos +', migratedUsers.length, 'cadastrados)');
+            
+            // Salvar usuários migrados
+            localStorage.setItem('users', JSON.stringify(users));
+            console.log('Migração de senhas concluída e usuários salvos');
+            
         } catch (error) {
             console.error('Erro ao carregar usuários do localStorage:', error);
             users = [...fixedTestUsers];
@@ -167,24 +188,80 @@ function saveUsers() {
     }
 }
 
-// Função para criptografar senha
+// Função para criptografar senha com salt e múltiplas iterações
 async function hashPassword(password) {
+    // Gerar salt aleatório
+    const salt = crypto.getRandomValues(new Uint8Array(16));
     const encoder = new TextEncoder();
-    const data = encoder.encode(password);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', data);
+    const passwordData = encoder.encode(password);
+    
+    // Combinar senha com salt
+    const combined = new Uint8Array(passwordData.length + salt.length);
+    combined.set(passwordData);
+    combined.set(salt, passwordData.length);
+    
+    // Aplicar hash SHA-256 múltiplas vezes para maior segurança
+    let hashBuffer = combined;
+    for (let i = 0; i < 10000; i++) {
+        hashBuffer = await crypto.subtle.digest('SHA-256', hashBuffer);
+    }
+    
+    // Converter para string hexadecimal
     const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    const saltArray = Array.from(salt);
+    
+    // Retornar hash + salt para verificação posterior
+    const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    const saltHex = saltArray.map(b => b.toString(16).padStart(2, '0')).join('');
+    
+    return `${hashHex}:${saltHex}`;
+}
+
+// Função para verificar senha criptografada
+async function verifyPassword(password, hashedPassword) {
+    try {
+        // Separar hash e salt
+        const [hashHex, saltHex] = hashedPassword.split(':');
+        if (!hashHex || !saltHex) {
+            // Formato antigo - comparação direta para compatibilidade
+            return password === hashedPassword;
+        }
+        
+        // Converter salt de hex para bytes
+        const salt = new Uint8Array(saltHex.match(/.{2}/g).map(byte => parseInt(byte, 16)));
+        
+        // Recriar hash com a senha fornecida
+        const encoder = new TextEncoder();
+        const passwordData = encoder.encode(password);
+        
+        // Combinar senha com salt
+        const combined = new Uint8Array(passwordData.length + salt.length);
+        combined.set(passwordData);
+        combined.set(salt, passwordData.length);
+        
+        // Aplicar hash SHA-256 múltiplas vezes
+        let hashBuffer = combined;
+        for (let i = 0; i < 10000; i++) {
+            hashBuffer = await crypto.subtle.digest('SHA-256', hashBuffer);
+        }
+        
+        // Converter para string hexadecimal
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const newHashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        
+        // Comparar hashes
+        return newHashHex === hashHex;
+    } catch (error) {
+        console.error('Erro na verificação de senha:', error);
+        return false;
+    }
 }
 
 // Validação de senha
 function validatePassword(password) {
-    // Mínimo 6 caracteres, máximo 10 caracteres
-    if (password.length < 6) {
-        return { valid: false, message: 'A senha deve ter no mínimo 6 caracteres.' };
-    }
-    
-    if (password.length > 10) {
-        return { valid: false, message: 'A senha deve ter no máximo 10 caracteres.' };
+    // Mínimo 10 caracteres conforme documentação
+    if (password.length < 10) {
+        return { valid: false, message: 'A senha deve ter no mínimo 10 caracteres.' };
     }
     
     // Deve conter números
@@ -195,6 +272,11 @@ function validatePassword(password) {
     // Deve conter letras
     if (!/[a-zA-Z]/.test(password)) {
         return { valid: false, message: 'A senha deve conter pelo menos uma letra.' };
+    }
+    
+    // Deve conter caracteres especiais conforme documentação
+    if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
+        return { valid: false, message: 'A senha deve conter pelo menos um caractere especial (!@#$%^&*...).' };
     }
     
     return { valid: true };
@@ -252,45 +334,84 @@ function applyNameMask(input) {
 
 // Função para configurar validação em tempo real
 function setupRealTimeValidation() {
+    console.log('🔧 Configurando validação em tempo real...');
+    
+    // Validação do nome - não permitir números
     const nameInput = document.getElementById('register-name');
-    const emailInput = document.getElementById('register-email');
-    const passwordInput = document.getElementById('register-password');
-    const confirmPasswordInput = document.getElementById('register-confirm-password');
-    
     if (nameInput) {
-        applyNameMask(nameInput);
-    }
-    
-    if (emailInput) {
-        emailInput.addEventListener('blur', function() {
-            const validation = validateEmail(this.value);
-            const errorElement = document.getElementById('register-email-error');
-            if (!validation.valid && this.value) {
-                errorElement.textContent = validation.message;
-            } else {
-                errorElement.textContent = '';
+        nameInput.addEventListener('input', function(e) {
+            // Remove números do campo nome
+            let value = e.target.value;
+            let cleanValue = value.replace(/[0-9]/g, '');
+            
+            if (value !== cleanValue) {
+                e.target.value = cleanValue;
+                // Mostrar feedback visual temporário
+                const errorElement = document.getElementById('register-name-error');
+                if (errorElement) {
+                    errorElement.textContent = 'Números não são permitidos no nome';
+                    errorElement.style.color = '#ff6b6b';
+                    setTimeout(() => {
+                        errorElement.textContent = '';
+                    }, 2000);
+                }
+            }
+        });
+        
+        nameInput.addEventListener('keypress', function(e) {
+            // Prevenir digitação de números
+            if (/[0-9]/.test(e.key)) {
+                e.preventDefault();
+                const errorElement = document.getElementById('register-name-error');
+                if (errorElement) {
+                    errorElement.textContent = 'Apenas letras e espaços são permitidos';
+                    errorElement.style.color = '#ff6b6b';
+                    setTimeout(() => {
+                        errorElement.textContent = '';
+                    }, 2000);
+                }
             }
         });
     }
     
+    // Validação de senha em tempo real
+    const passwordInput = document.getElementById('register-password');
     if (passwordInput) {
         passwordInput.addEventListener('input', function() {
-            const validation = validatePassword(this.value);
+            const password = this.value;
             const errorElement = document.getElementById('register-password-error');
-            if (!validation.valid && this.value) {
-                errorElement.textContent = validation.message;
+            
+            if (password.length > 0) {
+                const validation = validatePassword(password);
+                if (!validation.valid) {
+                    errorElement.textContent = validation.message;
+                    errorElement.style.color = '#ff6b6b';
+                } else {
+                    errorElement.textContent = '✓ Senha válida';
+                    errorElement.style.color = '#4CAF50';
+                }
             } else {
                 errorElement.textContent = '';
             }
         });
     }
     
+    // Validação de confirmação de senha
+    const confirmPasswordInput = document.getElementById('register-confirm-password');
     if (confirmPasswordInput) {
         confirmPasswordInput.addEventListener('input', function() {
             const password = document.getElementById('register-password').value;
+            const confirmPassword = this.value;
             const errorElement = document.getElementById('register-confirm-password-error');
-            if (this.value && this.value !== password) {
-                errorElement.textContent = 'As senhas não coincidem';
+            
+            if (confirmPassword.length > 0) {
+                if (password !== confirmPassword) {
+                    errorElement.textContent = 'As senhas não coincidem';
+                    errorElement.style.color = '#ff6b6b';
+                } else {
+                    errorElement.textContent = '✓ Senhas coincidem';
+                    errorElement.style.color = '#4CAF50';
+                }
             } else {
                 errorElement.textContent = '';
             }
@@ -389,10 +510,9 @@ async function handleLogin(e) {
             match: passwordMatch 
         });
     } else {
-        // Usuários cadastrados - comparação criptografada
-        const encryptedPassword = await hashPassword(password);
-        passwordMatch = user.password === encryptedPassword;
-        console.log('🔍 Usuário cadastrado - comparação criptografada:', { 
+        // Usuários cadastrados - verificação com senha criptografada
+        passwordMatch = await verifyPassword(password, user.password);
+        console.log('🔍 Usuário cadastrado - verificação criptografada:', { 
             userId: user.id,
             senhaDigitada: password,
             senhaArmazenada: user.password.substring(0, 10) + '...',
@@ -419,8 +539,12 @@ async function handleLogin(e) {
     // Salvar usuário atual no localStorage
     localStorage.setItem('currentUser', JSON.stringify(user));
     
-    // Salvar tempo de início da sessão
+    // Configurar timeout de sessão (30 minutos)
+    const sessionTimeout = Date.now() + (30 * 60 * 1000); // 30 minutos em millisegundos
+    localStorage.setItem('sessionTimeout', sessionTimeout.toString());
     localStorage.setItem('sessionStartTime', Date.now().toString());
+    
+    console.log('⏰ Sessão configurada com timeout de 30 minutos');
     
     // Salvar opção "Lembrar-me"
     localStorage.setItem('rememberMe', rememberMe.toString());
@@ -483,8 +607,8 @@ async function handleRegister(e) {
     e.preventDefault();
     console.log('=== INÍCIO DO CADASTRO ===');
     
-    const name = document.getElementById('register-name').value;
-    const email = document.getElementById('register-email').value;
+    const name = document.getElementById('register-name').value.trim();
+    const email = document.getElementById('register-email').value.trim();
     const password = document.getElementById('register-password').value;
     const confirmPassword = document.getElementById('register-confirm-password').value;
     const profile = document.getElementById('register-profile').value;
@@ -501,75 +625,116 @@ async function handleRegister(e) {
     messageElement.textContent = '';
     messageElement.className = 'form-message';
     
-    // Validar campos
+    // Validar campos obrigatórios - VALIDAÇÃO RIGOROSA
     let hasError = false;
+    let errorMessages = [];
     
-    // Validar nome
-    if (!name) {
-        document.getElementById('register-name-error').textContent = 'Nome é obrigatório';
+    // 1. VALIDAR NOME COMPLETO (OBRIGATÓRIO)
+    if (!name || name.length === 0) {
+        document.getElementById('register-name-error').textContent = 'Nome completo é obrigatório';
+        errorMessages.push('Nome completo não informado');
+        hasError = true;
+    } else if (name.length < 2) {
+        document.getElementById('register-name-error').textContent = 'Nome deve ter pelo menos 2 caracteres';
+        errorMessages.push('Nome muito curto');
         hasError = true;
     } else {
         const nameValidation = validateName(name);
         if (!nameValidation.valid) {
             document.getElementById('register-name-error').textContent = nameValidation.message;
+            errorMessages.push('Nome inválido: ' + nameValidation.message);
             hasError = true;
         }
     }
     
-    // Validar email
-    if (!email) {
+    // 2. VALIDAR E-MAIL (OBRIGATÓRIO E ÚNICO)
+    if (!email || email.length === 0) {
         document.getElementById('register-email-error').textContent = 'E-mail é obrigatório';
+        errorMessages.push('E-mail não informado');
         hasError = true;
     } else {
         const emailValidation = validateEmail(email);
         if (!emailValidation.valid) {
             document.getElementById('register-email-error').textContent = emailValidation.message;
+            errorMessages.push('E-mail inválido: ' + emailValidation.message);
             hasError = true;
+        } else {
+            // Verificar se email já existe (validação de unicidade)
+            const existingUser = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+            if (existingUser) {
+                document.getElementById('register-email-error').textContent = 'Este e-mail já está cadastrado no sistema';
+                errorMessages.push('E-mail já cadastrado');
+                hasError = true;
+            }
         }
     }
     
-    // Validar senha
-    if (!password) {
+    // 3. VALIDAR SENHA (OBRIGATÓRIA - MÍNIMO 10 CARACTERES, NÚMEROS, LETRAS E SÍMBOLOS)
+    if (!password || password.length === 0) {
         document.getElementById('register-password-error').textContent = 'Senha é obrigatória';
+        errorMessages.push('Senha não informada');
         hasError = true;
     } else {
         const passwordValidation = validatePassword(password);
         if (!passwordValidation.valid) {
             document.getElementById('register-password-error').textContent = passwordValidation.message;
+            errorMessages.push('Senha inválida: ' + passwordValidation.message);
             hasError = true;
         }
     }
     
-    // Validar confirmação de senha
-    if (!confirmPassword) {
+    // 4. VALIDAR CONFIRMAÇÃO DE SENHA (OBRIGATÓRIA)
+    if (!confirmPassword || confirmPassword.length === 0) {
         document.getElementById('register-confirm-password-error').textContent = 'Confirmação de senha é obrigatória';
+        errorMessages.push('Confirmação de senha não informada');
         hasError = true;
     } else if (password !== confirmPassword) {
         document.getElementById('register-confirm-password-error').textContent = 'As senhas não coincidem';
+        errorMessages.push('Senhas não coincidem');
         hasError = true;
     }
     
-    // Validar perfil
-    if (!profile) {
-        document.getElementById('register-profile-error').textContent = 'Perfil é obrigatório';
+    // 5. VALIDAR PERFIL (OBRIGATÓRIO - VENDEDOR OU CLIENTE)
+    if (!profile || profile.length === 0) {
+        document.getElementById('register-profile-error').textContent = 'Perfil é obrigatório - selecione Cliente ou Vendedor';
+        errorMessages.push('Perfil não selecionado');
+        hasError = true;
+    } else if (profile !== 'cliente' && profile !== 'vendedor') {
+        document.getElementById('register-profile-error').textContent = 'Perfil inválido - deve ser Cliente ou Vendedor';
+        errorMessages.push('Perfil inválido');
         hasError = true;
     }
     
+    // SE HOUVER QUALQUER ERRO, IMPEDIR O CADASTRO
     if (hasError) {
-        console.log('❌ Erros de validação encontrados');
-        return;
-    }
-    
-    console.log('✅ Validação passou, verificando email duplicado...');
-    
-    // Verificar se email já existe
-    const existingUser = users.find(u => u.email === email);
-    if (existingUser) {
-        console.log('❌ Email já cadastrado:', email);
+        console.log('❌ Erros de validação encontrados:', errorMessages);
         messageElement.innerHTML = `
             <div class="error-message">
                 <i class="fas fa-exclamation-circle"></i>
-                <span>Este e-mail já está cadastrado.</span>
+                <span>Por favor, corrija todos os campos obrigatórios antes de continuar.</span>
+            </div>
+        `;
+        messageElement.className = 'form-message error';
+        
+        // Focar no primeiro campo com erro
+        const firstErrorField = document.querySelector('.error-message:not(:empty)').previousElementSibling;
+        if (firstErrorField && firstErrorField.focus) {
+            firstErrorField.focus();
+        }
+        
+        return;
+    }
+    
+    console.log('✅ Todas as validações passaram, verificando email único...');
+    
+    // Verificar se email já existe
+    const existingUser = users.find(user => user.email.toLowerCase() === email.toLowerCase());
+    if (existingUser) {
+        document.getElementById('register-email-error').textContent = 'Este e-mail já está cadastrado no sistema';
+        messageElement.innerHTML = `
+            <div class="error-message">
+                <i class="fas fa-exclamation-circle"></i>
+                <span>E-mail já cadastrado. Use outro e-mail ou faça login.</span>
             </div>
         `;
         messageElement.className = 'form-message error';
@@ -777,3 +942,41 @@ function checkSession() {
 
 // Verificar sessão ao carregar a página
 checkSession();
+
+// Função para preencher perfil de teste
+function fillTestProfile(profileType) {
+    console.log('🧪 Preenchendo perfil de teste:', profileType);
+    
+    const emailInput = document.getElementById('login-email');
+    const passwordInput = document.getElementById('login-password');
+    
+    if (!emailInput || !passwordInput) {
+        console.error('❌ Campos de login não encontrados');
+        return;
+    }
+    
+    if (profileType === 'cliente') {
+        emailInput.value = 'teste@gmail.com';
+        passwordInput.value = 'teste123!@';
+        console.log('✅ Perfil de cliente preenchido');
+    } else if (profileType === 'vendedor') {
+        emailInput.value = 'vendedor@teste.com';
+        passwordInput.value = 'vendedor1!@';
+        console.log('✅ Perfil de vendedor preenchido');
+    }
+    
+    // Adicionar feedback visual
+    emailInput.style.backgroundColor = '#e8f5e8';
+    passwordInput.style.backgroundColor = '#e8f5e8';
+    
+    setTimeout(() => {
+        emailInput.style.backgroundColor = '';
+        passwordInput.style.backgroundColor = '';
+    }, 1000);
+    
+    // Focar no botão de login
+    const loginButton = document.querySelector('#login-form button[type="submit"]');
+    if (loginButton) {
+        loginButton.focus();
+    }
+}

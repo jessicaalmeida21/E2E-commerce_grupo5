@@ -1,0 +1,170 @@
+[
+  {
+    "id": "PROD-005",
+    "name": "Xiaomi Moto G FE",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-008",
+    "name": "OnePlus iPhone 15 Pro Max",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-011",
+    "name": "Xiaomi Moto G Pro",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-014",
+    "name": "Apple Redmi Note FE",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-015",
+    "name": "Apple Nord Lite",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-016",
+    "name": "Apple G73 Ultra",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-017",
+    "name": "Xiaomi G73 FE",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-023",
+    "name": "Sony iPhone 15 Pro",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-024",
+    "name": "Google iPhone 15 FE",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-026",
+    "name": "Huawei Galaxy S24 Ultra",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-027",
+    "name": "Apple Redmi Note Lite",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-032",
+    "name": "Motorola iPhone 15 Pro Max",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-034",
+    "name": "Xiaomi G73 FE",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-037",
+    "name": "Xiaomi Nord Pro Max",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-040",
+    "name": "Apple Nord FE",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-049",
+    "name": "Apple Redmi Note 5G",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-052",
+    "name": "Motorola iPhone 15 Ultra",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-053",
+    "name": "Huawei G73 Plus",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-055",
+    "name": "Xiaomi Nord Plus",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-057",
+    "name": "Huawei Xperia Ultra",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  },
+  {
+    "id": "PROD-060",
+    "name": "Huawei Redmi Note Max",
+    "category": "Smartphones",
+    "oldImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop",
+    "newImage": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=400&fit=crop",
+    "reason": "Aplicada imagem específica da marca baseada no nome do produto"
+  }
+]

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Erros de Imagem</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        .error { color: red; font-weight: bold; }
+        .success { color: green; }
+        .image-test { margin: 10px 0; padding: 10px; border: 1px solid #ccc; }
+        img { max-width: 200px; max-height: 150px; }
+    </style>
+</head>
+<body>
+    <h1>Teste de Carregamento de Imagens</h1>
+    <div id="results"></div>
+
+    <script src="../js/database.js"></script>
+    <script>
+        const resultsDiv = document.getElementById('results');
+        let errorCount = 0;
+        let successCount = 0;
+        let totalImages = 0;
+
+        function testImage(src, productName, productId) {
+            return new Promise((resolve) => {
+                const img = new Image();
+                const testDiv = document.createElement('div');
+                testDiv.className = 'image-test';
+                
+                img.onload = function() {
+                    testDiv.innerHTML = `
+                        <div class="success">✓ SUCESSO: ${productName} (ID: ${productId})</div>
+                        <div>URL: ${src}</div>
+                        <img src="${src}" alt="${productName}">
+                    `;
+                    successCount++;
+                    resolve(true);
+                };
+                
+                img.onerror = function() {
+                    testDiv.innerHTML = `
+                        <div class="error">✗ ERRO: ${productName} (ID: ${productId})</div>
+                        <div>URL com problema: ${src}</div>
+                        <div>Erro: Imagem não carregou</div>
+                    `;
+                    errorCount++;
+                    resolve(false);
+                };
+                
+                resultsDiv.appendChild(testDiv);
+                img.src = src;
+            });
+        }
+
+        async function testAllImages() {
+            console.log('Iniciando teste de imagens...');
+            
+            // Testar primeiros 20 produtos de cada categoria
+            for (const category in productsDatabase) {
+                const products = productsDatabase[category].slice(0, 20);
+                
+                for (const product of products) {
+                    totalImages++;
+                    await testImage(product.image, product.title, product.id);
+                    
+                    // Pequena pausa para não sobrecarregar
+                    await new Promise(resolve => setTimeout(resolve, 100));
+                }
+            }
+            
+            // Mostrar resumo
+            const summaryDiv = document.createElement('div');
+            summaryDiv.innerHTML = `
+                <h2>Resumo do Teste</h2>
+                <p><strong>Total de imagens testadas:</strong> ${totalImages}</p>
+                <p class="success"><strong>Sucessos:</strong> ${successCount}</p>
+                <p class="error"><strong>Erros:</strong> ${errorCount}</p>
+                <p><strong>Taxa de sucesso:</strong> ${((successCount/totalImages)*100).toFixed(1)}%</p>
+            `;
+            resultsDiv.insertBefore(summaryDiv, resultsDiv.firstChild);
+            
+            console.log(`Teste concluído: ${successCount}/${totalImages} imagens carregaram com sucesso`);
+        }
+
+        // Iniciar teste quando a página carregar
+        window.addEventListener('load', testAllImages);
+    </script>
+</body>
+</html>

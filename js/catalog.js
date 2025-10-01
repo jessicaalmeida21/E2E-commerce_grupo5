@@ -72,8 +72,21 @@ function processUrlParams() {
 async function loadCategories() {
     try {
         console.log('Carregando categorias...');
-        let categories = await productsModule.getCategories();
-        console.log('Categorias recebidas do productsModule:', categories);
+        
+        // Aguardar um pouco para garantir que os módulos estejam carregados
+        await new Promise(resolve => setTimeout(resolve, 500));
+        
+        let categories = [];
+        
+        // Tentar carregar via productsModule primeiro
+        if (typeof productsModule !== 'undefined' && productsModule.getCategories) {
+            try {
+                categories = await productsModule.getCategories();
+                console.log('Categorias recebidas do productsModule:', categories);
+            } catch (error) {
+                console.error('Erro ao carregar categorias via productsModule:', error);
+            }
+        }
         
         // Se não há categorias, usar database.js diretamente
         if (!categories || categories.length === 0) {
@@ -81,6 +94,13 @@ async function loadCategories() {
             if (typeof getCategories === 'function') {
                 categories = getCategories();
                 console.log('Categorias carregadas diretamente do database.js:', categories);
+            } else if (typeof productsDatabase !== 'undefined') {
+                // Extrair categorias do productsDatabase
+                categories = Object.keys(productsDatabase).map(key => ({
+                    key: key,
+                    name: key.charAt(0).toUpperCase() + key.slice(1)
+                }));
+                console.log('Categorias extraídas do productsDatabase:', categories);
             }
         }
         
@@ -130,7 +150,7 @@ async function loadProducts(page = 1) {
         if (typeof productsModule !== 'undefined') {
             try {
                 console.log('Tentando carregar via productsModule...');
-                products = await productsModule.loadProducts(1, 20); // Carregar apenas 20 produtos primeiro
+                products = await productsModule.loadProducts(1, 500); // Carregar todos os 500 produtos
                 console.log('Produtos carregados via productsModule:', products.length);
             } catch (error) {
                 console.error('Erro no productsModule:', error);
@@ -142,7 +162,7 @@ async function loadProducts(page = 1) {
             console.log('Tentando carregar via apiService diretamente...');
             try {
                 if (typeof window.apiService !== 'undefined') {
-                    const response = await window.apiService.getProducts(1, 20);
+                    const response = await window.apiService.getProducts(1, 500);
                     products = response.products || [];
                     console.log('Produtos carregados via apiService:', products.length);
                 }
@@ -170,7 +190,7 @@ async function loadProducts(page = 1) {
         if (!products || products.length === 0) {
             console.log('Carregando da API diretamente...');
             try {
-                const response = await fetch('https://catalogo-products.pages.dev/api/products?page=1&pageSize=20');
+                const response = await fetch('https://catalogo-products.pages.dev/api/products?page=1&pageSize=500');
                 const data = await response.json();
                 
                 if (data.products && data.products.length > 0) {
@@ -548,385 +568,7 @@ function showNotification(message, type = 'info') {
     }, 3000);
 }
 
-
-            <span class="rating-count">(${product.ratingCount || 0})</span>
-
-        </div>` : '';
-
-
-
-    const stockStatus = product.stock > 0 ? 
-
-        `<span class="stock-status in-stock">Em estoque</span>` : 
-
-        `<span class="stock-status out-of-stock">Fora de estoque</span>`;
-
-
-
-    card.innerHTML = `
-
-        <img src="${product.image}" alt="${product.title}" class="product-img" loading="lazy">
-
-            ${discountBadge}
-
-        <div class="product-info">
-
-            <div class="product-price">
-
-                ${originalPrice}
-
-                <span class="current-price">${productsModule.formatPrice(product.price)}</span>
-
-            </div>
-
-            <h3 class="product-title">${product.title}</h3>
-
-            <p class="product-brand">${product.brand || 'Marca'}</p>
-
-            ${rating}
-
-            ${stockStatus}
-
-            <div class="product-actions">
-
-                <button class="add-to-cart" data-id="${product.id}" ${product.stock === 0 ? 'disabled' : ''}>
-
-                    <i class="fas fa-shopping-cart"></i> 
-
-                    ${product.stock === 0 ? 'Fora de estoque' : 'Adicionar'}
-
-                </button>
-
-                <button class="wishlist-btn" data-id="${product.id}">
-
-                    <i class="far fa-heart"></i>
-
-                </button>
-
-            </div>
-
-        </div>
-
-    `;
-
-    
-
-    // Adicionar eventos
-
-    const addToCartBtn = card.querySelector('.add-to-cart');
-
-    if (addToCartBtn && !addToCartBtn.disabled) {
-
-        addToCartBtn.addEventListener('click', async function() {
-
-            const productId = this.getAttribute('data-id');
-
-            try {
-
-                const result = await productsModule.addToCart(productId);
-
-                showNotification('Produto adicionado ao carrinho!', 'success');
-
-            } catch (error) {
-
-                console.error('Erro ao adicionar ao carrinho:', error);
-
-                showNotification('Erro: ' + error.message, 'error');
-
-            }
-
-        });
-
-    }
-
-    
-
-    const wishlistBtn = card.querySelector('.wishlist-btn');
-
-    if (wishlistBtn) {
-
-        wishlistBtn.addEventListener('click', function() {
-
-            this.classList.toggle('active');
-
-            const icon = this.querySelector('i');
-
-            if (this.classList.contains('active')) {
-
-                icon.className = 'fas fa-heart';
-
-                showNotification('Adicionado aos favoritos!', 'success');
-
-            } else {
-
-                icon.className = 'far fa-heart';
-
-                showNotification('Removido dos favoritos!', 'info');
-
-            }
-
-        });
-
-    }
-
-    
-
-    
-
-    return card;
-
-}
-
-
-
-// Atualizar paginação
-
-function updatePagination(meta) {
-
-    const pagination = document.getElementById('pagination');
-
-    const { page, totalPages, total } = meta;
-
-    
-
-    if (totalPages <= 1) {
-
-        pagination.innerHTML = '';
-
-        return;
-
-    }
-
-    
-
-    let paginationHTML = `
-
-        <div class="pagination-info">
-
-            Página ${page} de ${totalPages} (${total} produtos)
-
-        </div>
-
-        <div class="pagination-controls">
-
-    `;
-
-    
-
-    // Botão anterior
-
-    if (page > 1) {
-
-        paginationHTML += `<button class="pagination-btn" data-page="${page - 1}">
-
-            <i class="fas fa-chevron-left"></i> Anterior
-
-        </button>`;
-
-    }
-
-    
-
-    // Números das páginas
-
-    const startPage = Math.max(1, page - 2);
-
-    const endPage = Math.min(totalPages, page + 2);
-
-    
-
-    if (startPage > 1) {
-
-        paginationHTML += `<button class="pagination-btn" data-page="1">1</button>`;
-
-        if (startPage > 2) {
-
-            paginationHTML += `<span class="pagination-ellipsis">...</span>`;
-
-        }
-
-    }
-
-    
-
-    for (let i = startPage; i <= endPage; i++) {
-
-        paginationHTML += `<button class="pagination-btn ${i === page ? 'active' : ''}" data-page="${i}">${i}</button>`;
-
-    }
-
-    
-
-    if (endPage < totalPages) {
-
-        if (endPage < totalPages - 1) {
-
-            paginationHTML += `<span class="pagination-ellipsis">...</span>`;
-
-        }
-
-        paginationHTML += `<button class="pagination-btn" data-page="${totalPages}">${totalPages}</button>`;
-
-    }
-
-    
-
-    // Botão próximo
-
-    if (page < totalPages) {
-
-        paginationHTML += `<button class="pagination-btn" data-page="${page + 1}">
-
-            Próximo <i class="fas fa-chevron-right"></i>
-
-        </button>`;
-
-    }
-
-    
-
-    paginationHTML += '</div>';
-
-    pagination.innerHTML = paginationHTML;
-
-    
-
-    // Adicionar eventos aos botões
-
-    pagination.querySelectorAll('.pagination-btn').forEach(btn => {
-
-        btn.addEventListener('click', function() {
-
-            const page = parseInt(this.getAttribute('data-page'));
-
-            loadProducts(page);
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-
-        });
-
-    });
-
-}
-
-
-
-// Configurar event listeners
-
-function setupEventListeners() {
-
-    // Busca
-
-    const searchInput = document.getElementById('search-input');
-
-    const searchBtn = document.getElementById('search-btn');
-
-    
-
-    searchBtn.addEventListener('click', performSearch);
-
-    searchInput.addEventListener('keypress', function(e) {
-
-        if (e.key === 'Enter') {
-
-            performSearch();
-
-        }
-
-    });
-
-    
-
-    // Filtros
-
-    document.getElementById('category-filter').addEventListener('change', function() {
-
-        currentCategory = this.value;
-
-        currentPage = 1;
-
-        loadProducts();
-
-    });
-
-    
-
-    document.getElementById('sort-filter').addEventListener('change', function() {
-
-        currentSort = this.value;
-
-        loadProducts(currentPage);
-
-    });
-
-}
-
-
-
-// Realizar busca
-
-function performSearch() {
-
-    const searchInput = document.getElementById('search-input');
-
-    currentSearch = searchInput.value.trim();
-
-    currentPage = 1;
-
-    loadProducts();
-
-}
-
-
-
-// Mostrar/ocultar loading
-
-function showLoading(show) {
-
-    const loading = document.getElementById('loading');
-
-    const grid = document.getElementById('products-grid');
-
-    
-
-    if (show) {
-
-        loading.style.display = 'flex';
-
-        grid.style.display = 'none';
-
-    } else {
-
-        loading.style.display = 'none';
-
-        grid.style.display = 'grid';
-
-    }
-
-}
-
-
-
-// Mostrar catálogo vazio
-
-function showEmptyCatalog() {
-
-    const grid = document.getElementById('products-grid');
-
-    const emptyCatalog = document.getElementById('empty-catalog');
-
-    
-
-    grid.innerHTML = '';
-
-    emptyCatalog.style.display = 'block';
-
-}
-
-
-
 // Carregar produtos diretamente do database.js
-
 async function loadProductsDirectly() {
 
     try {

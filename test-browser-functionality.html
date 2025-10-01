@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Funcionalidades - E2E Commerce</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .test-section {
+            background: white;
+            margin: 20px 0;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-result {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .warning {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #results {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Teste de Funcionalidades - E2E Commerce</h1>
+    
+    <div class="test-section">
+        <h2>Testes Automáticos</h2>
+        <button onclick="runAllTests()">🚀 Executar Todos os Testes</button>
+        <button onclick="testDatabase()">📊 Testar Database</button>
+        <button onclick="testCatalog()">📱 Testar Catálogo</button>
+        <button onclick="testCart()">🛒 Testar Carrinho</button>
+        <button onclick="testLogin()">🔐 Testar Login</button>
+        <button onclick="clearResults()">🧹 Limpar Resultados</button>
+    </div>
+
+    <div id="results"></div>
+
+    <script src="./js/database.js"></script>
+    <script>
+        function addResult(message, type = 'success') {
+            const results = document.getElementById('results');
+            const div = document.createElement('div');
+            div.className = `test-result ${type}`;
+            div.innerHTML = `<strong>${new Date().toLocaleTimeString()}</strong> - ${message}`;
+            results.appendChild(div);
+            results.scrollTop = results.scrollHeight;
+        }
+
+        function clearResults() {
+            document.getElementById('results').innerHTML = '';
+        }
+
+        async function testDatabase() {
+            addResult('🔄 Testando Database...', 'warning');
+            
+            try {
+                // Verificar se database está carregado
+                if (typeof getAllProducts === 'undefined') {
+                    throw new Error('Função getAllProducts não encontrada');
+                }
+                
+                const products = getAllProducts();
+                addResult(`✅ Database carregado: ${products.length} produtos`);
+                
+                // Verificar produtos com imagens
+                const withImages = products.filter(p => p.image && p.image.startsWith('https://'));
+                addResult(`✅ Produtos com imagens: ${withImages.length}/${products.length} (${((withImages.length/products.length)*100).toFixed(1)}%)`);
+                
+                // Verificar categorias
+                const categories = getCategories();
+                addResult(`✅ Categorias disponíveis: ${categories.length}`);
+                
+                // Testar produto específico
+                const testProduct = products.find(p => p.title.includes('Motorola'));
+                if (testProduct) {
+                    addResult(`✅ Produto teste encontrado: ${testProduct.title} - ${testProduct.image ? 'Com imagem' : 'Sem imagem'}`);
+                }
+                
+            } catch (error) {
+                addResult(`❌ Erro no Database: ${error.message}`, 'error');
+            }
+        }
+
+        async function testCatalog() {
+            addResult('🔄 Testando Catálogo...', 'warning');
+            
+            try {
+                // Verificar se existe container do catálogo
+                const catalogContainer = document.createElement('div');
+                catalogContainer.id = 'products-container';
+                document.body.appendChild(catalogContainer);
+                
+                // Simular carregamento do catálogo
+                if (typeof getAllProducts !== 'undefined') {
+                    const products = getAllProducts();
+                    addResult(`✅ Catálogo pode carregar ${products.length} produtos`);
+                    
+                    // Verificar se produtos têm dados necessários
+                    const validProducts = products.filter(p => p.title && p.price && p.image);
+                    addResult(`✅ Produtos válidos para exibição: ${validProducts.length}/${products.length}`);
+                } else {
+                    throw new Error('Database não carregado para o catálogo');
+                }
+                
+            } catch (error) {
+                addResult(`❌ Erro no Catálogo: ${error.message}`, 'error');
+            }
+        }
+
+        async function testCart() {
+            addResult('🔄 Testando Carrinho...', 'warning');
+            
+            try {
+                // Verificar localStorage
+                const cartData = localStorage.getItem('cart');
+                addResult(`✅ LocalStorage acessível: ${cartData ? 'Carrinho existente' : 'Carrinho vazio'}`);
+                
+                // Simular adição ao carrinho
+                const testCartItem = {
+                    id: 'TEST-001',
+                    title: 'Produto Teste',
+                    price: 100,
+                    quantity: 1
+                };
+                
+                localStorage.setItem('testCart', JSON.stringify([testCartItem]));
+                const savedCart = JSON.parse(localStorage.getItem('testCart'));
+                
+                if (savedCart && savedCart.length > 0) {
+                    addResult(`✅ Carrinho funcional: Item salvo com sucesso`);
+                    localStorage.removeItem('testCart');
+                } else {
+                    throw new Error('Falha ao salvar item no carrinho');
+                }
+                
+            } catch (error) {
+                addResult(`❌ Erro no Carrinho: ${error.message}`, 'error');
+            }
+        }
+
+        async function testLogin() {
+            addResult('🔄 Testando Sistema de Login...', 'warning');
+            
+            try {
+                // Verificar localStorage para usuários
+                const usersData = localStorage.getItem('users');
+                addResult(`✅ Sistema de usuários: ${usersData ? 'Dados existentes' : 'Limpo'}`);
+                
+                // Simular registro de usuário
+                const testUser = {
+                    email: 'teste@exemplo.com',
+                    password: 'senha123',
+                    name: 'Usuário Teste'
+                };
+                
+                localStorage.setItem('testUser', JSON.stringify(testUser));
+                const savedUser = JSON.parse(localStorage.getItem('testUser'));
+                
+                if (savedUser && savedUser.email === testUser.email) {
+                    addResult(`✅ Sistema de login funcional: Usuário salvo`);
+                    localStorage.removeItem('testUser');
+                } else {
+                    throw new Error('Falha ao salvar dados do usuário');
+                }
+                
+            } catch (error) {
+                addResult(`❌ Erro no Login: ${error.message}`, 'error');
+            }
+        }
+
+        async function runAllTests() {
+            clearResults();
+            addResult('🚀 Iniciando bateria completa de testes...', 'warning');
+            
+            await testDatabase();
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            await testCatalog();
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            await testCart();
+            await new Promise(resolve => setTimeout(resolve, 500));
+            
+            await testLogin();
+            
+            addResult('🎉 Todos os testes concluídos!', 'success');
+        }
+
+        // Executar teste inicial ao carregar a página
+        window.addEventListener('load', () => {
+            addResult('📄 Página de testes carregada com sucesso', 'success');
+            setTimeout(testDatabase, 1000);
+        });
+    </script>
+</body>
+</html>

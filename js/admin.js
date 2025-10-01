@@ -70,9 +70,26 @@ async function loadProducts() {
     try {
         console.log('=== INICIANDO CARREGAMENTO DE PRODUTOS ===');
         console.log('productsModule disponível:', typeof productsModule);
+        console.log('window.productsModule disponível:', typeof window.productsModule);
         
-        // Carregar produtos usando o módulo products (buscar mais produtos)
-        allProducts = await productsModule.loadProducts(1, 200);
+        // Aguardar um pouco para garantir que o productsModule seja carregado
+        if (typeof productsModule === 'undefined' && typeof window.productsModule !== 'undefined') {
+            window.productsModule = window.productsModule;
+        }
+        
+        if (typeof productsModule === 'undefined') {
+            console.log('⏳ Aguardando carregamento do productsModule...');
+            await new Promise(resolve => setTimeout(resolve, 500));
+        }
+        
+        // Carregar produtos usando o módulo products (buscar 500 produtos)
+        if (typeof productsModule !== 'undefined' && productsModule.loadProducts) {
+            allProducts = await productsModule.loadProducts(1, 500);
+        } else if (typeof window.productsModule !== 'undefined' && window.productsModule.loadProducts) {
+            allProducts = await window.productsModule.loadProducts(1, 500);
+        } else {
+            throw new Error('productsModule não disponível');
+        }
         
         console.log('✅ Produtos carregados via API:', allProducts.length);
         console.log('Primeiros 3 produtos:', allProducts.slice(0, 3));
@@ -83,8 +100,8 @@ async function loadProducts() {
             stock: product.stock || Math.floor(Math.random() * 50) + 1
         }));
     
-    filteredProducts = [...allProducts];
-    applyFiltersAndSort();
+        filteredProducts = [...allProducts];
+        applyFiltersAndSort();
         
         // Carregar categorias dinamicamente
         loadCategories();
@@ -180,8 +197,30 @@ async function loadProducts() {
 // Carregar categorias dinamicamente
 async function loadCategories() {
     try {
-        const categories = await productsModule.getCategories();
+        console.log('=== CARREGANDO CATEGORIAS ===');
+        
+        let categories = [];
+        
+        // Tentar carregar categorias do productsModule
+        if (typeof productsModule !== 'undefined' && productsModule.getCategories) {
+            categories = await productsModule.getCategories();
+        } else if (typeof window.productsModule !== 'undefined' && window.productsModule.getCategories) {
+            categories = await window.productsModule.getCategories();
+        } else {
+            console.log('productsModule não disponível, extraindo categorias dos produtos carregados');
+            // Extrair categorias únicas dos produtos carregados
+            const uniqueCategories = [...new Set(allProducts.map(product => product.category))];
+            categories = uniqueCategories.filter(cat => cat); // Remover valores vazios
+        }
+        
+        console.log('Categorias encontradas:', categories);
+        
         const categoryFilter = document.getElementById('category-filter');
+        
+        if (!categoryFilter) {
+            console.error('Elemento category-filter não encontrado');
+            return;
+        }
         
         // Limpar opções existentes (exceto "Todas")
         categoryFilter.innerHTML = '<option value="">Todas</option>';
@@ -193,8 +232,10 @@ async function loadCategories() {
             option.textContent = category.charAt(0).toUpperCase() + category.slice(1);
             categoryFilter.appendChild(option);
         });
+        
+        console.log('✅ Categorias carregadas no filtro:', categories.length);
     } catch (error) {
-        console.error('Erro ao carregar categorias:', error);
+        console.error('❌ Erro ao carregar categorias:', error);
     }
 }
 
@@ -315,12 +356,8 @@ function renderProducts() {
             currency: 'BRL'
         }).format(product.price);
         
-        // Determinar status baseado no estoque
-        const status = product.stock > 0 ? 'Ativo' : 'Inativo';
-        const statusClass = product.stock > 0 ? 'status-active' : 'status-inactive';
-        
-        // Status do produto (ativo/inativo)
-        const isActive = product.stock > 0;
+        // Status do produto (ativo/inativo) - baseado no estoque e status
+        const isActive = (product.stock > 0) && (product.status !== 'inactive') && (product.active !== false);
         const statusText = isActive ? 'Ativo' : 'Inativo';
         const statusClass = isActive ? 'status-active' : 'status-inactive';
         
@@ -514,9 +551,10 @@ function openStockModal(productId) {
     const product = allProducts.find(p => p.id === productId);
     if (!product) return;
     
-    // Verificar se produto está ativo
-    if (product.stock === 0) {
-        showNotification('Produto inativo: não é possível ajustar estoque', 'error');
+    // Verificar se produto está ativo (conforme regras de negócio)
+    const isActive = (product.stock > 0) && (product.status !== 'inactive') && (product.active !== false);
+    if (!isActive) {
+        showNotification('Produto inativo: não é possível ajustar estoque.', 'error');
         return;
     }
     
@@ -563,9 +601,13 @@ function updateStockPreview() {
     
     document.getElementById('new-stock-preview').textContent = newStock;
     
-    // Atualizar mensagem de confirmação
-    const confirmationText = `Adicionar +${amountToAdd} unidades ao estoque do produto "${product.title}"?`;
-    document.getElementById('confirmation-text').textContent = confirmationText;
+    // Atualizar mensagem de confirmação com mais detalhes
+    const confirmationText = `Confirmar acréscimo de +${amountToAdd} unidades ao estoque?
+    
+Produto: ${product.title}
+Estoque atual: ${product.stock} unidades
+Novo estoque: ${newStock} unidades`;
+    document.getElementById('confirmation-text').innerHTML = confirmationText.replace(/\n/g, '<br>');
 }
 
 // Confirmar adição de estoque
@@ -584,14 +626,14 @@ function confirmAddStock() {
     
     // Validação: apenas múltiplos de 10
     if (isNaN(amountToAdd) || amountToAdd <= 0 || amountToAdd % 10 !== 0) {
-        errorMessage.textContent = 'Acréscimo deve ser em lotes de 10 (10, 20, 30...).';
+        errorMessage.textContent = 'Acréscimo deve ser em lotes de 10 (10, 20, 30…).';
         errorMessage.classList.add('show');
         return;
     }
     
-    // Verificar se produto está ativo
-    if (product.stock === 0) {
-        errorMessage.textContent = 'Produto inativo: não é possível ajustar estoque';
+    // Verificar se produto está ativo (produtos com status inativo ou estoque 0)
+    if (product.status === 'inactive' || product.active === false) {
+        errorMessage.textContent = 'Produto inativo: não é possível ajustar estoque.';
         errorMessage.classList.add('show');
         return;
     }
@@ -618,8 +660,13 @@ function confirmAddStock() {
     closeModal();
     renderProducts();
     
-    // Mostrar mensagem de sucesso
-        showNotification(`Estoque do produto "${product.title}" aumentado em ${amountToAdd} unidades. Novo estoque: ${product.stock}`, 'success');
+    // Mostrar mensagem de sucesso mais detalhada
+        showNotification(`✅ Estoque atualizado com sucesso!
+        
+Produto: ${product.title}
+Acréscimo: +${amountToAdd} unidades
+Estoque anterior: ${product.stock - amountToAdd}
+Novo estoque: ${product.stock} unidades`, 'success');
         
     } catch (error) {
         console.error('Erro ao atualizar estoque:', error);

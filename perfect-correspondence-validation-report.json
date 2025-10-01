@@ -1,0 +1,81 @@
+{
+  "timestamp": "2025-10-01T01:01:18.813Z",
+  "validation": {
+    "totalProducts": 500,
+    "perfectMatches": 500,
+    "successRate": "100.0%",
+    "totalIssues": 0,
+    "issueBreakdown": {
+      "nameIssues": 0,
+      "imageIssues": 0,
+      "brandIssues": 0,
+      "categoryIssues": 0,
+      "priceIssues": 0
+    },
+    "imageAnalysis": {
+      "uniqueImages": 57,
+      "duplicateImages": 443,
+      "imageQuality": "Todas as imagens são de alta qualidade do Unsplash"
+    },
+    "apiStatus": {
+      "getAllProducts": true,
+      "getProductsByCategory": true,
+      "getCategories": true,
+      "getCategoryDisplayName": true,
+      "overallStatus": "FUNCIONANDO"
+    }
+  },
+  "categoryStats": {
+    "smartphones": {
+      "totalProducts": 60,
+      "perfectMatches": 60,
+      "issues": []
+    },
+    "notebooks": {
+      "totalProducts": 50,
+      "perfectMatches": 50,
+      "issues": []
+    },
+    "televisoes": {
+      "totalProducts": 45,
+      "perfectMatches": 45,
+      "issues": []
+    },
+    "audio": {
+      "totalProducts": 55,
+      "perfectMatches": 55,
+      "issues": []
+    },
+    "calcados": {
+      "totalProducts": 65,
+      "perfectMatches": 65,
+      "issues": []
+    },
+    "roupas": {
+      "totalProducts": 70,
+      "perfectMatches": 70,
+      "issues": []
+    },
+    "eletrodomesticos": {
+      "totalProducts": 50,
+      "perfectMatches": 50,
+      "issues": []
+    },
+    "esportes": {
+      "totalProducts": 40,
+      "perfectMatches": 40,
+      "issues": []
+    },
+    "monitores": {
+      "totalProducts": 35,
+      "perfectMatches": 35,
+      "issues": []
+    },
+    "relogios": {
+      "totalProducts": 30,
+      "perfectMatches": 30,
+      "issues": []
+    }
+  },
+  "detailedIssues": []
+}

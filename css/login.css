@@ -44,6 +44,46 @@
     font-size: 16px;
 }
 
+/* Perfis de teste simplificados */
+.simple-test-profiles {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.simple-test-profiles p {
+    margin: 0 0 10px 0;
+    color: #6c757d;
+}
+
+.test-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.btn-simple-test {
+    padding: 8px 16px;
+    border: 1px solid #dee2e6;
+    background-color: white;
+    color: #495057;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s ease;
+}
+
+.btn-simple-test:hover {
+    background-color: #e9ecef;
+    border-color: #adb5bd;
+}
+
+.btn-simple-test:active {
+    transform: translateY(1px);
+}
+
 /* Animações para notificações */
 @keyframes slideIn {
     from {

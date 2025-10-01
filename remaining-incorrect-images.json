@@ -1,0 +1,5851 @@
+[
+  {
+    "id": "PROD-001",
+    "name": "Apple Pixel Lite",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "apple",
+      "pixel",
+      "lite"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-002",
+    "name": "Sony Xperia FE",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "xperia"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-003",
+    "name": "Apple iPhone 15 Lite",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "apple",
+      "iphone",
+      "lite"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-004",
+    "name": "LG C55 Lite",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "c55",
+      "lite"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-005",
+    "name": "Xiaomi Moto G FE",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "xiaomi",
+      "moto"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-006",
+    "name": "Google Xperia Max",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "google",
+      "xperia",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-007",
+    "name": "Motorola Nord Pro",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "motorola",
+      "nord",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-008",
+    "name": "OnePlus iPhone 15 Pro Max",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "oneplus",
+      "iphone",
+      "pro",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-009",
+    "name": "Google Pixel Plus",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "google",
+      "pixel",
+      "plus"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-010",
+    "name": "Sony G73 Pro",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "g73",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-011",
+    "name": "Xiaomi Moto G Pro",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "xiaomi",
+      "moto",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-012",
+    "name": "Sony G73 Plus",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "g73",
+      "plus"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-013",
+    "name": "OnePlus C55 Ultra",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "oneplus",
+      "c55",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-014",
+    "name": "Apple Redmi Note FE",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "apple",
+      "redmi",
+      "note"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-015",
+    "name": "Apple Nord Lite",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "apple",
+      "nord",
+      "lite"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-016",
+    "name": "Apple G73 Ultra",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "apple",
+      "g73",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-017",
+    "name": "Xiaomi G73 FE",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "xiaomi",
+      "g73"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-018",
+    "name": "Samsung C55 Lite",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "c55",
+      "lite"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-019",
+    "name": "LG Moto G Lite",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "moto",
+      "lite"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-020",
+    "name": "Sony Nord FE",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "nord"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-021",
+    "name": "LG C55 5G",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "c55"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-022",
+    "name": "Sony C55 Pro",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "c55",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-023",
+    "name": "Sony iPhone 15 Pro",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "iphone",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-024",
+    "name": "Google iPhone 15 FE",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "google",
+      "iphone"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-025",
+    "name": "Sony Galaxy S24 Plus",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "galaxy",
+      "s24",
+      "plus"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-026",
+    "name": "Huawei Galaxy S24 Ultra",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "huawei",
+      "galaxy",
+      "s24",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-027",
+    "name": "Apple Redmi Note Lite",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "apple",
+      "redmi",
+      "note",
+      "lite"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-028",
+    "name": "Motorola Moto G 5G",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "motorola",
+      "moto"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-029",
+    "name": "Xiaomi Pixel Plus",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "xiaomi",
+      "pixel",
+      "plus"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-030",
+    "name": "OnePlus G73 Lite",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "oneplus",
+      "g73",
+      "lite"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-031",
+    "name": "Nokia Galaxy S24 5G",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "nokia",
+      "galaxy",
+      "s24"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-032",
+    "name": "Motorola iPhone 15 Pro Max",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "motorola",
+      "iphone",
+      "pro",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-033",
+    "name": "Sony Redmi Note 5G",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "redmi",
+      "note"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-034",
+    "name": "Xiaomi G73 FE",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "xiaomi",
+      "g73"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-035",
+    "name": "LG Redmi Note Pro",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "redmi",
+      "note",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-036",
+    "name": "Samsung Pixel 5G",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "pixel"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-037",
+    "name": "Xiaomi Nord Pro Max",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "xiaomi",
+      "nord",
+      "pro",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-038",
+    "name": "LG Galaxy S24 FE",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "galaxy",
+      "s24"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-039",
+    "name": "Google Xperia Max",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "google",
+      "xperia",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-040",
+    "name": "Apple Nord FE",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "apple",
+      "nord"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-041",
+    "name": "LG C55 Lite",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "c55",
+      "lite"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-042",
+    "name": "LG C55 Lite",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "c55",
+      "lite"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-043",
+    "name": "LG C55 Ultra",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "c55",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-044",
+    "name": "Google Nord Ultra",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "google",
+      "nord",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-045",
+    "name": "OnePlus Moto G Plus",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "oneplus",
+      "moto",
+      "plus"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-046",
+    "name": "Sony Redmi Note Pro Max",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "redmi",
+      "note",
+      "pro",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-047",
+    "name": "Samsung Nord FE",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "nord"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-048",
+    "name": "Sony Moto G 5G",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "moto"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-049",
+    "name": "Apple Redmi Note 5G",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "apple",
+      "redmi",
+      "note"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-050",
+    "name": "OnePlus Galaxy S24 Pro",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "oneplus",
+      "galaxy",
+      "s24",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-051",
+    "name": "Sony Xperia 5G",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "xperia"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-052",
+    "name": "Motorola iPhone 15 Ultra",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "motorola",
+      "iphone",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-053",
+    "name": "Huawei G73 Plus",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "huawei",
+      "g73",
+      "plus"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-054",
+    "name": "Motorola Xperia Lite",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "motorola",
+      "xperia",
+      "lite"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-055",
+    "name": "Xiaomi Nord Plus",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "xiaomi",
+      "nord",
+      "plus"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-056",
+    "name": "Samsung Redmi Note Ultra",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "redmi",
+      "note",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-057",
+    "name": "Huawei Xperia Ultra",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "huawei",
+      "xperia",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-058",
+    "name": "Google P60 Pro Max",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "google",
+      "p60",
+      "pro",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-059",
+    "name": "Google Nord FE",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "google",
+      "nord"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-060",
+    "name": "Huawei Redmi Note Max",
+    "category": "smartphones",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "huawei",
+      "redmi",
+      "note",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-061",
+    "name": "Dell Gaming Slim",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "dell",
+      "gaming",
+      "slim"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-062",
+    "name": "Lenovo Motion 15",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "lenovo",
+      "motion"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-063",
+    "name": "LG VivoBook Air",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "vivobook",
+      "air"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-064",
+    "name": "LG Book Air",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "book",
+      "air"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-065",
+    "name": "ASUS Pavilion Ultra",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "asus",
+      "pavilion",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-066",
+    "name": "Apple Pavilion i5",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "apple",
+      "pavilion"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-067",
+    "name": "Dell Gram Pro",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "dell",
+      "gram",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-068",
+    "name": "Dell Gaming Gaming",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "dell",
+      "gaming",
+      "gaming"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-069",
+    "name": "Positivo MacBook Air",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "positivo",
+      "macbook",
+      "air"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-070",
+    "name": "MSI Pavilion 14",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "msi",
+      "pavilion"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-071",
+    "name": "Lenovo Book Touch",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "lenovo",
+      "book",
+      "touch"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-072",
+    "name": "LG ThinkPad Pro",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "thinkpad",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-073",
+    "name": "HP Gram Slim",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "gram",
+      "slim"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-074",
+    "name": "Positivo ThinkPad Gaming",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "positivo",
+      "thinkpad",
+      "gaming"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-075",
+    "name": "Dell MacBook 14",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "dell",
+      "macbook"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-076",
+    "name": "Apple Book Touch",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "apple",
+      "book",
+      "touch"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-077",
+    "name": "Acer MacBook Air",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "acer",
+      "macbook",
+      "air"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-078",
+    "name": "ASUS Gram 13",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "asus",
+      "gram"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-079",
+    "name": "ASUS Gram i5",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "asus",
+      "gram"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-080",
+    "name": "Acer Book Ultra",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "acer",
+      "book",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-081",
+    "name": "MSI MacBook Ultra",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "msi",
+      "macbook",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-082",
+    "name": "LG Gram Air",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "gram",
+      "air"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-083",
+    "name": "Positivo Gram 14",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "positivo",
+      "gram"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-084",
+    "name": "MSI Book i5",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "msi",
+      "book"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-085",
+    "name": "MSI Motion Air",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "msi",
+      "motion",
+      "air"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-086",
+    "name": "ASUS Motion Air",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "asus",
+      "motion",
+      "air"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-087",
+    "name": "LG Pavilion Pro",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "pavilion",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-088",
+    "name": "LG Aspire Gaming",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "aspire",
+      "gaming"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-089",
+    "name": "Acer MacBook 13",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "acer",
+      "macbook"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-090",
+    "name": "Acer Gaming i5",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "acer",
+      "gaming"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-091",
+    "name": "MSI ThinkPad 13",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "msi",
+      "thinkpad"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-092",
+    "name": "Apple MacBook Air",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "apple",
+      "macbook",
+      "air"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-093",
+    "name": "Samsung Motion 13",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "motion"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-094",
+    "name": "ASUS ThinkPad Gaming",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "asus",
+      "thinkpad",
+      "gaming"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-095",
+    "name": "HP Pavilion Ultra",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "pavilion",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-096",
+    "name": "Dell Inspiron Pro",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "dell",
+      "inspiron",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-097",
+    "name": "LG Gaming Ultra",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "gaming",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-098",
+    "name": "Acer ThinkPad i5",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "acer",
+      "thinkpad"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-099",
+    "name": "HP Gram Slim",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "gram",
+      "slim"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-100",
+    "name": "HP ThinkPad Slim",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "thinkpad",
+      "slim"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-101",
+    "name": "MSI ThinkPad Slim",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "msi",
+      "thinkpad",
+      "slim"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-102",
+    "name": "LG Gaming Ultra",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "gaming",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-103",
+    "name": "Samsung Inspiron Pro",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "inspiron",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-104",
+    "name": "LG Aspire Slim",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "aspire",
+      "slim"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-105",
+    "name": "Acer Inspiron Slim",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "acer",
+      "inspiron",
+      "slim"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-106",
+    "name": "Samsung Gaming 15",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "gaming"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-107",
+    "name": "MSI ThinkPad 13",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "msi",
+      "thinkpad"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-108",
+    "name": "Samsung Motion Gaming",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "motion",
+      "gaming"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-109",
+    "name": "Samsung VivoBook Gaming",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "vivobook",
+      "gaming"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-110",
+    "name": "HP Aspire i5",
+    "category": "notebooks",
+    "currentImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "aspire"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-111",
+    "name": "Hisense 8K HDR",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "hisense",
+      "hdr"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-112",
+    "name": "Hisense 8K 65\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1571513728751-8c9d6e7c7c3b?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "hisense",
+      "65\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-113",
+    "name": "Hisense 4K Android",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "hisense",
+      "android"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-114",
+    "name": "Sony Neo QLED 85\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "neo",
+      "qled",
+      "85\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-115",
+    "name": "Samsung 4K 75\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "75\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-116",
+    "name": "Hisense Crystal 65\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "hisense",
+      "crystal",
+      "65\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-117",
+    "name": "Panasonic Neo QLED 85\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1571513728751-8c9d6e7c7c3b?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "panasonic",
+      "neo",
+      "qled",
+      "85\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-118",
+    "name": "Panasonic NanoCell 85\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "panasonic",
+      "nanocell",
+      "85\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-119",
+    "name": "Multilaser OLED Android",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "multilaser",
+      "oled",
+      "android"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-120",
+    "name": "Panasonic 4K Android",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "panasonic",
+      "android"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-121",
+    "name": "Sony Neo QLED HDR",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "neo",
+      "qled",
+      "hdr"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-122",
+    "name": "Semp Smart TV Dolby",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1571513728751-8c9d6e7c7c3b?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "semp",
+      "smart",
+      "dolby"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-123",
+    "name": "Panasonic Neo QLED Android",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "panasonic",
+      "neo",
+      "qled",
+      "android"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-124",
+    "name": "Philips OLED 50\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "oled",
+      "50\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-125",
+    "name": "Panasonic Full HD Android",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "panasonic",
+      "full",
+      "android"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-126",
+    "name": "Philips 4K 75\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "75\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-127",
+    "name": "Panasonic NanoCell HDR",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "panasonic",
+      "nanocell",
+      "hdr"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-128",
+    "name": "AOC 8K 75\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "aoc",
+      "75\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-129",
+    "name": "Semp 8K 43\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "semp",
+      "43\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-130",
+    "name": "AOC UHD 50\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "aoc",
+      "uhd",
+      "50\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-131",
+    "name": "Samsung QLED 43\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "qled",
+      "43\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-132",
+    "name": "LG Smart TV 65\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1571513728751-8c9d6e7c7c3b?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "smart",
+      "65\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-133",
+    "name": "Semp OLED HDR",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "semp",
+      "oled",
+      "hdr"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-134",
+    "name": "Panasonic NanoCell 85\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "panasonic",
+      "nanocell",
+      "85\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-135",
+    "name": "LG 8K HDR",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "hdr"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-136",
+    "name": "Hisense NanoCell 55\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "hisense",
+      "nanocell",
+      "55\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-137",
+    "name": "Philips Full HD 75\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "full",
+      "75\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-138",
+    "name": "Philips 4K 32\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "32\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-139",
+    "name": "Hisense NanoCell 65\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "hisense",
+      "nanocell",
+      "65\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-140",
+    "name": "Multilaser OLED Android",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "multilaser",
+      "oled",
+      "android"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-141",
+    "name": "Hisense 4K Dolby",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "hisense",
+      "dolby"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-142",
+    "name": "Semp QLED 85\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1571513728751-8c9d6e7c7c3b?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "semp",
+      "qled",
+      "85\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-143",
+    "name": "TCL OLED 50\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "tcl",
+      "oled",
+      "50\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-144",
+    "name": "Hisense Full HD 85\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "hisense",
+      "full",
+      "85\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-145",
+    "name": "Philips 4K HDR",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "hdr"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-146",
+    "name": "Panasonic UHD HDR",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "panasonic",
+      "uhd",
+      "hdr"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-147",
+    "name": "Semp 4K 75\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "semp",
+      "75\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-148",
+    "name": "Sony Neo QLED Android",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "neo",
+      "qled",
+      "android"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-149",
+    "name": "Philips Neo QLED 32\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "neo",
+      "qled",
+      "32\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-150",
+    "name": "TCL Crystal 43\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "tcl",
+      "crystal",
+      "43\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-151",
+    "name": "Samsung UHD 85\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "uhd",
+      "85\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-152",
+    "name": "TCL Smart TV 85\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1571513728751-8c9d6e7c7c3b?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "tcl",
+      "smart",
+      "85\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-153",
+    "name": "Multilaser Smart TV Android",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "multilaser",
+      "smart",
+      "android"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-154",
+    "name": "LG Smart TV 50\"",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "smart",
+      "50\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-155",
+    "name": "Panasonic 4K Dolby",
+    "category": "televisoes",
+    "currentImage": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "panasonic",
+      "dolby"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-156",
+    "name": "Sony Wireless 5.1",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "wireless",
+      "5.1"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-157",
+    "name": "JBL Fone Bass",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "jbl",
+      "fone",
+      "bass"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-158",
+    "name": "Beats Headphone Max",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "beats",
+      "headphone",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-159",
+    "name": "JBL Fone Max",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "jbl",
+      "fone",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-160",
+    "name": "JBL Bluetooth Premium",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "jbl",
+      "bluetooth",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-161",
+    "name": "Philips Gaming 5.1",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "gaming",
+      "5.1"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-162",
+    "name": "JBL Gaming Ultra",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "jbl",
+      "gaming",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-163",
+    "name": "Audio-Technica Speaker Surround",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1603561596112-df9d7f5e0c0e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "audio",
+      "technica",
+      "speaker",
+      "surround"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-164",
+    "name": "JBL Soundbar Portable",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "jbl",
+      "soundbar",
+      "portable"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-165",
+    "name": "JBL Studio Mini",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "jbl",
+      "studio",
+      "mini"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-166",
+    "name": "Sennheiser Studio Max",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sennheiser",
+      "studio",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-167",
+    "name": "Philips Caixa Premium",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "caixa",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-168",
+    "name": "JBL Wireless Noise Cancel",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1603561596112-df9d7f5e0c0e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "jbl",
+      "wireless",
+      "noise",
+      "cancel"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-169",
+    "name": "Sennheiser Speaker Premium",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sennheiser",
+      "speaker",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-170",
+    "name": "Bose Earbuds Premium",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "bose",
+      "earbuds",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-171",
+    "name": "Sony Wireless Mini",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "wireless",
+      "mini"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-172",
+    "name": "Audio-Technica Bluetooth Mini",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "audio",
+      "technica",
+      "bluetooth",
+      "mini"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-173",
+    "name": "Philips Speaker Pro",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1603561596112-df9d7f5e0c0e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "speaker",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-174",
+    "name": "JBL Wireless Noise Cancel",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "jbl",
+      "wireless",
+      "noise",
+      "cancel"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-175",
+    "name": "Beats Headphone Pro",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "beats",
+      "headphone",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-176",
+    "name": "Philips Speaker Max",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "speaker",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-177",
+    "name": "Harman Kardon Speaker Portable",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "harman",
+      "kardon",
+      "speaker",
+      "portable"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-178",
+    "name": "Sony Headphone Surround",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "headphone",
+      "surround"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-179",
+    "name": "Bose Caixa Ultra",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "bose",
+      "caixa",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-180",
+    "name": "Beats Bluetooth Pro",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "beats",
+      "bluetooth",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-181",
+    "name": "Harman Kardon Headphone Portable",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "harman",
+      "kardon",
+      "headphone",
+      "portable"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-182",
+    "name": "JBL Soundbar Bass",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "jbl",
+      "soundbar",
+      "bass"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-183",
+    "name": "Bose Soundbar Mini",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1603561596112-df9d7f5e0c0e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "bose",
+      "soundbar",
+      "mini"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-184",
+    "name": "JBL Wireless Mini",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "jbl",
+      "wireless",
+      "mini"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-185",
+    "name": "Audio-Technica Caixa 5.1",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "audio",
+      "technica",
+      "caixa",
+      "5.1"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-186",
+    "name": "Beats Wireless Ultra",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "beats",
+      "wireless",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-187",
+    "name": "Sennheiser Studio Ultra",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sennheiser",
+      "studio",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-188",
+    "name": "Sennheiser Soundbar Max",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sennheiser",
+      "soundbar",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-189",
+    "name": "JBL Bluetooth Max",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "jbl",
+      "bluetooth",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-190",
+    "name": "Sony Headphone Max",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "headphone",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-191",
+    "name": "Marshall Studio Noise Cancel",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "marshall",
+      "studio",
+      "noise",
+      "cancel"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-192",
+    "name": "Harman Kardon Soundbar Premium",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "harman",
+      "kardon",
+      "soundbar",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-193",
+    "name": "Beats Headphone Bass",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "beats",
+      "headphone",
+      "bass"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-194",
+    "name": "Sony Soundbar Premium",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "soundbar",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-195",
+    "name": "Philips Gaming Noise Cancel",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "gaming",
+      "noise",
+      "cancel"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-196",
+    "name": "Bose Fone Max",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "bose",
+      "fone",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-197",
+    "name": "Edifier Earbuds Mini",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "edifier",
+      "earbuds",
+      "mini"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-198",
+    "name": "Philips Caixa Pro",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1603561596112-df9d7f5e0c0e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "caixa",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-199",
+    "name": "Bose Studio Noise Cancel",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "bose",
+      "studio",
+      "noise",
+      "cancel"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-200",
+    "name": "Marshall Soundbar Max",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "marshall",
+      "soundbar",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-201",
+    "name": "Beats Gaming Pro",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "beats",
+      "gaming",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-202",
+    "name": "Sennheiser Speaker Pro",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sennheiser",
+      "speaker",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-203",
+    "name": "Audio-Technica Soundbar Mini",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1603561596112-df9d7f5e0c0e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "audio",
+      "technica",
+      "soundbar",
+      "mini"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-204",
+    "name": "Sony Wireless Portable",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "wireless",
+      "portable"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-205",
+    "name": "Sony Fone 5.1",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sony",
+      "fone",
+      "5.1"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-206",
+    "name": "Sennheiser Headphone 5.1",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sennheiser",
+      "headphone",
+      "5.1"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-207",
+    "name": "Audio-Technica Fone 5.1",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "audio",
+      "technica",
+      "fone",
+      "5.1"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-208",
+    "name": "Bose Earbuds Ultra",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1603561596112-df9d7f5e0c0e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "bose",
+      "earbuds",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-209",
+    "name": "JBL Soundbar Premium",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "jbl",
+      "soundbar",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-210",
+    "name": "Harman Kardon Bluetooth Noise Cancel",
+    "category": "audio",
+    "currentImage": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "harman",
+      "kardon",
+      "bluetooth",
+      "noise",
+      "cancel"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-211",
+    "name": "Asics Disruptor II",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "asics",
+      "disruptor"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-212",
+    "name": "Fila Disruptor Classic",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "fila",
+      "disruptor",
+      "classic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-213",
+    "name": "Converse Air Max Hi",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "converse",
+      "air",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-214",
+    "name": "Olympikus Gel V3",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "olympikus",
+      "gel"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-215",
+    "name": "Puma Fresh Foam Rider",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "puma",
+      "fresh",
+      "foam",
+      "rider"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-216",
+    "name": "Olympikus Suede II",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "olympikus",
+      "suede"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-217",
+    "name": "Mizuno Gel 90",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "mizuno",
+      "gel"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-218",
+    "name": "Adidas Correct Kayano",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "adidas",
+      "correct",
+      "kayano"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-219",
+    "name": "Asics Wave 270",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "asics",
+      "wave",
+      "270"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-220",
+    "name": "Olympikus Chuck Taylor Hi",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "olympikus",
+      "chuck",
+      "taylor"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-221",
+    "name": "Converse Wave V3",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "converse",
+      "wave"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-222",
+    "name": "Asics Old Skool 270",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "asics",
+      "old",
+      "skool",
+      "270"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-223",
+    "name": "Vans Old Skool Classic",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "vans",
+      "old",
+      "skool",
+      "classic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-224",
+    "name": "New Balance Disruptor Hi",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "new",
+      "balance",
+      "disruptor"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-225",
+    "name": "Mizuno Old Skool Rider",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "mizuno",
+      "old",
+      "skool",
+      "rider"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-226",
+    "name": "Converse Wave 270",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "converse",
+      "wave",
+      "270"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-227",
+    "name": "Vans Wave V3",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "vans",
+      "wave"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-228",
+    "name": "Converse Disruptor Force",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "converse",
+      "disruptor",
+      "force"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-229",
+    "name": "Asics Disruptor V3",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "asics",
+      "disruptor"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-230",
+    "name": "Fila Suede Classic",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "fila",
+      "suede",
+      "classic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-231",
+    "name": "Puma Old Skool II",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "puma",
+      "old",
+      "skool"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-232",
+    "name": "Puma Ultraboost 90",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "puma",
+      "ultraboost"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-233",
+    "name": "Nike Gel V3",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "nike",
+      "gel"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-234",
+    "name": "Nike Suede Rider",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "nike",
+      "suede",
+      "rider"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-235",
+    "name": "Olympikus Old Skool Rider",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "olympikus",
+      "old",
+      "skool",
+      "rider"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-236",
+    "name": "Vans Suede Hi",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "vans",
+      "suede"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-237",
+    "name": "Olympikus Old Skool Force",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "olympikus",
+      "old",
+      "skool",
+      "force"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-238",
+    "name": "Adidas Wave Force",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "adidas",
+      "wave",
+      "force"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-239",
+    "name": "Puma Fresh Foam Rider",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "puma",
+      "fresh",
+      "foam",
+      "rider"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-240",
+    "name": "Fila Chuck Taylor Force",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "fila",
+      "chuck",
+      "taylor",
+      "force"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-241",
+    "name": "Olympikus Wave II",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "olympikus",
+      "wave"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-242",
+    "name": "Olympikus Ultraboost V3",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "olympikus",
+      "ultraboost"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-243",
+    "name": "Asics Disruptor Hi",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "asics",
+      "disruptor"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-244",
+    "name": "Mizuno Wave Classic",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "mizuno",
+      "wave",
+      "classic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-245",
+    "name": "Puma Disruptor Hi",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "puma",
+      "disruptor"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-246",
+    "name": "Fila Wave Force",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "fila",
+      "wave",
+      "force"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-247",
+    "name": "Olympikus Disruptor 90",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "olympikus",
+      "disruptor"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-248",
+    "name": "Mizuno Air Max Force",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "mizuno",
+      "air",
+      "max",
+      "force"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-249",
+    "name": "Puma Wave V3",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "puma",
+      "wave"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-250",
+    "name": "New Balance Wave V3",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "new",
+      "balance",
+      "wave"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-251",
+    "name": "Nike Gel Classic",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "nike",
+      "gel",
+      "classic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-252",
+    "name": "Olympikus Wave 90",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "olympikus",
+      "wave"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-253",
+    "name": "Puma Old Skool 270",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "puma",
+      "old",
+      "skool",
+      "270"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-254",
+    "name": "New Balance Air Max Kayano",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "new",
+      "balance",
+      "air",
+      "max",
+      "kayano"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-255",
+    "name": "Vans Gel 270",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "vans",
+      "gel",
+      "270"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-256",
+    "name": "Olympikus Chuck Taylor II",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "olympikus",
+      "chuck",
+      "taylor"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-257",
+    "name": "Nike Disruptor Classic",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "nike",
+      "disruptor",
+      "classic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-258",
+    "name": "Nike Chuck Taylor Rider",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "nike",
+      "chuck",
+      "taylor",
+      "rider"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-259",
+    "name": "Olympikus Ultraboost Kayano",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "olympikus",
+      "ultraboost",
+      "kayano"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-260",
+    "name": "Olympikus Suede V3",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "olympikus",
+      "suede"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-261",
+    "name": "Converse Disruptor Rider",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "converse",
+      "disruptor",
+      "rider"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-262",
+    "name": "Olympikus Correct Kayano",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "olympikus",
+      "correct",
+      "kayano"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-263",
+    "name": "New Balance Wave Rider",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "new",
+      "balance",
+      "wave",
+      "rider"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-264",
+    "name": "Adidas Fresh Foam V3",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "adidas",
+      "fresh",
+      "foam"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-265",
+    "name": "Fila Old Skool 22",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "fila",
+      "old",
+      "skool"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-266",
+    "name": "Puma Ultraboost Kayano",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "puma",
+      "ultraboost",
+      "kayano"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-267",
+    "name": "Puma Air Max Force",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "puma",
+      "air",
+      "max",
+      "force"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-268",
+    "name": "Puma Chuck Taylor Classic",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "puma",
+      "chuck",
+      "taylor",
+      "classic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-269",
+    "name": "Puma Wave Force",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "puma",
+      "wave",
+      "force"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-270",
+    "name": "Fila Ultraboost Classic",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "fila",
+      "ultraboost",
+      "classic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-271",
+    "name": "Converse Ultraboost II",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "converse",
+      "ultraboost"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-272",
+    "name": "Olympikus Air Max Classic",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "olympikus",
+      "air",
+      "max",
+      "classic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-273",
+    "name": "New Balance Air Max Rider",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "new",
+      "balance",
+      "air",
+      "max",
+      "rider"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-274",
+    "name": "Converse Ultraboost 90",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "converse",
+      "ultraboost"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-275",
+    "name": "Converse Air Max V3",
+    "category": "calcados",
+    "currentImage": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "converse",
+      "air",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-276",
+    "name": "Adidas Vestido Premium",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "adidas",
+      "vestido",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-277",
+    "name": "Tommy Vestido Oversized",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "tommy",
+      "vestido",
+      "oversized"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-278",
+    "name": "Calvin Klein Jaqueta Basic",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "calvin",
+      "klein",
+      "jaqueta",
+      "basic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-279",
+    "name": "Calvin Klein Bermuda Classic",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "calvin",
+      "klein",
+      "bermuda",
+      "classic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-280",
+    "name": "Tommy Bermuda Slim",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "tommy",
+      "bermuda",
+      "slim"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-281",
+    "name": "Zara Jaqueta Regular",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "zara",
+      "jaqueta",
+      "regular"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-282",
+    "name": "H&M Camisa Oversized",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "h&m",
+      "camisa",
+      "oversized"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-283",
+    "name": "Levi's Short Sport",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "levi's",
+      "short",
+      "sport"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-284",
+    "name": "Lacoste Polo Oversized",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "lacoste",
+      "polo",
+      "oversized"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-285",
+    "name": "Nike Moletom Essentials",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "nike",
+      "moletom",
+      "essentials"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-286",
+    "name": "Lacoste Blusa Premium",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "lacoste",
+      "blusa",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-287",
+    "name": "H&M Jaqueta Sport",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "h&m",
+      "jaqueta",
+      "sport"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-289",
+    "name": "Calvin Klein Polo Sport",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "calvin",
+      "klein",
+      "polo",
+      "sport"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-290",
+    "name": "Tommy Camiseta Cropped",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "tommy",
+      "camiseta",
+      "cropped"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-291",
+    "name": "Nike Short Premium",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "nike",
+      "short",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-292",
+    "name": "Adidas Camisa Cropped",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "adidas",
+      "camisa",
+      "cropped"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-293",
+    "name": "Zara Bermuda Premium",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "zara",
+      "bermuda",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-295",
+    "name": "H&M Moletom Slim",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "h&m",
+      "moletom",
+      "slim"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-296",
+    "name": "Puma Blusa Premium",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "puma",
+      "blusa",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-297",
+    "name": "Lacoste Jaqueta Slim",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "lacoste",
+      "jaqueta",
+      "slim"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-298",
+    "name": "Adidas Moletom Slim",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "adidas",
+      "moletom",
+      "slim"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-299",
+    "name": "Polo Camiseta Essentials",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "polo",
+      "camiseta",
+      "essentials"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-300",
+    "name": "Zara Polo Classic",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "zara",
+      "polo",
+      "classic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-301",
+    "name": "Zara Polo Cropped",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "zara",
+      "polo",
+      "cropped"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-302",
+    "name": "Zara Vestido Slim",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "zara",
+      "vestido",
+      "slim"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-303",
+    "name": "Zara Jaqueta Oversized",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "zara",
+      "jaqueta",
+      "oversized"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-305",
+    "name": "Polo Jaqueta Regular",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "polo",
+      "jaqueta",
+      "regular"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-307",
+    "name": "Zara Calça Sport",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "zara",
+      "calça",
+      "sport"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-308",
+    "name": "H&M Moletom Sport",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "h&m",
+      "moletom",
+      "sport"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-309",
+    "name": "Tommy Bermuda Premium",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "tommy",
+      "bermuda",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-310",
+    "name": "H&M Polo Sport",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "h&m",
+      "polo",
+      "sport"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-312",
+    "name": "Adidas Moletom Essentials",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "adidas",
+      "moletom",
+      "essentials"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-313",
+    "name": "Levi's Calça Oversized",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "levi's",
+      "calça",
+      "oversized"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-314",
+    "name": "Lacoste Blusa Basic",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "lacoste",
+      "blusa",
+      "basic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-315",
+    "name": "Nike Vestido Regular",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "nike",
+      "vestido",
+      "regular"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-316",
+    "name": "Adidas Short Essentials",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "adidas",
+      "short",
+      "essentials"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-317",
+    "name": "Calvin Klein Blusa Sport",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "calvin",
+      "klein",
+      "blusa",
+      "sport"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-319",
+    "name": "Zara Calça Essentials",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "zara",
+      "calça",
+      "essentials"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-320",
+    "name": "Tommy Bermuda Cropped",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "tommy",
+      "bermuda",
+      "cropped"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-321",
+    "name": "Tommy Short Essentials",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "tommy",
+      "short",
+      "essentials"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-322",
+    "name": "Levi's Short Basic",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "levi's",
+      "short",
+      "basic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-323",
+    "name": "Nike Blusa Classic",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "nike",
+      "blusa",
+      "classic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-324",
+    "name": "Adidas Polo Premium",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "adidas",
+      "polo",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-325",
+    "name": "Lacoste Vestido Cropped",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "lacoste",
+      "vestido",
+      "cropped"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-326",
+    "name": "Levi's Jaqueta Slim",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "levi's",
+      "jaqueta",
+      "slim"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-327",
+    "name": "Nike Bermuda Classic",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "nike",
+      "bermuda",
+      "classic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-328",
+    "name": "Puma Moletom Slim",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "puma",
+      "moletom",
+      "slim"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-329",
+    "name": "Nike Camiseta Essentials",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "nike",
+      "camiseta",
+      "essentials"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-330",
+    "name": "Lacoste Camisa Premium",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "lacoste",
+      "camisa",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-332",
+    "name": "Adidas Polo Sport",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "adidas",
+      "polo",
+      "sport"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-333",
+    "name": "Adidas Calça Premium",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "adidas",
+      "calça",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-334",
+    "name": "Zara Calça Classic",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "zara",
+      "calça",
+      "classic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-336",
+    "name": "Nike Calça Basic",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "nike",
+      "calça",
+      "basic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-338",
+    "name": "Polo Jaqueta Oversized",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "polo",
+      "jaqueta",
+      "oversized"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-339",
+    "name": "Calvin Klein Camiseta Classic",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "calvin",
+      "klein",
+      "camiseta",
+      "classic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-340",
+    "name": "H&M Polo Cropped",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "h&m",
+      "polo",
+      "cropped"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-341",
+    "name": "Adidas Calça Slim",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "adidas",
+      "calça",
+      "slim"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-342",
+    "name": "Nike Camisa Basic",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "nike",
+      "camisa",
+      "basic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-343",
+    "name": "H&M Camisa Regular",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "h&m",
+      "camisa",
+      "regular"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-344",
+    "name": "Adidas Camisa Essentials",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "adidas",
+      "camisa",
+      "essentials"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-345",
+    "name": "Levi's Blusa Slim",
+    "category": "roupas",
+    "currentImage": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "levi's",
+      "blusa",
+      "slim"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-346",
+    "name": "Samsung Liquidificador Frost Free",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "liquidificador",
+      "frost",
+      "free"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-347",
+    "name": "Brastemp Air Fryer Turbo",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "brastemp",
+      "air",
+      "fryer",
+      "turbo"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-348",
+    "name": "Mondial Air Fryer Premium",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "mondial",
+      "air",
+      "fryer",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-349",
+    "name": "Brastemp Cafeteira Turbo",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "brastemp",
+      "cafeteira",
+      "turbo"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-350",
+    "name": "LG Aspirador Premium",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "aspirador",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-351",
+    "name": "LG Mixer Pro",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "mixer",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-352",
+    "name": "Electrolux Geladeira Turbo",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "electrolux",
+      "geladeira",
+      "turbo"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-353",
+    "name": "Philips Aspirador Digital",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "aspirador",
+      "digital"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-354",
+    "name": "Brastemp Air Fryer Max",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "brastemp",
+      "air",
+      "fryer",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-355",
+    "name": "Consul Lava-louças Compact",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "consul",
+      "lava",
+      "louças",
+      "compact"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-356",
+    "name": "LG Lava-louças 4L",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "lava",
+      "louças"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-357",
+    "name": "Philips Fogão Turbo",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "fogão",
+      "turbo"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-358",
+    "name": "Consul Air Fryer Turbo",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "consul",
+      "air",
+      "fryer",
+      "turbo"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-359",
+    "name": "LG Micro-ondas 6L",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "micro",
+      "ondas"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-360",
+    "name": "Mondial Micro-ondas Pro",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "mondial",
+      "micro",
+      "ondas",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-361",
+    "name": "Electrolux Micro-ondas Premium",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "electrolux",
+      "micro",
+      "ondas",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-362",
+    "name": "Philips Lava-louças Premium",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "lava",
+      "louças",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-363",
+    "name": "Mondial Sanduicheira Compact",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "mondial",
+      "sanduicheira",
+      "compact"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-364",
+    "name": "Oster Liquidificador Turbo",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "oster",
+      "liquidificador",
+      "turbo"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-365",
+    "name": "Brastemp Lava-louças Premium",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "brastemp",
+      "lava",
+      "louças",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-366",
+    "name": "Consul Micro-ondas 6L",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "consul",
+      "micro",
+      "ondas"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-367",
+    "name": "Brastemp Sanduicheira Frost Free",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "brastemp",
+      "sanduicheira",
+      "frost",
+      "free"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-368",
+    "name": "Britânia Liquidificador Digital",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "britânia",
+      "liquidificador",
+      "digital"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-369",
+    "name": "Philips Fogão 4L",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "fogão"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-370",
+    "name": "Philips Aspirador Premium",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "aspirador",
+      "premium"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-371",
+    "name": "LG Geladeira Frost Free",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "geladeira",
+      "frost",
+      "free"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-372",
+    "name": "Oster Micro-ondas Inox",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "oster",
+      "micro",
+      "ondas",
+      "inox"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-373",
+    "name": "Britânia Lava-louças Inox",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "britânia",
+      "lava",
+      "louças",
+      "inox"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-374",
+    "name": "Electrolux Air Fryer 6L",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "electrolux",
+      "air",
+      "fryer"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-375",
+    "name": "Samsung Micro-ondas 6L",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "micro",
+      "ondas"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-376",
+    "name": "Britânia Micro-ondas Inox",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "britânia",
+      "micro",
+      "ondas",
+      "inox"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-377",
+    "name": "Oster Aspirador Digital",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "oster",
+      "aspirador",
+      "digital"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-378",
+    "name": "Brastemp Cafeteira Inox",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "brastemp",
+      "cafeteira",
+      "inox"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-379",
+    "name": "Samsung Lava-louças 4L",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "lava",
+      "louças"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-380",
+    "name": "Samsung Liquidificador Compact",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "liquidificador",
+      "compact"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-381",
+    "name": "LG Mixer Max",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "mixer",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-382",
+    "name": "Oster Micro-ondas Frost Free",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "oster",
+      "micro",
+      "ondas",
+      "frost",
+      "free"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-383",
+    "name": "Oster Aspirador Digital",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "oster",
+      "aspirador",
+      "digital"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-384",
+    "name": "Brastemp Sanduicheira Compact",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "brastemp",
+      "sanduicheira",
+      "compact"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-385",
+    "name": "Philips Fogão Frost Free",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "fogão",
+      "frost",
+      "free"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-386",
+    "name": "Philips Fogão 4L",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "fogão"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-387",
+    "name": "LG Sanduicheira Frost Free",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "sanduicheira",
+      "frost",
+      "free"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-388",
+    "name": "Oster Fogão Pro",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "oster",
+      "fogão",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-389",
+    "name": "Brastemp Cafeteira Frost Free",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "brastemp",
+      "cafeteira",
+      "frost",
+      "free"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-390",
+    "name": "Brastemp Fogão Compact",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "brastemp",
+      "fogão",
+      "compact"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-391",
+    "name": "Samsung Liquidificador Frost Free",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "liquidificador",
+      "frost",
+      "free"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-392",
+    "name": "Consul Mixer Pro",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "consul",
+      "mixer",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-393",
+    "name": "Mondial Sanduicheira Inox",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "mondial",
+      "sanduicheira",
+      "inox"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-394",
+    "name": "LG Micro-ondas Max",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "micro",
+      "ondas",
+      "max"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-395",
+    "name": "Samsung Fogão Turbo",
+    "category": "eletrodomesticos",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "fogão",
+      "turbo"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-396",
+    "name": "Trek Halteres Dobrável",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "trek",
+      "halteres",
+      "dobrável"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-397",
+    "name": "Trek Banco Home",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "trek",
+      "banco",
+      "home"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-398",
+    "name": "Koga Esteira Fitness",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "koga",
+      "esteira",
+      "fitness"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-399",
+    "name": "Poker Banco Speed",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "poker",
+      "banco",
+      "speed"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-400",
+    "name": "Poker Elíptico Home",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "poker",
+      "elíptico",
+      "home"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-401",
+    "name": "Koga Esteira Ajustável",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "koga",
+      "esteira",
+      "ajustável"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-402",
+    "name": "Koga Elíptico Elétrica",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "koga",
+      "elíptico",
+      "elétrica"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-403",
+    "name": "Trek Kit Mountain",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "trek",
+      "kit",
+      "mountain"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-404",
+    "name": "WCT Elíptico Mountain",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "wct",
+      "elíptico",
+      "mountain"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-405",
+    "name": "Acte Barra Elétrica",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "acte",
+      "barra",
+      "elétrica"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-406",
+    "name": "Gonew Halteres Dobrável",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "gonew",
+      "halteres",
+      "dobrável"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-407",
+    "name": "Koga Corda Elite",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "koga",
+      "corda",
+      "elite"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-408",
+    "name": "Acte Colchonete Speed",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "acte",
+      "colchonete",
+      "speed"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-409",
+    "name": "Gonew Corda Mountain",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "gonew",
+      "corda",
+      "mountain"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-410",
+    "name": "Specialized Spinning Home",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "specialized",
+      "spinning",
+      "home"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-411",
+    "name": "Oxer Kit Dobrável",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "oxer",
+      "kit",
+      "dobrável"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-412",
+    "name": "Decathlon Halteres Profissional",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "decathlon",
+      "halteres",
+      "profissional"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-413",
+    "name": "Poker Spinning Home",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "poker",
+      "spinning",
+      "home"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-414",
+    "name": "Acte Esteira Profissional",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "acte",
+      "esteira",
+      "profissional"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-415",
+    "name": "Koga Kit Elétrica",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "koga",
+      "kit",
+      "elétrica"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-416",
+    "name": "WCT Barra Speed",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "wct",
+      "barra",
+      "speed"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-417",
+    "name": "Caloi Bicicleta Elite",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "caloi",
+      "bicicleta",
+      "elite"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-418",
+    "name": "Acte Bicicleta Elétrica",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "acte",
+      "bicicleta",
+      "elétrica"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-419",
+    "name": "Gonew Barra Carbon",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "gonew",
+      "barra",
+      "carbon"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-420",
+    "name": "Oxer Kit Home",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "oxer",
+      "kit",
+      "home"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-421",
+    "name": "Trek Colchonete Dobrável",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "trek",
+      "colchonete",
+      "dobrável"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-422",
+    "name": "Specialized Banco Carbon",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "specialized",
+      "banco",
+      "carbon"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-423",
+    "name": "Koga Spinning Dobrável",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "koga",
+      "spinning",
+      "dobrável"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-424",
+    "name": "Specialized Halteres Home",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "specialized",
+      "halteres",
+      "home"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-425",
+    "name": "WCT Elíptico Fitness",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "wct",
+      "elíptico",
+      "fitness"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-426",
+    "name": "Trek Corda Speed",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "trek",
+      "corda",
+      "speed"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-427",
+    "name": "Specialized Kit Elétrica",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "specialized",
+      "kit",
+      "elétrica"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-428",
+    "name": "Decathlon Colchonete Fitness",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "decathlon",
+      "colchonete",
+      "fitness"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-429",
+    "name": "Gonew Kit Dobrável",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "gonew",
+      "kit",
+      "dobrável"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-430",
+    "name": "Oxer Colchonete Home",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "oxer",
+      "colchonete",
+      "home"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-431",
+    "name": "Gonew Banco Mountain",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "gonew",
+      "banco",
+      "mountain"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-432",
+    "name": "Poker Banco Home",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "poker",
+      "banco",
+      "home"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-433",
+    "name": "Trek Barra Elite",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "trek",
+      "barra",
+      "elite"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-434",
+    "name": "Specialized Barra Home",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "specialized",
+      "barra",
+      "home"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-435",
+    "name": "WCT Halteres Mountain",
+    "category": "esportes",
+    "currentImage": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "wct",
+      "halteres",
+      "mountain"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-436",
+    "name": "Acer Hero Full HD",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "acer",
+      "hero",
+      "full"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-437",
+    "name": "MSI Optix 34\"",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "msi",
+      "optix",
+      "34\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-438",
+    "name": "BenQ Professional 165Hz",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1571513728751-8c9d6e7c7c3b?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "benq",
+      "professional",
+      "165hz"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-439",
+    "name": "HP UltraWide 34\"",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "ultrawide",
+      "34\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-440",
+    "name": "LG Hero 144Hz",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "hero",
+      "144hz"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-441",
+    "name": "BenQ Professional 4K",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "benq",
+      "professional"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-442",
+    "name": "AOC Gaming 34\"",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "aoc",
+      "gaming",
+      "34\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-443",
+    "name": "HP TUF 144Hz",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "tuf",
+      "144hz"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-444",
+    "name": "LG Odyssey 240Hz",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "odyssey",
+      "240hz"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-445",
+    "name": "AOC Gaming 32\"",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "aoc",
+      "gaming",
+      "32\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-446",
+    "name": "LG UltraSharp 144Hz",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "ultrasharp",
+      "144hz"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-447",
+    "name": "HP UltraSharp 34\"",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "ultrasharp",
+      "34\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-448",
+    "name": "Samsung Odyssey QHD",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "odyssey",
+      "qhd"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-449",
+    "name": "Dell Professional 144Hz",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "dell",
+      "professional",
+      "144hz"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-450",
+    "name": "Samsung Optix 240Hz",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "optix",
+      "240hz"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-451",
+    "name": "LG TUF 32\"",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "tuf",
+      "32\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-452",
+    "name": "BenQ UltraSharp 4K",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "benq",
+      "ultrasharp"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-453",
+    "name": "ASUS Odyssey 24\"",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "asus",
+      "odyssey",
+      "24\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-454",
+    "name": "Samsung Hero QHD",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "hero",
+      "qhd"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-455",
+    "name": "MSI Curved 27\"",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "msi",
+      "curved",
+      "27\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-456",
+    "name": "ASUS Professional 240Hz",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "asus",
+      "professional",
+      "240hz"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-457",
+    "name": "BenQ Professional 27\"",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1571513728751-8c9d6e7c7c3b?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "benq",
+      "professional",
+      "27\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-458",
+    "name": "LG Gaming 27\"",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "gaming",
+      "27\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-459",
+    "name": "LG ROG 32\"",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "rog",
+      "32\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-460",
+    "name": "Acer Professional 27\"",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "acer",
+      "professional",
+      "27\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-461",
+    "name": "AOC ROG 240Hz",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "aoc",
+      "rog",
+      "240hz"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-462",
+    "name": "AOC UltraWide 4K",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "aoc",
+      "ultrawide"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-463",
+    "name": "Dell Professional Full HD",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "dell",
+      "professional",
+      "full"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-464",
+    "name": "MSI UltraSharp 27\"",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "msi",
+      "ultrasharp",
+      "27\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-465",
+    "name": "HP UltraWide 144Hz",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "ultrawide",
+      "144hz"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-466",
+    "name": "Acer UltraWide Full HD",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "acer",
+      "ultrawide",
+      "full"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-467",
+    "name": "ASUS Odyssey 34\"",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "asus",
+      "odyssey",
+      "34\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-468",
+    "name": "Philips Odyssey QHD",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "philips",
+      "odyssey",
+      "qhd"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-469",
+    "name": "BenQ Odyssey 4K",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1571513728751-8c9d6e7c7c3b?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "benq",
+      "odyssey"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-470",
+    "name": "ASUS Odyssey 24\"",
+    "category": "monitores",
+    "currentImage": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "asus",
+      "odyssey",
+      "24\""
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-471",
+    "name": "Fitbit Galaxy Watch 5",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "fitbit",
+      "galaxy",
+      "watch"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-472",
+    "name": "Apple G-Shock Ultra",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "apple",
+      "shock",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-473",
+    "name": "Amazfit G-Shock 2",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "amazfit",
+      "shock"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-474",
+    "name": "Seiko Watch 3",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "seiko",
+      "watch"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-475",
+    "name": "Citizen GT Ultra",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "citizen",
+      "ultra"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-476",
+    "name": "Samsung Gen 5",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "gen"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-477",
+    "name": "Casio Eco-Drive Active",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "casio",
+      "eco",
+      "drive",
+      "active"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-478",
+    "name": "Fossil Versa 5",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "fossil",
+      "versa"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-479",
+    "name": "Fossil Prospex Pro",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "fossil",
+      "prospex",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-480",
+    "name": "Samsung GTR Active",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "gtr",
+      "active"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-481",
+    "name": "Garmin GTR Series 9",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "garmin",
+      "gtr",
+      "series"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-482",
+    "name": "Casio Gen Classic",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "casio",
+      "gen",
+      "classic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-483",
+    "name": "Citizen G-Shock Active",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "citizen",
+      "shock",
+      "active"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-484",
+    "name": "Citizen G-Shock 3",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "citizen",
+      "shock"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-485",
+    "name": "Seiko Watch Pro",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "seiko",
+      "watch",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-486",
+    "name": "Samsung GTR 2",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "gtr"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-487",
+    "name": "Huawei G-Shock Pro",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "huawei",
+      "shock",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-488",
+    "name": "Fitbit G-Shock Pro",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1594576662059-c4e9b5d0e1b3?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "fitbit",
+      "shock",
+      "pro"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-489",
+    "name": "Huawei Galaxy Watch 4",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "huawei",
+      "galaxy",
+      "watch"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-490",
+    "name": "Casio Gen Active",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "casio",
+      "gen",
+      "active"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-491",
+    "name": "Samsung Forerunner Classic",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "samsung",
+      "forerunner",
+      "classic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-492",
+    "name": "Casio Versa 5",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "casio",
+      "versa"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-493",
+    "name": "Huawei Gen Classic",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "huawei",
+      "gen",
+      "classic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-494",
+    "name": "Apple Forerunner 5",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "apple",
+      "forerunner"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-495",
+    "name": "Apple Forerunner Series 9",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "apple",
+      "forerunner",
+      "series"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-496",
+    "name": "Amazfit Gen 2",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "amazfit",
+      "gen"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-497",
+    "name": "Fitbit Galaxy Watch 5",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "fitbit",
+      "galaxy",
+      "watch"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-498",
+    "name": "Citizen GT 6",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "citizen"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-499",
+    "name": "Apple Galaxy Watch Classic",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "apple",
+      "galaxy",
+      "watch",
+      "classic"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  },
+  {
+    "id": "PROD-500",
+    "name": "Fossil GTR Series 9",
+    "category": "relogios",
+    "currentImage": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80",
+    "productWords": [
+      "fossil",
+      "gtr",
+      "series"
+    ],
+    "reason": "Nenhuma palavra-chave do produto encontrada na URL da imagem"
+  }
+]

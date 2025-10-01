@@ -1,0 +1,10 @@
+Esta pasta foi criada para organizar os recursos visuais do projeto E2E-Commerce.
+
+As imagens dos produtos são carregadas dinamicamente através do arquivo 500-images-database.json,
+que contém URLs do Unsplash para garantir imagens de alta qualidade.
+
+Estrutura recomendada:
+- logos/: Logotipos da empresa
+- products/: Imagens de produtos (caso necessário armazenamento local)
+- banners/: Banners promocionais
+- icons/: Ícones personalizados

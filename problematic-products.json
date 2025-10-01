@@ -1,0 +1,2819 @@
+[
+  {
+    "index": 2,
+    "id": "PROD-002",
+    "title": "Sony Xperia FE",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 4,
+    "id": "PROD-004",
+    "title": "LG C55 Lite",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 10,
+    "id": "PROD-010",
+    "title": "Sony G73 Pro",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 12,
+    "id": "PROD-012",
+    "title": "Sony G73 Plus",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 13,
+    "id": "PROD-013",
+    "title": "OnePlus C55 Ultra",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 14,
+    "id": "PROD-014",
+    "title": "Apple Redmi Note FE",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 15,
+    "id": "PROD-015",
+    "title": "Apple Nord Lite",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 16,
+    "id": "PROD-016",
+    "title": "Apple G73 Ultra",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 18,
+    "id": "PROD-018",
+    "title": "Samsung C55 Lite",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 19,
+    "id": "PROD-019",
+    "title": "LG Moto G Lite",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 20,
+    "id": "PROD-020",
+    "title": "Sony Nord FE",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 21,
+    "id": "PROD-021",
+    "title": "LG C55 5G",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 22,
+    "id": "PROD-022",
+    "title": "Sony C55 Pro",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 23,
+    "id": "PROD-023",
+    "title": "Sony iPhone 15 Pro",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 25,
+    "id": "PROD-025",
+    "title": "Sony Galaxy S24 Plus",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 27,
+    "id": "PROD-027",
+    "title": "Apple Redmi Note Lite",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 30,
+    "id": "PROD-030",
+    "title": "OnePlus G73 Lite",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 33,
+    "id": "PROD-033",
+    "title": "Sony Redmi Note 5G",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 35,
+    "id": "PROD-035",
+    "title": "LG Redmi Note Pro",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 36,
+    "id": "PROD-036",
+    "title": "Samsung Pixel 5G",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 38,
+    "id": "PROD-038",
+    "title": "LG Galaxy S24 FE",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 40,
+    "id": "PROD-040",
+    "title": "Apple Nord FE",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 41,
+    "id": "PROD-041",
+    "title": "LG C55 Lite",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 42,
+    "id": "PROD-042",
+    "title": "LG C55 Lite",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 43,
+    "id": "PROD-043",
+    "title": "LG C55 Ultra",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 44,
+    "id": "PROD-044",
+    "title": "Google Nord Ultra",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 46,
+    "id": "PROD-046",
+    "title": "Sony Redmi Note Pro Max",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 47,
+    "id": "PROD-047",
+    "title": "Samsung Nord FE",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 48,
+    "id": "PROD-048",
+    "title": "Sony Moto G 5G",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 49,
+    "id": "PROD-049",
+    "title": "Apple Redmi Note 5G",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 51,
+    "id": "PROD-051",
+    "title": "Sony Xperia 5G",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 53,
+    "id": "PROD-053",
+    "title": "Huawei G73 Plus",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 56,
+    "id": "PROD-056",
+    "title": "Samsung Redmi Note Ultra",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 58,
+    "id": "PROD-058",
+    "title": "Google P60 Pro Max",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 59,
+    "id": "PROD-059",
+    "title": "Google Nord FE",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 60,
+    "id": "PROD-060",
+    "title": "Huawei Redmi Note Max",
+    "currentCategory": "Smartphones",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 61,
+    "id": "PROD-061",
+    "title": "Dell Gaming Slim",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": "monitores",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 63,
+    "id": "PROD-063",
+    "title": "LG VivoBook Air",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 64,
+    "id": "PROD-064",
+    "title": "LG Book Air",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 66,
+    "id": "PROD-066",
+    "title": "Apple Pavilion i5",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 68,
+    "id": "PROD-068",
+    "title": "Dell Gaming Gaming",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": "monitores",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 70,
+    "id": "PROD-070",
+    "title": "MSI Pavilion 14",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 72,
+    "id": "PROD-072",
+    "title": "LG ThinkPad Pro",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 74,
+    "id": "PROD-074",
+    "title": "Positivo ThinkPad Gaming",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": "monitores",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 76,
+    "id": "PROD-076",
+    "title": "Apple Book Touch",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 82,
+    "id": "PROD-082",
+    "title": "LG Gram Air",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 83,
+    "id": "PROD-083",
+    "title": "Positivo Gram 14",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 84,
+    "id": "PROD-084",
+    "title": "MSI Book i5",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 85,
+    "id": "PROD-085",
+    "title": "MSI Motion Air",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 87,
+    "id": "PROD-087",
+    "title": "LG Pavilion Pro",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 88,
+    "id": "PROD-088",
+    "title": "LG Aspire Gaming",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 90,
+    "id": "PROD-090",
+    "title": "Acer Gaming i5",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": "monitores",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 93,
+    "id": "PROD-093",
+    "title": "Samsung Motion 13",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 94,
+    "id": "PROD-094",
+    "title": "ASUS ThinkPad Gaming",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": "monitores",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 97,
+    "id": "PROD-097",
+    "title": "LG Gaming Ultra",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 102,
+    "id": "PROD-102",
+    "title": "LG Gaming Ultra",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 103,
+    "id": "PROD-103",
+    "title": "Samsung Inspiron Pro",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 104,
+    "id": "PROD-104",
+    "title": "LG Aspire Slim",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 106,
+    "id": "PROD-106",
+    "title": "Samsung Gaming 15",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 108,
+    "id": "PROD-108",
+    "title": "Samsung Motion Gaming",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 109,
+    "id": "PROD-109",
+    "title": "Samsung VivoBook Gaming",
+    "currentCategory": "Notebooks",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 113,
+    "id": "PROD-113",
+    "title": "Hisense 4K Android",
+    "currentCategory": "Televisões",
+    "suggestedCategory": "monitores",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 114,
+    "id": "PROD-114",
+    "title": "Sony Neo QLED 85\"",
+    "currentCategory": "Televisões",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 115,
+    "id": "PROD-115",
+    "title": "Samsung 4K 75\"",
+    "currentCategory": "Televisões",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 118,
+    "id": "PROD-118",
+    "title": "Panasonic NanoCell 85\"",
+    "currentCategory": "Televisões",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 120,
+    "id": "PROD-120",
+    "title": "Panasonic 4K Android",
+    "currentCategory": "Televisões",
+    "suggestedCategory": "monitores",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 121,
+    "id": "PROD-121",
+    "title": "Sony Neo QLED HDR",
+    "currentCategory": "Televisões",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 125,
+    "id": "PROD-125",
+    "title": "Panasonic Full HD Android",
+    "currentCategory": "Televisões",
+    "suggestedCategory": "monitores",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 126,
+    "id": "PROD-126",
+    "title": "Philips 4K 75\"",
+    "currentCategory": "Televisões",
+    "suggestedCategory": "monitores",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 127,
+    "id": "PROD-127",
+    "title": "Panasonic NanoCell HDR",
+    "currentCategory": "Televisões",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571513728751-8c9d6e7c7c3b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 128,
+    "id": "PROD-128",
+    "title": "AOC 8K 75\"",
+    "currentCategory": "Televisões",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 129,
+    "id": "PROD-129",
+    "title": "Semp 8K 43\"",
+    "currentCategory": "Televisões",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 130,
+    "id": "PROD-130",
+    "title": "AOC UHD 50\"",
+    "currentCategory": "Televisões",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 131,
+    "id": "PROD-131",
+    "title": "Samsung QLED 43\"",
+    "currentCategory": "Televisões",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 134,
+    "id": "PROD-134",
+    "title": "Panasonic NanoCell 85\"",
+    "currentCategory": "Televisões",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 137,
+    "id": "PROD-137",
+    "title": "Philips Full HD 75\"",
+    "currentCategory": "Televisões",
+    "suggestedCategory": "monitores",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571513728751-8c9d6e7c7c3b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 138,
+    "id": "PROD-138",
+    "title": "Philips 4K 32\"",
+    "currentCategory": "Televisões",
+    "suggestedCategory": "monitores",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 141,
+    "id": "PROD-141",
+    "title": "Hisense 4K Dolby",
+    "currentCategory": "Televisões",
+    "suggestedCategory": "monitores",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 144,
+    "id": "PROD-144",
+    "title": "Hisense Full HD 85\"",
+    "currentCategory": "Televisões",
+    "suggestedCategory": "monitores",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 145,
+    "id": "PROD-145",
+    "title": "Philips 4K HDR",
+    "currentCategory": "Televisões",
+    "suggestedCategory": "monitores",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 146,
+    "id": "PROD-146",
+    "title": "Panasonic UHD HDR",
+    "currentCategory": "Televisões",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 147,
+    "id": "PROD-147",
+    "title": "Semp 4K 75\"",
+    "currentCategory": "Televisões",
+    "suggestedCategory": "monitores",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571513728751-8c9d6e7c7c3b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 148,
+    "id": "PROD-148",
+    "title": "Sony Neo QLED Android",
+    "currentCategory": "Televisões",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 151,
+    "id": "PROD-151",
+    "title": "Samsung UHD 85\"",
+    "currentCategory": "Televisões",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 155,
+    "id": "PROD-155",
+    "title": "Panasonic 4K Dolby",
+    "currentCategory": "Televisões",
+    "suggestedCategory": "monitores",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 156,
+    "id": "PROD-156",
+    "title": "Sony Wireless 5.1",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 158,
+    "id": "PROD-158",
+    "title": "Beats Headphone Max",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1603561596112-df9d7f5e0c0e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 161,
+    "id": "PROD-161",
+    "title": "Philips Gaming 5.1",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 162,
+    "id": "PROD-162",
+    "title": "JBL Gaming Ultra",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 166,
+    "id": "PROD-166",
+    "title": "Sennheiser Studio Max",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 171,
+    "id": "PROD-171",
+    "title": "Sony Wireless Mini",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 175,
+    "id": "PROD-175",
+    "title": "Beats Headphone Pro",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 178,
+    "id": "PROD-178",
+    "title": "Sony Headphone Surround",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1603561596112-df9d7f5e0c0e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 181,
+    "id": "PROD-181",
+    "title": "Harman Kardon Headphone Portable",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 187,
+    "id": "PROD-187",
+    "title": "Sennheiser Studio Ultra",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 188,
+    "id": "PROD-188",
+    "title": "Sennheiser Soundbar Max",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1603561596112-df9d7f5e0c0e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 190,
+    "id": "PROD-190",
+    "title": "Sony Headphone Max",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 191,
+    "id": "PROD-191",
+    "title": "Marshall Studio Noise Cancel",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 192,
+    "id": "PROD-192",
+    "title": "Harman Kardon Soundbar Premium",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 193,
+    "id": "PROD-193",
+    "title": "Beats Headphone Bass",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1603561596112-df9d7f5e0c0e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 194,
+    "id": "PROD-194",
+    "title": "Sony Soundbar Premium",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 195,
+    "id": "PROD-195",
+    "title": "Philips Gaming Noise Cancel",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 197,
+    "id": "PROD-197",
+    "title": "Edifier Earbuds Mini",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1498049794561-7780e7231661?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 200,
+    "id": "PROD-200",
+    "title": "Marshall Soundbar Max",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 201,
+    "id": "PROD-201",
+    "title": "Beats Gaming Pro",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 204,
+    "id": "PROD-204",
+    "title": "Sony Wireless Portable",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 205,
+    "id": "PROD-205",
+    "title": "Sony Fone 5.1",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 206,
+    "id": "PROD-206",
+    "title": "Sennheiser Headphone 5.1",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1583496661160-fb5886a13d5e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 210,
+    "id": "PROD-210",
+    "title": "Harman Kardon Bluetooth Noise Cancel",
+    "currentCategory": "Áudio e Som",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1542272604-787c3835535d?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 211,
+    "id": "PROD-211",
+    "title": "Asics Disruptor II",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 212,
+    "id": "PROD-212",
+    "title": "Fila Disruptor Classic",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 214,
+    "id": "PROD-214",
+    "title": "Olympikus Gel V3",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 216,
+    "id": "PROD-216",
+    "title": "Olympikus Suede II",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 217,
+    "id": "PROD-217",
+    "title": "Mizuno Gel 90",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 219,
+    "id": "PROD-219",
+    "title": "Asics Wave 270",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 220,
+    "id": "PROD-220",
+    "title": "Olympikus Chuck Taylor Hi",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 222,
+    "id": "PROD-222",
+    "title": "Asics Old Skool 270",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 224,
+    "id": "PROD-224",
+    "title": "New Balance Disruptor Hi",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 225,
+    "id": "PROD-225",
+    "title": "Mizuno Old Skool Rider",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 229,
+    "id": "PROD-229",
+    "title": "Asics Disruptor V3",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 230,
+    "id": "PROD-230",
+    "title": "Fila Suede Classic",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 235,
+    "id": "PROD-235",
+    "title": "Olympikus Old Skool Rider",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 237,
+    "id": "PROD-237",
+    "title": "Olympikus Old Skool Force",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 240,
+    "id": "PROD-240",
+    "title": "Fila Chuck Taylor Force",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 241,
+    "id": "PROD-241",
+    "title": "Olympikus Wave II",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 242,
+    "id": "PROD-242",
+    "title": "Olympikus Ultraboost V3",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 243,
+    "id": "PROD-243",
+    "title": "Asics Disruptor Hi",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 244,
+    "id": "PROD-244",
+    "title": "Mizuno Wave Classic",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 246,
+    "id": "PROD-246",
+    "title": "Fila Wave Force",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 247,
+    "id": "PROD-247",
+    "title": "Olympikus Disruptor 90",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 248,
+    "id": "PROD-248",
+    "title": "Mizuno Air Max Force",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 250,
+    "id": "PROD-250",
+    "title": "New Balance Wave V3",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 252,
+    "id": "PROD-252",
+    "title": "Olympikus Wave 90",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 254,
+    "id": "PROD-254",
+    "title": "New Balance Air Max Kayano",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 256,
+    "id": "PROD-256",
+    "title": "Olympikus Chuck Taylor II",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 259,
+    "id": "PROD-259",
+    "title": "Olympikus Ultraboost Kayano",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 260,
+    "id": "PROD-260",
+    "title": "Olympikus Suede V3",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 262,
+    "id": "PROD-262",
+    "title": "Olympikus Correct Kayano",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 263,
+    "id": "PROD-263",
+    "title": "New Balance Wave Rider",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 265,
+    "id": "PROD-265",
+    "title": "Fila Old Skool 22",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 270,
+    "id": "PROD-270",
+    "title": "Fila Ultraboost Classic",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 272,
+    "id": "PROD-272",
+    "title": "Olympikus Air Max Classic",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 273,
+    "id": "PROD-273",
+    "title": "New Balance Air Max Rider",
+    "currentCategory": "Calçados",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 276,
+    "id": "PROD-276",
+    "title": "Adidas Vestido Premium",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 278,
+    "id": "PROD-278",
+    "title": "Calvin Klein Jaqueta Basic",
+    "currentCategory": "Roupas",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 279,
+    "id": "PROD-279",
+    "title": "Calvin Klein Bermuda Classic",
+    "currentCategory": "Roupas",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 280,
+    "id": "PROD-280",
+    "title": "Tommy Bermuda Slim",
+    "currentCategory": "Roupas",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 281,
+    "id": "PROD-281",
+    "title": "Zara Jaqueta Regular",
+    "currentCategory": "Roupas",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 283,
+    "id": "PROD-283",
+    "title": "Levi's Short Sport",
+    "currentCategory": "Roupas",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 285,
+    "id": "PROD-285",
+    "title": "Nike Moletom Essentials",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 287,
+    "id": "PROD-287",
+    "title": "H&M Jaqueta Sport",
+    "currentCategory": "Roupas",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 288,
+    "id": "PROD-288",
+    "title": "Zara Bermuda Dri-FIT",
+    "currentCategory": "Roupas",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 291,
+    "id": "PROD-291",
+    "title": "Nike Short Premium",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 292,
+    "id": "PROD-292",
+    "title": "Adidas Camisa Cropped",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 293,
+    "id": "PROD-293",
+    "title": "Zara Bermuda Premium",
+    "currentCategory": "Roupas",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 295,
+    "id": "PROD-295",
+    "title": "H&M Moletom Slim",
+    "currentCategory": "Roupas",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 296,
+    "id": "PROD-296",
+    "title": "Puma Blusa Premium",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 297,
+    "id": "PROD-297",
+    "title": "Lacoste Jaqueta Slim",
+    "currentCategory": "Roupas",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 298,
+    "id": "PROD-298",
+    "title": "Adidas Moletom Slim",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 303,
+    "id": "PROD-303",
+    "title": "Zara Jaqueta Oversized",
+    "currentCategory": "Roupas",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 304,
+    "id": "PROD-304",
+    "title": "Levi's Bermuda Dri-FIT",
+    "currentCategory": "Roupas",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 308,
+    "id": "PROD-308",
+    "title": "H&M Moletom Sport",
+    "currentCategory": "Roupas",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 309,
+    "id": "PROD-309",
+    "title": "Tommy Bermuda Premium",
+    "currentCategory": "Roupas",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 311,
+    "id": "PROD-311",
+    "title": "Adidas Blusa Dri-FIT",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 312,
+    "id": "PROD-312",
+    "title": "Adidas Moletom Essentials",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 315,
+    "id": "PROD-315",
+    "title": "Nike Vestido Regular",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 316,
+    "id": "PROD-316",
+    "title": "Adidas Short Essentials",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 318,
+    "id": "PROD-318",
+    "title": "Puma Calça Dri-FIT",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 321,
+    "id": "PROD-321",
+    "title": "Tommy Short Essentials",
+    "currentCategory": "Roupas",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 322,
+    "id": "PROD-322",
+    "title": "Levi's Short Basic",
+    "currentCategory": "Roupas",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 323,
+    "id": "PROD-323",
+    "title": "Nike Blusa Classic",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 324,
+    "id": "PROD-324",
+    "title": "Adidas Polo Premium",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 326,
+    "id": "PROD-326",
+    "title": "Levi's Jaqueta Slim",
+    "currentCategory": "Roupas",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 327,
+    "id": "PROD-327",
+    "title": "Nike Bermuda Classic",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 328,
+    "id": "PROD-328",
+    "title": "Puma Moletom Slim",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 329,
+    "id": "PROD-329",
+    "title": "Nike Camiseta Essentials",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 332,
+    "id": "PROD-332",
+    "title": "Adidas Polo Sport",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 333,
+    "id": "PROD-333",
+    "title": "Adidas Calça Premium",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 336,
+    "id": "PROD-336",
+    "title": "Nike Calça Basic",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 337,
+    "id": "PROD-337",
+    "title": "Adidas Jaqueta Dri-FIT",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 341,
+    "id": "PROD-341",
+    "title": "Adidas Calça Slim",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 342,
+    "id": "PROD-342",
+    "title": "Nike Camisa Basic",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 344,
+    "id": "PROD-344",
+    "title": "Adidas Camisa Essentials",
+    "currentCategory": "Roupas",
+    "suggestedCategory": "calçados",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 346,
+    "id": "PROD-346",
+    "title": "Samsung Liquidificador Frost Free",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 347,
+    "id": "PROD-347",
+    "title": "Brastemp Air Fryer Turbo",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 348,
+    "id": "PROD-348",
+    "title": "Mondial Air Fryer Premium",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 349,
+    "id": "PROD-349",
+    "title": "Brastemp Cafeteira Turbo",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 350,
+    "id": "PROD-350",
+    "title": "LG Aspirador Premium",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 351,
+    "id": "PROD-351",
+    "title": "LG Mixer Pro",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 353,
+    "id": "PROD-353",
+    "title": "Philips Aspirador Digital",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 354,
+    "id": "PROD-354",
+    "title": "Brastemp Air Fryer Max",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 356,
+    "id": "PROD-356",
+    "title": "LG Lava-louças 4L",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 358,
+    "id": "PROD-358",
+    "title": "Consul Air Fryer Turbo",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 359,
+    "id": "PROD-359",
+    "title": "LG Micro-ondas 6L",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 363,
+    "id": "PROD-363",
+    "title": "Mondial Sanduicheira Compact",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 364,
+    "id": "PROD-364",
+    "title": "Oster Liquidificador Turbo",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 367,
+    "id": "PROD-367",
+    "title": "Brastemp Sanduicheira Frost Free",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 368,
+    "id": "PROD-368",
+    "title": "Britânia Liquidificador Digital",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 370,
+    "id": "PROD-370",
+    "title": "Philips Aspirador Premium",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 371,
+    "id": "PROD-371",
+    "title": "LG Geladeira Frost Free",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 374,
+    "id": "PROD-374",
+    "title": "Electrolux Air Fryer 6L",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 375,
+    "id": "PROD-375",
+    "title": "Samsung Micro-ondas 6L",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 377,
+    "id": "PROD-377",
+    "title": "Oster Aspirador Digital",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 378,
+    "id": "PROD-378",
+    "title": "Brastemp Cafeteira Inox",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 379,
+    "id": "PROD-379",
+    "title": "Samsung Lava-louças 4L",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 380,
+    "id": "PROD-380",
+    "title": "Samsung Liquidificador Compact",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 381,
+    "id": "PROD-381",
+    "title": "LG Mixer Max",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 383,
+    "id": "PROD-383",
+    "title": "Oster Aspirador Digital",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 384,
+    "id": "PROD-384",
+    "title": "Brastemp Sanduicheira Compact",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 387,
+    "id": "PROD-387",
+    "title": "LG Sanduicheira Frost Free",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 389,
+    "id": "PROD-389",
+    "title": "Brastemp Cafeteira Frost Free",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 391,
+    "id": "PROD-391",
+    "title": "Samsung Liquidificador Frost Free",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 392,
+    "id": "PROD-392",
+    "title": "Consul Mixer Pro",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571175443880-49e1d25b2bc5?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 393,
+    "id": "PROD-393",
+    "title": "Mondial Sanduicheira Inox",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1586201375761-83865001e31c?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 394,
+    "id": "PROD-394",
+    "title": "LG Micro-ondas Max",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 395,
+    "id": "PROD-395",
+    "title": "Samsung Fogão Turbo",
+    "currentCategory": "Eletrodomésticos",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 396,
+    "id": "PROD-396",
+    "title": "Trek Halteres Dobrável",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 397,
+    "id": "PROD-397",
+    "title": "Trek Banco Home",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 398,
+    "id": "PROD-398",
+    "title": "Koga Esteira Fitness",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 399,
+    "id": "PROD-399",
+    "title": "Poker Banco Speed",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 400,
+    "id": "PROD-400",
+    "title": "Poker Elíptico Home",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 401,
+    "id": "PROD-401",
+    "title": "Koga Esteira Ajustável",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 402,
+    "id": "PROD-402",
+    "title": "Koga Elíptico Elétrica",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 403,
+    "id": "PROD-403",
+    "title": "Trek Kit Mountain",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 404,
+    "id": "PROD-404",
+    "title": "WCT Elíptico Mountain",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 405,
+    "id": "PROD-405",
+    "title": "Acte Barra Elétrica",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 406,
+    "id": "PROD-406",
+    "title": "Gonew Halteres Dobrável",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 407,
+    "id": "PROD-407",
+    "title": "Koga Corda Elite",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 408,
+    "id": "PROD-408",
+    "title": "Acte Colchonete Speed",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 409,
+    "id": "PROD-409",
+    "title": "Gonew Corda Mountain",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 410,
+    "id": "PROD-410",
+    "title": "Specialized Spinning Home",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 411,
+    "id": "PROD-411",
+    "title": "Oxer Kit Dobrável",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 412,
+    "id": "PROD-412",
+    "title": "Decathlon Halteres Profissional",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 413,
+    "id": "PROD-413",
+    "title": "Poker Spinning Home",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 414,
+    "id": "PROD-414",
+    "title": "Acte Esteira Profissional",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 415,
+    "id": "PROD-415",
+    "title": "Koga Kit Elétrica",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 416,
+    "id": "PROD-416",
+    "title": "WCT Barra Speed",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 417,
+    "id": "PROD-417",
+    "title": "Caloi Bicicleta Elite",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 418,
+    "id": "PROD-418",
+    "title": "Acte Bicicleta Elétrica",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 419,
+    "id": "PROD-419",
+    "title": "Gonew Barra Carbon",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 420,
+    "id": "PROD-420",
+    "title": "Oxer Kit Home",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 421,
+    "id": "PROD-421",
+    "title": "Trek Colchonete Dobrável",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 422,
+    "id": "PROD-422",
+    "title": "Specialized Banco Carbon",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 423,
+    "id": "PROD-423",
+    "title": "Koga Spinning Dobrável",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 424,
+    "id": "PROD-424",
+    "title": "Specialized Halteres Home",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 425,
+    "id": "PROD-425",
+    "title": "WCT Elíptico Fitness",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 426,
+    "id": "PROD-426",
+    "title": "Trek Corda Speed",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 427,
+    "id": "PROD-427",
+    "title": "Specialized Kit Elétrica",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 428,
+    "id": "PROD-428",
+    "title": "Decathlon Colchonete Fitness",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 429,
+    "id": "PROD-429",
+    "title": "Gonew Kit Dobrável",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 430,
+    "id": "PROD-430",
+    "title": "Oxer Colchonete Home",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 431,
+    "id": "PROD-431",
+    "title": "Gonew Banco Mountain",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 432,
+    "id": "PROD-432",
+    "title": "Poker Banco Home",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 433,
+    "id": "PROD-433",
+    "title": "Trek Barra Elite",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 434,
+    "id": "PROD-434",
+    "title": "Specialized Barra Home",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 435,
+    "id": "PROD-435",
+    "title": "WCT Halteres Mountain",
+    "currentCategory": "Esportes e Lazer",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 436,
+    "id": "PROD-436",
+    "title": "Acer Hero Full HD",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 437,
+    "id": "PROD-437",
+    "title": "MSI Optix 34\"",
+    "currentCategory": "Monitores",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 438,
+    "id": "PROD-438",
+    "title": "BenQ Professional 165Hz",
+    "currentCategory": "Monitores",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 439,
+    "id": "PROD-439",
+    "title": "HP UltraWide 34\"",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1571513728751-8c9d6e7c7c3b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 440,
+    "id": "PROD-440",
+    "title": "LG Hero 144Hz",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 442,
+    "id": "PROD-442",
+    "title": "AOC Gaming 34\"",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 443,
+    "id": "PROD-443",
+    "title": "HP TUF 144Hz",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 444,
+    "id": "PROD-444",
+    "title": "LG Odyssey 240Hz",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571513728751-8c9d6e7c7c3b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 445,
+    "id": "PROD-445",
+    "title": "AOC Gaming 32\"",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 446,
+    "id": "PROD-446",
+    "title": "LG UltraSharp 144Hz",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 447,
+    "id": "PROD-447",
+    "title": "HP UltraSharp 34\"",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 448,
+    "id": "PROD-448",
+    "title": "Samsung Odyssey QHD",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 449,
+    "id": "PROD-449",
+    "title": "Dell Professional 144Hz",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571513728751-8c9d6e7c7c3b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 450,
+    "id": "PROD-450",
+    "title": "Samsung Optix 240Hz",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 451,
+    "id": "PROD-451",
+    "title": "LG TUF 32\"",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 453,
+    "id": "PROD-453",
+    "title": "ASUS Odyssey 24\"",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 454,
+    "id": "PROD-454",
+    "title": "Samsung Hero QHD",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571513728751-8c9d6e7c7c3b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 455,
+    "id": "PROD-455",
+    "title": "MSI Curved 27\"",
+    "currentCategory": "Monitores",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 456,
+    "id": "PROD-456",
+    "title": "ASUS Professional 240Hz",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 457,
+    "id": "PROD-457",
+    "title": "BenQ Professional 27\"",
+    "currentCategory": "Monitores",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 458,
+    "id": "PROD-458",
+    "title": "LG Gaming 27\"",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 459,
+    "id": "PROD-459",
+    "title": "LG ROG 32\"",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "televisões",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571513728751-8c9d6e7c7c3b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 460,
+    "id": "PROD-460",
+    "title": "Acer Professional 27\"",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 461,
+    "id": "PROD-461",
+    "title": "AOC ROG 240Hz",
+    "currentCategory": "Monitores",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 463,
+    "id": "PROD-463",
+    "title": "Dell Professional Full HD",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 464,
+    "id": "PROD-464",
+    "title": "MSI UltraSharp 27\"",
+    "currentCategory": "Monitores",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1571513728751-8c9d6e7c7c3b?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 465,
+    "id": "PROD-465",
+    "title": "HP UltraWide 144Hz",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 466,
+    "id": "PROD-466",
+    "title": "Acer UltraWide Full HD",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 467,
+    "id": "PROD-467",
+    "title": "ASUS Odyssey 34\"",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 468,
+    "id": "PROD-468",
+    "title": "Philips Odyssey QHD",
+    "currentCategory": "Monitores",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 470,
+    "id": "PROD-470",
+    "title": "ASUS Odyssey 24\"",
+    "currentCategory": "Monitores",
+    "suggestedCategory": "notebooks",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 471,
+    "id": "PROD-471",
+    "title": "Fitbit Galaxy Watch 5",
+    "currentCategory": "Relógios",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 472,
+    "id": "PROD-472",
+    "title": "Apple G-Shock Ultra",
+    "currentCategory": "Relógios",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 473,
+    "id": "PROD-473",
+    "title": "Amazfit G-Shock 2",
+    "currentCategory": "Relógios",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1594576662059-c4e9b5d0e1b3?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 475,
+    "id": "PROD-475",
+    "title": "Citizen GT Ultra",
+    "currentCategory": "Relógios",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 476,
+    "id": "PROD-476",
+    "title": "Samsung Gen 5",
+    "currentCategory": "Relógios",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 477,
+    "id": "PROD-477",
+    "title": "Casio Eco-Drive Active",
+    "currentCategory": "Relógios",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 478,
+    "id": "PROD-478",
+    "title": "Fossil Versa 5",
+    "currentCategory": "Relógios",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1594576662059-c4e9b5d0e1b3?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 479,
+    "id": "PROD-479",
+    "title": "Fossil Prospex Pro",
+    "currentCategory": "Relógios",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 480,
+    "id": "PROD-480",
+    "title": "Samsung GTR Active",
+    "currentCategory": "Relógios",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 482,
+    "id": "PROD-482",
+    "title": "Casio Gen Classic",
+    "currentCategory": "Relógios",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 483,
+    "id": "PROD-483",
+    "title": "Citizen G-Shock Active",
+    "currentCategory": "Relógios",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1594576662059-c4e9b5d0e1b3?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 484,
+    "id": "PROD-484",
+    "title": "Citizen G-Shock 3",
+    "currentCategory": "Relógios",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 486,
+    "id": "PROD-486",
+    "title": "Samsung GTR 2",
+    "currentCategory": "Relógios",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 487,
+    "id": "PROD-487",
+    "title": "Huawei G-Shock Pro",
+    "currentCategory": "Relógios",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 489,
+    "id": "PROD-489",
+    "title": "Huawei Galaxy Watch 4",
+    "currentCategory": "Relógios",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 490,
+    "id": "PROD-490",
+    "title": "Casio Gen Active",
+    "currentCategory": "Relógios",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 491,
+    "id": "PROD-491",
+    "title": "Samsung Forerunner Classic",
+    "currentCategory": "Relógios",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 492,
+    "id": "PROD-492",
+    "title": "Casio Versa 5",
+    "currentCategory": "Relógios",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 493,
+    "id": "PROD-493",
+    "title": "Huawei Gen Classic",
+    "currentCategory": "Relógios",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1594576662059-c4e9b5d0e1b3?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 494,
+    "id": "PROD-494",
+    "title": "Apple Forerunner 5",
+    "currentCategory": "Relógios",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 495,
+    "id": "PROD-495",
+    "title": "Apple Forerunner Series 9",
+    "currentCategory": "Relógios",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 496,
+    "id": "PROD-496",
+    "title": "Amazfit Gen 2",
+    "currentCategory": "Relógios",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 497,
+    "id": "PROD-497",
+    "title": "Fitbit Galaxy Watch 5",
+    "currentCategory": "Relógios",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 498,
+    "id": "PROD-498",
+    "title": "Citizen GT 6",
+    "currentCategory": "Relógios",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1594576662059-c4e9b5d0e1b3?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 499,
+    "id": "PROD-499",
+    "title": "Apple Galaxy Watch Classic",
+    "currentCategory": "Relógios",
+    "suggestedCategory": "smartphones",
+    "hasCorrectKeyword": true,
+    "image": "https://images.unsplash.com/photo-1581578731548-c6a0c3f2b4a4?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  },
+  {
+    "index": 500,
+    "id": "PROD-500",
+    "title": "Fossil GTR Series 9",
+    "currentCategory": "Relógios",
+    "suggestedCategory": null,
+    "hasCorrectKeyword": false,
+    "image": "https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&h=400&fit=crop&crop=center&auto=format&q=80"
+  }
+]
