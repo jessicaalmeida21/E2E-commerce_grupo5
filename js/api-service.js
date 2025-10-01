@@ -719,6 +719,33 @@ class ApiService {
     getFallbackImage() {
         return 'https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&crop=center&auto=format&q=80';
     }
+    
+    // Método para obter categorias
+    async getCategories() {
+        try {
+            console.log('🔍 Carregando categorias via API Service...');
+            
+            // Tentar carregar do database.js primeiro
+            if (typeof getCategories === 'function') {
+                const categories = getCategories();
+                console.log('✅ Categorias carregadas do database.js:', categories);
+                return categories;
+            }
+            
+            // Fallback para categorias padrão
+            const defaultCategories = [
+                'casa', 'eletrônicos', 'eletrodomésticos', 'móveis', 
+                'roupas', 'esportes', 'livros', 'beleza', 'saúde', 'automotivo'
+            ];
+            
+            console.log('⚠️ Usando categorias padrão:', defaultCategories);
+            return defaultCategories;
+            
+        } catch (error) {
+            console.error('❌ Erro ao carregar categorias:', error);
+            return ['casa', 'eletrônicos', 'eletrodomésticos', 'móveis', 'roupas', 'esportes', 'livros', 'beleza', 'saúde', 'automotivo'];
+        }
+    }
 }
 
 // Criar instância global
