@@ -255,6 +255,7 @@ function setupEventListeners() {
     // Filtros e ordenação
     document.getElementById('category-filter').addEventListener('change', applyFiltersAndSort);
     document.getElementById('sort-by').addEventListener('change', applyFiltersAndSort);
+    document.getElementById('status-filter').addEventListener('change', applyFiltersAndSort);
     
     // Modal de estoque
     document.getElementById('close-stock-modal').addEventListener('click', closeModal);
@@ -276,15 +277,24 @@ function setupEventListeners() {
 function applyFiltersAndSort() {
     const searchTerm = document.getElementById('product-search').value.toLowerCase();
     const categoryFilter = document.getElementById('category-filter').value.toLowerCase();
+    const statusFilter = document.getElementById('status-filter').value.toLowerCase();
     const sortBy = document.getElementById('sort-by').value;
     
     // Filtrar produtos
     filteredProducts = allProducts.filter(product => {
         const matchesSearch = product.title.toLowerCase().includes(searchTerm) || 
-                             product.description.toLowerCase().includes(searchTerm);
+                             (product.description && product.description.toLowerCase().includes(searchTerm));
         const matchesCategory = categoryFilter === '' || product.category.toLowerCase() === categoryFilter;
         
-        return matchesSearch && matchesCategory;
+        // Filtro de status
+        let matchesStatus = true;
+        if (statusFilter === 'active') {
+            matchesStatus = product.stock > 0 && product.status !== 'inactive' && product.active !== false;
+        } else if (statusFilter === 'inactive') {
+            matchesStatus = product.stock === 0 || product.status === 'inactive' || product.active === false;
+        }
+        
+        return matchesSearch && matchesCategory && matchesStatus;
     });
     
     // Ordenar produtos
