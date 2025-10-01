@@ -774,21 +774,42 @@ async function handleRegister(e) {
         // LIMPAR CARRINHO AO CRIAR NOVO CADASTRO
         clearOtherUserCarts(newUser.id);
         
-        // Mostrar mensagem de sucesso
+        // FAZER LOGIN AUTOMÁTICO APÓS CADASTRO BEM-SUCEDIDO
+        console.log('🔐 Fazendo login automático após cadastro...');
+        
+        // Salvar usuário atual no localStorage (login automático)
+        localStorage.setItem('currentUser', JSON.stringify(newUser));
+        
+        // Configurar timeout de sessão (30 minutos)
+        const sessionTimeout = Date.now() + (30 * 60 * 1000); // 30 minutos em millisegundos
+        localStorage.setItem('sessionTimeout', sessionTimeout.toString());
+        localStorage.setItem('sessionStartTime', Date.now().toString());
+        
+        console.log('⏰ Sessão configurada com timeout de 30 minutos');
+        console.log('✅ Login automático realizado com sucesso!');
+        
+        // Mostrar mensagem de sucesso com login automático
         messageElement.innerHTML = `
             <div class="success-message">
                 <i class="fas fa-check-circle"></i>
-                <span>Cadastro realizado com sucesso! Redirecionando para login...</span>
+                <span>Cadastro realizado com sucesso! Entrando automaticamente...</span>
             </div>
         `;
         messageElement.className = 'form-message success';
         
-        // Redirecionar para aba de login após 2 segundos
+        // Redirecionar diretamente para página de boas-vindas após 2 segundos
+        console.log('🚀 Redirecionando para welcome.html após login automático');
         setTimeout(() => {
-            const loginTab = document.querySelector('.tab[data-tab="login"]');
-            if (loginTab) {
-                loginTab.click();
-                console.log('Mudando para aba de login...');
+            try {
+                // Verificar se estamos na pasta pages
+                if (window.location.pathname.includes('/pages/')) {
+                    window.location.href = './welcome.html';
+                } else {
+                    window.location.href = './pages/welcome.html';
+                }
+            } catch (error) {
+                console.error('Erro ao redirecionar:', error);
+                alert('Cadastro e login realizados com sucesso! Clique em OK para continuar.');
             }
         }, 2000);
         

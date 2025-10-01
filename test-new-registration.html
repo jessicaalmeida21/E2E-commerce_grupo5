@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Cadastro e Login - Diagnóstico</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .success { background-color: #d4edda; border-color: #c3e6cb; }
+        .error { background-color: #f8d7da; border-color: #f5c6cb; }
+        .info { background-color: #d1ecf1; border-color: #bee5eb; }
+        button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        button:hover { background: #0056b3; }
+        input {
+            padding: 8px;
+            margin: 5px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 200px;
+        }
+        .log {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .user-list {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        .user-item {
+            padding: 5px;
+            border-bottom: 1px solid #ddd;
+            font-family: monospace;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Teste de Cadastro e Login - Diagnóstico Completo</h1>
+    
+    <div class="container">
+        <h2>📊 Status do Sistema</h2>
+        <div id="system-status" class="test-section info">
+            <p>Carregando status do sistema...</p>
+        </div>
+        <button onclick="checkSystemStatus()">🔄 Atualizar Status</button>
+    </div>
+
+    <div class="container">
+        <h2>👥 Usuários Cadastrados</h2>
+        <div id="users-list" class="user-list">
+            <p>Carregando usuários...</p>
+        </div>
+        <button onclick="listAllUsers()">📋 Listar Usuários</button>
+        <button onclick="clearAllUsers()">🗑️ Limpar Todos os Usuários</button>
+    </div>
+
+    <div class="container">
+        <h2>📝 Teste de Cadastro</h2>
+        <div class="test-section">
+            <h3>Dados para Cadastro:</h3>
+            <input type="text" id="test-name" placeholder="Nome completo" value="João Silva Teste">
+            <input type="email" id="test-email" placeholder="E-mail" value="">
+            <input type="password" id="test-password" placeholder="Senha" value="MinhaSenh@123">
+            <select id="test-profile">
+                <option value="cliente">Cliente</option>
+                <option value="vendedor">Vendedor</option>
+            </select>
+            <br>
+            <button onclick="generateRandomEmail()">🎲 Gerar Email Aleatório</button>
+            <button onclick="testRegistration()">✅ Testar Cadastro</button>
+        </div>
+        <div id="registration-result" class="test-section info">
+            <p>Resultado do cadastro aparecerá aqui...</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>🔐 Teste de Login</h2>
+        <div class="test-section">
+            <h3>Dados para Login:</h3>
+            <input type="email" id="login-email" placeholder="E-mail">
+            <input type="password" id="login-password" placeholder="Senha" value="MinhaSenh@123">
+            <br>
+            <button onclick="copyRegistrationData()">📋 Copiar Dados do Cadastro</button>
+            <button onclick="testLogin()">🔑 Testar Login</button>
+        </div>
+        <div id="login-result" class="test-section info">
+            <p>Resultado do login aparecerá aqui...</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>📋 Log de Atividades</h2>
+        <div id="activity-log" class="log">
+            Sistema iniciado...\n
+        </div>
+        <button onclick="clearLog()">🗑️ Limpar Log</button>
+    </div>
+
+    <script src="js/database.js?v=1759328500"></script>
+    <script>
+        let activityLog = [];
+        
+        function log(message) {
+            const timestamp = new Date().toLocaleTimeString();
+            const logMessage = `[${timestamp}] ${message}`;
+            activityLog.push(logMessage);
+            document.getElementById('activity-log').textContent = activityLog.join('\n');
+            console.log(logMessage);
+        }
+
+        function clearLog() {
+            activityLog = [];
+            document.getElementById('activity-log').textContent = 'Log limpo...\n';
+        }
+
+        // Carregar usuários do localStorage
+        function loadUsers() {
+            try {
+                const usersData = localStorage.getItem('users');
+                return usersData ? JSON.parse(usersData) : [];
+            } catch (error) {
+                log(`❌ Erro ao carregar usuários: ${error.message}`);
+                return [];
+            }
+        }
+
+        // Salvar usuários no localStorage
+        function saveUsers(users) {
+            try {
+                localStorage.setItem('users', JSON.stringify(users));
+                log(`✅ ${users.length} usuários salvos no localStorage`);
+                return true;
+            } catch (error) {
+                log(`❌ Erro ao salvar usuários: ${error.message}`);
+                return false;
+            }
+        }
+
+        // Verificar status do sistema
+        function checkSystemStatus() {
+            log('🔍 Verificando status do sistema...');
+            
+            const users = loadUsers();
+            const currentUser = localStorage.getItem('currentUser');
+            const hasDatabase = typeof getAllProducts === 'function';
+            
+            const status = `
+                📊 Status do Sistema:
+                • Usuários cadastrados: ${users.length}
+                • Usuário atual logado: ${currentUser ? 'Sim' : 'Não'}
+                • Database carregada: ${hasDatabase ? 'Sim' : 'Não'}
+                • LocalStorage disponível: ${typeof Storage !== 'undefined' ? 'Sim' : 'Não'}
+                • Crypto API disponível: ${typeof crypto !== 'undefined' && crypto.subtle ? 'Sim' : 'Não'}
+            `;
+            
+            document.getElementById('system-status').innerHTML = `<pre>${status}</pre>`;
+            log('✅ Status do sistema atualizado');
+        }
+
+        // Listar todos os usuários
+        function listAllUsers() {
+            log('📋 Listando todos os usuários...');
+            
+            const users = loadUsers();
+            const usersList = document.getElementById('users-list');
+            
+            if (users.length === 0) {
+                usersList.innerHTML = '<p>Nenhum usuário cadastrado.</p>';
+                log('ℹ️ Nenhum usuário encontrado');
+                return;
+            }
+            
+            let html = '<h3>Usuários Cadastrados:</h3>';
+            users.forEach((user, index) => {
+                html += `
+                    <div class="user-item">
+                        ${index + 1}. ID: ${user.id} | Nome: ${user.name} | Email: ${user.email} | Perfil: ${user.profile} | Fixo: ${user.isFixed ? 'Sim' : 'Não'}
+                    </div>
+                `;
+            });
+            
+            usersList.innerHTML = html;
+            log(`✅ ${users.length} usuários listados`);
+        }
+
+        // Limpar todos os usuários
+        function clearAllUsers() {
+            if (confirm('Tem certeza que deseja limpar todos os usuários?')) {
+                localStorage.removeItem('users');
+                localStorage.removeItem('currentUser');
+                log('🗑️ Todos os usuários foram removidos');
+                listAllUsers();
+                checkSystemStatus();
+            }
+        }
+
+        // Gerar email aleatório
+        function generateRandomEmail() {
+            const timestamp = Date.now();
+            const randomEmail = `teste${timestamp}@exemplo.com`;
+            document.getElementById('test-email').value = randomEmail;
+            document.getElementById('login-email').value = randomEmail;
+            log(`🎲 Email aleatório gerado: ${randomEmail}`);
+        }
+
+        // Copiar dados do cadastro para o login
+        function copyRegistrationData() {
+            const email = document.getElementById('test-email').value;
+            const password = document.getElementById('test-password').value;
+            
+            document.getElementById('login-email').value = email;
+            document.getElementById('login-password').value = password;
+            
+            log(`📋 Dados copiados: ${email}`);
+        }
+
+        // Função de criptografia (copiada do login.js)
+        async function hashPassword(password) {
+            try {
+                const salt = crypto.getRandomValues(new Uint8Array(16));
+                const encoder = new TextEncoder();
+                const passwordData = encoder.encode(password);
+                
+                const combined = new Uint8Array(passwordData.length + salt.length);
+                combined.set(passwordData);
+                combined.set(salt, passwordData.length);
+                
+                let hashBuffer = combined;
+                for (let i = 0; i < 10000; i++) {
+                    hashBuffer = await crypto.subtle.digest('SHA-256', hashBuffer);
+                }
+                
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                const saltArray = Array.from(salt);
+                
+                const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+                const saltHex = saltArray.map(b => b.toString(16).padStart(2, '0')).join('');
+                
+                return `${hashHex}:${saltHex}`;
+            } catch (error) {
+                log(`❌ Erro na criptografia: ${error.message}`);
+                throw error;
+            }
+        }
+
+        // Função de verificação de senha (copiada do login.js)
+        async function verifyPassword(password, hashedPassword) {
+            try {
+                const [hashHex, saltHex] = hashedPassword.split(':');
+                if (!hashHex || !saltHex) {
+                    return password === hashedPassword;
+                }
+                
+                const salt = new Uint8Array(saltHex.match(/.{2}/g).map(byte => parseInt(byte, 16)));
+                const encoder = new TextEncoder();
+                const passwordData = encoder.encode(password);
+                
+                const combined = new Uint8Array(passwordData.length + salt.length);
+                combined.set(passwordData);
+                combined.set(salt, passwordData.length);
+                
+                let hashBuffer = combined;
+                for (let i = 0; i < 10000; i++) {
+                    hashBuffer = await crypto.subtle.digest('SHA-256', hashBuffer);
+                }
+                
+                const hashArray = Array.from(new Uint8Array(hashBuffer));
+                const newHashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+                
+                return newHashHex === hashHex;
+            } catch (error) {
+                log(`❌ Erro na verificação: ${error.message}`);
+                return false;
+            }
+        }
+
+        // Testar cadastro
+        async function testRegistration() {
+            log('📝 Iniciando teste de cadastro...');
+            
+            const name = document.getElementById('test-name').value.trim();
+            const email = document.getElementById('test-email').value.trim();
+            const password = document.getElementById('test-password').value;
+            const profile = document.getElementById('test-profile').value;
+            
+            const resultDiv = document.getElementById('registration-result');
+            
+            if (!name || !email || !password) {
+                resultDiv.innerHTML = '<p class="error">❌ Todos os campos são obrigatórios!</p>';
+                log('❌ Campos obrigatórios não preenchidos');
+                return;
+            }
+            
+            try {
+                // Carregar usuários existentes
+                const users = loadUsers();
+                log(`📋 Usuários existentes: ${users.length}`);
+                
+                // Verificar se email já existe
+                const existingUser = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+                if (existingUser) {
+                    resultDiv.innerHTML = '<p class="error">❌ Email já cadastrado!</p>';
+                    log(`❌ Email já existe: ${email}`);
+                    return;
+                }
+                
+                // Criptografar senha
+                log('🔐 Criptografando senha...');
+                const hashedPassword = await hashPassword(password);
+                log('✅ Senha criptografada com sucesso');
+                
+                // Criar novo usuário
+                const newUser = {
+                    id: Date.now().toString(),
+                    name,
+                    email,
+                    password: hashedPassword,
+                    profile: profile === 'cliente' ? 'customer' : 'seller',
+                    createdAt: new Date().toISOString(),
+                    isFixed: false
+                };
+                
+                log(`👤 Novo usuário criado: ID=${newUser.id}, Email=${newUser.email}`);
+                
+                // Adicionar à lista e salvar
+                users.push(newUser);
+                const saved = saveUsers(users);
+                
+                if (saved) {
+                    // FAZER LOGIN AUTOMÁTICO APÓS CADASTRO (como no sistema real)
+                    log('🔐 Fazendo login automático após cadastro...');
+                    localStorage.setItem('currentUser', JSON.stringify(newUser));
+                    
+                    // Configurar sessão
+                    const sessionTimeout = Date.now() + (30 * 60 * 1000);
+                    localStorage.setItem('sessionTimeout', sessionTimeout.toString());
+                    localStorage.setItem('sessionStartTime', Date.now().toString());
+                    
+                    resultDiv.innerHTML = `
+                        <div class="success">
+                            <h4>✅ Cadastro realizado com sucesso!</h4>
+                            <h4>🔐 Login automático efetuado!</h4>
+                            <p><strong>ID:</strong> ${newUser.id}</p>
+                            <p><strong>Nome:</strong> ${newUser.name}</p>
+                            <p><strong>Email:</strong> ${newUser.email}</p>
+                            <p><strong>Perfil:</strong> ${newUser.profile}</p>
+                            <p><strong>Status:</strong> Logado automaticamente</p>
+                            <p><strong>Sessão:</strong> Ativa por 30 minutos</p>
+                        </div>
+                    `;
+                    log(`✅ Cadastro e login automático concluídos para ${email}`);
+                    
+                    // Atualizar lista de usuários e status
+                    listAllUsers();
+                    checkSystemStatus();
+                } else {
+                    resultDiv.innerHTML = '<p class="error">❌ Erro ao salvar usuário!</p>';
+                }
+                
+            } catch (error) {
+                resultDiv.innerHTML = `<p class="error">❌ Erro no cadastro: ${error.message}</p>`;
+                log(`❌ Erro no cadastro: ${error.message}`);
+            }
+        }
+
+        // Testar login
+        async function testLogin() {
+            log('🔑 Iniciando teste de login...');
+            
+            const email = document.getElementById('login-email').value.trim();
+            const password = document.getElementById('login-password').value;
+            
+            const resultDiv = document.getElementById('login-result');
+            
+            if (!email || !password) {
+                resultDiv.innerHTML = '<p class="error">❌ Email e senha são obrigatórios!</p>';
+                log('❌ Campos de login não preenchidos');
+                return;
+            }
+            
+            try {
+                // Carregar usuários
+                const users = loadUsers();
+                log(`📋 Verificando entre ${users.length} usuários...`);
+                
+                // Buscar usuário
+                const user = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+                
+                if (!user) {
+                    resultDiv.innerHTML = '<p class="error">❌ Usuário não encontrado!</p>';
+                    log(`❌ Usuário não encontrado: ${email}`);
+                    return;
+                }
+                
+                log(`👤 Usuário encontrado: ID=${user.id}, Nome=${user.name}`);
+                
+                // Verificar senha
+                log('🔐 Verificando senha...');
+                let passwordMatch = false;
+                
+                if (user.isFixed) {
+                    // Usuário fixo - comparação direta
+                    passwordMatch = user.password === password;
+                    log(`🔍 Usuário fixo - comparação direta: ${passwordMatch}`);
+                } else {
+                    // Usuário cadastrado - verificação criptografada
+                    passwordMatch = await verifyPassword(password, user.password);
+                    log(`🔍 Usuário cadastrado - verificação criptografada: ${passwordMatch}`);
+                }
+                
+                if (passwordMatch) {
+                    // Login bem-sucedido
+                    localStorage.setItem('currentUser', JSON.stringify(user));
+                    
+                    resultDiv.innerHTML = `
+                        <div class="success">
+                            <h4>✅ Login realizado com sucesso!</h4>
+                            <p><strong>ID:</strong> ${user.id}</p>
+                            <p><strong>Nome:</strong> ${user.name}</p>
+                            <p><strong>Email:</strong> ${user.email}</p>
+                            <p><strong>Perfil:</strong> ${user.profile}</p>
+                        </div>
+                    `;
+                    log(`✅ Login bem-sucedido para ${email}`);
+                    checkSystemStatus();
+                } else {
+                    resultDiv.innerHTML = '<p class="error">❌ Senha incorreta!</p>';
+                    log(`❌ Senha incorreta para ${email}`);
+                }
+                
+            } catch (error) {
+                resultDiv.innerHTML = `<p class="error">❌ Erro no login: ${error.message}</p>`;
+                log(`❌ Erro no login: ${error.message}`);
+            }
+        }
+
+        // Inicializar página
+        window.addEventListener('load', function() {
+            log('🚀 Página de teste carregada');
+            checkSystemStatus();
+            listAllUsers();
+            generateRandomEmail();
+        });
+    </script>
+</body>
+</html>
