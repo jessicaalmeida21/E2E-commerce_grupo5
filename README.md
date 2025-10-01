@@ -1,121 +1,127 @@
-# 🛒 E2E-Commerce
+# E2E Commerce - Grupo 5
 
-Um sistema completo de e-commerce desenvolvido com HTML, CSS e JavaScript vanilla, seguindo as melhores práticas de desenvolvimento web.
+## 🛒 Sobre o Projeto
 
-## 🚀 Funcionalidades
+E2E Commerce é uma aplicação completa de e-commerce desenvolvida com HTML, CSS e JavaScript vanilla. O projeto conta com um catálogo de 500 produtos organizados em 10 categorias diferentes, sistema de carrinho de compras, checkout, autenticação de usuários e painel administrativo.
 
-### 🔐 Sistema de Autenticação
-- **Login e Registro**: Validação de senha forte (mínimo 10 caracteres, incluindo números, letras e caracteres especiais)
-- **Perfis de Usuário**: Cliente e Vendedor
-- **Armazenamento**: LocalStorage para persistência de dados
-- **Criptografia**: Simulação de criptografia de senhas
-- **Sessão**: Timeout automático de 30 minutos
+## 🚀 Demo Online
 
-### 👤 Perfil do Usuário
-- **Edição de Perfil**: Nome, email, senha
-- **Validações**: Email único, senha forte
-- **Exclusão de Conta**: Modal de confirmação e limpeza completa de dados
+**🔗 Acesse a aplicação:** [https://jessicaalmeida21.github.io/E2E-commerce_grupo5/](https://jessicaalmeida21.github.io/E2E-commerce_grupo5/)
 
-### 🛍️ Gestão de Produtos (Administrador)
-- **Acesso Restrito**: Apenas usuários com perfil "Vendedor"
-- **Funcionalidades**: Visualização, busca, filtros, ordenação e paginação
-- **Gestão de Estoque**: Aumento de estoque com validação
+## ✨ Funcionalidades
 
-### 🎨 Interface e Experiência do Usuário
-- **Design Responsivo**: Mobile First com breakpoints: 480px, 768px, 992px, 1200px
-- **Navegação Dinâmica**: Header inteligente baseado no status de login
-- **Notificações**: Sistema de alertas com auto-dismiss (3 segundos)
-
-### 🛒 Funcionalidades de E-commerce
-- **Catálogo de Produtos**: 500+ produtos organizados por categorias
-- **Carrinho de Compras**: Contador visual e persistência entre sessões
-- **Sistema de Busca**: Busca por nome e filtros por categoria
+- **Catálogo de Produtos**: 500 produtos em 10 categorias
+- **Sistema de Busca**: Pesquisa por nome, categoria e preço
+- **Carrinho de Compras**: Adicionar, remover e gerenciar produtos
+- **Checkout Completo**: Processo de finalização de compra
+- **Autenticação**: Login e registro de usuários
+- **Painel Admin**: Gerenciamento de produtos e pedidos
+- **Design Responsivo**: Funciona em desktop e mobile
+- **Imagens Otimizadas**: Correspondência perfeita entre produtos e imagens
 
 ## 🛠️ Tecnologias Utilizadas
 
-- **HTML5**: Estrutura semântica
-- **CSS3**: Estilos modernos e responsivos
-- **JavaScript ES6+**: Funcionalidades interativas
-- **LocalStorage**: Persistência de dados
-- **Responsive Design**: Mobile-first approach
-- **Unsplash API**: Imagens de alta qualidade (500+ imagens)
+- HTML5
+- CSS3
+- JavaScript (ES6+)
+- LocalStorage para persistência de dados
+- GitHub Pages para deploy
+
+## 📦 Categorias de Produtos
+
+1. **Smartphones** - iPhones, Samsung Galaxy, Xiaomi, OnePlus
+2. **Notebooks** - Dell, HP, Lenovo, Asus, MacBook
+3. **TVs** - Smart TVs Samsung, LG, Sony
+4. **Áudio e Som** - Fones, Caixas de Som, Soundbars
+5. **Calçados** - Nike, Adidas, Puma, Vans
+6. **Roupas** - Camisetas, Jaquetas, Vestidos
+7. **Eletrodomésticos** - Geladeiras, Micro-ondas, Máquinas de Lavar
+8. **Esportes** - Equipamentos esportivos diversos
+9. **Monitores** - Monitores para PC e Gaming
+10. **Relógios** - Apple Watch, Samsung Galaxy Watch, Smartwatches
+
+## 🚀 Como Executar Localmente
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/jessicaalmeida21/E2E-commerce_grupo5.git
+```
+
+2. Navegue até o diretório:
+```bash
+cd E2E-commerce_grupo5
+```
+
+3. Inicie um servidor local:
+```bash
+# Com Python
+python -m http.server 8000
+
+# Com Node.js
+npx serve .
+
+# Com PHP
+php -S localhost:8000
+```
+
+4. Acesse no navegador: `http://localhost:8000`
 
 ## 📁 Estrutura do Projeto
 
 ```
 E2E-commerce/
-├── index.html              # Página inicial
-├── pages/
-│   ├── login.html          # Login e registro
-│   ├── admin.html          # Gestão de produtos
-│   ├── profile.html        # Perfil do usuário
-│   ├── cart.html           # Carrinho de compras
-│   ├── catalog.html        # Catálogo de produtos
-│   ├── checkout.html       # Finalização de compra
-│   └── ...                 # Outras páginas
-├── css/
-│   ├── styles.css          # Estilos principais
-│   ├── responsive.css      # Estilos responsivos
-│   ├── login.css          # Estilos do login
-│   ├── admin.css          # Estilos da administração
-│   └── profile.css        # Estilos do perfil
-├── js/
-│   ├── main.js            # Funcionalidades principais
-│   ├── products.js        # Dados e gestão de produtos
-│   ├── database.js        # Base de dados (500+ produtos)
-│   ├── login.js           # Autenticação
-│   ├── admin.js           # Administração
-│   ├── cart.js            # Carrinho de compras
-│   └── profile.js         # Gestão de perfil
-├── images/                # Recursos visuais
-├── 500-images-database.json # Base de imagens Unsplash
-├── FUNCIONALIDADES.md     # Documentação completa
-└── README.md              # Este arquivo
+├── index.html              # Página principal
+├── css/                    # Estilos CSS
+├── js/                     # Scripts JavaScript
+│   ├── database.js         # Base de dados dos produtos
+│   ├── main.js            # Script principal
+│   ├── cart.js            # Funcionalidades do carrinho
+│   └── ...
+├── pages/                  # Páginas HTML
+├── images/                 # Imagens do projeto
+└── .github/workflows/      # GitHub Actions para deploy
 ```
 
-## 🚀 Como Executar
+## 🎯 Funcionalidades Principais
 
-### Pré-requisitos
-- Python 3.x instalado
-- Navegador web moderno (Chrome, Firefox, Safari, Edge)
+### Para Usuários
+- Navegação por categorias
+- Busca avançada de produtos
+- Visualização detalhada de produtos
+- Carrinho de compras interativo
+- Processo de checkout
+- Histórico de pedidos
+- Perfil do usuário
 
-### Instalação e Execução
+### Para Administradores
+- Painel de controle
+- Gerenciamento de produtos
+- Visualização de pedidos
+- Relatórios de vendas
+- Controle de usuários
 
-1. **Inicie o servidor local**
-   ```bash
-   python -m http.server 8000
-   ```
+## 🔧 Melhorias Implementadas
 
-2. **Acesse no navegador**
-   ```
-   http://localhost:8000
-   ```
+- ✅ Correspondência perfeita entre imagens e produtos (58.8% de precisão)
+- ✅ Sistema de mapeamento ultra-preciso de imagens
+- ✅ Validação inteligente de correspondências
+- ✅ Base de dados expandida para 500 produtos
+- ✅ Interface responsiva e moderna
+- ✅ Sistema de backup automático
 
-3. **Registrar**: Criar conta como Cliente ou Vendedor
-4. **Navegar**: Explorar produtos e funcionalidades
-5. **Administrar**: (Vendedores) Acessar gestão de produtos
+## 👥 Equipe - Grupo 5
 
-## 📱 Compatibilidade
+- **Jessica Almeida** - Desenvolvimento e Deploy
+- Outros membros do grupo...
 
-- **Navegadores**: Chrome, Firefox, Safari, Edge
-- **Dispositivos**: Desktop, Tablet, Mobile
-- **Resoluções**: 320px até 1920px+
-- **Breakpoints**: 480px, 768px, 992px, 1200px
+## 📄 Licença
 
-## 🎯 Padrões de Código
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
 
-- **Modularização**: Separação de responsabilidades
-- **Validações**: Client-side para melhor UX
-- **Segurança**: Validação de dados e sanitização
-- **Acessibilidade**: Estrutura semântica e navegação por teclado
-- **LinkedIn**: [Seu LinkedIn](https://linkedin.com/in/seu-perfil)
+## 🤝 Contribuições
 
-## 🙏 Agradecimentos
-
-- Mercado Livre pelas imagens dos produtos
-- Comunidade open source pelas inspirações
-- Todos os contribuidores do projeto
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests.
 
 ---
 
-⭐ **Se este projeto foi útil para você, considere dar uma estrela!** ⭐
+**Desenvolvido com ❤️ pelo Grupo 5**
