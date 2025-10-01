@@ -6,6 +6,7 @@
     <title>Meus Pedidos - E2E-Commerce</title>
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/orders.css">
+    <link rel="stylesheet" href="../css/logistics.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -32,35 +33,115 @@
         <div class="page-header">
             <h1><i class="fas fa-box"></i> Meus Pedidos</h1>
             <div class="header-actions">
+                <button class="btn secondary" id="manage-addresses-btn">
+                    <i class="fas fa-map-marker-alt"></i> Gerenciar Endereços
+                </button>
                 <button class="btn primary" id="new-order-btn">
                     <i class="fas fa-plus"></i> Novo Pedido
                 </button>
             </div>
         </div>
 
-        <!-- Filtros -->
+        <!-- Estatísticas dos Pedidos -->
+        <div class="order-stats" id="order-stats">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-number" id="total-orders">0</span>
+                    <span class="stat-label">Total de Pedidos</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-number" id="pending-orders">0</span>
+                    <span class="stat-label">Aguardando Pagamento</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-truck"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-number" id="shipping-orders">0</span>
+                    <span class="stat-label">Em Transporte</span>
+                </div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="stat-info">
+                    <span class="stat-number" id="delivered-orders">0</span>
+                    <span class="stat-label">Entregues</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Aviso de Pagamentos Pendentes -->
+        <div class="payment-warning" id="payment-warning" style="display: none;">
+            <div class="warning-content">
+                <i class="fas fa-exclamation-triangle"></i>
+                <div class="warning-text">
+                    <h3>Atenção: Pagamentos Pendentes</h3>
+                    <p>Você possui pedidos com pagamento pendente que serão cancelados automaticamente em breve.</p>
+                </div>
+                <button class="btn warning" id="view-pending-payments">Ver Pedidos</button>
+            </div>
+        </div>
+
+        <!-- Filtros Avançados -->
         <div class="filters-section">
             <div class="filter-controls">
-                <select id="status-filter">
-                    <option value="">Todos os Status</option>
-                    <option value="aguardando-pagamento">Aguardando Pagamento</option>
-                    <option value="pago">Pago</option>
-                    <option value="aguardando-envio">Aguardando Envio</option>
-                    <option value="em-transporte">Em Transporte</option>
-                    <option value="entregue">Entregue</option>
-                    <option value="cancelado">Cancelado</option>
-                </select>
+                <div class="filter-group">
+                    <label for="status-filter">Status:</label>
+                    <select id="status-filter">
+                        <option value="">Todos os Status</option>
+                        <option value="aguardando-pagamento">Aguardando Pagamento</option>
+                        <option value="pago">Pago</option>
+                        <option value="aguardando-envio">Aguardando Envio</option>
+                        <option value="em-transporte">Em Transporte</option>
+                        <option value="entregue">Entregue</option>
+                        <option value="cancelado">Cancelado</option>
+                        <option value="devolucao-solicitada">Devolução Solicitada</option>
+                        <option value="devolvido">Devolvido</option>
+                    </select>
+                </div>
                 
-                <select id="period-filter">
-                    <option value="">Todos os Períodos</option>
-                    <option value="last-30">Últimos 30 dias</option>
-                    <option value="last-90">Últimos 90 dias</option>
-                    <option value="last-year">Último ano</option>
-                </select>
+                <div class="filter-group">
+                    <label for="period-filter">Período:</label>
+                    <select id="period-filter">
+                        <option value="">Todos os Períodos</option>
+                        <option value="last-7">Últimos 7 dias</option>
+                        <option value="last-30">Últimos 30 dias</option>
+                        <option value="last-90">Últimos 90 dias</option>
+                        <option value="last-year">Último ano</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="value-filter">Valor:</label>
+                    <select id="value-filter">
+                        <option value="">Todos os Valores</option>
+                        <option value="0-100">Até R$ 100</option>
+                        <option value="100-500">R$ 100 - R$ 500</option>
+                        <option value="500-1000">R$ 500 - R$ 1.000</option>
+                        <option value="1000+">Acima de R$ 1.000</option>
+                    </select>
+                </div>
                 
-                <button class="btn secondary" id="refresh-btn">
-                    <i class="fas fa-sync-alt"></i> Atualizar
-                </button>
+                <div class="filter-actions">
+                    <button class="btn secondary" id="refresh-btn">
+                        <i class="fas fa-sync-alt"></i> Atualizar
+                    </button>
+                    <button class="btn secondary" id="clear-filters-btn">
+                        <i class="fas fa-times"></i> Limpar Filtros
+                    </button>
+                </div>
             </div>
         </div>
 
@@ -81,7 +162,7 @@
 
     <!-- Modal de Detalhes do Pedido -->
     <div class="modal" id="order-details-modal">
-        <div class="modal-content">
+        <div class="modal-content large">
             <div class="modal-header">
                 <h2><i class="fas fa-receipt"></i> Detalhes do Pedido</h2>
                 <button class="close-modal" id="close-order-modal">
@@ -179,9 +260,91 @@
         </div>
     </div>
 
+    <!-- Modal de Gerenciamento de Endereços -->
+    <div class="modal" id="addresses-modal">
+        <div class="modal-content large">
+            <div class="modal-header">
+                <h2><i class="fas fa-map-marker-alt"></i> Gerenciar Endereços</h2>
+                <button class="close-modal" id="close-addresses-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="addresses-list" id="addresses-list">
+                    <!-- Endereços serão carregados via JavaScript -->
+                </div>
+                
+                <div class="add-address-section" id="add-address-section" style="display: none;">
+                    <h3>Adicionar Novo Endereço</h3>
+                    <form id="address-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="address-type">Tipo de Endereço *</label>
+                                <select id="address-type" required>
+                                    <option value="">Selecione o tipo</option>
+                                    <option value="residencial">Residencial</option>
+                                    <option value="comercial">Comercial</option>
+                                    <option value="entrega">Entrega</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="address-cep">CEP *</label>
+                                <input type="text" id="address-cep" placeholder="00000-000" maxlength="9" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group flex-2">
+                                <label for="address-street">Logradouro *</label>
+                                <input type="text" id="address-street" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="address-number">Número *</label>
+                                <input type="text" id="address-number" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="address-complement">Complemento</label>
+                                <input type="text" id="address-complement" placeholder="Apto, Bloco, etc.">
+                            </div>
+                            <div class="form-group">
+                                <label for="address-neighborhood">Bairro *</label>
+                                <input type="text" id="address-neighborhood" readonly>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="address-city">Cidade *</label>
+                                <input type="text" id="address-city" readonly>
+                            </div>
+                            <div class="form-group">
+                                <label for="address-state">Estado *</label>
+                                <input type="text" id="address-state" readonly>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn secondary" id="close-addresses">Fechar</button>
+                <button class="btn primary" id="add-address-btn">
+                    <i class="fas fa-plus"></i> Adicionar Endereço
+                </button>
+                <button class="btn success" id="save-address-btn" style="display: none;">
+                    <i class="fas fa-save"></i> Salvar Endereço
+                </button>
+                <button class="btn secondary" id="cancel-address-btn" style="display: none;">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
     <script src="../js/api-service.js"></script>
     <script src="../js/products.js"></script>
     <script src="../js/logistics.js"></script>
-    <script src="../js/orders-simple.js?v=36"></script>
+    <script src="../js/orders.js"></script>
+    <script src="../js/orders-page.js"></script>
 </body>
 </html>

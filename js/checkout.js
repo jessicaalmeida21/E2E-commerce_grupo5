@@ -150,65 +150,29 @@ async function loadCartItems() {
 function displayCartItems() {
     console.log('=== EXIBINDO ITENS DO CARRINHO ===');
     
-    // Tentar encontrar o container de itens
-    let cartItemsContainer = document.getElementById('cart-items') || 
-                            document.querySelector('.cart-items') || 
-                            document.querySelector('.items-container') ||
-                            document.querySelector('.checkout-items');
-    
-    if (!cartItemsContainer) {
+    const container = document.getElementById('summary-items');
+    if (!container) {
         console.error('Container de itens do carrinho não encontrado');
-        console.log('Elementos disponíveis:', document.querySelectorAll('[id*="cart"], [class*="cart"], [id*="item"], [class*="item"]'));
-        
-        // Criar container se não existir
-        const mainContent = document.querySelector('.main-content') || document.querySelector('.checkout-content') || document.body;
-        if (mainContent) {
-            cartItemsContainer = document.createElement('div');
-            cartItemsContainer.id = 'cart-items';
-            cartItemsContainer.className = 'cart-items';
-            mainContent.appendChild(cartItemsContainer);
-            console.log('✅ Container de itens criado automaticamente');
-        } else {
-            console.error('Não foi possível criar container de itens');
-            return;
-        }
+        return;
     }
     
-    cartItemsContainer.innerHTML = '';
+    if (cartItems.length === 0) {
+        container.innerHTML = '<p class="empty-cart">Nenhum item no carrinho</p>';
+        return;
+    }
     
-    cartItems.forEach(item => {
-        const itemElement = document.createElement('div');
-        itemElement.className = 'checkout-item';
-        
-        const price = parseFloat(item.price) || 0;
-        const quantity = parseInt(item.quantity) || 1;
-        const total = price * quantity;
-        
-        console.log(`Exibindo item: ${item.title} - Preço: R$ ${price}, Quantidade: ${quantity}, Total: R$ ${total}`);
-        
-        itemElement.innerHTML = `
-            <div class="item-image">
-                <img src="${item.image || 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80'}" 
-                     alt="${item.title || 'Produto'}" 
-                     onerror="this.src='https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&crop=center&auto=format&q=80'">
-            </div>
+    container.innerHTML = cartItems.map(item => `
+        <div class="summary-item">
+            <img src="${item.image || '../images/placeholder.jpg'}" alt="${item.name}" class="item-image">
             <div class="item-details">
-                <h3 class="item-title">${item.title || 'Produto'}</h3>
-                <p class="item-description">${item.description || ''}</p>
-                <div class="item-price">${formatPrice(price)}</div>
+                <h4>${item.name}</h4>
+                <p>Quantidade: ${item.quantity}</p>
+                <p class="item-price">R$ ${(item.price * item.quantity).toFixed(2).replace('.', ',')}</p>
             </div>
-            <div class="item-quantity">
-                <span class="quantity">Qtd: ${quantity}</span>
-            </div>
-            <div class="item-total">
-                ${formatPrice(total)}
-            </div>
-        `;
-        
-        cartItemsContainer.appendChild(itemElement);
-    });
+        </div>
+    `).join('');
     
-    console.log('✅ Itens exibidos no checkout');
+    console.log(`✅ ${cartItems.length} itens exibidos no resumo`);
 }
 
 // Calcular totais
@@ -256,7 +220,7 @@ function calculateTotals() {
         return { subtotal: 0, shipping: 0, total: 0 };
     }
     
-    const shipping = subtotal > 99 ? 0 : 15; // Frete grátis acima de R$ 99
+    const shipping = subtotal >= 399 ? 0 : 100; // Frete grátis a partir de R$ 399
     const total = subtotal + shipping;
     
     console.log('Totais calculados no checkout:', { 
@@ -492,7 +456,14 @@ async function createOrder() {
             state: document.getElementById('state').value
         },
         paymentMethod: document.querySelector('.payment-tab.active')?.getAttribute('data-method') || 'credit',
-        createdAt: new Date().toISOString()
+        status: 'Aguardando Pagamento', // Status inicial para integração com sistema de pagamento
+        paymentInfo: null, // Será preenchido após processamento do pagamento
+        createdAt: new Date().toISOString(),
+        history: [{
+            status: 'Aguardando Pagamento',
+            timestamp: new Date().toISOString(),
+            description: 'Pedido criado, aguardando pagamento'
+        }]
     };
     
     console.log('Pedido criado:', order);
@@ -502,14 +473,19 @@ async function createOrder() {
     orders.push(order);
     localStorage.setItem('orders', JSON.stringify(orders));
     
-    // Limpar carrinho
-    const userId = getCurrentUserId();
-    const cartKey = `cart_${userId}`;
-    localStorage.removeItem(cartKey);
+    // Armazenar ID do pedido atual para o sistema de pagamento
+    localStorage.setItem('currentOrderId', order.id);
     
-    // Redirecionar para confirmação
-    alert('Pedido realizado com sucesso!');
-    window.location.href = './confirmation.html';
+    // Não limpar carrinho nem redirecionar ainda - aguardar pagamento
+    console.log('Pedido salvo com status "Aguardando Pagamento"');
+    
+    // Mostrar seção de pagamento se não estiver visível
+    const paymentSection = document.querySelector('.payment-section');
+    if (paymentSection) {
+        paymentSection.scrollIntoView({ behavior: 'smooth' });
+    }
+    
+    return order;
 }
 
 // Configurar event listeners

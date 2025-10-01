@@ -382,7 +382,8 @@ async function handleUserSubmit(e) {
         hasError = true;
     } else {
         // Verificar se email já existe (exceto para o usuário sendo editado)
-        const existingUser = users.find(u => u.email === formData.email && u.id !== formData.userId);
+        const currentUserId = isEditing ? document.getElementById('user-form').dataset.userId : null;
+        const existingUser = users.find(u => u.email === formData.email && u.id !== currentUserId);
         if (existingUser) {
             showError('email-error', 'Este e-mail já está em uso');
             hasError = true;

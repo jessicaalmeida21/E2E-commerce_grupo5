@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Sincronização de Estoque</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .product-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin: 5px 0;
+            background: #f9f9f9;
+            border-radius: 4px;
+        }
+        .stock-info {
+            display: flex;
+            gap: 20px;
+        }
+        .stock-value {
+            padding: 5px 10px;
+            border-radius: 3px;
+            font-weight: bold;
+        }
+        .in-stock {
+            background: #d4edda;
+            color: #155724;
+        }
+        .out-of-stock {
+            background: #f8d7da;
+            color: #721c24;
+        }
+        .low-stock {
+            background: #fff3cd;
+            color: #856404;
+        }
+        button {
+            padding: 8px 16px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+        .btn-warning {
+            background: #ffc107;
+            color: #212529;
+        }
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+        .log {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔍 Teste de Sincronização de Estoque</h1>
+        
+        <div class="test-section">
+            <h3>🎛️ Controles de Teste</h3>
+            <button class="btn-primary" onclick="checkStockSync()">Verificar Sincronização</button>
+            <button class="btn-success" onclick="testAddToCart()">Testar Adicionar ao Carrinho</button>
+            <button class="btn-warning" onclick="resetStock()">Resetar Estoque</button>
+            <button class="btn-danger" onclick="clearLog()">Limpar Log</button>
+        </div>
+
+        <div class="test-section">
+            <h3>📊 Status do Sistema</h3>
+            <div id="system-status">
+                <p>Carregando...</p>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>📦 Produtos de Teste (Primeiros 10)</h3>
+            <div id="products-list">
+                <p>Carregando produtos...</p>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>📋 Log de Testes</h3>
+            <div id="test-log" class="log">
+                Iniciando testes...<br>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts necessários -->
+    <script src="js/database.js"></script>
+    <script src="js/orders.js"></script>
+    <script src="js/api-service.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+
+    <script>
+        let orderManager;
+        let testProducts = [];
+
+        // Inicializar teste
+        document.addEventListener('DOMContentLoaded', async function() {
+            log('🚀 Iniciando teste de sincronização de estoque...');
+            
+            try {
+                // Aguardar carregamento dos módulos
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                // Inicializar OrderManager
+                orderManager = new OrderManager();
+                log('✅ OrderManager inicializado');
+                
+                // Carregar produtos de teste
+                await loadTestProducts();
+                
+                // Verificar status inicial
+                await checkSystemStatus();
+                
+                log('✅ Teste inicializado com sucesso!');
+            } catch (error) {
+                log('❌ Erro na inicialização: ' + error.message);
+                console.error('Erro na inicialização:', error);
+            }
+        });
+
+        async function loadTestProducts() {
+            try {
+                log('📦 Carregando produtos de teste...');
+                
+                // Tentar carregar via getAllProducts
+                if (typeof getAllProducts === 'function') {
+                    const allProducts = getAllProducts();
+                    testProducts = allProducts.slice(0, 10); // Primeiros 10 produtos
+                    log(`✅ ${testProducts.length} produtos carregados via getAllProducts`);
+                } else {
+                    log('⚠️ getAllProducts não disponível');
+                }
+                
+                displayProducts();
+            } catch (error) {
+                log('❌ Erro ao carregar produtos: ' + error.message);
+            }
+        }
+
+        function displayProducts() {
+            const container = document.getElementById('products-list');
+            
+            if (testProducts.length === 0) {
+                container.innerHTML = '<p>❌ Nenhum produto carregado</p>';
+                return;
+            }
+            
+            let html = '';
+            testProducts.forEach(product => {
+                const orderManagerStock = orderManager.stockData[product.id] || 0;
+                const productStock = product.stock || 0;
+                
+                const stockClass = productStock === 0 ? 'out-of-stock' : 
+                                 productStock < 10 ? 'low-stock' : 'in-stock';
+                
+                const syncStatus = orderManagerStock === productStock ? '✅' : '❌';
+                
+                html += `
+                    <div class="product-item">
+                        <div>
+                            <strong>${product.title}</strong><br>
+                            <small>ID: ${product.id}</small>
+                        </div>
+                        <div class="stock-info">
+                            <div class="stock-value ${stockClass}">
+                                Produto: ${productStock}
+                            </div>
+                            <div class="stock-value ${orderManagerStock === 0 ? 'out-of-stock' : orderManagerStock < 10 ? 'low-stock' : 'in-stock'}">
+                                OrderManager: ${orderManagerStock}
+                            </div>
+                            <div style="font-size: 20px;">${syncStatus}</div>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        async function checkSystemStatus() {
+            const statusContainer = document.getElementById('system-status');
+            
+            let status = '<div>';
+            
+            // Verificar módulos carregados
+            status += `<p><strong>Módulos:</strong></p>`;
+            status += `<p>• getAllProducts: ${typeof getAllProducts === 'function' ? '✅' : '❌'}</p>`;
+            status += `<p>• productsDatabase: ${typeof productsDatabase !== 'undefined' ? '✅' : '❌'}</p>`;
+            status += `<p>• OrderManager: ${orderManager ? '✅' : '❌'}</p>`;
+            status += `<p>• addToCart: ${typeof addToCart === 'function' ? '✅' : '❌'}</p>`;
+            
+            // Verificar estoque
+            if (orderManager) {
+                const stockKeys = Object.keys(orderManager.stockData);
+                const zeroStockCount = stockKeys.filter(key => orderManager.stockData[key] === 0).length;
+                
+                status += `<p><strong>Estoque:</strong></p>`;
+                status += `<p>• Total de produtos: ${stockKeys.length}</p>`;
+                status += `<p>• Produtos sem estoque: ${zeroStockCount}</p>`;
+                status += `<p>• Produtos com estoque: ${stockKeys.length - zeroStockCount}</p>`;
+            }
+            
+            status += '</div>';
+            statusContainer.innerHTML = status;
+        }
+
+        async function checkStockSync() {
+            log('🔍 Verificando sincronização de estoque...');
+            
+            let syncIssues = 0;
+            let totalChecked = 0;
+            
+            testProducts.forEach(product => {
+                const orderManagerStock = orderManager.stockData[product.id] || 0;
+                const productStock = product.stock || 0;
+                
+                totalChecked++;
+                
+                if (orderManagerStock !== productStock) {
+                    syncIssues++;
+                    log(`❌ Dessincronização: ${product.id} - Produto: ${productStock}, OrderManager: ${orderManagerStock}`);
+                }
+            });
+            
+            if (syncIssues === 0) {
+                log(`✅ Sincronização OK! ${totalChecked} produtos verificados.`);
+            } else {
+                log(`⚠️ ${syncIssues} problemas de sincronização encontrados em ${totalChecked} produtos.`);
+            }
+            
+            displayProducts();
+        }
+
+        async function testAddToCart() {
+            log('🛒 Testando adicionar ao carrinho...');
+            
+            if (testProducts.length === 0) {
+                log('❌ Nenhum produto disponível para teste');
+                return;
+            }
+            
+            const testProduct = testProducts[0];
+            log(`🧪 Testando com produto: ${testProduct.title} (${testProduct.id})`);
+            
+            try {
+                // Verificar estoque antes
+                const stockBefore = orderManager.stockData[testProduct.id] || 0;
+                log(`📦 Estoque antes: ${stockBefore}`);
+                
+                if (stockBefore === 0) {
+                    log('⚠️ Produto sem estoque, não é possível adicionar ao carrinho');
+                    return;
+                }
+                
+                // Tentar adicionar ao carrinho
+                if (typeof addToCart === 'function') {
+                    await addToCart(testProduct.id);
+                    log('✅ Produto adicionado ao carrinho com sucesso!');
+                    
+                    // Verificar estoque depois
+                    const stockAfter = orderManager.stockData[testProduct.id] || 0;
+                    log(`📦 Estoque depois: ${stockAfter}`);
+                    
+                    if (stockAfter < stockBefore) {
+                        log('✅ Estoque foi reduzido corretamente');
+                    } else {
+                        log('⚠️ Estoque não foi reduzido');
+                    }
+                } else {
+                    log('❌ Função addToCart não disponível');
+                }
+                
+            } catch (error) {
+                log('❌ Erro ao adicionar ao carrinho: ' + error.message);
+            }
+            
+            displayProducts();
+        }
+
+        function resetStock() {
+            log('🔄 Resetando estoque...');
+            
+            try {
+                localStorage.removeItem('product_stock');
+                orderManager.stockData = orderManager.initializeStockData();
+                log('✅ Estoque resetado com sucesso!');
+                
+                displayProducts();
+                checkSystemStatus();
+            } catch (error) {
+                log('❌ Erro ao resetar estoque: ' + error.message);
+            }
+        }
+
+        function clearLog() {
+            document.getElementById('test-log').innerHTML = '';
+        }
+
+        function log(message) {
+            const logContainer = document.getElementById('test-log');
+            const timestamp = new Date().toLocaleTimeString();
+            logContainer.innerHTML += `[${timestamp}] ${message}<br>`;
+            logContainer.scrollTop = logContainer.scrollHeight;
+            console.log(message);
+        }
+    </script>
+</body>
+</html>

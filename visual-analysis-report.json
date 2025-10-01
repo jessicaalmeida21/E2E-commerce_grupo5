@@ -1,0 +1,2155 @@
+{
+  "timestamp": "2025-10-01T11:59:45.457Z",
+  "totalProducts": 500,
+  "suspiciousCount": 174,
+  "categoryAnalysis": [
+    {
+      "category": "Smartphones",
+      "count": 60,
+      "uniqueImages": 8
+    },
+    {
+      "category": "Notebooks",
+      "count": 50,
+      "uniqueImages": 8
+    },
+    {
+      "category": "Televisões",
+      "count": 45,
+      "uniqueImages": 7
+    },
+    {
+      "category": "Áudio e Som",
+      "count": 55,
+      "uniqueImages": 11
+    },
+    {
+      "category": "Calçados",
+      "count": 65,
+      "uniqueImages": 7
+    },
+    {
+      "category": "Roupas",
+      "count": 70,
+      "uniqueImages": 7
+    },
+    {
+      "category": "Eletrodomésticos",
+      "count": 50,
+      "uniqueImages": 7
+    },
+    {
+      "category": "Esportes e Lazer",
+      "count": 40,
+      "uniqueImages": 4
+    },
+    {
+      "category": "Monitores",
+      "count": 35,
+      "uniqueImages": 8
+    },
+    {
+      "category": "Relógios",
+      "count": 30,
+      "uniqueImages": 9
+    }
+  ],
+  "suspiciousProducts": [
+    {
+      "index": 1,
+      "id": "PROD-001",
+      "title": "iPhone 15 Pro Max",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1601784551446-20c9e07cdbdb",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 2,
+      "id": "PROD-002",
+      "title": "Galaxy S24 Ultra",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 3,
+      "id": "PROD-003",
+      "title": "iPhone 14 Pro",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 4,
+      "id": "PROD-004",
+      "title": "Pixel 8 Pro",
+      "category": "Smartphones",
+      "brand": "Google",
+      "image": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1592750475338-74b7b21085ab",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 5,
+      "id": "PROD-005",
+      "title": "Galaxy S23 FE",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 6,
+      "id": "PROD-006",
+      "title": "iPhone 13 Mini",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 9,
+      "id": "PROD-009",
+      "title": "Galaxy A54 5G",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 10,
+      "id": "PROD-010",
+      "title": "iPhone SE 2024",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 11,
+      "id": "PROD-011",
+      "title": "iPhone 15 Pro Max",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574944985070-8f3ebc6b79d2",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 12,
+      "id": "PROD-012",
+      "title": "Galaxy S24 Ultra",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 13,
+      "id": "PROD-013",
+      "title": "iPhone 14 Pro",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 14,
+      "id": "PROD-014",
+      "title": "Pixel 8 Pro",
+      "category": "Smartphones",
+      "brand": "Google",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 15,
+      "id": "PROD-015",
+      "title": "Galaxy S23 FE",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 16,
+      "id": "PROD-016",
+      "title": "iPhone 13 Mini",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 19,
+      "id": "PROD-019",
+      "title": "Galaxy A54 5G",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 20,
+      "id": "PROD-020",
+      "title": "iPhone SE 2024",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 21,
+      "id": "PROD-021",
+      "title": "iPhone 15 Pro Max",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1601784551446-20c9e07cdbdb",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 22,
+      "id": "PROD-022",
+      "title": "Galaxy S24 Ultra",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 23,
+      "id": "PROD-023",
+      "title": "iPhone 14 Pro",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 24,
+      "id": "PROD-024",
+      "title": "Pixel 8 Pro",
+      "category": "Smartphones",
+      "brand": "Google",
+      "image": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574944985070-8f3ebc6b79d2",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 25,
+      "id": "PROD-025",
+      "title": "Galaxy S23 FE",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 26,
+      "id": "PROD-026",
+      "title": "iPhone 13 Mini",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 29,
+      "id": "PROD-029",
+      "title": "Galaxy A54 5G",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 30,
+      "id": "PROD-030",
+      "title": "iPhone SE 2024",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 31,
+      "id": "PROD-031",
+      "title": "iPhone 15 Pro Max",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1601784551446-20c9e07cdbdb",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 32,
+      "id": "PROD-032",
+      "title": "Galaxy S24 Ultra",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 33,
+      "id": "PROD-033",
+      "title": "iPhone 14 Pro",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 34,
+      "id": "PROD-034",
+      "title": "Pixel 8 Pro",
+      "category": "Smartphones",
+      "brand": "Google",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 35,
+      "id": "PROD-035",
+      "title": "Galaxy S23 FE",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 36,
+      "id": "PROD-036",
+      "title": "iPhone 13 Mini",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 39,
+      "id": "PROD-039",
+      "title": "Galaxy A54 5G",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 40,
+      "id": "PROD-040",
+      "title": "iPhone SE 2024",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 41,
+      "id": "PROD-041",
+      "title": "iPhone 15 Pro Max",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574944985070-8f3ebc6b79d2",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 42,
+      "id": "PROD-042",
+      "title": "Galaxy S24 Ultra",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 43,
+      "id": "PROD-043",
+      "title": "iPhone 14 Pro",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 44,
+      "id": "PROD-044",
+      "title": "Pixel 8 Pro",
+      "category": "Smartphones",
+      "brand": "Google",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 45,
+      "id": "PROD-045",
+      "title": "Galaxy S23 FE",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 46,
+      "id": "PROD-046",
+      "title": "iPhone 13 Mini",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 49,
+      "id": "PROD-049",
+      "title": "Galaxy A54 5G",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 50,
+      "id": "PROD-050",
+      "title": "iPhone SE 2024",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 51,
+      "id": "PROD-051",
+      "title": "iPhone 15 Pro Max",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1511707171634-5f897ff02aa9",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 52,
+      "id": "PROD-052",
+      "title": "Galaxy S24 Ultra",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 53,
+      "id": "PROD-053",
+      "title": "iPhone 14 Pro",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 54,
+      "id": "PROD-054",
+      "title": "Pixel 8 Pro",
+      "category": "Smartphones",
+      "brand": "Google",
+      "image": "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1601784551446-20c9e07cdbdb",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 55,
+      "id": "PROD-055",
+      "title": "Galaxy S23 FE",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 56,
+      "id": "PROD-056",
+      "title": "iPhone 13 Mini",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 59,
+      "id": "PROD-059",
+      "title": "Galaxy A54 5G",
+      "category": "Smartphones",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 60,
+      "id": "PROD-060",
+      "title": "iPhone SE 2024",
+      "category": "Smartphones",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone"
+      ]
+    },
+    {
+      "index": 61,
+      "id": "PROD-061",
+      "title": "MacBook Pro 16\"",
+      "category": "Notebooks",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 64,
+      "id": "PROD-064",
+      "title": "MacBook Air M3",
+      "category": "Notebooks",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1541807084-5c52b6b3adef",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 68,
+      "id": "PROD-068",
+      "title": "Surface Laptop 5",
+      "category": "Notebooks",
+      "brand": "Microsoft",
+      "image": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1525547719571-a2d4ac8945e2",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 69,
+      "id": "PROD-069",
+      "title": "MSI Gaming Laptop",
+      "category": "Notebooks",
+      "brand": "MSI",
+      "image": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1541807084-5c52b6b3adef",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 71,
+      "id": "PROD-071",
+      "title": "MacBook Pro 16\"",
+      "category": "Notebooks",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 74,
+      "id": "PROD-074",
+      "title": "MacBook Air M3",
+      "category": "Notebooks",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1541807084-5c52b6b3adef",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 78,
+      "id": "PROD-078",
+      "title": "Surface Laptop 5",
+      "category": "Notebooks",
+      "brand": "Microsoft",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1495474472287-4d71bcdd2085",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 79,
+      "id": "PROD-079",
+      "title": "MSI Gaming Laptop",
+      "category": "Notebooks",
+      "brand": "MSI",
+      "image": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1525547719571-a2d4ac8945e2",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 81,
+      "id": "PROD-081",
+      "title": "MacBook Pro 16\"",
+      "category": "Notebooks",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 84,
+      "id": "PROD-084",
+      "title": "MacBook Air M3",
+      "category": "Notebooks",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1517336714731-489689fd1ca8",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 88,
+      "id": "PROD-088",
+      "title": "Surface Laptop 5",
+      "category": "Notebooks",
+      "brand": "Microsoft",
+      "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1517336714731-489689fd1ca8",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 89,
+      "id": "PROD-089",
+      "title": "MSI Gaming Laptop",
+      "category": "Notebooks",
+      "brand": "MSI",
+      "image": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1525547719571-a2d4ac8945e2",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 91,
+      "id": "PROD-091",
+      "title": "MacBook Pro 16\"",
+      "category": "Notebooks",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 94,
+      "id": "PROD-094",
+      "title": "MacBook Air M3",
+      "category": "Notebooks",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1525547719571-a2d4ac8945e2",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 98,
+      "id": "PROD-098",
+      "title": "Surface Laptop 5",
+      "category": "Notebooks",
+      "brand": "Microsoft",
+      "image": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1484788984921-03950022c9ef",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 99,
+      "id": "PROD-099",
+      "title": "MSI Gaming Laptop",
+      "category": "Notebooks",
+      "brand": "MSI",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 101,
+      "id": "PROD-101",
+      "title": "MacBook Pro 16\"",
+      "category": "Notebooks",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 104,
+      "id": "PROD-104",
+      "title": "MacBook Air M3",
+      "category": "Notebooks",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1517336714731-489689fd1ca8",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 108,
+      "id": "PROD-108",
+      "title": "Surface Laptop 5",
+      "category": "Notebooks",
+      "brand": "Microsoft",
+      "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1517336714731-489689fd1ca8",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 109,
+      "id": "PROD-109",
+      "title": "MSI Gaming Laptop",
+      "category": "Notebooks",
+      "brand": "MSI",
+      "image": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1484788984921-03950022c9ef",
+      "reasons": [
+        "Notebook com imagem não relacionada a computador"
+      ]
+    },
+    {
+      "index": 111,
+      "id": "PROD-111",
+      "title": "Smart TV Samsung 65\" QLED",
+      "category": "Televisões",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1441986300917-64674bd600d8",
+      "reasons": [
+        "TV com imagem não relacionada a televisão"
+      ]
+    },
+    {
+      "index": 114,
+      "id": "PROD-114",
+      "title": "TCL 50\" Android TV",
+      "category": "Televisões",
+      "brand": "TCL",
+      "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1593359677879-a4bb92f829d1",
+      "reasons": [
+        "TV com imagem não relacionada a televisão"
+      ]
+    },
+    {
+      "index": 116,
+      "id": "PROD-116",
+      "title": "Smart TV Samsung 65\" QLED",
+      "category": "Televisões",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1441986300917-64674bd600d8",
+      "reasons": [
+        "TV com imagem não relacionada a televisão"
+      ]
+    },
+    {
+      "index": 119,
+      "id": "PROD-119",
+      "title": "TCL 50\" Android TV",
+      "category": "Televisões",
+      "brand": "TCL",
+      "image": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1560472354-b33ff0c44a43",
+      "reasons": [
+        "TV com imagem não relacionada a televisão"
+      ]
+    },
+    {
+      "index": 121,
+      "id": "PROD-121",
+      "title": "Smart TV Samsung 65\" QLED",
+      "category": "Televisões",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1441986300917-64674bd600d8",
+      "reasons": [
+        "TV com imagem não relacionada a televisão"
+      ]
+    },
+    {
+      "index": 124,
+      "id": "PROD-124",
+      "title": "TCL 50\" Android TV",
+      "category": "Televisões",
+      "brand": "TCL",
+      "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1593359677879-a4bb92f829d1",
+      "reasons": [
+        "TV com imagem não relacionada a televisão"
+      ]
+    },
+    {
+      "index": 126,
+      "id": "PROD-126",
+      "title": "Smart TV Samsung 65\" QLED",
+      "category": "Televisões",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1441986300917-64674bd600d8",
+      "reasons": [
+        "TV com imagem não relacionada a televisão"
+      ]
+    },
+    {
+      "index": 129,
+      "id": "PROD-129",
+      "title": "TCL 50\" Android TV",
+      "category": "Televisões",
+      "brand": "TCL",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1441986300917-64674bd600d8",
+      "reasons": [
+        "TV com imagem não relacionada a televisão"
+      ]
+    },
+    {
+      "index": 131,
+      "id": "PROD-131",
+      "title": "Smart TV Samsung 65\" QLED",
+      "category": "Televisões",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1441986300917-64674bd600d8",
+      "reasons": [
+        "TV com imagem não relacionada a televisão"
+      ]
+    },
+    {
+      "index": 134,
+      "id": "PROD-134",
+      "title": "TCL 50\" Android TV",
+      "category": "Televisões",
+      "brand": "TCL",
+      "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1593359677879-a4bb92f829d1",
+      "reasons": [
+        "TV com imagem não relacionada a televisão"
+      ]
+    },
+    {
+      "index": 136,
+      "id": "PROD-136",
+      "title": "Smart TV Samsung 65\" QLED",
+      "category": "Televisões",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1441986300917-64674bd600d8",
+      "reasons": [
+        "TV com imagem não relacionada a televisão"
+      ]
+    },
+    {
+      "index": 139,
+      "id": "PROD-139",
+      "title": "TCL 50\" Android TV",
+      "category": "Televisões",
+      "brand": "TCL",
+      "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1593359677879-a4bb92f829d1",
+      "reasons": [
+        "TV com imagem não relacionada a televisão"
+      ]
+    },
+    {
+      "index": 141,
+      "id": "PROD-141",
+      "title": "Smart TV Samsung 65\" QLED",
+      "category": "Televisões",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1441986300917-64674bd600d8",
+      "reasons": [
+        "TV com imagem não relacionada a televisão"
+      ]
+    },
+    {
+      "index": 144,
+      "id": "PROD-144",
+      "title": "TCL 50\" Android TV",
+      "category": "Televisões",
+      "brand": "TCL",
+      "image": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1560472354-b33ff0c44a43",
+      "reasons": [
+        "TV com imagem não relacionada a televisão"
+      ]
+    },
+    {
+      "index": 146,
+      "id": "PROD-146",
+      "title": "Smart TV Samsung 65\" QLED",
+      "category": "Televisões",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1441986300917-64674bd600d8",
+      "reasons": [
+        "TV com imagem não relacionada a televisão"
+      ]
+    },
+    {
+      "index": 149,
+      "id": "PROD-149",
+      "title": "TCL 50\" Android TV",
+      "category": "Televisões",
+      "brand": "TCL",
+      "image": "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1560472354-b33ff0c44a43",
+      "reasons": [
+        "TV com imagem não relacionada a televisão"
+      ]
+    },
+    {
+      "index": 151,
+      "id": "PROD-151",
+      "title": "Smart TV Samsung 65\" QLED",
+      "category": "Televisões",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1441986300917-64674bd600d8",
+      "reasons": [
+        "TV com imagem não relacionada a televisão"
+      ]
+    },
+    {
+      "index": 154,
+      "id": "PROD-154",
+      "title": "TCL 50\" Android TV",
+      "category": "Televisões",
+      "brand": "TCL",
+      "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1593359677879-a4bb92f829d1",
+      "reasons": [
+        "TV com imagem não relacionada a televisão"
+      ]
+    },
+    {
+      "index": 276,
+      "id": "PROD-276",
+      "title": "Camiseta Nike Dri-FIT",
+      "category": "Roupas",
+      "brand": "Nike",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 279,
+      "id": "PROD-279",
+      "title": "Camisa Tommy Hilfiger",
+      "category": "Roupas",
+      "brand": "Tommy Hilfiger",
+      "image": "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1489987707025-afc232f7ea0f",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 281,
+      "id": "PROD-281",
+      "title": "Vestido Zara Premium",
+      "category": "Roupas",
+      "brand": "Zara",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 282,
+      "id": "PROD-282",
+      "title": "Calça Jeans Levi's 501",
+      "category": "Roupas",
+      "brand": "Levi's",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1441986300917-64674bd600d8",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 285,
+      "id": "PROD-285",
+      "title": "Camiseta Nike Dri-FIT",
+      "category": "Roupas",
+      "brand": "Nike",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 288,
+      "id": "PROD-288",
+      "title": "Camisa Tommy Hilfiger",
+      "category": "Roupas",
+      "brand": "Tommy Hilfiger",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 290,
+      "id": "PROD-290",
+      "title": "Vestido Zara Premium",
+      "category": "Roupas",
+      "brand": "Zara",
+      "image": "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1489987707025-afc232f7ea0f",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 291,
+      "id": "PROD-291",
+      "title": "Calça Jeans Levi's 501",
+      "category": "Roupas",
+      "brand": "Levi's",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1441986300917-64674bd600d8",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 294,
+      "id": "PROD-294",
+      "title": "Camiseta Nike Dri-FIT",
+      "category": "Roupas",
+      "brand": "Nike",
+      "image": "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1503341504253-dff4815485f1",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 297,
+      "id": "PROD-297",
+      "title": "Camisa Tommy Hilfiger",
+      "category": "Roupas",
+      "brand": "Tommy Hilfiger",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1495474472287-4d71bcdd2085",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 299,
+      "id": "PROD-299",
+      "title": "Vestido Zara Premium",
+      "category": "Roupas",
+      "brand": "Zara",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 300,
+      "id": "PROD-300",
+      "title": "Calça Jeans Levi's 501",
+      "category": "Roupas",
+      "brand": "Levi's",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1495474472287-4d71bcdd2085",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 303,
+      "id": "PROD-303",
+      "title": "Camiseta Nike Dri-FIT",
+      "category": "Roupas",
+      "brand": "Nike",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 306,
+      "id": "PROD-306",
+      "title": "Camisa Tommy Hilfiger",
+      "category": "Roupas",
+      "brand": "Tommy Hilfiger",
+      "image": "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1521572163474-6864f9cf17ab",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 308,
+      "id": "PROD-308",
+      "title": "Vestido Zara Premium",
+      "category": "Roupas",
+      "brand": "Zara",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1495474472287-4d71bcdd2085",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 309,
+      "id": "PROD-309",
+      "title": "Calça Jeans Levi's 501",
+      "category": "Roupas",
+      "brand": "Levi's",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 312,
+      "id": "PROD-312",
+      "title": "Camiseta Nike Dri-FIT",
+      "category": "Roupas",
+      "brand": "Nike",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 315,
+      "id": "PROD-315",
+      "title": "Camisa Tommy Hilfiger",
+      "category": "Roupas",
+      "brand": "Tommy Hilfiger",
+      "image": "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1489987707025-afc232f7ea0f",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 317,
+      "id": "PROD-317",
+      "title": "Vestido Zara Premium",
+      "category": "Roupas",
+      "brand": "Zara",
+      "image": "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1503341504253-dff4815485f1",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 318,
+      "id": "PROD-318",
+      "title": "Calça Jeans Levi's 501",
+      "category": "Roupas",
+      "brand": "Levi's",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1495474472287-4d71bcdd2085",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 321,
+      "id": "PROD-321",
+      "title": "Camiseta Nike Dri-FIT",
+      "category": "Roupas",
+      "brand": "Nike",
+      "image": "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1503341504253-dff4815485f1",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 324,
+      "id": "PROD-324",
+      "title": "Camisa Tommy Hilfiger",
+      "category": "Roupas",
+      "brand": "Tommy Hilfiger",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1495474472287-4d71bcdd2085",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 326,
+      "id": "PROD-326",
+      "title": "Vestido Zara Premium",
+      "category": "Roupas",
+      "brand": "Zara",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1495474472287-4d71bcdd2085",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 327,
+      "id": "PROD-327",
+      "title": "Calça Jeans Levi's 501",
+      "category": "Roupas",
+      "brand": "Levi's",
+      "image": "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1489987707025-afc232f7ea0f",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 330,
+      "id": "PROD-330",
+      "title": "Camiseta Nike Dri-FIT",
+      "category": "Roupas",
+      "brand": "Nike",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1495474472287-4d71bcdd2085",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 333,
+      "id": "PROD-333",
+      "title": "Camisa Tommy Hilfiger",
+      "category": "Roupas",
+      "brand": "Tommy Hilfiger",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1495474472287-4d71bcdd2085",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 335,
+      "id": "PROD-335",
+      "title": "Vestido Zara Premium",
+      "category": "Roupas",
+      "brand": "Zara",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1441986300917-64674bd600d8",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 336,
+      "id": "PROD-336",
+      "title": "Calça Jeans Levi's 501",
+      "category": "Roupas",
+      "brand": "Levi's",
+      "image": "https://images.unsplash.com/photo-1489987707025-afc232f7ea0f?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1489987707025-afc232f7ea0f",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 339,
+      "id": "PROD-339",
+      "title": "Camiseta Nike Dri-FIT",
+      "category": "Roupas",
+      "brand": "Nike",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1441986300917-64674bd600d8",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 342,
+      "id": "PROD-342",
+      "title": "Camisa Tommy Hilfiger",
+      "category": "Roupas",
+      "brand": "Tommy Hilfiger",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1441986300917-64674bd600d8",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 344,
+      "id": "PROD-344",
+      "title": "Vestido Zara Premium",
+      "category": "Roupas",
+      "brand": "Zara",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1495474472287-4d71bcdd2085",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 345,
+      "id": "PROD-345",
+      "title": "Calça Jeans Levi's 501",
+      "category": "Roupas",
+      "brand": "Levi's",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1441986300917-64674bd600d8",
+      "reasons": [
+        "Roupa com imagem não relacionada a vestuário"
+      ]
+    },
+    {
+      "index": 346,
+      "id": "PROD-346",
+      "title": "Geladeira Brastemp Frost Free",
+      "category": "Eletrodomésticos",
+      "brand": "Brastemp",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1495474472287-4d71bcdd2085",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 347,
+      "id": "PROD-347",
+      "title": "Fogão Consul 5 Bocas",
+      "category": "Eletrodomésticos",
+      "brand": "Consul",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1495474472287-4d71bcdd2085",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 348,
+      "id": "PROD-348",
+      "title": "Micro-ondas Electrolux",
+      "category": "Eletrodomésticos",
+      "brand": "Electrolux",
+      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1556909114-f6e7ad7d3136",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 350,
+      "id": "PROD-350",
+      "title": "Cafeteira Philips Walita",
+      "category": "Eletrodomésticos",
+      "brand": "Philips",
+      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1556909114-f6e7ad7d3136",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 351,
+      "id": "PROD-351",
+      "title": "Geladeira Brastemp Frost Free",
+      "category": "Eletrodomésticos",
+      "brand": "Brastemp",
+      "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1571019613454-1cb2f99b2d8b",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 352,
+      "id": "PROD-352",
+      "title": "Fogão Consul 5 Bocas",
+      "category": "Eletrodomésticos",
+      "brand": "Consul",
+      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1556909114-f6e7ad7d3136",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 353,
+      "id": "PROD-353",
+      "title": "Micro-ondas Electrolux",
+      "category": "Eletrodomésticos",
+      "brand": "Electrolux",
+      "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1441986300917-64674bd600d8",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 355,
+      "id": "PROD-355",
+      "title": "Cafeteira Philips Walita",
+      "category": "Eletrodomésticos",
+      "brand": "Philips",
+      "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1571019613454-1cb2f99b2d8b",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 356,
+      "id": "PROD-356",
+      "title": "Geladeira Brastemp Frost Free",
+      "category": "Eletrodomésticos",
+      "brand": "Brastemp",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 357,
+      "id": "PROD-357",
+      "title": "Fogão Consul 5 Bocas",
+      "category": "Eletrodomésticos",
+      "brand": "Consul",
+      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1556909114-f6e7ad7d3136",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 358,
+      "id": "PROD-358",
+      "title": "Micro-ondas Electrolux",
+      "category": "Eletrodomésticos",
+      "brand": "Electrolux",
+      "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1571019613454-1cb2f99b2d8b",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 360,
+      "id": "PROD-360",
+      "title": "Cafeteira Philips Walita",
+      "category": "Eletrodomésticos",
+      "brand": "Philips",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1495474472287-4d71bcdd2085",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 361,
+      "id": "PROD-361",
+      "title": "Geladeira Brastemp Frost Free",
+      "category": "Eletrodomésticos",
+      "brand": "Brastemp",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 362,
+      "id": "PROD-362",
+      "title": "Fogão Consul 5 Bocas",
+      "category": "Eletrodomésticos",
+      "brand": "Consul",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 363,
+      "id": "PROD-363",
+      "title": "Micro-ondas Electrolux",
+      "category": "Eletrodomésticos",
+      "brand": "Electrolux",
+      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1556909114-f6e7ad7d3136",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 365,
+      "id": "PROD-365",
+      "title": "Cafeteira Philips Walita",
+      "category": "Eletrodomésticos",
+      "brand": "Philips",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 366,
+      "id": "PROD-366",
+      "title": "Geladeira Brastemp Frost Free",
+      "category": "Eletrodomésticos",
+      "brand": "Brastemp",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 367,
+      "id": "PROD-367",
+      "title": "Fogão Consul 5 Bocas",
+      "category": "Eletrodomésticos",
+      "brand": "Consul",
+      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1556909114-f6e7ad7d3136",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 368,
+      "id": "PROD-368",
+      "title": "Micro-ondas Electrolux",
+      "category": "Eletrodomésticos",
+      "brand": "Electrolux",
+      "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1584622650111-993a426fbf0a",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 370,
+      "id": "PROD-370",
+      "title": "Cafeteira Philips Walita",
+      "category": "Eletrodomésticos",
+      "brand": "Philips",
+      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1556909114-f6e7ad7d3136",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 371,
+      "id": "PROD-371",
+      "title": "Geladeira Brastemp Frost Free",
+      "category": "Eletrodomésticos",
+      "brand": "Brastemp",
+      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1556909114-f6e7ad7d3136",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 372,
+      "id": "PROD-372",
+      "title": "Fogão Consul 5 Bocas",
+      "category": "Eletrodomésticos",
+      "brand": "Consul",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1495474472287-4d71bcdd2085",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 373,
+      "id": "PROD-373",
+      "title": "Micro-ondas Electrolux",
+      "category": "Eletrodomésticos",
+      "brand": "Electrolux",
+      "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1571019613454-1cb2f99b2d8b",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 375,
+      "id": "PROD-375",
+      "title": "Cafeteira Philips Walita",
+      "category": "Eletrodomésticos",
+      "brand": "Philips",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 376,
+      "id": "PROD-376",
+      "title": "Geladeira Brastemp Frost Free",
+      "category": "Eletrodomésticos",
+      "brand": "Brastemp",
+      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1556909114-f6e7ad7d3136",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 377,
+      "id": "PROD-377",
+      "title": "Fogão Consul 5 Bocas",
+      "category": "Eletrodomésticos",
+      "brand": "Consul",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1495474472287-4d71bcdd2085",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 378,
+      "id": "PROD-378",
+      "title": "Micro-ondas Electrolux",
+      "category": "Eletrodomésticos",
+      "brand": "Electrolux",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 380,
+      "id": "PROD-380",
+      "title": "Cafeteira Philips Walita",
+      "category": "Eletrodomésticos",
+      "brand": "Philips",
+      "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1584622650111-993a426fbf0a",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 381,
+      "id": "PROD-381",
+      "title": "Geladeira Brastemp Frost Free",
+      "category": "Eletrodomésticos",
+      "brand": "Brastemp",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1495474472287-4d71bcdd2085",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 382,
+      "id": "PROD-382",
+      "title": "Fogão Consul 5 Bocas",
+      "category": "Eletrodomésticos",
+      "brand": "Consul",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 383,
+      "id": "PROD-383",
+      "title": "Micro-ondas Electrolux",
+      "category": "Eletrodomésticos",
+      "brand": "Electrolux",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 385,
+      "id": "PROD-385",
+      "title": "Cafeteira Philips Walita",
+      "category": "Eletrodomésticos",
+      "brand": "Philips",
+      "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1571019613454-1cb2f99b2d8b",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 386,
+      "id": "PROD-386",
+      "title": "Geladeira Brastemp Frost Free",
+      "category": "Eletrodomésticos",
+      "brand": "Brastemp",
+      "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1584622650111-993a426fbf0a",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 387,
+      "id": "PROD-387",
+      "title": "Fogão Consul 5 Bocas",
+      "category": "Eletrodomésticos",
+      "brand": "Consul",
+      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1556909114-f6e7ad7d3136",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 388,
+      "id": "PROD-388",
+      "title": "Micro-ondas Electrolux",
+      "category": "Eletrodomésticos",
+      "brand": "Electrolux",
+      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1556909114-f6e7ad7d3136",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 390,
+      "id": "PROD-390",
+      "title": "Cafeteira Philips Walita",
+      "category": "Eletrodomésticos",
+      "brand": "Philips",
+      "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1584622650111-993a426fbf0a",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 391,
+      "id": "PROD-391",
+      "title": "Geladeira Brastemp Frost Free",
+      "category": "Eletrodomésticos",
+      "brand": "Brastemp",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 392,
+      "id": "PROD-392",
+      "title": "Fogão Consul 5 Bocas",
+      "category": "Eletrodomésticos",
+      "brand": "Consul",
+      "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1556909114-f6e7ad7d3136",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 393,
+      "id": "PROD-393",
+      "title": "Micro-ondas Electrolux",
+      "category": "Eletrodomésticos",
+      "brand": "Electrolux",
+      "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1574269909862-7e1d70bb8078",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 395,
+      "id": "PROD-395",
+      "title": "Cafeteira Philips Walita",
+      "category": "Eletrodomésticos",
+      "brand": "Philips",
+      "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1495474472287-4d71bcdd2085",
+      "reasons": [
+        "Eletrodoméstico com imagem não relacionada"
+      ]
+    },
+    {
+      "index": 471,
+      "id": "PROD-471",
+      "title": "Apple Watch Series 9",
+      "category": "Relógios",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1434056886845-dac89ffe9b56",
+      "reasons": [
+        "Relógio com imagem não relacionada a relógio"
+      ]
+    },
+    {
+      "index": 472,
+      "id": "PROD-472",
+      "title": "Samsung Galaxy Watch 6",
+      "category": "Relógios",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1524592094714-0f0654e20314",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone",
+        "Relógio com imagem não relacionada a relógio"
+      ]
+    },
+    {
+      "index": 475,
+      "id": "PROD-475",
+      "title": "Apple Watch Series 9",
+      "category": "Relógios",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1627989580309-bfaf3e58af6f?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1627989580309-bfaf3e58af6f",
+      "reasons": [
+        "Relógio com imagem não relacionada a relógio"
+      ]
+    },
+    {
+      "index": 476,
+      "id": "PROD-476",
+      "title": "Samsung Galaxy Watch 6",
+      "category": "Relógios",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1609081219090-a6d81d3085bf",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone",
+        "Relógio com imagem não relacionada a relógio"
+      ]
+    },
+    {
+      "index": 479,
+      "id": "PROD-479",
+      "title": "Apple Watch Series 9",
+      "category": "Relógios",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Relógio com imagem não relacionada a relógio"
+      ]
+    },
+    {
+      "index": 480,
+      "id": "PROD-480",
+      "title": "Samsung Galaxy Watch 6",
+      "category": "Relógios",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1606220945770-b5b6c2c55bf1",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone",
+        "Relógio com imagem não relacionada a relógio"
+      ]
+    },
+    {
+      "index": 483,
+      "id": "PROD-483",
+      "title": "Apple Watch Series 9",
+      "category": "Relógios",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1547996160-81dfa63595aa",
+      "reasons": [
+        "Relógio com imagem não relacionada a relógio"
+      ]
+    },
+    {
+      "index": 484,
+      "id": "PROD-484",
+      "title": "Samsung Galaxy Watch 6",
+      "category": "Relógios",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1524592094714-0f0654e20314",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone",
+        "Relógio com imagem não relacionada a relógio"
+      ]
+    },
+    {
+      "index": 487,
+      "id": "PROD-487",
+      "title": "Apple Watch Series 9",
+      "category": "Relógios",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1544787219-7f47ccb76574",
+      "reasons": [
+        "Relógio com imagem não relacionada a relógio"
+      ]
+    },
+    {
+      "index": 488,
+      "id": "PROD-488",
+      "title": "Samsung Galaxy Watch 6",
+      "category": "Relógios",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1606220945770-b5b6c2c55bf1",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone",
+        "Relógio com imagem não relacionada a relógio"
+      ]
+    },
+    {
+      "index": 491,
+      "id": "PROD-491",
+      "title": "Apple Watch Series 9",
+      "category": "Relógios",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1609081219090-a6d81d3085bf",
+      "reasons": [
+        "Relógio com imagem não relacionada a relógio"
+      ]
+    },
+    {
+      "index": 492,
+      "id": "PROD-492",
+      "title": "Samsung Galaxy Watch 6",
+      "category": "Relógios",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1606220945770-b5b6c2c55bf1",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone",
+        "Relógio com imagem não relacionada a relógio"
+      ]
+    },
+    {
+      "index": 495,
+      "id": "PROD-495",
+      "title": "Apple Watch Series 9",
+      "category": "Relógios",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1524592094714-0f0654e20314",
+      "reasons": [
+        "Relógio com imagem não relacionada a relógio"
+      ]
+    },
+    {
+      "index": 496,
+      "id": "PROD-496",
+      "title": "Samsung Galaxy Watch 6",
+      "category": "Relógios",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1434056886845-dac89ffe9b56",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone",
+        "Relógio com imagem não relacionada a relógio"
+      ]
+    },
+    {
+      "index": 499,
+      "id": "PROD-499",
+      "title": "Apple Watch Series 9",
+      "category": "Relógios",
+      "brand": "Apple",
+      "image": "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1524592094714-0f0654e20314",
+      "reasons": [
+        "Relógio com imagem não relacionada a relógio"
+      ]
+    },
+    {
+      "index": 500,
+      "id": "PROD-500",
+      "title": "Samsung Galaxy Watch 6",
+      "category": "Relógios",
+      "brand": "Samsung",
+      "image": "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?w=400&h=400&fit=crop&auto=format",
+      "imageId": "1434056886845-dac89ffe9b56",
+      "reasons": [
+        "Smartphone com imagem não relacionada a telefone",
+        "Relógio com imagem não relacionada a relógio"
+      ]
+    }
+  ]
+}

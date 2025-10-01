@@ -1,0 +1,11 @@
+{
+  "timestamp": "2025-10-01T11:25:55.282Z",
+  "totalProducts": 0,
+  "uniqueImages": 0,
+  "loadingErrors": 0,
+  "problematicImages": 0,
+  "successRate": "NaN",
+  "brokenImages": [],
+  "problematicImagesList": [],
+  "recommendations": []
+}

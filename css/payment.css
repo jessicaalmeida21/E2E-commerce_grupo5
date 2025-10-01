@@ -1,0 +1,446 @@
+/* Estilos para o Sistema de Pagamento */
+
+/* Tabela de Parcelas */
+.installments-table {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    border: 1px solid #e9ecef;
+}
+
+.installments-table h3 {
+    margin: 0 0 15px 0;
+    color: #333;
+    font-size: 1.1rem;
+}
+
+.installments-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.installment-header {
+    font-weight: bold;
+    padding: 10px;
+    background: #007bff;
+    color: white;
+    text-align: center;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.installment-option {
+    display: contents;
+    cursor: pointer;
+}
+
+.installment-option:hover .installment-cell {
+    background: #e3f2fd;
+}
+
+.installment-option.selected .installment-cell {
+    background: #bbdefb;
+    border: 2px solid #007bff;
+}
+
+.installment-cell {
+    padding: 12px;
+    text-align: center;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    transition: all 0.2s;
+}
+
+.installment-cell.parcelas {
+    font-weight: bold;
+    color: #007bff;
+}
+
+.installment-cell.valor-parcela {
+    font-size: 1.1rem;
+    font-weight: bold;
+}
+
+.installment-cell.total-juros {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.installment-cell.sem-juros {
+    color: #28a745;
+    font-weight: bold;
+}
+
+/* Validação de Cartão */
+.card-validation-message {
+    margin-top: 5px;
+    font-size: 0.85rem;
+    min-height: 20px;
+}
+
+.card-validation-message.valid {
+    color: #28a745;
+}
+
+.card-validation-message.invalid {
+    color: #dc3545;
+}
+
+.card-validation-message.warning {
+    color: #ffc107;
+}
+
+/* Informações de Teste */
+.test-cards-info {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 20px;
+}
+
+.test-cards-info h4 {
+    margin: 0 0 10px 0;
+    color: #856404;
+    font-size: 1rem;
+}
+
+.test-cards-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.test-card {
+    background: white;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ffeaa7;
+    font-size: 0.85rem;
+}
+
+.test-card strong {
+    color: #856404;
+}
+
+/* PIX Timer */
+.pix-timer {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.pix-timer h4 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.timer-display {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #007bff;
+    font-family: 'Courier New', monospace;
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border: 2px solid #007bff;
+    display: inline-block;
+    min-width: 120px;
+}
+
+.timer-display.warning {
+    color: #ffc107;
+    border-color: #ffc107;
+}
+
+.timer-display.danger {
+    color: #dc3545;
+    border-color: #dc3545;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* PIX QR Code */
+.pix-qr-code {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.pix-qr-code p {
+    margin: 10px 0 0 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+#pix-qr-container {
+    display: inline-block;
+    padding: 20px;
+    background: white;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* PIX Key */
+.pix-key {
+    margin: 20px 0;
+}
+
+.pix-key label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+
+.pix-key-value {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: #f8f9fa;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+}
+
+.pix-key-value span {
+    flex: 1;
+    font-family: 'Courier New', monospace;
+    font-size: 0.9rem;
+    word-break: break-all;
+}
+
+#copy-pix-key {
+    padding: 5px 10px;
+    font-size: 0.8rem;
+    min-width: auto;
+}
+
+/* PIX Status */
+.pix-status {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.status-indicator {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.status-indicator.pending {
+    background: #fff3cd;
+    color: #856404;
+    border: 1px solid #ffeaa7;
+}
+
+.status-indicator.paid {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+.status-indicator.expired {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.status-indicator.cancelled {
+    background: #e2e3e5;
+    color: #383d41;
+    border: 1px solid #d6d8db;
+}
+
+/* PIX Simulate */
+.pix-simulate {
+    text-align: center;
+    margin: 20px 0;
+}
+
+#simulate-pix {
+    background: #28a745;
+    border-color: #28a745;
+    color: white;
+}
+
+#simulate-pix:hover {
+    background: #218838;
+    border-color: #1e7e34;
+}
+
+/* Payment Actions */
+.payment-actions {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #ddd;
+}
+
+#process-payment {
+    font-size: 1.1rem;
+    padding: 15px 30px;
+    min-width: 200px;
+}
+
+#process-payment:disabled {
+    background: #6c757d;
+    border-color: #6c757d;
+    cursor: not-allowed;
+}
+
+/* Installment Info no Resumo */
+.installment-info {
+    background: #e3f2fd;
+    border: 1px solid #bbdefb;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.installment-info h4 {
+    margin: 0 0 10px 0;
+    color: #1976d2;
+    font-size: 1rem;
+}
+
+#installment-details {
+    font-size: 0.9rem;
+    line-height: 1.4;
+}
+
+#installment-details .detail-line {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+#installment-details .detail-line:last-child {
+    margin-bottom: 0;
+    font-weight: bold;
+    border-top: 1px solid #bbdefb;
+    padding-top: 5px;
+    margin-top: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .installments-grid {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+    
+    .installment-header {
+        display: none;
+    }
+    
+    .installment-cell {
+        display: flex;
+        justify-content: space-between;
+        text-align: left;
+    }
+    
+    .installment-cell::before {
+        font-weight: bold;
+        color: #666;
+    }
+    
+    .installment-cell.parcelas::before {
+        content: "Parcelas: ";
+    }
+    
+    .installment-cell.valor-parcela::before {
+        content: "Valor: ";
+    }
+    
+    .installment-cell.total-com-juros::before {
+        content: "Total: ";
+    }
+    
+    .installment-cell.total-juros::before {
+        content: "Juros: ";
+    }
+    
+    .test-cards-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .timer-display {
+        font-size: 1.5rem;
+        padding: 10px;
+    }
+    
+    .pix-key-value {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    #copy-pix-key {
+        align-self: center;
+    }
+}
+
+/* Animações */
+.installments-table {
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pix-payment-info {
+    animation: fadeIn 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Estados de Loading */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #007bff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

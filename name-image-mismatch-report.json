@@ -1,0 +1,2025 @@
+{
+  "totalProducts": 500,
+  "mismatches": 51,
+  "details": [
+    {
+      "name": "iPhone 15 Pro Max",
+      "category": "smartphones",
+      "imageId": "photo-1610945265064-0e34e5519bbf",
+      "imageUrl": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop&auto=format",
+      "reason": "iPhone com imagem não-iPhone"
+    },
+    {
+      "name": "iPhone 14 Pro",
+      "category": "smartphones",
+      "imageId": "photo-1592750475338-74b7b21085ab",
+      "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop&auto=format",
+      "reason": "iPhone com imagem não-iPhone"
+    },
+    {
+      "name": "iPhone 13 Mini",
+      "category": "smartphones",
+      "imageId": "photo-1511707171634-5f897ff02aa9",
+      "imageUrl": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&auto=format",
+      "reason": "iPhone com imagem não-iPhone"
+    },
+    {
+      "name": "iPhone 15 Pro Max",
+      "category": "smartphones",
+      "imageId": "photo-1610945265064-0e34e5519bbf",
+      "imageUrl": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop&auto=format",
+      "reason": "iPhone com imagem não-iPhone"
+    },
+    {
+      "name": "iPhone 14 Pro",
+      "category": "smartphones",
+      "imageId": "photo-1592750475338-74b7b21085ab",
+      "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop&auto=format",
+      "reason": "iPhone com imagem não-iPhone"
+    },
+    {
+      "name": "iPhone 13 Mini",
+      "category": "smartphones",
+      "imageId": "photo-1580910051074-3eb694886505",
+      "imageUrl": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop&auto=format",
+      "reason": "iPhone com imagem não-iPhone"
+    },
+    {
+      "name": "iPhone SE 2024",
+      "category": "smartphones",
+      "imageId": "photo-1592750475338-74b7b21085ab",
+      "imageUrl": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop&auto=format",
+      "reason": "iPhone com imagem não-iPhone"
+    },
+    {
+      "name": "iPhone 14 Pro",
+      "category": "smartphones",
+      "imageId": "photo-1598327105666-5b89351aff97",
+      "imageUrl": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&h=400&fit=crop&auto=format",
+      "reason": "iPhone com imagem não-iPhone"
+    },
+    {
+      "name": "iPhone SE 2024",
+      "category": "smartphones",
+      "imageId": "photo-1511707171634-5f897ff02aa9",
+      "imageUrl": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&auto=format",
+      "reason": "iPhone com imagem não-iPhone"
+    },
+    {
+      "name": "iPhone 14 Pro",
+      "category": "smartphones",
+      "imageId": "photo-1598327105666-5b89351aff97",
+      "imageUrl": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&h=400&fit=crop&auto=format",
+      "reason": "iPhone com imagem não-iPhone"
+    },
+    {
+      "name": "iPhone 13 Mini",
+      "category": "smartphones",
+      "imageId": "photo-1598327105666-5b89351aff97",
+      "imageUrl": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&h=400&fit=crop&auto=format",
+      "reason": "iPhone com imagem não-iPhone"
+    },
+    {
+      "name": "iPhone SE 2024",
+      "category": "smartphones",
+      "imageId": "photo-1598327105666-5b89351aff97",
+      "imageUrl": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&h=400&fit=crop&auto=format",
+      "reason": "iPhone com imagem não-iPhone"
+    },
+    {
+      "name": "iPhone 15 Pro Max",
+      "category": "smartphones",
+      "imageId": "photo-1598327105666-5b89351aff97",
+      "imageUrl": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&h=400&fit=crop&auto=format",
+      "reason": "iPhone com imagem não-iPhone"
+    },
+    {
+      "name": "iPhone 14 Pro",
+      "category": "smartphones",
+      "imageId": "photo-1610945265064-0e34e5519bbf",
+      "imageUrl": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop&auto=format",
+      "reason": "iPhone com imagem não-iPhone"
+    },
+    {
+      "name": "iPhone 15 Pro Max",
+      "category": "smartphones",
+      "imageId": "photo-1580910051074-3eb694886505",
+      "imageUrl": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop&auto=format",
+      "reason": "iPhone com imagem não-iPhone"
+    },
+    {
+      "name": "MacBook Pro 16\\",
+      "category": "notebooks",
+      "imageId": "photo-1603302576837-37561b2e2302",
+      "imageUrl": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop&auto=format",
+      "reason": "MacBook com imagem não-MacBook"
+    },
+    {
+      "name": "MacBook Air M3",
+      "category": "notebooks",
+      "imageId": "photo-1484788984921-03950022c9ef",
+      "imageUrl": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&auto=format",
+      "reason": "MacBook com imagem não-MacBook"
+    },
+    {
+      "name": "MacBook Pro 16\\",
+      "category": "notebooks",
+      "imageId": "photo-1603302576837-37561b2e2302",
+      "imageUrl": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop&auto=format",
+      "reason": "MacBook com imagem não-MacBook"
+    },
+    {
+      "name": "MacBook Air M3",
+      "category": "notebooks",
+      "imageId": "photo-1496181133206-80ce9b88a853",
+      "imageUrl": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&auto=format",
+      "reason": "MacBook com imagem não-MacBook"
+    },
+    {
+      "name": "MacBook Pro 16\\",
+      "category": "notebooks",
+      "imageId": "photo-1496181133206-80ce9b88a853",
+      "imageUrl": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&auto=format",
+      "reason": "MacBook com imagem não-MacBook"
+    },
+    {
+      "name": "MacBook Air M3",
+      "category": "notebooks",
+      "imageId": "photo-1588872657578-7efd1f1555ed",
+      "imageUrl": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop&auto=format",
+      "reason": "MacBook com imagem não-MacBook"
+    },
+    {
+      "name": "MacBook Pro 16\\",
+      "category": "notebooks",
+      "imageId": "photo-1496181133206-80ce9b88a853",
+      "imageUrl": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&auto=format",
+      "reason": "MacBook com imagem não-MacBook"
+    },
+    {
+      "name": "MacBook Air M3",
+      "category": "notebooks",
+      "imageId": "photo-1525547719571-a2d4ac8945e2",
+      "imageUrl": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&auto=format",
+      "reason": "MacBook com imagem não-MacBook"
+    },
+    {
+      "name": "MacBook Pro 16\\",
+      "category": "notebooks",
+      "imageId": "photo-1496181133206-80ce9b88a853",
+      "imageUrl": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&auto=format",
+      "reason": "MacBook com imagem não-MacBook"
+    },
+    {
+      "name": "MacBook Air M3",
+      "category": "notebooks",
+      "imageId": "photo-1525547719571-a2d4ac8945e2",
+      "imageUrl": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&auto=format",
+      "reason": "MacBook com imagem não-MacBook"
+    },
+    {
+      "name": "Smart TV Samsung 65\\",
+      "category": "televisoes",
+      "imageId": "photo-1571019613454-1cb2f99b2d8b",
+      "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&auto=format",
+      "reason": "Samsung com imagem não-Samsung"
+    },
+    {
+      "name": "Smart TV Samsung 65\\",
+      "category": "televisoes",
+      "imageId": "photo-1593359677879-a4bb92f829d1",
+      "imageUrl": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&auto=format",
+      "reason": "TV com imagem não-TV"
+    },
+    {
+      "name": "Smart TV Samsung 65\\",
+      "category": "televisoes",
+      "imageId": "photo-1586953208448-b95a79798f07",
+      "imageUrl": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=400&fit=crop&auto=format",
+      "reason": "TV com imagem não-TV"
+    },
+    {
+      "name": "Smart TV Samsung 65\\",
+      "category": "televisoes",
+      "imageId": "photo-1567690187548-f07b1d7bf5a9",
+      "imageUrl": "https://images.unsplash.com/photo-1567690187548-f07b1d7bf5a9?w=400&h=400&fit=crop&auto=format",
+      "reason": "TV com imagem não-TV"
+    },
+    {
+      "name": "Smart TV Samsung 65\\",
+      "category": "televisoes",
+      "imageId": "photo-1585792180666-f7347c490ee2",
+      "imageUrl": "https://images.unsplash.com/photo-1585792180666-f7347c490ee2?w=400&h=400&fit=crop&auto=format",
+      "reason": "TV com imagem não-TV"
+    },
+    {
+      "name": "Smart TV Samsung 65\\",
+      "category": "televisoes",
+      "imageId": "photo-1593359677879-a4bb92f829d1",
+      "imageUrl": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&auto=format",
+      "reason": "TV com imagem não-TV"
+    },
+    {
+      "name": "Smart TV Samsung 65\\",
+      "category": "televisoes",
+      "imageId": "photo-1571068316344-75bc76f77890",
+      "imageUrl": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=400&h=400&fit=crop&auto=format",
+      "reason": "TV com imagem não-TV"
+    },
+    {
+      "name": "Smart TV Samsung 65\\",
+      "category": "televisoes",
+      "imageId": "photo-1567690187548-f07b1d7bf5a9",
+      "imageUrl": "https://images.unsplash.com/photo-1567690187548-f07b1d7bf5a9?w=400&h=400&fit=crop&auto=format",
+      "reason": "TV com imagem não-TV"
+    },
+    {
+      "name": "Smart TV Samsung 65\\",
+      "category": "televisoes",
+      "imageId": "photo-1574375927938-d5a98e8ffe85",
+      "imageUrl": "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=400&h=400&fit=crop&auto=format",
+      "reason": "TV com imagem não-TV"
+    },
+    {
+      "name": "Monitor Samsung Odyssey 27\\",
+      "category": "monitores",
+      "imageId": "photo-1556909114-f6e7ad7d3136",
+      "imageUrl": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format",
+      "reason": "Samsung com imagem não-Samsung"
+    },
+    {
+      "name": "Monitor Samsung Odyssey 27\\",
+      "category": "monitores",
+      "imageId": "photo-1542291026-7eec264c27ff",
+      "imageUrl": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&auto=format",
+      "reason": "Samsung com imagem não-Samsung"
+    },
+    {
+      "name": "Monitor Samsung Odyssey 27\\",
+      "category": "monitores",
+      "imageId": "photo-1556909114-f6e7ad7d3136",
+      "imageUrl": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format",
+      "reason": "Samsung com imagem não-Samsung"
+    },
+    {
+      "name": "Monitor Samsung Odyssey 27\\",
+      "category": "monitores",
+      "imageId": "photo-1571068316344-75bc76f77890",
+      "imageUrl": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=400&h=400&fit=crop&auto=format",
+      "reason": "Samsung com imagem não-Samsung"
+    },
+    {
+      "name": "Monitor Samsung Odyssey 27\\",
+      "category": "monitores",
+      "imageId": "photo-1571068316344-75bc76f77890",
+      "imageUrl": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=400&h=400&fit=crop&auto=format",
+      "reason": "Samsung com imagem não-Samsung"
+    },
+    {
+      "name": "Monitor Samsung Odyssey 27\\",
+      "category": "monitores",
+      "imageId": "photo-1542291026-7eec264c27ff",
+      "imageUrl": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&auto=format",
+      "reason": "Samsung com imagem não-Samsung"
+    },
+    {
+      "name": "Monitor Samsung Odyssey 27\\",
+      "category": "monitores",
+      "imageId": "photo-1593359677879-a4bb92f829d1",
+      "imageUrl": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&auto=format",
+      "reason": "Samsung com imagem não-Samsung"
+    },
+    {
+      "name": "Monitor Samsung Odyssey 27\\",
+      "category": "monitores",
+      "imageId": "photo-1571068316344-75bc76f77890",
+      "imageUrl": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=400&h=400&fit=crop&auto=format",
+      "reason": "Samsung com imagem não-Samsung"
+    },
+    {
+      "name": "Monitor Samsung Odyssey 27\\",
+      "category": "monitores",
+      "imageId": "photo-1556909114-f6e7ad7d3136",
+      "imageUrl": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format",
+      "reason": "Samsung com imagem não-Samsung"
+    },
+    {
+      "name": "Samsung Galaxy Watch 6",
+      "category": "relogios",
+      "imageId": "photo-1639006570490-2d7c4c27cb6d",
+      "imageUrl": "https://images.unsplash.com/photo-1639006570490-2d7c4c27cb6d?w=400&h=400&fit=crop&auto=format",
+      "reason": "Samsung com imagem não-Samsung"
+    },
+    {
+      "name": "Samsung Galaxy Watch 6",
+      "category": "relogios",
+      "imageId": "photo-1614164185128-e4ec99c436d7",
+      "imageUrl": "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=400&h=400&fit=crop&auto=format",
+      "reason": "Samsung com imagem não-Samsung"
+    },
+    {
+      "name": "Samsung Galaxy Watch 6",
+      "category": "relogios",
+      "imageId": "photo-1547996160-81dfa63595aa",
+      "imageUrl": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=400&h=400&fit=crop&auto=format",
+      "reason": "Samsung com imagem não-Samsung"
+    },
+    {
+      "name": "Samsung Galaxy Watch 6",
+      "category": "relogios",
+      "imageId": "photo-1614164185128-e4ec99c436d7",
+      "imageUrl": "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=400&h=400&fit=crop&auto=format",
+      "reason": "Samsung com imagem não-Samsung"
+    },
+    {
+      "name": "Samsung Galaxy Watch 6",
+      "category": "relogios",
+      "imageId": "photo-1523275335684-37898b6baf30",
+      "imageUrl": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&auto=format",
+      "reason": "Samsung com imagem não-Samsung"
+    },
+    {
+      "name": "Samsung Galaxy Watch 6",
+      "category": "relogios",
+      "imageId": "photo-1639006570490-2d7c4c27cb6d",
+      "imageUrl": "https://images.unsplash.com/photo-1639006570490-2d7c4c27cb6d?w=400&h=400&fit=crop&auto=format",
+      "reason": "Samsung com imagem não-Samsung"
+    },
+    {
+      "name": "Samsung Galaxy Watch 6",
+      "category": "relogios",
+      "imageId": "photo-1523275335684-37898b6baf30",
+      "imageUrl": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&auto=format",
+      "reason": "Samsung com imagem não-Samsung"
+    },
+    {
+      "name": "Samsung Galaxy Watch 6",
+      "category": "relogios",
+      "imageId": "photo-1639006570490-2d7c4c27cb6d",
+      "imageUrl": "https://images.unsplash.com/photo-1639006570490-2d7c4c27cb6d?w=400&h=400&fit=crop&auto=format",
+      "reason": "Samsung com imagem não-Samsung"
+    }
+  ],
+  "imageUsage": {
+    "photo-1610945265064-0e34e5519bbf": {
+      "count": 5,
+      "products": [
+        {
+          "name": "iPhone 15 Pro Max",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "iPhone 15 Pro Max",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Galaxy S24 Ultra",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "iPhone 14 Pro",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Xiaomi 14 Ultra",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1610945265064-0e34e5519bbf?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1598327105666-5b89351aff97": {
+      "count": 9,
+      "products": [
+        {
+          "name": "Galaxy S24 Ultra",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "iPhone 14 Pro",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Xiaomi 14 Ultra",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Galaxy A54 5G",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "iPhone 14 Pro",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1592750475338-74b7b21085ab": {
+      "count": 8,
+      "products": [
+        {
+          "name": "iPhone 14 Pro",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Galaxy S24 Ultra",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "iPhone 14 Pro",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Xiaomi 14 Ultra",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Galaxy A54 5G",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1580910051074-3eb694886505": {
+      "count": 6,
+      "products": [
+        {
+          "name": "Pixel 8 Pro",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "iPhone 13 Mini",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "OnePlus 12 Pro",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Galaxy S23 FE",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Xiaomi 14 Ultra",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1580910051074-3eb694886505?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1567581935884-3349723552ca": {
+      "count": 4,
+      "products": [
+        {
+          "name": "Galaxy S23 FE",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1567581935884-3349723552ca?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Galaxy S24 Ultra",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1567581935884-3349723552ca?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Pixel 8 Pro",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1567581935884-3349723552ca?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Galaxy A54 5G",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1567581935884-3349723552ca?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1511707171634-5f897ff02aa9": {
+      "count": 3,
+      "products": [
+        {
+          "name": "iPhone 13 Mini",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "iPhone SE 2024",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Galaxy A54 5G",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1663781292073-d7198d04c0c3": {
+      "count": 7,
+      "products": [
+        {
+          "name": "OnePlus 12 Pro",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1663781292073-d7198d04c0c3?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Pixel 8 Pro",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1663781292073-d7198d04c0c3?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "iPhone 15 Pro Max",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1663781292073-d7198d04c0c3?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Pixel 8 Pro",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1663781292073-d7198d04c0c3?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "OnePlus 12 Pro",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1663781292073-d7198d04c0c3?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1598300042247-d088f8ab3a91": {
+      "count": 3,
+      "products": [
+        {
+          "name": "Xiaomi 14 Ultra",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "OnePlus 12 Pro",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Galaxy S23 FE",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1598300042247-d088f8ab3a91?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1695048133142-1a20484d2569": {
+      "count": 10,
+      "products": [
+        {
+          "name": "Galaxy A54 5G",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Galaxy S23 FE",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Pixel 8 Pro",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "iPhone 15 Pro Max",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "iPhone 13 Mini",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1695048133142-1a20484d2569?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1574944985070-8f3ebc6b79d2": {
+      "count": 5,
+      "products": [
+        {
+          "name": "iPhone SE 2024",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "iPhone 13 Mini",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Galaxy S24 Ultra",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "iPhone SE 2024",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "iPhone 13 Mini",
+          "category": "smartphones",
+          "url": "https://images.unsplash.com/photo-1574944985070-8f3ebc6b79d2?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1603302576837-37561b2e2302": {
+      "count": 3,
+      "products": [
+        {
+          "name": "MacBook Pro 16\\",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "MacBook Pro 16\\",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "HP Pavilion 15",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1603302576837-37561b2e2302?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1593642632823-8f785ba67e45": {
+      "count": 4,
+      "products": [
+        {
+          "name": "Dell XPS 13",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "LG Gram 17",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Acer Aspire 5",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Dell XPS 13",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1593642632823-8f785ba67e45?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1629131726692-1accd0c53ce0": {
+      "count": 7,
+      "products": [
+        {
+          "name": "ThinkPad X1 Carbon",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "ASUS ZenBook 14",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "MSI Gaming Laptop",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Dell XPS 13",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Surface Laptop 5",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1629131726692-1accd0c53ce0?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1484788984921-03950022c9ef": {
+      "count": 4,
+      "products": [
+        {
+          "name": "MacBook Air M3",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "HP Pavilion 15",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "ThinkPad X1 Carbon",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "MSI Gaming Laptop",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1496181133206-80ce9b88a853": {
+      "count": 6,
+      "products": [
+        {
+          "name": "ASUS ZenBook 14",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "ThinkPad X1 Carbon",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "MacBook Air M3",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "MacBook Pro 16\\",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "MacBook Pro 16\\",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1541807084-5c52b6b3adef": {
+      "count": 7,
+      "products": [
+        {
+          "name": "HP Pavilion 15",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Acer Aspire 5",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Surface Laptop 5",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "ASUS ZenBook 14",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "ThinkPad X1 Carbon",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1525547719571-a2d4ac8945e2": {
+      "count": 8,
+      "products": [
+        {
+          "name": "Acer Aspire 5",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Dell XPS 13",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "LG Gram 17",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "MacBook Air M3",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "HP Pavilion 15",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1588872657578-7efd1f1555ed": {
+      "count": 3,
+      "products": [
+        {
+          "name": "Surface Laptop 5",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "MacBook Air M3",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "ThinkPad X1 Carbon",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1588872657578-7efd1f1555ed?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1611186871348-b1ce696e52c9": {
+      "count": 4,
+      "products": [
+        {
+          "name": "MSI Gaming Laptop",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Dell XPS 13",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "HP Pavilion 15",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "MSI Gaming Laptop",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1611186871348-b1ce696e52c9?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1517336714731-489689fd1ca8": {
+      "count": 4,
+      "products": [
+        {
+          "name": "LG Gram 17",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "ASUS ZenBook 14",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "MSI Gaming Laptop",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "LG Gram 17",
+          "category": "notebooks",
+          "url": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1571019613454-1cb2f99b2d8b": {
+      "count": 18,
+      "products": [
+        {
+          "name": "Smart TV Samsung 65\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Sony Bravia 75\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Philips 43\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Sony Bravia 75\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Sony Bravia 75\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1571068316344-75bc76f77890": {
+      "count": 16,
+      "products": [
+        {
+          "name": "LG OLED 55\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "TCL 50\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Philips 43\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "LG OLED 55\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Sony Bravia 75\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1593305841991-05c297ba4575": {
+      "count": 8,
+      "products": [
+        {
+          "name": "Sony Bravia 75\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Sony Bravia 75\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "LG OLED 55\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Philips 43\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "ASUS ROG Gaming 32\\",
+          "category": "monitores",
+          "url": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1586953208448-b95a79798f07": {
+      "count": 8,
+      "products": [
+        {
+          "name": "TCL 50\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Smart TV Samsung 65\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "LG OLED 55\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Sony Bravia 75\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Dell UltraSharp 24\\",
+          "category": "monitores",
+          "url": "https://images.unsplash.com/photo-1586953208448-b95a79798f07?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1567690187548-f07b1d7bf5a9": {
+      "count": 10,
+      "products": [
+        {
+          "name": "Philips 43\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1567690187548-f07b1d7bf5a9?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "LG OLED 55\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1567690187548-f07b1d7bf5a9?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Smart TV Samsung 65\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1567690187548-f07b1d7bf5a9?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "TCL 50\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1567690187548-f07b1d7bf5a9?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Smart TV Samsung 65\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1567690187548-f07b1d7bf5a9?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1593359677879-a4bb92f829d1": {
+      "count": 13,
+      "products": [
+        {
+          "name": "Smart TV Samsung 65\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Smart TV Samsung 65\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "TCL 50\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Bola Nike Futebol",
+          "category": "esportes",
+          "url": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Bola Nike Futebol",
+          "category": "esportes",
+          "url": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1585792180666-f7347c490ee2": {
+      "count": 7,
+      "products": [
+        {
+          "name": "LG OLED 55\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1585792180666-f7347c490ee2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Smart TV Samsung 65\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1585792180666-f7347c490ee2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Philips 43\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1585792180666-f7347c490ee2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "LG UltraWide 34\\",
+          "category": "monitores",
+          "url": "https://images.unsplash.com/photo-1585792180666-f7347c490ee2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "LG UltraWide 34\\",
+          "category": "monitores",
+          "url": "https://images.unsplash.com/photo-1585792180666-f7347c490ee2?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1556909114-f6e7ad7d3136": {
+      "count": 13,
+      "products": [
+        {
+          "name": "Sony Bravia 75\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Philips 43\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "LG OLED 55\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Raquete Wilson Pro Staff",
+          "category": "esportes",
+          "url": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Chuteira Adidas Predator",
+          "category": "esportes",
+          "url": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1574375927938-d5a98e8ffe85": {
+      "count": 7,
+      "products": [
+        {
+          "name": "TCL 50\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Sony Bravia 75\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "TCL 50\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "LG OLED 55\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Smart TV Samsung 65\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1574375927938-d5a98e8ffe85?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1542291026-7eec264c27ff": {
+      "count": 33,
+      "products": [
+        {
+          "name": "Philips 43\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "TCL 50\\",
+          "category": "televisoes",
+          "url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Nike Air Max 270",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Vans Old Skool",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Fila Disruptor II",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1484704849700-f032a568e944": {
+      "count": 7,
+      "products": [
+        {
+          "name": "Sony WH-1000XM5",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "AirPods Pro 2",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Beats Studio3 Wireless",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Harman Kardon Onyx Studio",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "AirPods Pro 2",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1484704849700-f032a568e944?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1545454675-3531b543be5d": {
+      "count": 3,
+      "products": [
+        {
+          "name": "AirPods Pro 2",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "AirPods Pro 2",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Sony WH-1000XM5",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1606220945770-b5b6c2c55bf1": {
+      "count": 7,
+      "products": [
+        {
+          "name": "Bose QuietComfort 45",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "JBL Charge 5",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Harman Kardon Onyx Studio",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Audio-Technica ATH-M50x",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Sennheiser HD 660S",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1505740420928-5e560c06d30e": {
+      "count": 6,
+      "products": [
+        {
+          "name": "JBL Charge 5",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Beats Studio3 Wireless",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Harman Kardon Onyx Studio",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "AirPods Pro 2",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Beats Studio3 Wireless",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1608043152269-423dbba4e7e1": {
+      "count": 9,
+      "products": [
+        {
+          "name": "Sennheiser HD 660S",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Audio-Technica ATH-M50x",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Marshall Major IV",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Sony WH-1000XM5",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Beats Studio3 Wireless",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1590658268037-6bf12165a8df": {
+      "count": 4,
+      "products": [
+        {
+          "name": "Beats Studio3 Wireless",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Marshall Major IV",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Marshall Major IV",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Beats Studio3 Wireless",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1577174881658-0f30ed549adc": {
+      "count": 6,
+      "products": [
+        {
+          "name": "Marshall Major IV",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1577174881658-0f30ed549adc?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Bose QuietComfort 45",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1577174881658-0f30ed549adc?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Sony WH-1000XM5",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1577174881658-0f30ed549adc?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Bose QuietComfort 45",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1577174881658-0f30ed549adc?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Sennheiser HD 660S",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1577174881658-0f30ed549adc?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1558756520-22cfe5d382ca": {
+      "count": 6,
+      "products": [
+        {
+          "name": "Audio-Technica ATH-M50x",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1558756520-22cfe5d382ca?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "JBL Charge 5",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1558756520-22cfe5d382ca?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "JBL Charge 5",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1558756520-22cfe5d382ca?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "JBL Charge 5",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1558756520-22cfe5d382ca?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Bose QuietComfort 45",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1558756520-22cfe5d382ca?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1572536147248-ac59a8abfa4b": {
+      "count": 6,
+      "products": [
+        {
+          "name": "Harman Kardon Onyx Studio",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Sennheiser HD 660S",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Bose QuietComfort 45",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Audio-Technica ATH-M50x",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Sennheiser HD 660S",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1583394838336-acd977736f90": {
+      "count": 1,
+      "products": [
+        {
+          "name": "Sony WH-1000XM5",
+          "category": "audio",
+          "url": "https://images.unsplash.com/photo-1583394838336-acd977736f90?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1543163521-1bf539c55dd2": {
+      "count": 13,
+      "products": [
+        {
+          "name": "Nike Air Max 270",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Vans Old Skool",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Converse Chuck Taylor",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Puma Suede Classic",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "ASICS Gel-Kayano 29",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1552346154-21d32810aba3": {
+      "count": 14,
+      "products": [
+        {
+          "name": "Adidas Ultraboost 22",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Reebok Classic Leather",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Nike Air Max 270",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Nike Air Max 270",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Adidas Ultraboost 22",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1552346154-21d32810aba3?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1549298916-b41d501d3772": {
+      "count": 15,
+      "products": [
+        {
+          "name": "Vans Old Skool",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Adidas Ultraboost 22",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "New Balance 990v5",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Converse Chuck Taylor",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Nike Air Max 270",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1551107696-a4b0c5a0d9a2": {
+      "count": 16,
+      "products": [
+        {
+          "name": "Converse Chuck Taylor",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Adidas Ultraboost 22",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Vans Old Skool",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Fila Disruptor II",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Reebok Classic Leather",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1551107696-a4b0c5a0d9a2?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1571945153237-4929e783af4a": {
+      "count": 17,
+      "products": [
+        {
+          "name": "Puma Suede Classic",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "ASICS Gel-Kayano 29",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Converse Chuck Taylor",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "New Balance 990v5",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "ASICS Gel-Kayano 29",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1520256862855-398228c41684": {
+      "count": 13,
+      "products": [
+        {
+          "name": "New Balance 990v5",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1520256862855-398228c41684?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Puma Suede Classic",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1520256862855-398228c41684?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Reebok Classic Leather",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1520256862855-398228c41684?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Vans Old Skool",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1520256862855-398228c41684?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Fila Disruptor II",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1520256862855-398228c41684?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1544966503-7cc5ac882d5f": {
+      "count": 8,
+      "products": [
+        {
+          "name": "ASICS Gel-Kayano 29",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Fila Disruptor II",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "New Balance 990v5",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Jaqueta Adidas Originals",
+          "category": "roupas",
+          "url": "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Blusa H&M Basic",
+          "category": "roupas",
+          "url": "https://images.unsplash.com/photo-1544966503-7cc5ac882d5f?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1595950653106-6c9ebd614d3a": {
+      "count": 11,
+      "products": [
+        {
+          "name": "Reebok Classic Leather",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Reebok Classic Leather",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Fila Disruptor II",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Adidas Ultraboost 22",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Converse Chuck Taylor",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1560769629-975ec94e6a86": {
+      "count": 15,
+      "products": [
+        {
+          "name": "Fila Disruptor II",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Nike Air Max 270",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Converse Chuck Taylor",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "New Balance 990v5",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Puma Suede Classic",
+          "category": "calcados",
+          "url": "https://images.unsplash.com/photo-1560769629-975ec94e6a86?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1555041469-a586c61ea9bc": {
+      "count": 17,
+      "products": [
+        {
+          "name": "Geladeira Brastemp Frost Free",
+          "category": "eletrodomesticos",
+          "url": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Lava-roupas LG TurboWash",
+          "category": "eletrodomesticos",
+          "url": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Lava-roupas LG TurboWash",
+          "category": "eletrodomesticos",
+          "url": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Geladeira Brastemp Frost Free",
+          "category": "eletrodomesticos",
+          "url": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Fogão Consul 5 Bocas",
+          "category": "eletrodomesticos",
+          "url": "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1586023492125-27b2c045efd7": {
+      "count": 22,
+      "products": [
+        {
+          "name": "Fogão Consul 5 Bocas",
+          "category": "eletrodomesticos",
+          "url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Geladeira Brastemp Frost Free",
+          "category": "eletrodomesticos",
+          "url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Fogão Consul 5 Bocas",
+          "category": "eletrodomesticos",
+          "url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Cafeteira Philips Walita",
+          "category": "eletrodomesticos",
+          "url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Micro-ondas Electrolux",
+          "category": "eletrodomesticos",
+          "url": "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1506439773649-6e0eb8cfb237": {
+      "count": 11,
+      "products": [
+        {
+          "name": "Micro-ondas Electrolux",
+          "category": "eletrodomesticos",
+          "url": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Cafeteira Philips Walita",
+          "category": "eletrodomesticos",
+          "url": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Micro-ondas Electrolux",
+          "category": "eletrodomesticos",
+          "url": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Cafeteira Philips Walita",
+          "category": "eletrodomesticos",
+          "url": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Micro-ondas Electrolux",
+          "category": "eletrodomesticos",
+          "url": "https://images.unsplash.com/photo-1506439773649-6e0eb8cfb237?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1434056886845-dac89ffe9b56": {
+      "count": 1,
+      "products": [
+        {
+          "name": "Apple Watch Series 9",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1434056886845-dac89ffe9b56?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1639006570490-2d7c4c27cb6d": {
+      "count": 4,
+      "products": [
+        {
+          "name": "Samsung Galaxy Watch 6",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1639006570490-2d7c4c27cb6d?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Apple Watch Series 9",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1639006570490-2d7c4c27cb6d?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Samsung Galaxy Watch 6",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1639006570490-2d7c4c27cb6d?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Samsung Galaxy Watch 6",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1639006570490-2d7c4c27cb6d?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1508057198894-247b23fe5ade": {
+      "count": 2,
+      "products": [
+        {
+          "name": "Garmin Forerunner 955",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Apple Watch Series 9",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1611930022073-b7a4ba5fcccd": {
+      "count": 3,
+      "products": [
+        {
+          "name": "Fitbit Versa 4",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Garmin Forerunner 955",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Garmin Forerunner 955",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1627989580309-bfaf3e58af6f": {
+      "count": 3,
+      "products": [
+        {
+          "name": "Apple Watch Series 9",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1627989580309-bfaf3e58af6f?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Garmin Forerunner 955",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1627989580309-bfaf3e58af6f?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Fitbit Versa 4",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1627989580309-bfaf3e58af6f?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1614164185128-e4ec99c436d7": {
+      "count": 4,
+      "products": [
+        {
+          "name": "Samsung Galaxy Watch 6",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Samsung Galaxy Watch 6",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Fitbit Versa 4",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Fitbit Versa 4",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1609081219090-a6d81d3085bf": {
+      "count": 2,
+      "products": [
+        {
+          "name": "Garmin Forerunner 955",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Fitbit Versa 4",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1609081219090-a6d81d3085bf?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1524592094714-0f0654e20314": {
+      "count": 3,
+      "products": [
+        {
+          "name": "Fitbit Versa 4",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Garmin Forerunner 955",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Apple Watch Series 9",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1524592094714-0f0654e20314?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1523275335684-37898b6baf30": {
+      "count": 5,
+      "products": [
+        {
+          "name": "Apple Watch Series 9",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Apple Watch Series 9",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Samsung Galaxy Watch 6",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Fitbit Versa 4",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Samsung Galaxy Watch 6",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    },
+    "photo-1547996160-81dfa63595aa": {
+      "count": 3,
+      "products": [
+        {
+          "name": "Samsung Galaxy Watch 6",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Apple Watch Series 9",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=400&h=400&fit=crop&auto=format"
+        },
+        {
+          "name": "Garmin Forerunner 955",
+          "category": "relogios",
+          "url": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=400&h=400&fit=crop&auto=format"
+        }
+      ]
+    }
+  }
+}

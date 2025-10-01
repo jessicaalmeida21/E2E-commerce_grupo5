@@ -315,9 +315,15 @@ function createProductCard(product) {
             <span class="rating-count">(${product.ratingCount || 0})</span>
         </div>` : '';
 
-    const stockStatus = product.stock > 0 ? 
-        `<span class="stock-status in-stock">Em estoque</span>` : 
-        `<span class="stock-status out-of-stock">Fora de estoque</span>`;
+    // Verificar se o produto tem estoque disponível
+    const stockAvailable = window.orderManager ? 
+        (window.orderManager.stockData[product.id] || 0) > 0 : 
+        product.stock > 0;
+    
+    const stockText = stockAvailable ? 'Em estoque' : 'Fora de estoque';
+    const stockClass = stockAvailable ? 'in-stock' : 'out-of-stock';
+    
+    const stockStatus = `<span class="stock-status ${stockClass}">${stockText}</span>`;
 
     card.innerHTML = `
         <img src="${product.image}" alt="${product.title}" class="product-img" loading="lazy">
@@ -332,9 +338,9 @@ function createProductCard(product) {
             ${rating}
             ${stockStatus}
             <div class="product-actions">
-                <button class="add-to-cart" data-id="${product.id}" ${product.stock === 0 ? 'disabled' : ''}>
+                <button class="add-to-cart" data-id="${product.id}" ${!stockAvailable ? 'disabled' : ''}>
                     <i class="fas fa-shopping-cart"></i> 
-                    ${product.stock === 0 ? 'Fora de estoque' : 'Adicionar'}
+                    ${stockAvailable ? 'Adicionar' : 'Fora de estoque'}
                 </button>
                 <button class="wishlist-btn" data-id="${product.id}">
                     <i class="far fa-heart"></i>

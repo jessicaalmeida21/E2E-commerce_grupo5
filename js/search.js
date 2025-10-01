@@ -1,6 +1,126 @@
 // Funcionalidades para a página de busca de produtos
 
+// Definir função formatPrice PRIMEIRO - antes de qualquer outro código
+function formatPrice(price) {
+    return new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL'
+    }).format(price);
+}
+
+// Também definir no objeto window
+window.formatPrice = formatPrice;
+
+// Inicializar OrderManager para controle de estoque
+let orderManager;
+
+// Gerar estrelas de avaliação
+function generateStarRating(rating) {
+    const fullStars = Math.floor(rating);
+    const hasHalfStar = rating % 1 !== 0;
+    let starsHTML = '';
+    
+    for (let i = 0; i < fullStars; i++) {
+        starsHTML += '<i class="fas fa-star"></i>';
+    }
+    
+    if (hasHalfStar) {
+        starsHTML += '<i class="fas fa-star-half-alt"></i>';
+    }
+    
+    const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+    for (let i = 0; i < emptyStars; i++) {
+        starsHTML += '<i class="far fa-star"></i>';
+    }
+    
+    return starsHTML;
+}
+
+// Criar card de produto
+function createProductCard(product) {
+    const card = document.createElement('div');
+    card.className = 'product-card';
+    
+    // Verificar se o produto está na lista de desejos
+    const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+    const isInWishlist = wishlist.includes(product.id);
+    
+    card.innerHTML = `
+        <div class="product-image">
+            <a href="product.html?id=${product.id}">
+                <img src="${product.image}" alt="${product.name}">
+            </a>
+            <button class="wishlist-btn ${isInWishlist ? 'active' : ''}" data-id="${product.id}">
+                <i class="fas fa-heart"></i>
+            </button>
+            ${product.freeShipping ? '<span class="free-shipping">Frete grátis</span>' : ''}
+        </div>
+        <div class="product-info">
+            <a href="product.html?id=${product.id}" class="product-name">${product.name}</a>
+            <div class="product-price">
+                ${product.oldPrice ? `<span class="old-price">${formatPrice(product.oldPrice)}</span>` : ''}
+                <span class="current-price">${formatPrice(product.price)}</span>
+            </div>
+            <div class="product-rating">
+                ${generateStarRating(product.rating)}
+                <span class="rating-count">(${product.ratingCount})</span>
+            </div>
+            <div class="product-stock">
+                ${product.stock > 0 ? 
+                    `<span class="stock-available">✅ ${product.stock} em estoque</span>` : 
+                    `<span class="stock-unavailable">❌ Fora de estoque</span>`
+                }
+            </div>
+            <button class="add-to-cart-btn" data-id="${product.id}" ${product.stock <= 0 ? 'disabled' : ''}>
+                <i class="fas fa-shopping-cart"></i> ${product.stock > 0 ? 'Adicionar' : 'Indisponível'}
+            </button>
+        </div>
+    `;
+    
+    // Adicionar evento para botão de lista de desejos
+    const wishlistBtn = card.querySelector('.wishlist-btn');
+    wishlistBtn.addEventListener('click', function() {
+        if (typeof window.toggleWishlist === 'function') {
+            window.toggleWishlist(product.id);
+        } else {
+            // Implementação básica de wishlist
+            let wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
+            const index = wishlist.indexOf(product.id);
+            if (index > -1) {
+                wishlist.splice(index, 1);
+            } else {
+                wishlist.push(product.id);
+            }
+            localStorage.setItem('wishlist', JSON.stringify(wishlist));
+        }
+        this.classList.toggle('active');
+    });
+    
+    // Adicionar evento para botão de adicionar ao carrinho
+    const addToCartBtn = card.querySelector('.add-to-cart-btn');
+    addToCartBtn.addEventListener('click', function() {
+        if (typeof productsModule !== 'undefined' && productsModule.addToCart) {
+            productsModule.addToCart(product.id, 1);
+        } else if (typeof window.addToCart === 'function') {
+            window.addToCart(product.id, 1);
+        }
+        showNotification(`${product.name} adicionado ao carrinho!`);
+    });
+    
+    return card;
+}
+
+// Inicializar quando a página carregar
 document.addEventListener('DOMContentLoaded', function() {
+    // Inicializar OrderManager se disponível
+    if (typeof OrderManager !== 'undefined') {
+        orderManager = new OrderManager();
+        window.orderManager = orderManager;
+        console.log('OrderManager inicializado no search.js');
+    } else {
+        console.warn('OrderManager não disponível no search.js');
+    }
+
     // Elementos da página
     const searchInput = document.getElementById('search-input');
     const searchTermDisplay = document.getElementById('search-term');
@@ -227,6 +347,17 @@ document.addEventListener('DOMContentLoaded', function() {
     function filterProducts(query, filters) {
         let products = getAllProducts();
         
+        // Integrar estoque do OrderManager se disponível
+        if (window.orderManager && window.orderManager.stockData) {
+            products = products.map(product => {
+                const stockQuantity = window.orderManager.stockData[product.id] || 0;
+                return {
+                    ...product,
+                    stock: stockQuantity
+                };
+            });
+        }
+        
         // Filtrar por termo de busca
         if (query) {
             const searchTerms = query.toLowerCase().split(' ');
@@ -317,75 +448,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const productCard = createProductCard(product);
             searchResultsContainer.appendChild(productCard);
         });
-    }
-    
-    // Criar card de produto
-    function createProductCard(product) {
-        const card = document.createElement('div');
-        card.className = 'product-card';
-        
-        // Verificar se o produto está na lista de desejos
-        const wishlist = JSON.parse(localStorage.getItem('wishlist')) || [];
-        const isInWishlist = wishlist.includes(product.id);
-        
-        card.innerHTML = `
-            <div class="product-image">
-                <a href="product.html?id=${product.id}">
-                    <img src="${product.image}" alt="${product.name}">
-                </a>
-                <button class="wishlist-btn ${isInWishlist ? 'active' : ''}" data-id="${product.id}">
-                    <i class="fas fa-heart"></i>
-                </button>
-                ${product.freeShipping ? '<span class="free-shipping">Frete grátis</span>' : ''}
-            </div>
-            <div class="product-info">
-                <a href="product.html?id=${product.id}" class="product-name">${product.name}</a>
-                <div class="product-price">
-                    ${product.oldPrice ? `<span class="old-price">${formatPrice(product.oldPrice)}</span>` : ''}
-                    <span class="current-price">${formatPrice(product.price)}</span>
-                </div>
-                <div class="product-rating">
-                    ${generateStarRating(product.rating)}
-                    <span class="rating-count">(${product.ratingCount})</span>
-                </div>
-                <button class="add-to-cart-btn" data-id="${product.id}">
-                    <i class="fas fa-shopping-cart"></i> Adicionar
-                </button>
-            </div>
-        `;
-        
-        // Adicionar evento para botão de lista de desejos
-        const wishlistBtn = card.querySelector('.wishlist-btn');
-        wishlistBtn.addEventListener('click', function() {
-            toggleWishlist(product.id);
-            this.classList.toggle('active');
-        });
-        
-        // Adicionar evento para botão de adicionar ao carrinho
-        const addToCartBtn = card.querySelector('.add-to-cart-btn');
-        addToCartBtn.addEventListener('click', function() {
-            addToCart(product.id, 1);
-            showNotification(`${product.name} adicionado ao carrinho!`);
-        });
-        
-        return card;
-    }
-    
-    // Gerar HTML para avaliação em estrelas
-    function generateStarRating(rating) {
-        let stars = '';
-        
-        for (let i = 1; i <= 5; i++) {
-            if (i <= rating) {
-                stars += '<i class="fas fa-star"></i>';
-            } else if (i - 0.5 <= rating) {
-                stars += '<i class="fas fa-star-half-alt"></i>';
-            } else {
-                stars += '<i class="far fa-star"></i>';
-            }
-        }
-        
-        return stars;
     }
     
     // Exibir paginação

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug - Sistema de Login</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .debug-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; border-radius: 5px; }
+        .debug-section h3 { margin-top: 0; color: #333; }
+        .btn { padding: 10px 15px; margin: 5px; background: #007bff; color: white; border: none; border-radius: 3px; cursor: pointer; }
+        .btn:hover { background: #0056b3; }
+        .btn.danger { background: #dc3545; }
+        .btn.danger:hover { background: #c82333; }
+        .btn.success { background: #28a745; }
+        .btn.success:hover { background: #218838; }
+        .output { background: #f8f9fa; padding: 10px; border-radius: 3px; margin: 10px 0; white-space: pre-wrap; font-family: monospace; }
+        .form-group { margin: 10px 0; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input, .form-group select { padding: 8px; width: 300px; border: 1px solid #ccc; border-radius: 3px; }
+    </style>
+</head>
+<body>
+    <h1>🔧 Debug - Sistema de Login e Cadastro</h1>
+    
+    <div class="debug-section">
+        <h3>📊 Status do Sistema</h3>
+        <button class="btn" onclick="checkSystemStatus()">Verificar Status</button>
+        <button class="btn danger" onclick="clearAllData()">Limpar Todos os Dados</button>
+        <div id="system-status" class="output"></div>
+    </div>
+
+    <div class="debug-section">
+        <h3>👥 Usuários Cadastrados</h3>
+        <button class="btn" onclick="listUsers()">Listar Usuários</button>
+        <button class="btn danger" onclick="clearUsers()">Limpar Usuários</button>
+        <div id="users-list" class="output"></div>
+    </div>
+
+    <div class="debug-section">
+        <h3>🧪 Teste de Cadastro</h3>
+        <div class="form-group">
+            <label>Nome:</label>
+            <input type="text" id="test-name" value="João Silva Teste">
+        </div>
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" id="test-email" value="joao.teste@email.com">
+        </div>
+        <div class="form-group">
+            <label>Senha:</label>
+            <input type="password" id="test-password" value="MinhaSenh@123">
+        </div>
+        <div class="form-group">
+            <label>Perfil:</label>
+            <select id="test-profile">
+                <option value="customer">Cliente</option>
+                <option value="seller">Vendedor</option>
+            </select>
+        </div>
+        <button class="btn success" onclick="testRegister()">Testar Cadastro</button>
+        <div id="register-result" class="output"></div>
+    </div>
+
+    <div class="debug-section">
+        <h3>🔐 Teste de Login</h3>
+        <div class="form-group">
+            <label>Email:</label>
+            <input type="email" id="login-email" value="joao.teste@email.com">
+        </div>
+        <div class="form-group">
+            <label>Senha:</label>
+            <input type="password" id="login-password" value="MinhaSenh@123">
+        </div>
+        <button class="btn success" onclick="testLogin()">Testar Login</button>
+        <div id="login-result" class="output"></div>
+    </div>
+
+    <div class="debug-section">
+        <h3>🔍 Usuário Atual</h3>
+        <button class="btn" onclick="checkCurrentUser()">Verificar Usuário Logado</button>
+        <button class="btn danger" onclick="logout()">Fazer Logout</button>
+        <div id="current-user" class="output"></div>
+    </div>
+
+    <script src="js/login.js"></script>
+    <script>
+        function log(message, elementId) {
+            const element = document.getElementById(elementId);
+            const timestamp = new Date().toLocaleTimeString();
+            element.textContent = `[${timestamp}] ${message}\n` + element.textContent;
+        }
+
+        function checkSystemStatus() {
+            const status = {
+                localStorage_available: typeof(Storage) !== "undefined",
+                users_count: JSON.parse(localStorage.getItem('users') || '[]').length,
+                current_user: localStorage.getItem('currentUser') ? 'Logado' : 'Não logado',
+                session_timeout: localStorage.getItem('sessionTimeout'),
+                remember_me: localStorage.getItem('rememberMe'),
+                saved_email: localStorage.getItem('savedEmail')
+            };
+            
+            log(JSON.stringify(status, null, 2), 'system-status');
+        }
+
+        function listUsers() {
+            const users = JSON.parse(localStorage.getItem('users') || '[]');
+            if (users.length === 0) {
+                log('Nenhum usuário encontrado', 'users-list');
+                return;
+            }
+            
+            const usersList = users.map((user, index) => {
+                return `${index + 1}. ${user.name} (${user.email}) - Perfil: ${user.profile} - ID: ${user.id}`;
+            }).join('\n');
+            
+            log(`Total: ${users.length} usuários\n${usersList}`, 'users-list');
+        }
+
+        function clearUsers() {
+            localStorage.removeItem('users');
+            localStorage.removeItem('currentUser');
+            log('Todos os usuários foram removidos', 'users-list');
+        }
+
+        function clearAllData() {
+            localStorage.clear();
+            log('Todos os dados do localStorage foram limpos', 'system-status');
+        }
+
+        async function testRegister() {
+            const name = document.getElementById('test-name').value;
+            const email = document.getElementById('test-email').value;
+            const password = document.getElementById('test-password').value;
+            const profile = document.getElementById('test-profile').value;
+
+            try {
+                // Simular o processo de cadastro
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                
+                // Verificar se email já existe
+                const existingUser = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+                if (existingUser) {
+                    log(`ERRO: Email ${email} já está cadastrado`, 'register-result');
+                    return;
+                }
+
+                // Criar novo usuário
+                const newUser = {
+                    id: Date.now().toString(),
+                    name,
+                    email,
+                    password: await hashPassword(password), // Usar a função do login.js
+                    profile,
+                    createdAt: new Date().toISOString(),
+                    isFixed: false
+                };
+
+                users.push(newUser);
+                localStorage.setItem('users', JSON.stringify(users));
+                
+                log(`SUCESSO: Usuário ${name} cadastrado com ID ${newUser.id}`, 'register-result');
+                
+            } catch (error) {
+                log(`ERRO: ${error.message}`, 'register-result');
+            }
+        }
+
+        async function testLogin() {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+
+            try {
+                const users = JSON.parse(localStorage.getItem('users') || '[]');
+                const user = users.find(u => u.email === email);
+                
+                if (!user) {
+                    log(`ERRO: Usuário com email ${email} não encontrado`, 'login-result');
+                    return;
+                }
+
+                // Verificar senha
+                const passwordMatch = await verifyPassword(password, user.password);
+                
+                if (!passwordMatch) {
+                    log(`ERRO: Senha incorreta para ${email}`, 'login-result');
+                    return;
+                }
+
+                // Salvar usuário atual
+                localStorage.setItem('currentUser', JSON.stringify(user));
+                
+                log(`SUCESSO: Login realizado para ${user.name} (${user.email})`, 'login-result');
+                
+            } catch (error) {
+                log(`ERRO: ${error.message}`, 'login-result');
+            }
+        }
+
+        function checkCurrentUser() {
+            const currentUser = localStorage.getItem('currentUser');
+            if (currentUser) {
+                const user = JSON.parse(currentUser);
+                log(`Usuário logado: ${user.name} (${user.email}) - Perfil: ${user.profile}`, 'current-user');
+            } else {
+                log('Nenhum usuário logado', 'current-user');
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem('currentUser');
+            localStorage.removeItem('sessionTimeout');
+            localStorage.removeItem('sessionStartTime');
+            log('Logout realizado com sucesso', 'current-user');
+        }
+
+        // Inicializar ao carregar a página
+        window.addEventListener('load', function() {
+            checkSystemStatus();
+            listUsers();
+            checkCurrentUser();
+        });
+    </script>
+</body>
+</html>

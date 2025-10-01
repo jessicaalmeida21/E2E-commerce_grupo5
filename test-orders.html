@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste - Sistema de Pedidos</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; }
+        .success { color: green; }
+        .error { color: red; }
+        button { margin: 5px; padding: 10px; }
+    </style>
+</head>
+<body>
+    <h1>Teste do Sistema de Pedidos</h1>
+    
+    <div class="test-section">
+        <h2>Status do Sistema</h2>
+        <div id="system-status">Verificando...</div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Teste de Funcionalidades</h2>
+        <button onclick="testCreateOrder()">Criar Pedido de Teste</button>
+        <button onclick="testAddAddress()">Adicionar Endereço</button>
+        <button onclick="testOrderStatus()">Atualizar Status</button>
+        <button onclick="testCancelOrder()">Cancelar Pedido</button>
+        <div id="test-results"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Pedidos Existentes</h2>
+        <div id="orders-list"></div>
+    </div>
+
+    <script src="js/api-service.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/logistics.js"></script>
+    <script src="js/orders.js"></script>
+    
+    <script>
+        // Simular usuário logado para teste
+        if (!localStorage.getItem('currentUser')) {
+            localStorage.setItem('currentUser', JSON.stringify({
+                id: 'test-user-123',
+                name: 'Usuário Teste',
+                email: 'teste@email.com'
+            }));
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            checkSystemStatus();
+            loadExistingOrders();
+        });
+
+        function checkSystemStatus() {
+            const statusDiv = document.getElementById('system-status');
+            
+            try {
+                if (typeof orderManager !== 'undefined') {
+                    statusDiv.innerHTML = '<span class="success">✓ OrderManager carregado com sucesso</span>';
+                } else {
+                    statusDiv.innerHTML = '<span class="error">✗ OrderManager não encontrado</span>';
+                }
+            } catch (error) {
+                statusDiv.innerHTML = `<span class="error">✗ Erro: ${error.message}</span>`;
+            }
+        }
+
+        function testCreateOrder() {
+            const resultsDiv = document.getElementById('test-results');
+            
+            try {
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                
+                // Produtos de teste
+                const testProducts = [
+                    { id: 'prod1', name: 'iPhone 13 Mini', price: 3768.00, quantity: 1 },
+                    { id: 'prod2', name: 'OnePlus 12 Pro', price: 4235.00, quantity: 1 }
+                ];
+                
+                // Endereço de teste
+                const testAddress = {
+                    type: 'residencial',
+                    cep: '01310-100',
+                    street: 'Av. Paulista',
+                    number: '1000',
+                    complement: 'Apto 101',
+                    neighborhood: 'Bela Vista',
+                    city: 'São Paulo',
+                    state: 'SP'
+                };
+                
+                const result = orderManager.createOrder(currentUser.id, testProducts, testAddress);
+                
+                if (result.success) {
+                    resultsDiv.innerHTML += `<div class="success">✓ Pedido criado: ${result.orderId}</div>`;
+                    loadExistingOrders();
+                } else {
+                    resultsDiv.innerHTML += `<div class="error">✗ Erro ao criar pedido: ${result.message}</div>`;
+                }
+            } catch (error) {
+                resultsDiv.innerHTML += `<div class="error">✗ Erro: ${error.message}</div>`;
+            }
+        }
+
+        function testAddAddress() {
+            const resultsDiv = document.getElementById('test-results');
+            
+            try {
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                
+                const testAddress = {
+                    type: 'comercial',
+                    cep: '04038-001',
+                    street: 'Rua Vergueiro',
+                    number: '3185',
+                    complement: 'Sala 201',
+                    neighborhood: 'Vila Mariana',
+                    city: 'São Paulo',
+                    state: 'SP'
+                };
+                
+                const result = orderManager.addUserAddress(currentUser.id, testAddress);
+                
+                if (result.success) {
+                    resultsDiv.innerHTML += `<div class="success">✓ Endereço adicionado</div>`;
+                } else {
+                    resultsDiv.innerHTML += `<div class="error">✗ Erro ao adicionar endereço: ${result.message}</div>`;
+                }
+            } catch (error) {
+                resultsDiv.innerHTML += `<div class="error">✗ Erro: ${error.message}</div>`;
+            }
+        }
+
+        function testOrderStatus() {
+            const resultsDiv = document.getElementById('test-results');
+            
+            try {
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                const orders = orderManager.getUserOrders(currentUser.id);
+                
+                if (orders.length > 0) {
+                    const firstOrder = orders[0];
+                    const result = orderManager.updateOrderStatus(firstOrder.id, 'pago');
+                    
+                    if (result.success) {
+                        resultsDiv.innerHTML += `<div class="success">✓ Status atualizado para: pago</div>`;
+                        loadExistingOrders();
+                    } else {
+                        resultsDiv.innerHTML += `<div class="error">✗ Erro ao atualizar status: ${result.message}</div>`;
+                    }
+                } else {
+                    resultsDiv.innerHTML += `<div class="error">✗ Nenhum pedido encontrado para teste</div>`;
+                }
+            } catch (error) {
+                resultsDiv.innerHTML += `<div class="error">✗ Erro: ${error.message}</div>`;
+            }
+        }
+
+        function testCancelOrder() {
+            const resultsDiv = document.getElementById('test-results');
+            
+            try {
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                const orders = orderManager.getUserOrders(currentUser.id);
+                
+                const cancelableOrder = orders.find(order => 
+                    order.status === 'aguardando-pagamento' || order.status === 'pago'
+                );
+                
+                if (cancelableOrder) {
+                    const result = orderManager.cancelOrder(cancelableOrder.id, 'Teste de cancelamento');
+                    
+                    if (result.success) {
+                        resultsDiv.innerHTML += `<div class="success">✓ Pedido cancelado</div>`;
+                        loadExistingOrders();
+                    } else {
+                        resultsDiv.innerHTML += `<div class="error">✗ Erro ao cancelar: ${result.message}</div>`;
+                    }
+                } else {
+                    resultsDiv.innerHTML += `<div class="error">✗ Nenhum pedido cancelável encontrado</div>`;
+                }
+            } catch (error) {
+                resultsDiv.innerHTML += `<div class="error">✗ Erro: ${error.message}</div>`;
+            }
+        }
+
+        function loadExistingOrders() {
+            const ordersDiv = document.getElementById('orders-list');
+            
+            try {
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                const orders = orderManager.getUserOrders(currentUser.id);
+                
+                if (orders.length === 0) {
+                    ordersDiv.innerHTML = '<p>Nenhum pedido encontrado.</p>';
+                    return;
+                }
+                
+                let html = '<table border="1" style="width: 100%; border-collapse: collapse;">';
+                html += '<tr><th>ID</th><th>Data</th><th>Status</th><th>Total</th><th>Itens</th></tr>';
+                
+                orders.forEach(order => {
+                    html += `<tr>
+                        <td>${order.id}</td>
+                        <td>${new Date(order.createdAt).toLocaleDateString()}</td>
+                        <td>${order.status}</td>
+                        <td>R$ ${order.total.toFixed(2)}</td>
+                        <td>${order.items.length} item(s)</td>
+                    </tr>`;
+                });
+                
+                html += '</table>';
+                ordersDiv.innerHTML = html;
+            } catch (error) {
+                ordersDiv.innerHTML = `<div class="error">Erro ao carregar pedidos: ${error.message}</div>`;
+            }
+        }
+    </script>
+</body>
+</html>

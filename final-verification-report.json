@@ -1,0 +1,20 @@
+{
+  "timestamp": "2025-10-01T11:43:22.558Z",
+  "totalProducts": 500,
+  "chairImagesFound": 0,
+  "chairProducts": [],
+  "uniqueImages": 73,
+  "unsplashImages": 73,
+  "categories": {
+    "smartphones": 50,
+    "outros": 351,
+    "notebooks": 20,
+    "televisoes": 9,
+    "roupas": 23,
+    "eletrodomesticos": 20,
+    "esportes": 10,
+    "monitores": 9,
+    "relogios": 8
+  },
+  "allCorrect": true
+}

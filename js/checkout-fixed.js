@@ -256,7 +256,7 @@ function calculateTotals() {
         return { subtotal: 0, shipping: 0, total: 0 };
     }
     
-    const shipping = subtotal > 99 ? 0 : 15; // Frete grátis acima de R$ 99
+    const shipping = subtotal >= 399 ? 0 : 100; // Frete grátis a partir de R$ 399
     const total = subtotal + shipping;
     
     console.log('Totais calculados no checkout:', { 

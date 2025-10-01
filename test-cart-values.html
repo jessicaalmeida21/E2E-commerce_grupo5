@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Valores do Carrinho</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .test-section h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .cart-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+            margin: 10px 0;
+            background: #f9f9f9;
+            border-radius: 4px;
+            border-left: 4px solid #007bff;
+        }
+        .item-info {
+            flex: 1;
+        }
+        .item-values {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+        .value-display {
+            text-align: center;
+            padding: 10px;
+            background: white;
+            border-radius: 4px;
+            border: 1px solid #ddd;
+        }
+        .value-display strong {
+            display: block;
+            font-size: 18px;
+            color: #007bff;
+        }
+        .value-display small {
+            color: #666;
+        }
+        button {
+            padding: 8px 16px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .btn-primary {
+            background: #007bff;
+            color: white;
+        }
+        .btn-success {
+            background: #28a745;
+            color: white;
+        }
+        .btn-warning {
+            background: #ffc107;
+            color: #212529;
+        }
+        .btn-danger {
+            background: #dc3545;
+            color: white;
+        }
+        .log {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            max-height: 300px;
+            overflow-y: auto;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        .summary-box {
+            background: #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            padding: 5px 0;
+        }
+        .summary-row.total {
+            border-top: 2px solid #007bff;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .quantity-btn {
+            width: 30px;
+            height: 30px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .quantity-display {
+            min-width: 40px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🧮 Teste de Valores do Carrinho</h1>
+        
+        <div class="test-section">
+            <h3>🎛️ Controles de Teste</h3>
+            <button class="btn-primary" onclick="loadTestCart()">Carregar Carrinho de Teste</button>
+            <button class="btn-success" onclick="testCalculations()">Testar Cálculos</button>
+            <button class="btn-warning" onclick="clearCart()">Limpar Carrinho</button>
+            <button class="btn-danger" onclick="clearLog()">Limpar Log</button>
+        </div>
+
+        <div class="test-section">
+            <h3>🛒 Itens do Carrinho</h3>
+            <div id="cart-items-display">
+                <p>Carregando...</p>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>💰 Resumo de Valores</h3>
+            <div class="summary-box">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="test-subtotal">R$ 0,00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Frete:</span>
+                    <span id="test-shipping">R$ 0,00</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Total:</span>
+                    <span id="test-total">R$ 0,00</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="test-section">
+            <h3>📋 Log de Testes</h3>
+            <div id="test-log" class="log">
+                Iniciando testes de valores do carrinho...<br>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts necessários -->
+    <script src="js/database.js"></script>
+    <script src="js/api-service.js"></script>
+    <script src="js/orders.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/cart.js"></script>
+
+    <script>
+        let testCartItems = [];
+
+        // Inicializar teste
+        document.addEventListener('DOMContentLoaded', async function() {
+            log('🚀 Iniciando teste de valores do carrinho...');
+            
+            try {
+                // Aguardar carregamento dos módulos
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                log('✅ Módulos carregados');
+                
+                // Carregar carrinho atual
+                await loadCurrentCart();
+                
+                log('✅ Teste inicializado com sucesso!');
+            } catch (error) {
+                log('❌ Erro na inicialização: ' + error.message);
+                console.error('Erro na inicialização:', error);
+            }
+        });
+
+        async function loadCurrentCart() {
+            try {
+                log('📦 Carregando carrinho atual...');
+                
+                if (typeof getUserCart === 'function') {
+                    testCartItems = getUserCart();
+                    log(`✅ ${testCartItems.length} itens carregados do carrinho`);
+                } else {
+                    log('⚠️ Função getUserCart não disponível');
+                    testCartItems = [];
+                }
+                
+                displayCartItems();
+                calculateAndDisplayTotals();
+            } catch (error) {
+                log('❌ Erro ao carregar carrinho: ' + error.message);
+            }
+        }
+
+        function loadTestCart() {
+            log('🧪 Carregando carrinho de teste...');
+            
+            // Criar itens de teste com valores conhecidos
+            testCartItems = [
+                {
+                    id: 'PROD-001',
+                    title: 'Produto Teste 1',
+                    price: 50.00,
+                    quantity: 2,
+                    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&auto=format'
+                },
+                {
+                    id: 'PROD-002',
+                    title: 'Produto Teste 2',
+                    price: 25.50,
+                    quantity: 1,
+                    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&auto=format'
+                },
+                {
+                    id: 'PROD-003',
+                    title: 'Produto Teste 3',
+                    price: 15.75,
+                    quantity: 3,
+                    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=400&h=400&fit=crop&auto=format'
+                }
+            ];
+            
+            // Salvar no localStorage se a função estiver disponível
+            if (typeof saveUserCart === 'function') {
+                saveUserCart(testCartItems);
+                log('✅ Carrinho de teste salvo no localStorage');
+            }
+            
+            displayCartItems();
+            calculateAndDisplayTotals();
+            
+            log('✅ Carrinho de teste carregado com sucesso!');
+        }
+
+        function displayCartItems() {
+            const container = document.getElementById('cart-items-display');
+            
+            if (testCartItems.length === 0) {
+                container.innerHTML = '<p>🛒 Carrinho vazio</p>';
+                return;
+            }
+            
+            let html = '';
+            testCartItems.forEach((item, index) => {
+                const itemTotal = (parseFloat(item.price) || 0) * (parseInt(item.quantity) || 1);
+                
+                html += `
+                    <div class="cart-item">
+                        <div class="item-info">
+                            <strong>${item.title}</strong><br>
+                            <small>ID: ${item.id}</small>
+                        </div>
+                        <div class="item-values">
+                            <div class="value-display">
+                                <strong>R$ ${(item.price || 0).toFixed(2).replace('.', ',')}</strong>
+                                <small>Preço unitário</small>
+                            </div>
+                            <div class="quantity-controls">
+                                <button class="quantity-btn" onclick="changeQuantity(${index}, -1)">-</button>
+                                <span class="quantity-display">${item.quantity || 1}</span>
+                                <button class="quantity-btn" onclick="changeQuantity(${index}, 1)">+</button>
+                            </div>
+                            <div class="value-display">
+                                <strong>R$ ${itemTotal.toFixed(2).replace('.', ',')}</strong>
+                                <small>Total do item</small>
+                            </div>
+                            <button class="btn-danger" onclick="removeItem(${index})">🗑️</button>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+        }
+
+        function calculateAndDisplayTotals() {
+            log('🧮 Calculando totais...');
+            
+            let subtotal = 0;
+            let validItems = 0;
+            
+            testCartItems.forEach((item, index) => {
+                const price = parseFloat(item.price) || 0;
+                const quantity = parseInt(item.quantity) || 1;
+                
+                if (price > 0 && quantity > 0) {
+                    const itemTotal = price * quantity;
+                    subtotal += itemTotal;
+                    validItems++;
+                    
+                    log(`Item ${index + 1}: R$ ${price.toFixed(2)} x ${quantity} = R$ ${itemTotal.toFixed(2)}`);
+                } else {
+                    log(`⚠️ Item ${index + 1} inválido - preço: ${price}, quantidade: ${quantity}`);
+                }
+            });
+            
+            const shipping = subtotal >= 99 ? 0 : 15; // Frete grátis acima de R$ 99
+            const total = subtotal + shipping;
+            
+            // Atualizar interface
+            document.getElementById('test-subtotal').textContent = `R$ ${subtotal.toFixed(2).replace('.', ',')}`;
+            document.getElementById('test-shipping').textContent = `R$ ${shipping.toFixed(2).replace('.', ',')}`;
+            document.getElementById('test-total').textContent = `R$ ${total.toFixed(2).replace('.', ',')}`;
+            
+            log(`📊 Subtotal: R$ ${subtotal.toFixed(2)}`);
+            log(`🚚 Frete: R$ ${shipping.toFixed(2)} ${shipping === 0 ? '(GRÁTIS)' : ''}`);
+            log(`💰 Total: R$ ${total.toFixed(2)}`);
+            log(`✅ ${validItems} itens válidos de ${testCartItems.length} total`);
+        }
+
+        function testCalculations() {
+            log('🧪 Executando teste de cálculos...');
+            
+            // Teste 1: Valores conhecidos
+            log('--- Teste 1: Valores Conhecidos ---');
+            const testData = [
+                { price: 10.00, quantity: 2, expected: 20.00 },
+                { price: 15.50, quantity: 3, expected: 46.50 },
+                { price: 7.25, quantity: 1, expected: 7.25 }
+            ];
+            
+            let testSubtotal = 0;
+            testData.forEach((test, index) => {
+                const calculated = test.price * test.quantity;
+                testSubtotal += calculated;
+                
+                if (Math.abs(calculated - test.expected) < 0.01) {
+                    log(`✅ Teste ${index + 1}: R$ ${test.price} x ${test.quantity} = R$ ${calculated.toFixed(2)} ✓`);
+                } else {
+                    log(`❌ Teste ${index + 1}: Esperado R$ ${test.expected}, obtido R$ ${calculated.toFixed(2)}`);
+                }
+            });
+            
+            log(`📊 Subtotal do teste: R$ ${testSubtotal.toFixed(2)}`);
+            
+            // Teste 2: Frete
+            log('--- Teste 2: Cálculo de Frete ---');
+            const shippingTests = [
+                { subtotal: 50.00, expectedShipping: 15.00 },
+                { subtotal: 99.00, expectedShipping: 0.00 },
+                { subtotal: 150.00, expectedShipping: 0.00 }
+            ];
+            
+            shippingTests.forEach((test, index) => {
+                const calculatedShipping = test.subtotal >= 99 ? 0 : 15;
+                
+                if (Math.abs(calculatedShipping - test.expectedShipping) < 0.01) {
+                    log(`✅ Frete ${index + 1}: Subtotal R$ ${test.subtotal} → Frete R$ ${calculatedShipping.toFixed(2)} ✓`);
+                } else {
+                    log(`❌ Frete ${index + 1}: Esperado R$ ${test.expectedShipping}, obtido R$ ${calculatedShipping.toFixed(2)}`);
+                }
+            });
+            
+            log('✅ Testes de cálculo concluídos!');
+        }
+
+        function changeQuantity(index, change) {
+            if (testCartItems[index]) {
+                const newQuantity = Math.max(1, (testCartItems[index].quantity || 1) + change);
+                testCartItems[index].quantity = newQuantity;
+                
+                log(`🔄 Quantidade alterada: ${testCartItems[index].title} → ${newQuantity}`);
+                
+                // Salvar no localStorage se disponível
+                if (typeof saveUserCart === 'function') {
+                    saveUserCart(testCartItems);
+                }
+                
+                displayCartItems();
+                calculateAndDisplayTotals();
+            }
+        }
+
+        function removeItem(index) {
+            if (testCartItems[index]) {
+                const removedItem = testCartItems.splice(index, 1)[0];
+                log(`🗑️ Item removido: ${removedItem.title}`);
+                
+                // Salvar no localStorage se disponível
+                if (typeof saveUserCart === 'function') {
+                    saveUserCart(testCartItems);
+                }
+                
+                displayCartItems();
+                calculateAndDisplayTotals();
+            }
+        }
+
+        function clearCart() {
+            log('🧹 Limpando carrinho...');
+            
+            testCartItems = [];
+            
+            if (typeof saveUserCart === 'function') {
+                saveUserCart([]);
+                log('✅ Carrinho limpo no localStorage');
+            }
+            
+            displayCartItems();
+            calculateAndDisplayTotals();
+        }
+
+        function clearLog() {
+            document.getElementById('test-log').innerHTML = '';
+        }
+
+        function log(message) {
+            const logContainer = document.getElementById('test-log');
+            const timestamp = new Date().toLocaleTimeString();
+            logContainer.innerHTML += `[${timestamp}] ${message}<br>`;
+            logContainer.scrollTop = logContainer.scrollHeight;
+            console.log(message);
+        }
+    </script>
+</body>
+</html>

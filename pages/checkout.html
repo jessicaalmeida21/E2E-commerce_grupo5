@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finalizar Compra - E2E-Commerce</title>
-    <link rel="stylesheet" href="../css/styles.css?v=40">
+    <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/checkout.css">
+    <link rel="stylesheet" href="../css/payment.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
@@ -149,6 +150,18 @@
                     <section class="checkout-section">
                         <h2><i class="fas fa-credit-card"></i> Pagamento</h2>
                         
+                        <!-- Tabela de Parcelas -->
+                        <div class="installments-table" id="installments-table" style="display: none;">
+                            <h3>Opções de Parcelamento</h3>
+                            <div class="installments-grid">
+                                <div class="installment-header">Parcelas</div>
+                                <div class="installment-header">Valor da Parcela</div>
+                                <div class="installment-header">Total com Juros</div>
+                                <div class="installment-header">Total de Juros</div>
+                            </div>
+                            <div id="installments-options"></div>
+                        </div>
+                        
                         <div class="payment-methods">
                             <div class="payment-tabs">
                                 <button class="payment-tab active" data-method="credit">
@@ -171,6 +184,7 @@
                                         <i class="fab fa-cc-visa"></i>
                                         <i class="fab fa-cc-mastercard"></i>
                                     </div>
+                                    <div class="card-validation-message" id="card-validation"></div>
                                 </div>
                                 
                                 <div class="form-row">
@@ -196,6 +210,25 @@
                                         </select>
                                     </div>
                                 </div>
+                                
+                                <!-- Informações de Teste -->
+                                <div class="test-cards-info">
+                                    <h4>Cartões de Teste</h4>
+                                    <div class="test-cards-grid">
+                                        <div class="test-card">
+                                            <strong>VISA Aprovado:</strong> 4111111111111111 | CVV: 123
+                                        </div>
+                                        <div class="test-card">
+                                            <strong>VISA Negado:</strong> 4000000000000002 | CVV: 123
+                                        </div>
+                                        <div class="test-card">
+                                            <strong>Mastercard Aprovado:</strong> 5555555555554444 | CVV: 321
+                                        </div>
+                                        <div class="test-card">
+                                            <strong>Mastercard Negado:</strong> 5105105105105100 | CVV: 321
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Formulário PIX -->
@@ -207,6 +240,11 @@
                                     </div>
                                     
                                     <div class="pix-payment-info" id="pix-payment-info" style="display: none;">
+                                        <div class="pix-timer">
+                                            <h4>Tempo restante para pagamento:</h4>
+                                            <div class="timer-display" id="pix-timer">30:00</div>
+                                        </div>
+                                        
                                         <div class="pix-qr-code">
                                             <div id="pix-qr-container"></div>
                                             <p>Escaneie o QR Code com seu app de pagamento</p>
@@ -222,13 +260,27 @@
                                             </div>
                                         </div>
                                         
-                                        <div class="pix-timer">
-                                            <i class="fas fa-clock"></i>
-                                            <span id="pix-timer">30:00</span>
+                                        <div class="pix-status" id="pix-status">
+                                            <div class="status-indicator">
+                                                <i class="fas fa-clock"></i>
+                                                <span>Aguardando pagamento...</span>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="pix-simulate">
+                                            <button type="button" id="simulate-pix" class="btn secondary">
+                                                <i class="fas fa-play"></i> Simular Pagamento (Teste)
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        
+                        <div class="payment-actions">
+                            <button type="button" id="process-payment" class="btn primary">
+                                <i class="fas fa-credit-card"></i> Finalizar Pagamento
+                            </button>
                         </div>
                     </section>
                 </div>
@@ -298,7 +350,9 @@
     <script src="../js/api-service.js?v=37"></script>
     <script src="../js/products.js?v=37"></script>
     <script src="../js/logistics.js?v=36"></script>
-    <script src="../js/payment.js?v=36"></script>
+    <script src="../js/payment-api.js?v=1"></script>
+    <script src="../js/payment-service.js?v=1"></script>
+    <script src="../js/checkout-payment.js?v=1"></script>
     <script src="../js/checkout.js?v=40"></script>
 </body>
 </html>
