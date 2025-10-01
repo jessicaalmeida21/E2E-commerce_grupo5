@@ -1,0 +1,8 @@
+🚀 FORÇA REBUILD GITHUB PAGES
+Timestamp: 2024-12-30 20:32:00
+Commit para forçar atualização completa do GitHub Pages
+Sistema de estoque implementado - 500 produtos com níveis variados
+Versão do catálogo: v42
+Cache busting ativo
+
+Este arquivo força um novo deployment para garantir que todas as mudanças sejam aplicadas.
