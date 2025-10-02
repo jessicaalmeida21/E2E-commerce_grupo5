@@ -136,7 +136,7 @@ const productsDatabase = {
       "category": "Smartphones",
       "brand": "Apple",
       "description": "iPhone SE 2024 - Apple com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 18,
       "rating": 3.3,
       "ratingCount": 210,
       "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format"
@@ -304,7 +304,7 @@ const productsDatabase = {
       "category": "Smartphones",
       "brand": "Samsung",
       "description": "Galaxy S24 Ultra - Samsung com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 25,
       "rating": 4.1,
       "ratingCount": 375,
       "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format"
@@ -388,7 +388,7 @@ const productsDatabase = {
       "category": "Smartphones",
       "brand": "Xiaomi",
       "description": "Xiaomi 14 Ultra - Xiaomi com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 8,
       "rating": 4.2,
       "ratingCount": 199,
       "image": "https://images.unsplash.com/photo-1598327105666-5b89351aff97?w=400&h=400&fit=crop&auto=format"
@@ -444,7 +444,7 @@ const productsDatabase = {
       "category": "Smartphones",
       "brand": "Samsung",
       "description": "Galaxy S24 Ultra - Samsung com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 17,
       "rating": 5,
       "ratingCount": 459,
       "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format"
@@ -458,7 +458,7 @@ const productsDatabase = {
       "category": "Smartphones",
       "brand": "Apple",
       "description": "iPhone 14 Pro - Apple com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 19,
       "rating": 4.4,
       "ratingCount": 464,
       "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format"
@@ -472,7 +472,7 @@ const productsDatabase = {
       "category": "Smartphones",
       "brand": "Google",
       "description": "Pixel 8 Pro - Google com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 11,
       "rating": 4.8,
       "ratingCount": 382,
       "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format"
@@ -528,7 +528,7 @@ const productsDatabase = {
       "category": "Smartphones",
       "brand": "Xiaomi",
       "description": "Xiaomi 14 Ultra - Xiaomi com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 14,
       "rating": 3.2,
       "ratingCount": 113,
       "image": "https://images.unsplash.com/photo-1592750475338-74b7b21085ab?w=400&h=400&fit=crop&auto=format"
@@ -724,7 +724,7 @@ const productsDatabase = {
       "category": "Smartphones",
       "brand": "Samsung",
       "description": "Galaxy S24 Ultra - Samsung com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 12,
       "rating": 4.6,
       "ratingCount": 396,
       "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format"
@@ -766,7 +766,7 @@ const productsDatabase = {
       "category": "Smartphones",
       "brand": "Samsung",
       "description": "Galaxy S23 FE - Samsung com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 22,
       "rating": 4.5,
       "ratingCount": 155,
       "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format"
@@ -822,7 +822,7 @@ const productsDatabase = {
       "category": "Smartphones",
       "brand": "Samsung",
       "description": "Galaxy A54 5G - Samsung com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 11,
       "rating": 4.7,
       "ratingCount": 517,
       "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format"
@@ -836,7 +836,7 @@ const productsDatabase = {
       "category": "Smartphones",
       "brand": "Apple",
       "description": "iPhone SE 2024 - Apple com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 21,
       "rating": 4.3,
       "ratingCount": 389,
       "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format"
@@ -894,7 +894,7 @@ const productsDatabase = {
       "category": "Notebooks",
       "brand": "Apple",
       "description": "MacBook Air M3 - Apple com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 3,
       "rating": 3.1,
       "ratingCount": 519,
       "image": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&auto=format"
@@ -964,7 +964,7 @@ const productsDatabase = {
       "category": "Notebooks",
       "brand": "MSI",
       "description": "MSI Gaming Laptop - MSI com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 8,
       "rating": 4.7,
       "ratingCount": 103,
       "image": "https://images.unsplash.com/photo-1541807084-5c52b6b3adef?w=400&h=400&fit=crop&auto=format"
@@ -1020,7 +1020,7 @@ const productsDatabase = {
       "category": "Notebooks",
       "brand": "Lenovo",
       "description": "ThinkPad X1 Carbon - Lenovo com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 4,
       "rating": 3.7,
       "ratingCount": 477,
       "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&auto=format"
@@ -1132,7 +1132,7 @@ const productsDatabase = {
       "category": "Notebooks",
       "brand": "Apple",
       "description": "MacBook Pro 16\" - Apple com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 12,
       "rating": 3.9,
       "ratingCount": 124,
       "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format"
@@ -1146,7 +1146,7 @@ const productsDatabase = {
       "category": "Notebooks",
       "brand": "Dell",
       "description": "Dell XPS 13 - Dell com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 9,
       "rating": 3.7,
       "ratingCount": 348,
       "image": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&auto=format"
@@ -1314,7 +1314,7 @@ const productsDatabase = {
       "category": "Notebooks",
       "brand": "Apple",
       "description": "MacBook Air M3 - Apple com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 15,
       "rating": 3.1,
       "ratingCount": 430,
       "image": "https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=400&h=400&fit=crop&auto=format"
@@ -1328,7 +1328,7 @@ const productsDatabase = {
       "category": "Notebooks",
       "brand": "ASUS",
       "description": "ASUS ZenBook 14 - ASUS com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 4,
       "rating": 3.1,
       "ratingCount": 549,
       "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format"
@@ -1356,7 +1356,7 @@ const productsDatabase = {
       "category": "Notebooks",
       "brand": "Acer",
       "description": "Acer Aspire 5 - Acer com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 14,
       "rating": 4.3,
       "ratingCount": 273,
       "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format"
@@ -1398,7 +1398,7 @@ const productsDatabase = {
       "category": "Notebooks",
       "brand": "LG",
       "description": "LG Gram 17 - LG com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 13,
       "rating": 3.8,
       "ratingCount": 165,
       "image": "https://images.unsplash.com/photo-1484788984921-03950022c9ef?w=400&h=400&fit=crop&auto=format"
@@ -1510,7 +1510,7 @@ const productsDatabase = {
       "category": "Notebooks",
       "brand": "Microsoft",
       "description": "Surface Laptop 5 - Microsoft com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 5,
       "rating": 4.4,
       "ratingCount": 142,
       "image": "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?w=400&h=400&fit=crop&auto=format"
@@ -1554,7 +1554,7 @@ const productsDatabase = {
       "category": "Televisões",
       "brand": "Samsung",
       "description": "Smart TV Samsung 65\" QLED - Samsung com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 9,
       "rating": 4.8,
       "ratingCount": 123,
       "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format"
@@ -1652,7 +1652,7 @@ const productsDatabase = {
       "category": "Televisões",
       "brand": "Sony",
       "description": "Sony Bravia 75\" 4K - Sony com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 3,
       "rating": 4.1,
       "ratingCount": 270,
       "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format"
@@ -1680,7 +1680,7 @@ const productsDatabase = {
       "category": "Televisões",
       "brand": "Philips",
       "description": "Philips 43\" Ambilight - Philips com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 4,
       "rating": 4.6,
       "ratingCount": 478,
       "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format"
@@ -1750,7 +1750,7 @@ const productsDatabase = {
       "category": "Televisões",
       "brand": "Philips",
       "description": "Philips 43\" Ambilight - Philips com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 8,
       "rating": 3.4,
       "ratingCount": 116,
       "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format"
@@ -1834,7 +1834,7 @@ const productsDatabase = {
       "category": "Televisões",
       "brand": "Samsung",
       "description": "Smart TV Samsung 65\" QLED - Samsung com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 7,
       "rating": 3.6,
       "ratingCount": 58,
       "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format"
@@ -1862,7 +1862,7 @@ const productsDatabase = {
       "category": "Televisões",
       "brand": "Sony",
       "description": "Sony Bravia 75\" 4K - Sony com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 10,
       "rating": 4.5,
       "ratingCount": 159,
       "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&auto=format"
@@ -1988,7 +1988,7 @@ const productsDatabase = {
       "category": "Televisões",
       "brand": "LG",
       "description": "LG OLED 55\" C3 - LG com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 6,
       "rating": 4.5,
       "ratingCount": 100,
       "image": "https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=400&fit=crop&auto=format"
@@ -2228,7 +2228,7 @@ const productsDatabase = {
       "category": "Áudio e Som",
       "brand": "JBL",
       "description": "JBL Charge 5 - JBL com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 30,
       "rating": 4.9,
       "ratingCount": 62,
       "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=400&fit=crop&auto=format"
@@ -2242,7 +2242,7 @@ const productsDatabase = {
       "category": "Áudio e Som",
       "brand": "Sennheiser",
       "description": "Sennheiser HD 660S - Sennheiser com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 11,
       "rating": 4.5,
       "ratingCount": 336,
       "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop&auto=format"
@@ -2298,7 +2298,7 @@ const productsDatabase = {
       "category": "Áudio e Som",
       "brand": "Harman Kardon",
       "description": "Harman Kardon Onyx Studio - Harman Kardon com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 25,
       "rating": 4.5,
       "ratingCount": 342,
       "image": "https://images.unsplash.com/photo-1572536147248-ac59a8abfa4b?w=400&h=400&fit=crop&auto=format"
@@ -2396,7 +2396,7 @@ const productsDatabase = {
       "category": "Áudio e Som",
       "brand": "Marshall",
       "description": "Marshall Major IV - Marshall com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 29,
       "rating": 3.3,
       "ratingCount": 436,
       "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop&auto=format"
@@ -2494,7 +2494,7 @@ const productsDatabase = {
       "category": "Áudio e Som",
       "brand": "Sennheiser",
       "description": "Sennheiser HD 660S - Sennheiser com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 16,
       "rating": 4.3,
       "ratingCount": 359,
       "image": "https://images.unsplash.com/photo-1577174881658-0f30ed549adc?w=400&h=400&fit=crop&auto=format"
@@ -2522,7 +2522,7 @@ const productsDatabase = {
       "category": "Áudio e Som",
       "brand": "Marshall",
       "description": "Marshall Major IV - Marshall com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 13,
       "rating": 3.7,
       "ratingCount": 442,
       "image": "https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=400&fit=crop&auto=format"
@@ -2620,7 +2620,7 @@ const productsDatabase = {
       "category": "Áudio e Som",
       "brand": "Sennheiser",
       "description": "Sennheiser HD 660S - Sennheiser com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 17,
       "rating": 4.8,
       "ratingCount": 268,
       "image": "https://images.unsplash.com/photo-1606220945770-b5b6c2c55bf1?w=400&h=400&fit=crop&auto=format"
@@ -2648,7 +2648,7 @@ const productsDatabase = {
       "category": "Áudio e Som",
       "brand": "Marshall",
       "description": "Marshall Major IV - Marshall com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 29,
       "rating": 4.5,
       "ratingCount": 450,
       "image": "https://images.unsplash.com/photo-1590658268037-6bf12165a8df?w=400&h=400&fit=crop&auto=format"
@@ -2676,7 +2676,7 @@ const productsDatabase = {
       "category": "Áudio e Som",
       "brand": "Harman Kardon",
       "description": "Harman Kardon Onyx Studio - Harman Kardon com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 16,
       "rating": 3.3,
       "ratingCount": 207,
       "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format"
@@ -2732,7 +2732,7 @@ const productsDatabase = {
       "category": "Áudio e Som",
       "brand": "JBL",
       "description": "JBL Charge 5 - JBL com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 8,
       "rating": 3.3,
       "ratingCount": 139,
       "image": "https://images.unsplash.com/photo-1558756520-22cfe5d382ca?w=400&h=400&fit=crop&auto=format"
@@ -2816,7 +2816,7 @@ const productsDatabase = {
       "category": "Áudio e Som",
       "brand": "Sony",
       "description": "Sony WH-1000XM5 - Sony com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 8,
       "rating": 3.8,
       "ratingCount": 325,
       "image": "https://images.unsplash.com/photo-1545454675-3531b543be5d?w=400&h=400&fit=crop&auto=format"
@@ -2844,7 +2844,7 @@ const productsDatabase = {
       "category": "Áudio e Som",
       "brand": "Bose",
       "description": "Bose QuietComfort 45 - Bose com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 20,
       "rating": 5,
       "ratingCount": 537,
       "image": "https://images.unsplash.com/photo-1558756520-22cfe5d382ca?w=400&h=400&fit=crop&auto=format"
@@ -2986,7 +2986,7 @@ const productsDatabase = {
       "category": "Calçados",
       "brand": "Vans",
       "description": "Vans Old Skool - Vans com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 50,
       "rating": 4.3,
       "ratingCount": 244,
       "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format"
@@ -3028,7 +3028,7 @@ const productsDatabase = {
       "category": "Calçados",
       "brand": "New Balance",
       "description": "New Balance 990v5 - New Balance com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 38,
       "rating": 3.8,
       "ratingCount": 399,
       "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&auto=format"
@@ -3168,7 +3168,7 @@ const productsDatabase = {
       "category": "Calçados",
       "brand": "ASICS",
       "description": "ASICS Gel-Kayano 29 - ASICS com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 16,
       "rating": 3.7,
       "ratingCount": 65,
       "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&auto=format"
@@ -3238,7 +3238,7 @@ const productsDatabase = {
       "category": "Calçados",
       "brand": "Vans",
       "description": "Vans Old Skool - Vans com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 37,
       "rating": 4.8,
       "ratingCount": 397,
       "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format"
@@ -3378,7 +3378,7 @@ const productsDatabase = {
       "category": "Calçados",
       "brand": "Converse",
       "description": "Converse Chuck Taylor - Converse com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 34,
       "rating": 5,
       "ratingCount": 388,
       "image": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?w=400&h=400&fit=crop&auto=format"
@@ -3406,7 +3406,7 @@ const productsDatabase = {
       "category": "Calçados",
       "brand": "New Balance",
       "description": "New Balance 990v5 - New Balance com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 28,
       "rating": 3.7,
       "ratingCount": 409,
       "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format"
@@ -3476,7 +3476,7 @@ const productsDatabase = {
       "category": "Calçados",
       "brand": "Adidas",
       "description": "Adidas Ultraboost 22 - Adidas com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 34,
       "rating": 4.9,
       "ratingCount": 294,
       "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format"
@@ -3518,7 +3518,7 @@ const productsDatabase = {
       "category": "Calçados",
       "brand": "Puma",
       "description": "Puma Suede Classic - Puma com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 36,
       "rating": 3.2,
       "ratingCount": 288,
       "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&auto=format"
@@ -3532,7 +3532,7 @@ const productsDatabase = {
       "category": "Calçados",
       "brand": "New Balance",
       "description": "New Balance 990v5 - New Balance com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 36,
       "rating": 3.3,
       "ratingCount": 344,
       "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format"
@@ -3574,7 +3574,7 @@ const productsDatabase = {
       "category": "Calçados",
       "brand": "Fila",
       "description": "Fila Disruptor II - Fila com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 12,
       "rating": 3.3,
       "ratingCount": 453,
       "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format"
@@ -3602,7 +3602,7 @@ const productsDatabase = {
       "category": "Calçados",
       "brand": "Adidas",
       "description": "Adidas Ultraboost 22 - Adidas com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 13,
       "rating": 4.8,
       "ratingCount": 448,
       "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format"
@@ -3630,7 +3630,7 @@ const productsDatabase = {
       "category": "Calçados",
       "brand": "Converse",
       "description": "Converse Chuck Taylor - Converse com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 46,
       "rating": 4.6,
       "ratingCount": 185,
       "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format"
@@ -3644,7 +3644,7 @@ const productsDatabase = {
       "category": "Calçados",
       "brand": "Puma",
       "description": "Puma Suede Classic - Puma com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 33,
       "rating": 4.7,
       "ratingCount": 391,
       "image": "https://images.unsplash.com/photo-1460353581641-37baddab0fa2?w=400&h=400&fit=crop&auto=format"
@@ -3742,7 +3742,7 @@ const productsDatabase = {
       "category": "Calçados",
       "brand": "Vans",
       "description": "Vans Old Skool - Vans com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 50,
       "rating": 3.4,
       "ratingCount": 465,
       "image": "https://images.unsplash.com/photo-1549298916-b41d501d3772?w=400&h=400&fit=crop&auto=format"
@@ -4010,7 +4010,7 @@ const productsDatabase = {
       "category": "Roupas",
       "brand": "Lacoste",
       "description": "Polo Lacoste Classic - Lacoste com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 38,
       "rating": 4.8,
       "ratingCount": 270,
       "image": "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&h=400&fit=crop&auto=format"
@@ -4080,7 +4080,7 @@ const productsDatabase = {
       "category": "Roupas",
       "brand": "Levi's",
       "description": "Calça Jeans Levi's 501 - Levi's com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 58,
       "rating": 3.6,
       "ratingCount": 114,
       "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format"
@@ -4122,7 +4122,7 @@ const productsDatabase = {
       "category": "Roupas",
       "brand": "Nike",
       "description": "Camiseta Nike Dri-FIT - Nike com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 26,
       "rating": 4.5,
       "ratingCount": 503,
       "image": "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&h=400&fit=crop&auto=format"
@@ -4192,7 +4192,7 @@ const productsDatabase = {
       "category": "Roupas",
       "brand": "Zara",
       "description": "Vestido Zara Premium - Zara com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 21,
       "rating": 3.7,
       "ratingCount": 390,
       "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format"
@@ -4248,7 +4248,7 @@ const productsDatabase = {
       "category": "Roupas",
       "brand": "Nike",
       "description": "Camiseta Nike Dri-FIT - Nike com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 35,
       "rating": 3.6,
       "ratingCount": 463,
       "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format"
@@ -4374,7 +4374,7 @@ const productsDatabase = {
       "category": "Roupas",
       "brand": "Nike",
       "description": "Camiseta Nike Dri-FIT - Nike com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 53,
       "rating": 3.1,
       "ratingCount": 252,
       "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format"
@@ -4388,7 +4388,7 @@ const productsDatabase = {
       "category": "Roupas",
       "brand": "Lacoste",
       "description": "Polo Lacoste Classic - Lacoste com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 30,
       "rating": 4.4,
       "ratingCount": 360,
       "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format"
@@ -4528,7 +4528,7 @@ const productsDatabase = {
       "category": "Roupas",
       "brand": "Adidas",
       "description": "Jaqueta Adidas Originals - Adidas com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 23,
       "rating": 3.2,
       "ratingCount": 451,
       "image": "https://images.unsplash.com/photo-1503341504253-dff4815485f1?w=400&h=400&fit=crop&auto=format"
@@ -4598,7 +4598,7 @@ const productsDatabase = {
       "category": "Roupas",
       "brand": "H&M",
       "description": "Blusa H&M Basic - H&M com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 40,
       "rating": 3.3,
       "ratingCount": 487,
       "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format"
@@ -4640,7 +4640,7 @@ const productsDatabase = {
       "category": "Roupas",
       "brand": "Lacoste",
       "description": "Polo Lacoste Classic - Lacoste com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 49,
       "rating": 3.3,
       "ratingCount": 515,
       "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format"
@@ -5076,7 +5076,7 @@ const productsDatabase = {
       "category": "Eletrodomésticos",
       "brand": "Consul",
       "description": "Fogão Consul 5 Bocas - Consul com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 8,
       "rating": 4,
       "ratingCount": 450,
       "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format"
@@ -5174,7 +5174,7 @@ const productsDatabase = {
       "category": "Eletrodomésticos",
       "brand": "LG",
       "description": "Lava-roupas LG TurboWash - LG com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 20,
       "rating": 4.8,
       "ratingCount": 249,
       "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&auto=format"
@@ -5244,7 +5244,7 @@ const productsDatabase = {
       "category": "Eletrodomésticos",
       "brand": "LG",
       "description": "Lava-roupas LG TurboWash - LG com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 13,
       "rating": 3.4,
       "ratingCount": 63,
       "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format"
@@ -5286,7 +5286,7 @@ const productsDatabase = {
       "category": "Eletrodomésticos",
       "brand": "Consul",
       "description": "Fogão Consul 5 Bocas - Consul com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 13,
       "rating": 4.9,
       "ratingCount": 66,
       "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=400&h=400&fit=crop&auto=format"
@@ -5426,7 +5426,7 @@ const productsDatabase = {
       "category": "Eletrodomésticos",
       "brand": "Consul",
       "description": "Fogão Consul 5 Bocas - Consul com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 9,
       "rating": 3.6,
       "ratingCount": 467,
       "image": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=400&h=400&fit=crop&auto=format"
@@ -5468,7 +5468,7 @@ const productsDatabase = {
       "category": "Eletrodomésticos",
       "brand": "Philips",
       "description": "Cafeteira Philips Walita - Philips com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 17,
       "rating": 4.6,
       "ratingCount": 212,
       "image": "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=400&h=400&fit=crop&auto=format"
@@ -5510,7 +5510,7 @@ const productsDatabase = {
       "category": "Eletrodomésticos",
       "brand": "Electrolux",
       "description": "Micro-ondas Electrolux - Electrolux com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 11,
       "rating": 4,
       "ratingCount": 387,
       "image": "https://images.unsplash.com/photo-1574269909862-7e1d70bb8078?w=400&h=400&fit=crop&auto=format"
@@ -5610,7 +5610,7 @@ const productsDatabase = {
       "category": "Esportes e Lazer",
       "brand": "Nike",
       "description": "Bola Nike Futebol - Nike com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 10,
       "rating": 4.7,
       "ratingCount": 452,
       "image": "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=400&h=400&fit=crop&auto=format"
@@ -5638,7 +5638,7 @@ const productsDatabase = {
       "category": "Esportes e Lazer",
       "brand": "Adidas",
       "description": "Chuteira Adidas Predator - Adidas com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 10,
       "rating": 4.3,
       "ratingCount": 491,
       "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&auto=format"
@@ -5778,7 +5778,7 @@ const productsDatabase = {
       "category": "Esportes e Lazer",
       "brand": "Nike",
       "description": "Bola Nike Futebol - Nike com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 30,
       "rating": 3.2,
       "ratingCount": 511,
       "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format"
@@ -5848,7 +5848,7 @@ const productsDatabase = {
       "category": "Esportes e Lazer",
       "brand": "Wilson",
       "description": "Raquete Wilson Pro Staff - Wilson com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 25,
       "rating": 4.3,
       "ratingCount": 233,
       "image": "https://images.unsplash.com/photo-1594736797933-d0401ba2fe65?w=400&h=400&fit=crop&auto=format"
@@ -6002,7 +6002,7 @@ const productsDatabase = {
       "category": "Esportes e Lazer",
       "brand": "Nike",
       "description": "Bola Nike Futebol - Nike com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 31,
       "rating": 4.8,
       "ratingCount": 242,
       "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&auto=format"
@@ -6116,7 +6116,7 @@ const productsDatabase = {
       "category": "Monitores",
       "brand": "Samsung",
       "description": "Monitor Samsung Odyssey 27\" - Samsung com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 18,
       "rating": 4.7,
       "ratingCount": 278,
       "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format"
@@ -6172,7 +6172,7 @@ const productsDatabase = {
       "category": "Monitores",
       "brand": "Samsung",
       "description": "Monitor Samsung Odyssey 27\" - Samsung com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 17,
       "rating": 4.3,
       "ratingCount": 64,
       "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format"
@@ -6186,7 +6186,7 @@ const productsDatabase = {
       "category": "Monitores",
       "brand": "LG",
       "description": "LG UltraWide 34\" - LG com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 5,
       "rating": 4.7,
       "ratingCount": 516,
       "image": "https://images.unsplash.com/photo-1585792180666-f7347c490ee2?w=400&h=400&fit=crop&auto=format"
@@ -6270,7 +6270,7 @@ const productsDatabase = {
       "category": "Monitores",
       "brand": "ASUS",
       "description": "ASUS ROG Gaming 32\" - ASUS com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 4,
       "rating": 4.9,
       "ratingCount": 512,
       "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format"
@@ -6298,7 +6298,7 @@ const productsDatabase = {
       "category": "Monitores",
       "brand": "LG",
       "description": "LG UltraWide 34\" - LG com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 9,
       "rating": 3.2,
       "ratingCount": 398,
       "image": "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400&h=400&fit=crop&auto=format"
@@ -6326,7 +6326,7 @@ const productsDatabase = {
       "category": "Monitores",
       "brand": "ASUS",
       "description": "ASUS ROG Gaming 32\" - ASUS com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 4,
       "rating": 3.4,
       "ratingCount": 534,
       "image": "https://images.unsplash.com/photo-1593305841991-05c297ba4575?w=400&h=400&fit=crop&auto=format"
@@ -6354,7 +6354,7 @@ const productsDatabase = {
       "category": "Monitores",
       "brand": "LG",
       "description": "LG UltraWide 34\" - LG com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 7,
       "rating": 4.2,
       "ratingCount": 95,
       "image": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=400&fit=crop&auto=format"
@@ -6382,7 +6382,7 @@ const productsDatabase = {
       "category": "Monitores",
       "brand": "ASUS",
       "description": "ASUS ROG Gaming 32\" - ASUS com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 10,
       "rating": 3.5,
       "ratingCount": 131,
       "image": "https://images.unsplash.com/photo-1527443224154-c4a3942d3acf?w=400&h=400&fit=crop&auto=format"
@@ -6424,7 +6424,7 @@ const productsDatabase = {
       "category": "Monitores",
       "brand": "Dell",
       "description": "Dell UltraSharp 24\" - Dell com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 7,
       "rating": 3.4,
       "ratingCount": 486,
       "image": "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400&h=400&fit=crop&auto=format"
@@ -6508,7 +6508,7 @@ const productsDatabase = {
       "category": "Monitores",
       "brand": "Samsung",
       "description": "Monitor Samsung Odyssey 27\" - Samsung com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 11,
       "rating": 3.2,
       "ratingCount": 460,
       "image": "https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=400&h=400&fit=crop&auto=format"
@@ -6550,7 +6550,7 @@ const productsDatabase = {
       "category": "Monitores",
       "brand": "ASUS",
       "description": "ASUS ROG Gaming 32\" - ASUS com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 11,
       "rating": 3.6,
       "ratingCount": 426,
       "image": "https://images.unsplash.com/photo-1593640408182-31c70c8268f5?w=400&h=400&fit=crop&auto=format"
@@ -6592,7 +6592,7 @@ const productsDatabase = {
       "category": "Monitores",
       "brand": "Dell",
       "description": "Dell UltraSharp 24\" - Dell com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 5,
       "rating": 3.7,
       "ratingCount": 64,
       "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=400&h=400&fit=crop&auto=format"
@@ -6776,7 +6776,7 @@ const productsDatabase = {
       "category": "Relógios",
       "brand": "Apple",
       "description": "Apple Watch Series 9 - Apple com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 11,
       "rating": 4.2,
       "ratingCount": 138,
       "image": "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=400&h=400&fit=crop&auto=format"
@@ -6804,7 +6804,7 @@ const productsDatabase = {
       "category": "Relógios",
       "brand": "Garmin",
       "description": "Garmin Forerunner 955 - Garmin com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 6,
       "rating": 3.6,
       "ratingCount": 238,
       "image": "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?w=400&h=400&fit=crop&auto=format"
@@ -6818,7 +6818,7 @@ const productsDatabase = {
       "category": "Relógios",
       "brand": "Fitbit",
       "description": "Fitbit Versa 4 - Fitbit com excelente qualidade, design moderno e garantia completa. Produto original com entrega rápida.",
-      "stock": 0,
+      "stock": 6,
       "rating": 4.1,
       "ratingCount": 411,
       "image": "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=400&h=400&fit=crop&auto=format"
