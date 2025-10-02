@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Forçar carregamento do database com timestamp único
     const timestamp = new Date().getTime();
     const script = document.createElement('script');
-    script.src = `./js/database.js?v=${timestamp}`;
+    script.src = `../js/database.js?v=${timestamp}`;
     script.onload = () => {
         console.log('Database carregado com timestamp:', timestamp);
         initializeCatalog();
