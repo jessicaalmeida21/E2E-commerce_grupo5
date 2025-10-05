@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste de Cache - Força Limpeza Completa</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .product { border: 1px solid #ddd; padding: 15px; margin: 10px 0; }
+        .in-stock { color: green; font-weight: bold; }
+        .out-of-stock { color: red; font-weight: bold; }
+        .debug { background: #f0f0f0; padding: 10px; margin: 10px 0; }
+        button { padding: 10px 20px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🔄 Teste de Cache - Força Limpeza Completa</h1>
+    
+    <div class="debug">
+        <h3>Debug Info:</h3>
+        <p>Timestamp: <span id="timestamp"></span></p>
+        <p>Cache Status: <span id="cache-status">Verificando...</span></p>
+        <p>Database Status: <span id="db-status">Carregando...</span></p>
+    </div>
+
+    <button onclick="forceReload()">🔄 Forçar Reload Completo</button>
+    <button onclick="clearAllCache()">🗑️ Limpar Todo Cache</button>
+    <button onclick="testProducts()">🧪 Testar Produtos</button>
+
+    <div id="products-container"></div>
+
+    <script>
+        // Timestamp único para forçar reload
+        const timestamp = new Date().getTime();
+        document.getElementById('timestamp').textContent = timestamp;
+
+        // Limpar todos os caches possíveis
+        function clearAllCache() {
+            // Limpar localStorage
+            localStorage.clear();
+            
+            // Limpar sessionStorage
+            sessionStorage.clear();
+            
+            // Forçar reload de todos os scripts
+            const scripts = document.querySelectorAll('script[src]');
+            scripts.forEach(script => {
+                const newScript = document.createElement('script');
+                newScript.src = script.src + '?v=' + timestamp;
+                script.parentNode.replaceChild(newScript, script);
+            });
+            
+            document.getElementById('cache-status').textContent = 'Cache limpo!';
+            
+            // Reload da página após 2 segundos
+            setTimeout(() => {
+                window.location.reload(true);
+            }, 2000);
+        }
+
+        function forceReload() {
+            // Forçar reload completo ignorando cache
+            window.location.reload(true);
+        }
+
+        // Carregar database com timestamp único
+        function loadDatabase() {
+            return new Promise((resolve, reject) => {
+                const script = document.createElement('script');
+                script.src = `../js/database.js?v=${timestamp}&nocache=${Math.random()}`;
+                script.onload = () => {
+                    document.getElementById('db-status').textContent = 'Database carregado!';
+                    resolve();
+                };
+                script.onerror = () => {
+                    document.getElementById('db-status').textContent = 'Erro ao carregar database!';
+                    reject();
+                };
+                document.head.appendChild(script);
+            });
+        }
+
+        async function testProducts() {
+            try {
+                await loadDatabase();
+                
+                // Aguardar um pouco para garantir que o database foi carregado
+                await new Promise(resolve => setTimeout(resolve, 1000));
+                
+                const container = document.getElementById('products-container');
+                container.innerHTML = '<h3>🧪 Testando Produtos:</h3>';
+                
+                // Verificar se productsDatabase existe
+                if (typeof productsDatabase === 'undefined') {
+                    container.innerHTML += '<p style="color: red;">❌ productsDatabase não encontrado!</p>';
+                    return;
+                }
+                
+                // Testar produtos específicos
+                const testProducts = ['PROD-001', 'PROD-002', 'PROD-003'];
+                
+                // Buscar em todas as categorias
+                let allProducts = [];
+                Object.keys(productsDatabase).forEach(category => {
+                    allProducts = allProducts.concat(productsDatabase[category]);
+                });
+                
+                testProducts.forEach(productId => {
+                    const product = allProducts.find(p => p.id === productId);
+                    if (product) {
+                        const stockClass = product.stock > 0 ? 'in-stock' : 'out-of-stock';
+                        const stockText = product.stock > 0 ? `Em estoque (${product.stock})` : 'Fora de estoque';
+                        
+                        container.innerHTML += `
+                            <div class="product">
+                                <h4>${product.title}</h4>
+                                <p>ID: ${product.id}</p>
+                                <p>Preço: R$ ${product.price}</p>
+                                <p class="${stockClass}">📦 ${stockText}</p>
+                                <p>Timestamp do teste: ${new Date().toLocaleTimeString()}</p>
+                            </div>
+                        `;
+                    } else {
+                        container.innerHTML += `<p style="color: red;">❌ Produto ${productId} não encontrado!</p>`;
+                    }
+                });
+                
+                container.innerHTML += `<p><strong>Total de produtos no database: ${allProducts.length}</strong></p>`;
+                
+            } catch (error) {
+                document.getElementById('products-container').innerHTML = `<p style="color: red;">❌ Erro: ${error.message}</p>`;
+            }
+        }
+
+        // Executar teste automaticamente
+        window.addEventListener('load', () => {
+            setTimeout(testProducts, 1000);
+        });
+    </script>
+</body>
+</html>

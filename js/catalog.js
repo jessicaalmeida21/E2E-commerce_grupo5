@@ -1,12 +1,16 @@
-// Script para gerenciar a página de catálogo - v42 (forçar atualização)
+// Script para gerenciar a página de catálogo - v43 (forçar atualização completa)
 document.addEventListener('DOMContentLoaded', function() {
-    // Forçar carregamento do database com timestamp único
+    // Forçar carregamento do database com timestamp único e parâmetros anti-cache
     const timestamp = new Date().getTime();
+    const randomParam = Math.random().toString(36).substring(7);
     const script = document.createElement('script');
-    script.src = `../js/database.js?v=${timestamp}`;
+    script.src = `../js/database.js?v=${timestamp}&nocache=${randomParam}&t=${Date.now()}`;
     script.onload = () => {
         console.log('Database carregado com timestamp:', timestamp);
-        initializeCatalog();
+        // Aguardar mais tempo para garantir carregamento completo
+        setTimeout(() => {
+            initializeCatalog();
+        }, 1500);
     };
     script.onerror = () => {
         console.error('Erro ao carregar database');
