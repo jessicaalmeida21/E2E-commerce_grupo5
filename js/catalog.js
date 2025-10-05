@@ -328,10 +328,15 @@ function createProductCard(product) {
     console.log('product.stock:', product.stock);
     console.log('typeof product.stock:', typeof product.stock);
     
-    const stockQuantity = product.stock || 0;
+    // Garantir que o estoque seja tratado corretamente
+    let stockQuantity = 0;
+    if (product.stock !== undefined && product.stock !== null) {
+        stockQuantity = parseInt(product.stock) || 0;
+    }
+    
     const stockAvailable = stockQuantity > 0;
     
-    console.log('stockQuantity:', stockQuantity);
+    console.log('stockQuantity (após conversão):', stockQuantity);
     console.log('stockAvailable:', stockAvailable);
     
     const stockText = stockAvailable ? `Em estoque (${stockQuantity})` : 'Fora de estoque';
