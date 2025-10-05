@@ -1,9 +1,14 @@
-// Script para gerenciar a página de catálogo - v44 (corrigir declaração duplicada)
+// Script para gerenciar a página de catálogo - v45 (debug estoque detalhado)
 document.addEventListener('DOMContentLoaded', function() {
-    // Remover carregamento dinâmico do database.js para evitar declaração duplicada
-    // O database.js agora é carregado diretamente no HTML
-    console.log('Inicializando catálogo sem carregamento dinâmico...');
-    initializeCatalog();
+    console.log('=== CATALOG.JS V45 INICIADO ===');
+    console.log('Timestamp:', Date.now());
+    console.log('productsDatabase disponível:', typeof productsDatabase);
+    
+    // Aguardar um pouco mais para garantir carregamento completo
+    setTimeout(() => {
+        console.log('Iniciando catálogo após timeout...');
+        initializeCatalog();
+    }, 2000); // Aumentado para 2 segundos
 });
 
 let currentPage = 1;
@@ -318,12 +323,22 @@ function createProductCard(product) {
             <span class="rating-count">(${product.ratingCount || 0})</span>
         </div>` : '';
 
-    // Verificar se o produto tem estoque disponível
+    // VERIFICAÇÃO DE ESTOQUE COM LOGS DETALHADOS
+    console.log(`=== PRODUTO: ${product.title} ===`);
+    console.log('product.stock:', product.stock);
+    console.log('typeof product.stock:', typeof product.stock);
+    
     const stockQuantity = product.stock || 0;
     const stockAvailable = stockQuantity > 0;
     
+    console.log('stockQuantity:', stockQuantity);
+    console.log('stockAvailable:', stockAvailable);
+    
     const stockText = stockAvailable ? `Em estoque (${stockQuantity})` : 'Fora de estoque';
     const stockClass = stockAvailable ? 'in-stock' : 'out-of-stock';
+    
+    console.log('stockText:', stockText);
+    console.log('stockClass:', stockClass);
     
     const stockStatus = `<span class="stock-status ${stockClass}">${stockText}</span>`;
 
@@ -574,141 +589,6 @@ function showNotification(message, type = 'info') {
             }
         }, 300);
     }, 3000);
-}
-
-// Carregar produtos diretamente do database.js
-async function loadProductsDirectly() {
-
-    try {
-
-        console.log('Carregando produtos diretamente do database.js...');
-
-        
-
-        if (typeof getAllProducts === 'function') {
-
-            const products = getAllProducts();
-
-            console.log('Produtos carregados diretamente:', products.length);
-
-            
-
-            if (products && products.length > 0) {
-
-                // Aplicar paginação
-
-                const totalPages = Math.ceil(products.length / productsPerPage);
-
-                const startIndex = (currentPage - 1) * productsPerPage;
-
-                const endIndex = startIndex + productsPerPage;
-
-                const paginatedProducts = products.slice(startIndex, endIndex);
-
-                
-
-                console.log(`Mostrando ${paginatedProducts.length} de ${products.length} produtos`);
-
-                displayProducts(paginatedProducts);
-
-                
-
-                // Criar meta de paginação
-
-                const meta = {
-
-                    page: currentPage,
-
-                    totalPages: totalPages,
-
-                    total: products.length
-
-                };
-
-                
-
-                updatePagination(meta);
-
-                return;
-
-            }
-
-        }
-
-        
-
-        console.log('Nenhum produto encontrado no database.js');
-
-        showEmptyCatalog();
-
-        
-
-    } catch (error) {
-
-        console.error('Erro ao carregar produtos diretamente:', error);
-
-        showEmptyCatalog();
-
-    }
-
-}
-
-
-
-// Mostrar notificação
-
-function showNotification(message, type = 'info') {
-
-    // Criar elemento de notificação
-
-    const notification = document.createElement('div');
-
-    notification.className = `notification notification-${type}`;
-
-    notification.innerHTML = `
-
-        <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : 'info-circle'}"></i>
-
-        <span>${message}</span>
-
-    `;
-
-    
-
-    // Adicionar ao body
-
-    document.body.appendChild(notification);
-
-    
-
-    // Mostrar notificação
-
-    setTimeout(() => {
-
-        notification.classList.add('show');
-
-    }, 100);
-
-    
-
-    // Remover após 3 segundos
-
-    setTimeout(() => {
-
-        notification.classList.remove('show');
-
-        setTimeout(() => {
-
-            if (notification.parentNode) {
-
-                notification.parentNode.removeChild(notification);
-
-            }
-
-        }, 300);
-
-    }, 3000);
-
 }
 
 

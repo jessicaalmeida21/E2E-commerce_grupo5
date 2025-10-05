@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Detalhado - Problema de Estoque</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .debug-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .product-test { margin: 10px 0; padding: 10px; background: #f5f5f5; }
+        .error { color: red; }
+        .success { color: green; }
+        .warning { color: orange; }
+        pre { background: #f0f0f0; padding: 10px; overflow-x: auto; }
+    </style>
+</head>
+<body>
+    <h1>Debug Detalhado - Problema de Estoque</h1>
+    
+    <div class="debug-section">
+        <h2>1. Status do Database.js</h2>
+        <div id="database-status"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>2. Teste de Produtos Específicos</h2>
+        <div id="products-test"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>3. Análise da Lógica de Estoque</h2>
+        <div id="stock-logic"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>4. Console Logs</h2>
+        <div id="console-logs"></div>
+    </div>
+
+    <!-- Carregar database.js v44 -->
+    <script src="js/database.js?v=44&nocache=true&t=<?php echo time(); ?>"></script>
+    
+    <script>
+        // Capturar logs do console
+        const originalLog = console.log;
+        const originalError = console.error;
+        const logs = [];
+        
+        console.log = function(...args) {
+            logs.push({type: 'log', message: args.join(' ')});
+            originalLog.apply(console, args);
+            updateConsoleLogs();
+        };
+        
+        console.error = function(...args) {
+            logs.push({type: 'error', message: args.join(' ')});
+            originalError.apply(console, args);
+            updateConsoleLogs();
+        };
+        
+        function updateConsoleLogs() {
+            const logsDiv = document.getElementById('console-logs');
+            logsDiv.innerHTML = logs.map(log => 
+                `<div class="${log.type}">${log.message}</div>`
+            ).join('');
+        }
+        
+        // Aguardar carregamento e executar testes
+        setTimeout(() => {
+            runDebugTests();
+        }, 1000);
+        
+        function runDebugTests() {
+            console.log('=== INICIANDO TESTES DE DEBUG ===');
+            
+            // 1. Verificar status do database
+            testDatabaseStatus();
+            
+            // 2. Testar produtos específicos
+            testSpecificProducts();
+            
+            // 3. Analisar lógica de estoque
+            analyzeStockLogic();
+        }
+        
+        function testDatabaseStatus() {
+            const statusDiv = document.getElementById('database-status');
+            let html = '';
+            
+            // Verificar se productsDatabase existe
+            if (typeof productsDatabase !== 'undefined') {
+                html += '<div class="success">✓ productsDatabase carregado</div>';
+                
+                // Contar produtos por categoria
+                let totalProducts = 0;
+                Object.keys(productsDatabase).forEach(category => {
+                    const products = productsDatabase[category];
+                    if (Array.isArray(products)) {
+                        totalProducts += products.length;
+                        html += `<div>Categoria "${category}": ${products.length} produtos</div>`;
+                    }
+                });
+                
+                html += `<div class="success">Total de produtos: ${totalProducts}</div>`;
+            } else {
+                html += '<div class="error">✗ productsDatabase não encontrado</div>';
+            }
+            
+            statusDiv.innerHTML = html;
+        }
+        
+        function testSpecificProducts() {
+            const testDiv = document.getElementById('products-test');
+            let html = '';
+            
+            if (typeof productsDatabase === 'undefined') {
+                html += '<div class="error">Não é possível testar - productsDatabase não carregado</div>';
+                testDiv.innerHTML = html;
+                return;
+            }
+            
+            // Produtos para testar
+            const testProducts = [
+                'PROD-001', // iPhone 15 Pro Max
+                'PROD-002', // Galaxy S24 Ultra
+                'PROD-003', // iPhone 14 Pro
+                'PROD-004'  // Pixel 8 Pro
+            ];
+            
+            testProducts.forEach(productId => {
+                const product = findProductById(productId);
+                if (product) {
+                    const stockQuantity = product.stock || 0;
+                    const stockAvailable = stockQuantity > 0;
+                    
+                    html += `
+                        <div class="product-test">
+                            <strong>${product.title}</strong><br>
+                            ID: ${product.id}<br>
+                            Stock: ${product.stock}<br>
+                            Stock Quantity: ${stockQuantity}<br>
+                            Stock Available: ${stockAvailable}<br>
+                            Status: ${stockAvailable ? '<span class="success">EM ESTOQUE</span>' : '<span class="error">FORA DE ESTOQUE</span>'}
+                        </div>
+                    `;
+                } else {
+                    html += `<div class="product-test error">Produto ${productId} não encontrado</div>`;
+                }
+            });
+            
+            testDiv.innerHTML = html;
+        }
+        
+        function findProductById(productId) {
+            for (const category in productsDatabase) {
+                const products = productsDatabase[category];
+                if (Array.isArray(products)) {
+                    const product = products.find(p => p.id === productId);
+                    if (product) return product;
+                }
+            }
+            return null;
+        }
+        
+        function analyzeStockLogic() {
+            const logicDiv = document.getElementById('stock-logic');
+            let html = '';
+            
+            if (typeof productsDatabase === 'undefined') {
+                html += '<div class="error">Não é possível analisar - productsDatabase não carregado</div>';
+                logicDiv.innerHTML = html;
+                return;
+            }
+            
+            // Analisar alguns produtos
+            const sampleProducts = [];
+            Object.values(productsDatabase).forEach(category => {
+                if (Array.isArray(category) && category.length > 0) {
+                    sampleProducts.push(...category.slice(0, 3)); // Pegar 3 de cada categoria
+                }
+            });
+            
+            html += '<h3>Análise da Lógica de Estoque:</h3>';
+            html += '<pre>const stockQuantity = product.stock || 0;\nconst stockAvailable = stockQuantity > 0;</pre>';
+            
+            html += '<h3>Teste da Lógica em Produtos Reais:</h3>';
+            
+            sampleProducts.slice(0, 10).forEach(product => {
+                const stockQuantity = product.stock || 0;
+                const stockAvailable = stockQuantity > 0;
+                
+                html += `
+                    <div style="margin: 5px 0; padding: 5px; background: #fff;">
+                        <strong>${product.title}</strong><br>
+                        product.stock = ${JSON.stringify(product.stock)}<br>
+                        stockQuantity = ${stockQuantity}<br>
+                        stockAvailable = ${stockAvailable}<br>
+                        Resultado: ${stockAvailable ? '<span class="success">EM ESTOQUE</span>' : '<span class="error">FORA DE ESTOQUE</span>'}
+                    </div>
+                `;
+            });
+            
+            logicDiv.innerHTML = html;
+        }
+    </script>
+</body>
+</html>

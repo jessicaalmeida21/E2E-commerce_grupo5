@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Estoque - Teste Específico</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 15px; border: 1px solid #ddd; }
+        .success { color: green; }
+        .error { color: red; }
+        .info { color: blue; }
+        .product-test { margin: 10px 0; padding: 10px; background: #f5f5f5; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Debug de Estoque - Teste Específico</h1>
+    
+    <div class="test-section">
+        <h2>1. Verificação do Database.js</h2>
+        <div id="database-status"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. Teste de Produtos Específicos</h2>
+        <div id="products-test"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>3. Teste da Função getAllProducts</h2>
+        <div id="function-test"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>4. Console Logs</h2>
+        <div id="console-logs"></div>
+    </div>
+
+    <script src="js/database.js?v=44"></script>
+    <script>
+        function log(message, type = 'info') {
+            console.log(message);
+            const logsDiv = document.getElementById('console-logs');
+            const p = document.createElement('p');
+            p.className = type;
+            p.textContent = `[${new Date().toLocaleTimeString()}] ${message}`;
+            logsDiv.appendChild(p);
+        }
+
+        function testDatabase() {
+            const statusDiv = document.getElementById('database-status');
+            
+            if (typeof productsDatabase !== 'undefined') {
+                statusDiv.innerHTML = '<p class="success">✅ productsDatabase está definido</p>';
+                log('productsDatabase carregado com sucesso', 'success');
+                
+                // Contar produtos
+                let totalProducts = 0;
+                for (const category in productsDatabase) {
+                    if (productsDatabase[category] && Array.isArray(productsDatabase[category])) {
+                        totalProducts += productsDatabase[category].length;
+                    }
+                }
+                statusDiv.innerHTML += `<p class="info">📊 Total de produtos: ${totalProducts}</p>`;
+                log(`Total de produtos encontrados: ${totalProducts}`, 'info');
+                
+                return true;
+            } else {
+                statusDiv.innerHTML = '<p class="error">❌ productsDatabase NÃO está definido</p>';
+                log('productsDatabase NÃO encontrado', 'error');
+                return false;
+            }
+        }
+
+        function testSpecificProducts() {
+            const testDiv = document.getElementById('products-test');
+            
+            if (typeof productsDatabase === 'undefined') {
+                testDiv.innerHTML = '<p class="error">❌ Não é possível testar - database não carregado</p>';
+                return;
+            }
+
+            const testProducts = [
+                'iPhone 15 Pro Max',
+                'Galaxy S24 Ultra',
+                'iPhone 14 Pro',
+                'Pixel 8 Pro'
+            ];
+
+            testDiv.innerHTML = '<h3>Testando produtos específicos:</h3>';
+
+            testProducts.forEach(productName => {
+                let found = false;
+                let productInfo = null;
+
+                // Buscar em todas as categorias
+                for (const category in productsDatabase) {
+                    if (productsDatabase[category] && Array.isArray(productsDatabase[category])) {
+                        const product = productsDatabase[category].find(p => p.name === productName);
+                        if (product) {
+                            found = true;
+                            productInfo = product;
+                            break;
+                        }
+                    }
+                }
+
+                const productDiv = document.createElement('div');
+                productDiv.className = 'product-test';
+                
+                if (found && productInfo) {
+                    productDiv.innerHTML = `
+                        <p class="success">✅ ${productName}</p>
+                        <p>Estoque: ${productInfo.stock}</p>
+                        <p>Preço: R$ ${productInfo.price}</p>
+                        <p>Status: ${productInfo.stock > 0 ? 'EM ESTOQUE' : 'FORA DE ESTOQUE'}</p>
+                    `;
+                    log(`${productName}: Estoque ${productInfo.stock}`, productInfo.stock > 0 ? 'success' : 'error');
+                } else {
+                    productDiv.innerHTML = `<p class="error">❌ ${productName} - NÃO ENCONTRADO</p>`;
+                    log(`${productName}: NÃO ENCONTRADO`, 'error');
+                }
+                
+                testDiv.appendChild(productDiv);
+            });
+        }
+
+        function testGetAllProducts() {
+            const testDiv = document.getElementById('function-test');
+            
+            if (typeof getAllProducts === 'function') {
+                testDiv.innerHTML = '<p class="success">✅ Função getAllProducts disponível</p>';
+                log('Função getAllProducts encontrada', 'success');
+                
+                try {
+                    const allProducts = getAllProducts();
+                    testDiv.innerHTML += `<p class="info">📊 getAllProducts retornou ${allProducts.length} produtos</p>`;
+                    log(`getAllProducts retornou ${allProducts.length} produtos`, 'info');
+                    
+                    // Testar alguns produtos específicos
+                    const testNames = ['iPhone 15 Pro Max', 'Galaxy S24 Ultra'];
+                    testNames.forEach(name => {
+                        const product = allProducts.find(p => p.name === name);
+                        if (product) {
+                            testDiv.innerHTML += `<p class="success">✅ ${name}: Estoque ${product.stock}</p>`;
+                            log(`${name} via getAllProducts: Estoque ${product.stock}`, 'success');
+                        } else {
+                            testDiv.innerHTML += `<p class="error">❌ ${name}: NÃO ENCONTRADO via getAllProducts</p>`;
+                            log(`${name} NÃO encontrado via getAllProducts`, 'error');
+                        }
+                    });
+                } catch (error) {
+                    testDiv.innerHTML += `<p class="error">❌ Erro ao executar getAllProducts: ${error.message}</p>`;
+                    log(`Erro ao executar getAllProducts: ${error.message}`, 'error');
+                }
+            } else {
+                testDiv.innerHTML = '<p class="error">❌ Função getAllProducts NÃO disponível</p>';
+                log('Função getAllProducts NÃO encontrada', 'error');
+            }
+        }
+
+        // Executar testes quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            log('Iniciando testes de debug de estoque...', 'info');
+            
+            setTimeout(() => {
+                const databaseOk = testDatabase();
+                if (databaseOk) {
+                    testSpecificProducts();
+                    testGetAllProducts();
+                }
+            }, 500);
+        });
+    </script>
+</body>
+</html>
