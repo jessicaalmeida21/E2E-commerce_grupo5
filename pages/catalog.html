@@ -141,7 +141,7 @@
     </footer>
 
     <script>
-        // Cache busting simples
+        // Cache busting com carregamento sequencial
         const timestamp = Date.now();
         const scripts = [
             '../js/database.js',
@@ -152,11 +152,35 @@
             '../js/catalog.js'
         ];
         
-        scripts.forEach(src => {
+        let currentScriptIndex = 0;
+        
+        function loadNextScript() {
+            if (currentScriptIndex >= scripts.length) {
+                console.log('Todos os scripts carregados com sucesso');
+                return;
+            }
+            
             const script = document.createElement('script');
-            script.src = `${src}?v=47&t=${timestamp}&r=${Math.random()}`;
+            const src = scripts[currentScriptIndex];
+            script.src = `${src}?v=48&t=${timestamp}&r=${Math.random()}`;
+            
+            script.onload = () => {
+                console.log(`Script carregado: ${src}`);
+                currentScriptIndex++;
+                loadNextScript();
+            };
+            
+            script.onerror = () => {
+                console.error(`Erro ao carregar script: ${src}`);
+                currentScriptIndex++;
+                loadNextScript();
+            };
+            
             document.head.appendChild(script);
-        });
+        }
+        
+        // Iniciar carregamento sequencial
+        loadNextScript();
     </script>
 </body>
 </html>
