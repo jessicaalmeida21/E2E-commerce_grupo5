@@ -7,11 +7,8 @@ let currentPage = 1;
 let currentCategory = '';
 let currentSearch = '';
 let currentSort = '';
-let currentView = 'sellers'; // 'sellers' ou 'products'
 let isLoading = false;
-let allProducts = [];
 let allSellers = [];
-const productsPerPage = 24;
 const sellersPerPage = 12;
 
 // Inicializar página de fornecedores
@@ -60,14 +57,6 @@ function processUrlParams() {
     if (category) {
         currentCategory = category;
         document.getElementById('category-filter').value = category;
-    }
-    
-    // Processar visualização
-    const view = urlParams.get('view');
-    if (view === 'products') {
-        currentView = 'products';
-        document.getElementById('view-products').classList.add('active');
-        document.getElementById('view-sellers').classList.remove('active');
     }
 }
 
@@ -139,69 +128,16 @@ async function loadAllData() {
     try {
         console.log('Carregando todos os dados...');
         
-        // Carregar produtos
-        await loadAllProducts();
-        
         // Gerar fornecedores baseados nos produtos
         generateSellers();
         
         console.log('Dados carregados:', {
-            produtos: allProducts.length,
             fornecedores: allSellers.length
         });
         
     } catch (error) {
         console.error('Erro ao carregar dados:', error);
         throw error;
-    }
-}
-
-// Carregar todos os produtos
-async function loadAllProducts() {
-    try {
-        console.log('Carregando produtos...');
-        
-        let products = [];
-        
-        // Tentar carregar via productsModule
-        if (typeof productsModule !== 'undefined' && productsModule.getAllProducts) {
-            try {
-                products = await productsModule.getAllProducts();
-                console.log('Produtos carregados via productsModule:', products.length);
-            } catch (error) {
-                console.error('Erro no productsModule:', error);
-            }
-        }
-        
-        // Se não conseguiu, tentar via database.js diretamente
-        if (!products || products.length === 0) {
-            console.log('Tentando carregar produtos via database.js...');
-            if (typeof getAllProducts === 'function') {
-                products = getAllProducts();
-                console.log('Produtos carregados via database.js:', products.length);
-            }
-        }
-        
-        // Se ainda não tem produtos, tentar via productsDatabase
-        if (!products || products.length === 0) {
-            console.log('Tentando carregar via productsDatabase...');
-            if (typeof productsDatabase !== 'undefined') {
-                products = [];
-                Object.values(productsDatabase).forEach(categoryProducts => {
-                    if (Array.isArray(categoryProducts)) {
-                        products = products.concat(categoryProducts);
-                    }
-                });
-                console.log('Produtos carregados via productsDatabase:', products.length);
-            }
-        }
-        
-        allProducts = products || [];
-        console.log('Total de produtos carregados:', allProducts.length);
-        
-    } catch (error) {
-        console.error('Erro ao carregar produtos:', error);
-        allProducts = [];
     }
 }
 
@@ -212,8 +148,37 @@ function generateSellers() {
         
         const sellersMap = new Map();
         
+        // Obter produtos do database
+        let products = [];
+        if (typeof getAllProducts === 'function') {
+            products = getAllProducts();
+        } else {
+            console.warn('getAllProducts não disponível, usando dados de fallback');
+            // Criar alguns fornecedores de exemplo
+            const categories = ['eletrônicos', 'roupas', 'casa', 'livros', 'esportes'];
+            categories.forEach((category, index) => {
+                const categoryKey = category.toLowerCase().replace(/\s+/g, '-');
+                sellersMap.set(categoryKey, {
+                    id: `seller-${categoryKey}`,
+                    name: getSellerName(categoryKey),
+                    category: category,
+                    categoryKey: categoryKey,
+                    description: getSellerDescription(categoryKey),
+                    logo: getSellerLogo(categoryKey),
+                    rating: (4 + Math.random()).toFixed(1),
+                    products: [],
+                    productsCount: Math.floor(Math.random() * 50) + 10,
+                    joinedDate: new Date(2020 + Math.floor(Math.random() * 4), Math.floor(Math.random() * 12), 1)
+                });
+            });
+            
+            allSellers = Array.from(sellersMap.values());
+            console.log('Fornecedores de fallback gerados:', allSellers.length);
+            return;
+        }
+        
         // Agrupar produtos por categoria para criar fornecedores
-        allProducts.forEach(product => {
+        products.forEach(product => {
             const category = product.category || 'outros';
             const categoryKey = category.toLowerCase().replace(/\s+/g, '-');
             
@@ -274,15 +239,6 @@ function setupEventListeners() {
         displayCurrentView();
     });
     
-    // Alternância de visualização
-    document.getElementById('view-sellers').addEventListener('click', function() {
-        switchView('sellers');
-    });
-    
-    document.getElementById('view-products').addEventListener('click', function() {
-        switchView('products');
-    });
-    
     // Paginação
     document.getElementById('prev-page').addEventListener('click', function() {
         if (currentPage > 1) {
@@ -292,9 +248,8 @@ function setupEventListeners() {
     });
     
     document.getElementById('next-page').addEventListener('click', function() {
-        const totalItems = currentView === 'sellers' ? getFilteredSellers().length : getFilteredProducts().length;
-        const itemsPerPage = currentView === 'sellers' ? sellersPerPage : productsPerPage;
-        const totalPages = Math.ceil(totalItems / itemsPerPage);
+        const totalItems = getFilteredSellers().length;
+        const totalPages = Math.ceil(totalItems / sellersPerPage);
         
         if (currentPage < totalPages) {
             currentPage++;
@@ -311,30 +266,9 @@ function performSearch() {
     updateUrl();
 }
 
-// Alternar visualização
-function switchView(view) {
-    currentView = view;
-    currentPage = 1;
-    
-    // Atualizar botões
-    document.getElementById('view-sellers').classList.toggle('active', view === 'sellers');
-    document.getElementById('view-products').classList.toggle('active', view === 'products');
-    
-    // Atualizar grids
-    document.getElementById('sellers-grid').style.display = view === 'sellers' ? 'grid' : 'none';
-    document.getElementById('products-grid').style.display = view === 'products' ? 'grid' : 'none';
-    
-    displayCurrentView();
-    updateUrl();
-}
-
 // Exibir visualização atual
 function displayCurrentView() {
-    if (currentView === 'sellers') {
-        displaySellers();
-    } else {
-        displayProducts();
-    }
+    displaySellers();
     updateResultsInfo();
     updatePagination();
 }
@@ -377,51 +311,6 @@ function getFilteredSellers() {
     return filtered;
 }
 
-// Obter produtos filtrados
-function getFilteredProducts() {
-    let filtered = [...allProducts];
-    
-    // Filtrar por categoria
-    if (currentCategory) {
-        filtered = filtered.filter(product => {
-            const productCategory = (product.category || '').toLowerCase().replace(/\s+/g, '-');
-            return productCategory === currentCategory;
-        });
-    }
-    
-    // Filtrar por busca
-    if (currentSearch) {
-        const searchLower = currentSearch.toLowerCase();
-        filtered = filtered.filter(product => 
-            (product.name || '').toLowerCase().includes(searchLower) ||
-            (product.brand || '').toLowerCase().includes(searchLower) ||
-            (product.category || '').toLowerCase().includes(searchLower)
-        );
-    }
-    
-    // Ordenar
-    if (currentSort) {
-        filtered.sort((a, b) => {
-            switch (currentSort) {
-                case 'name-asc':
-                    return (a.name || '').localeCompare(b.name || '');
-                case 'name-desc':
-                    return (b.name || '').localeCompare(a.name || '');
-                case 'price-asc':
-                    return (a.price || 0) - (b.price || 0);
-                case 'price-desc':
-                    return (b.price || 0) - (a.price || 0);
-                case 'rating-desc':
-                    return (b.rating || 0) - (a.rating || 0);
-                default:
-                    return 0;
-            }
-        });
-    }
-    
-    return filtered;
-}
-
 // Exibir fornecedores
 function displaySellers() {
     const grid = document.getElementById('sellers-grid');
@@ -442,29 +331,6 @@ function displaySellers() {
     paginatedSellers.forEach(seller => {
         const sellerCard = createSellerCard(seller);
         grid.appendChild(sellerCard);
-    });
-}
-
-// Exibir produtos
-function displayProducts() {
-    const grid = document.getElementById('products-grid');
-    const filtered = getFilteredProducts();
-    
-    // Paginação
-    const startIndex = (currentPage - 1) * productsPerPage;
-    const endIndex = startIndex + productsPerPage;
-    const paginatedProducts = filtered.slice(startIndex, endIndex);
-    
-    grid.innerHTML = '';
-    
-    if (paginatedProducts.length === 0) {
-        grid.innerHTML = '<div class="no-results">Nenhum produto encontrado.</div>';
-        return;
-    }
-    
-    paginatedProducts.forEach(product => {
-        const productCard = createProductCard(product);
-        grid.appendChild(productCard);
     });
 }
 
@@ -502,73 +368,23 @@ function createSellerCard(seller) {
                 <span class="stars">${rating}</span>
                 <span class="rating-text">(${seller.rating})</span>
             </div>
-            <div class="seller-actions">
-                <button class="btn-primary" onclick="viewSellerProducts('${seller.categoryKey}', '${seller.category}')">
-                    Ver Produtos (${seller.productsCount})
-                </button>
-            </div>
         </div>
     `;
     
     return card;
 }
 
-// Criar card do produto
-function createProductCard(product) {
-    const card = document.createElement('div');
-    card.className = 'product-card';
-    
-    const price = product.price ? `R$ ${product.price.toFixed(2).replace('.', ',')}` : 'Preço não disponível';
-    const rating = product.rating ? '★'.repeat(Math.floor(product.rating)) + '☆'.repeat(5 - Math.floor(product.rating)) : '☆☆☆☆☆';
-    
-    card.innerHTML = `
-        <div class="product-image">
-            <img src="${product.image || 'https://via.placeholder.com/200x200/f8f9fa/6c757d?text=Sem+Imagem'}" 
-                 alt="${product.name || 'Produto'}" 
-                 onerror="this.src='https://via.placeholder.com/200x200/f8f9fa/6c757d?text=Sem+Imagem'">
-        </div>
-        <div class="product-info">
-            <h3 class="product-name">${product.name || 'Nome não disponível'}</h3>
-            <p class="product-brand">${product.brand || 'Marca não informada'}</p>
-            <div class="product-rating">
-                <span class="stars">${rating}</span>
-                <span class="rating-text">(${product.rating || 0})</span>
-            </div>
-            <div class="product-price">
-                <span class="price">${price}</span>
-            </div>
-            <div class="product-actions">
-                <button class="btn-primary" onclick="viewProduct(${product.id})">
-                    Ver Detalhes
-                </button>
-                <button class="btn-secondary" onclick="addToCart(${product.id})">
-                    <i class="fas fa-shopping-cart"></i>
-                </button>
-            </div>
-        </div>
-    `;
-    
-    return card;
-}
-
-// Atualizar informações de resultados
+// Atualizar informações dos resultados
 function updateResultsInfo() {
     const resultsCount = document.getElementById('results-count');
-    
-    if (currentView === 'sellers') {
-        const filtered = getFilteredSellers();
-        resultsCount.textContent = `${filtered.length} fornecedor(es) encontrado(s)`;
-    } else {
-        const filtered = getFilteredProducts();
-        resultsCount.textContent = `${filtered.length} produto(s) encontrado(s)`;
-    }
+    const filtered = getFilteredSellers();
+    resultsCount.textContent = `${filtered.length} fornecedor(es) encontrado(s)`;
 }
 
 // Atualizar paginação
 function updatePagination() {
-    const totalItems = currentView === 'sellers' ? getFilteredSellers().length : getFilteredProducts().length;
-    const itemsPerPage = currentView === 'sellers' ? sellersPerPage : productsPerPage;
-    const totalPages = Math.ceil(totalItems / itemsPerPage);
+    const totalItems = getFilteredSellers().length;
+    const totalPages = Math.ceil(totalItems / sellersPerPage);
     
     const pagination = document.getElementById('pagination');
     const prevBtn = document.getElementById('prev-page');
@@ -615,7 +431,6 @@ function updateUrl() {
     
     if (currentSearch) params.set('search', currentSearch);
     if (currentCategory) params.set('category', currentCategory);
-    if (currentView !== 'sellers') params.set('view', currentView);
     
     const newUrl = `${window.location.pathname}${params.toString() ? '?' + params.toString() : ''}`;
     window.history.replaceState({}, '', newUrl);
@@ -678,14 +493,6 @@ function getSellerLogo(categoryKey) {
     };
     
     return logos[categoryKey] || 'https://via.placeholder.com/100x100/6c757d/ffffff?text=🏪';
-}
-
-// Funções para interação com produtos
-function viewSellerProducts(categoryKey, categoryName) {
-    // Filtrar por categoria e alternar para visualização de produtos
-    currentCategory = categoryKey;
-    document.getElementById('category-filter').value = categoryKey;
-    switchView('products');
 }
 
 function viewProduct(productId) {

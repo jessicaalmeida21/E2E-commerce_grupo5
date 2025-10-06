@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Estoque Extremo - E2E Commerce</title>
+    
+    <!-- FORÇAMENTO EXTREMO DE CACHE -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="If-Modified-Since" content="0">
+    
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f5f5f5;
+        }
+        .debug-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 8px;
+            background: white;
+        }
+        .in-stock { color: green; font-weight: bold; }
+        .out-of-stock { color: red; font-weight: bold; }
+        .add-to-cart {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .add-to-cart:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        #console-logs {
+            background: #000;
+            color: #0f0;
+            padding: 10px;
+            font-family: monospace;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔥 TESTE ESTOQUE EXTREMO - FORÇAMENTO TOTAL DE CACHE</h1>
+    
+    <div class="debug-section">
+        <h2>📊 Status do Sistema</h2>
+        <div id="system-status">Carregando...</div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>🛍️ Produtos com Estoque</h2>
+        <div id="products-container">Carregando produtos...</div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>🖥️ Console Logs</h2>
+        <div id="console-logs"></div>
+    </div>
+
+    <script>
+        // INTERCEPTAR CONSOLE LOGS
+        const originalLog = console.log;
+        const logsContainer = document.getElementById('console-logs');
+        
+        console.log = function(...args) {
+            originalLog.apply(console, args);
+            const logEntry = args.join(' ');
+            logsContainer.innerHTML += logEntry + '<br>';
+            logsContainer.scrollTop = logsContainer.scrollHeight;
+        };
+
+        // TIMESTAMP ÚNICO PARA FORÇAR CACHE
+        const timestamp = Date.now() + Math.random();
+        console.log('🚀 INICIANDO TESTE EXTREMO - Timestamp:', timestamp);
+
+        // CARREGAR DATABASE.JS COM FORÇAMENTO EXTREMO
+        const script = document.createElement('script');
+        script.src = `js/database.js?v=47&nocache=true&t=${timestamp}&r=${Math.random()}&force=${Date.now()}`;
+        script.onload = function() {
+            console.log('✅ database.js carregado com timestamp:', timestamp);
+            initializeTest();
+        };
+        script.onerror = function() {
+            console.log('❌ ERRO ao carregar database.js');
+        };
+        document.head.appendChild(script);
+
+        function initializeTest() {
+            console.log('🔍 Verificando productsDatabase...');
+            
+            if (typeof productsDatabase === 'undefined') {
+                console.log('❌ productsDatabase NÃO ENCONTRADO');
+                document.getElementById('system-status').innerHTML = '❌ ERRO: productsDatabase não encontrado';
+                return;
+            }
+
+            console.log('✅ productsDatabase encontrado:', typeof productsDatabase);
+            console.log('📦 Número de produtos:', productsDatabase.length);
+
+            // MOSTRAR STATUS DO SISTEMA
+            document.getElementById('system-status').innerHTML = `
+                <p>✅ productsDatabase: ${typeof productsDatabase}</p>
+                <p>📦 Categorias: ${Object.keys(productsDatabase).join(', ')}</p>
+                <p>⏰ Timestamp: ${timestamp}</p>
+            `;
+
+            // RENDERIZAR PRODUTOS COM ESTOQUE
+            renderProductsWithStock();
+        }
+
+        function renderProductsWithStock() {
+            console.log('🎨 Renderizando produtos...');
+            const container = document.getElementById('products-container');
+            
+            if (!productsDatabase || typeof productsDatabase !== 'object') {
+                container.innerHTML = '❌ Nenhum produto encontrado';
+                return;
+            }
+
+            let html = '';
+            let allProducts = [];
+            
+            // EXTRAIR PRODUTOS DE TODAS AS CATEGORIAS
+            Object.keys(productsDatabase).forEach(category => {
+                if (Array.isArray(productsDatabase[category])) {
+                    allProducts = allProducts.concat(productsDatabase[category]);
+                }
+            });
+            
+            console.log('📦 Total de produtos extraídos:', allProducts.length);
+            
+            // PEGAR OS PRIMEIROS 5 PRODUTOS PARA TESTE
+            const testProducts = allProducts.slice(0, 5);
+            
+            testProducts.forEach(product => {
+                console.log(`=== PRODUTO: ${product.title} ===`);
+                console.log('product.stock:', product.stock);
+                console.log('typeof product.stock:', typeof product.stock);
+                
+                // TRATAMENTO ROBUSTO DE ESTOQUE
+                let stockQuantity = 0;
+                if (product.stock !== undefined && product.stock !== null) {
+                    stockQuantity = parseInt(product.stock) || 0;
+                }
+                
+                const stockAvailable = stockQuantity > 0;
+                
+                console.log('stockQuantity (após conversão):', stockQuantity);
+                console.log('stockAvailable:', stockAvailable);
+                
+                const stockText = stockAvailable ? `Em estoque (${stockQuantity})` : 'Fora de estoque';
+                const stockClass = stockAvailable ? 'in-stock' : 'out-of-stock';
+                
+                console.log('stockText:', stockText);
+                console.log('stockClass:', stockClass);
+                
+                html += `
+                    <div class="product-card">
+                        <h3>${product.title}</h3>
+                        <p><strong>Preço:</strong> R$ ${product.price}</p>
+                        <p><strong>Marca:</strong> ${product.brand || 'N/A'}</p>
+                        <p><strong>Status:</strong> <span class="${stockClass}">${stockText}</span></p>
+                        <button class="add-to-cart" ${!stockAvailable ? 'disabled' : ''} onclick="addToCart('${product.id}')">
+                            ${stockAvailable ? '🛒 Adicionar ao Carrinho' : '❌ Fora de Estoque'}
+                        </button>
+                    </div>
+                `;
+            });
+            
+            container.innerHTML = html;
+            console.log('✅ Produtos renderizados com sucesso!');
+        }
+
+        function addToCart(productId) {
+            console.log('🛒 Tentando adicionar produto ao carrinho:', productId);
+            
+            // BUSCAR PRODUTO EM TODAS AS CATEGORIAS
+            let product = null;
+            Object.keys(productsDatabase).forEach(category => {
+                if (Array.isArray(productsDatabase[category])) {
+                    const found = productsDatabase[category].find(p => p.id === productId);
+                    if (found) product = found;
+                }
+            });
+            
+            if (product) {
+                console.log('✅ Produto adicionado ao carrinho:', product.title);
+                alert(`✅ ${product.title} foi adicionado ao carrinho!`);
+            } else {
+                console.log('❌ Produto não encontrado:', productId);
+                alert('❌ Erro ao adicionar produto ao carrinho');
+            }
+        }
+
+        // LOG DE INICIALIZAÇÃO
+        console.log('🔥 TESTE EXTREMO INICIADO');
+        console.log('⏰ Data/Hora:', new Date().toLocaleString());
+    </script>
+</body>
+</html>

@@ -4,6 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('Timestamp:', Date.now());
     console.log('productsDatabase disponível:', typeof productsDatabase);
     
+    // Inicializar OrderManager para controle de estoque
+    if (typeof OrderManager !== 'undefined' && !window.orderManager) {
+        window.orderManager = new OrderManager();
+        console.log('OrderManager inicializado para controle de estoque');
+    }
+    
     // Aguardar um pouco mais para garantir carregamento completo
     setTimeout(() => {
         console.log('Iniciando catálogo após timeout...');
@@ -323,29 +329,36 @@ function createProductCard(product) {
             <span class="rating-count">(${product.ratingCount || 0})</span>
         </div>` : '';
 
-    // VERIFICAÇÃO DE ESTOQUE COM LOGS DETALHADOS
-    console.log(`=== PRODUTO: ${product.title} ===`);
-    console.log('product.stock:', product.stock);
-    console.log('typeof product.stock:', typeof product.stock);
-    
-    // Garantir que o estoque seja tratado corretamente
+    // INTEGRAÇÃO COM SISTEMA DE ESTOQUE DO ORDERMANAGER
     let stockQuantity = 0;
-    if (product.stock !== undefined && product.stock !== null) {
+    
+    // Primeiro, tentar obter estoque do OrderManager (sistema dinâmico)
+    if (window.orderManager && window.orderManager.stockData) {
+        stockQuantity = window.orderManager.stockData[product.id] || 0;
+        console.log(`Estoque do OrderManager para ${product.title}: ${stockQuantity}`);
+    } 
+    // Se não houver OrderManager, usar estoque do produto
+    else if (product.stock !== undefined && product.stock !== null) {
         stockQuantity = parseInt(product.stock) || 0;
+        console.log(`Estoque do produto para ${product.title}: ${stockQuantity}`);
     }
     
     const stockAvailable = stockQuantity > 0;
     
-    console.log('stockQuantity (após conversão):', stockQuantity);
-    console.log('stockAvailable:', stockAvailable);
+    // Exibição mais clara do estoque
+    let stockDisplay;
+    if (stockQuantity > 10) {
+        stockDisplay = `✅ Em estoque (${stockQuantity} unidades)`;
+    } else if (stockQuantity > 0) {
+        stockDisplay = `⚠️ Últimas ${stockQuantity} unidades`;
+    } else {
+        stockDisplay = `❌ Fora de estoque`;
+    }
     
-    const stockText = stockAvailable ? `Em estoque (${stockQuantity})` : 'Fora de estoque';
-    const stockClass = stockAvailable ? 'in-stock' : 'out-of-stock';
+    const stockClass = stockQuantity > 10 ? 'in-stock' : 
+                      stockQuantity > 0 ? 'low-stock' : 'out-of-stock';
     
-    console.log('stockText:', stockText);
-    console.log('stockClass:', stockClass);
-    
-    const stockStatus = `<span class="stock-status ${stockClass}">${stockText}</span>`;
+    const stockStatus = `<div class="stock-status ${stockClass}">${stockDisplay}</div>`;
 
     card.innerHTML = `
         <img src="${product.image}" alt="${product.title}" class="product-img" loading="lazy">
@@ -362,7 +375,7 @@ function createProductCard(product) {
             <div class="product-actions">
                 <button class="add-to-cart" data-id="${product.id}" ${!stockAvailable ? 'disabled' : ''}>
                     <i class="fas fa-shopping-cart"></i> 
-                    ${stockAvailable ? 'Adicionar' : 'Fora de estoque'}
+                    ${stockAvailable ? 'Adicionar ao Carrinho' : 'Fora de Estoque'}
                 </button>
                 <button class="wishlist-btn" data-id="${product.id}">
                     <i class="far fa-heart"></i>
@@ -377,8 +390,25 @@ function createProductCard(product) {
         addToCartBtn.addEventListener('click', async function() {
             const productId = this.getAttribute('data-id');
             try {
+                // Verificar estoque novamente antes de adicionar
+                let currentStock = 0;
+                if (window.orderManager && window.orderManager.stockData) {
+                    currentStock = window.orderManager.stockData[productId] || 0;
+                }
+                
+                if (currentStock <= 0) {
+                    showNotification('Produto fora de estoque!', 'error');
+                    return;
+                }
+                
                 const result = await productsModule.addToCart(productId);
                 showNotification('Produto adicionado ao carrinho!', 'success');
+                
+                // Atualizar exibição do estoque após adicionar ao carrinho
+                setTimeout(() => {
+                    location.reload(); // Recarregar para atualizar estoques
+                }, 1000);
+                
             } catch (error) {
                 console.error('Erro ao adicionar ao carrinho:', error);
                 showNotification('Erro: ' + error.message, 'error');
