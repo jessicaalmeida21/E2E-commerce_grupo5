@@ -140,11 +140,23 @@
         </div>
     </footer>
 
-    <script src="../js/database.js?v=46&nocache=true&t=<?php echo time(); ?>&r=<?php echo rand(); ?>&force=<?php echo microtime(true); ?>"></script>
-    <script src="../js/api-service.js?v=46&nocache=true&t=<?php echo time(); ?>&r=<?php echo rand(); ?>&force=<?php echo microtime(true); ?>"></script>
-    <script src="../js/orders.js?v=46&nocache=true&t=<?php echo time(); ?>&r=<?php echo rand(); ?>&force=<?php echo microtime(true); ?>"></script>
-    <script src="../js/products.js?v=46&nocache=true&t=<?php echo time(); ?>&r=<?php echo rand(); ?>&force=<?php echo microtime(true); ?>"></script>
-    <script src="../js/main.js?v=46&nocache=true&t=<?php echo time(); ?>&r=<?php echo rand(); ?>&force=<?php echo microtime(true); ?>"></script>
-    <script src="../js/catalog.js?v=46&nocache=true&t=<?php echo time(); ?>&r=<?php echo rand(); ?>&force=<?php echo microtime(true); ?>"></script>
+    <script>
+        // Cache busting simples
+        const timestamp = Date.now();
+        const scripts = [
+            '../js/database.js',
+            '../js/api-service.js', 
+            '../js/orders.js',
+            '../js/products.js',
+            '../js/main.js',
+            '../js/catalog.js'
+        ];
+        
+        scripts.forEach(src => {
+            const script = document.createElement('script');
+            script.src = `${src}?v=47&t=${timestamp}&r=${Math.random()}`;
+            document.head.appendChild(script);
+        });
+    </script>
 </body>
 </html>

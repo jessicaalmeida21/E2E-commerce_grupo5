@@ -6,7 +6,7 @@ const productsModule = (() => {
     // Funções para gerenciar carrinho específico por usuário
     function getCurrentUserId() {
         const currentUser = JSON.parse(localStorage.getItem('currentUser'));
-        return currentUser ? currentUser.id : 'guest';
+        return currentUser ? (currentUser.email || currentUser.id || 'guest') : 'guest';
     }
     
     function getUserCart() {
@@ -578,7 +578,10 @@ const productsModule = (() => {
         sortProducts,
         formatPrice,
         addToCart,
-        updateCartCounter
+        updateCartCounter,
+        getUserCart,
+        saveUserCart,
+        clearUserCart
     };
 })();
 

@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug - Carrinho</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .debug-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .error { color: red; }
+        .success { color: green; }
+        .info { color: blue; }
+        button { padding: 10px 15px; margin: 5px; }
+    </style>
+</head>
+<body>
+    <h1>Debug - Funcionalidade do Carrinho</h1>
+    
+    <div class="debug-section">
+        <h3>1. Verificar Módulos Carregados</h3>
+        <button onclick="checkModules()">Verificar Módulos</button>
+        <div id="modules-result"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h3>2. Verificar OrderManager</h3>
+        <button onclick="checkOrderManager()">Verificar OrderManager</button>
+        <div id="orderManager-result"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h3>3. Testar Adição ao Carrinho</h3>
+        <button onclick="testAddToCart()">Testar Adicionar Produto</button>
+        <div id="addToCart-result"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h3>4. Verificar Carrinho Atual</h3>
+        <button onclick="checkCart()">Verificar Carrinho</button>
+        <div id="cart-result"></div>
+    </div>
+
+    <!-- Scripts necessários -->
+    <script src="js/database.js"></script>
+    <script src="js/api-service.js"></script>
+    <script src="js/orders.js"></script>
+    <script src="js/products.js"></script>
+    <script src="js/main.js"></script>
+
+    <script>
+        function log(elementId, message, type = 'info') {
+            const element = document.getElementById(elementId);
+            const className = type === 'error' ? 'error' : type === 'success' ? 'success' : 'info';
+            element.innerHTML += `<div class="${className}">${message}</div>`;
+        }
+
+        function checkModules() {
+            const result = document.getElementById('modules-result');
+            result.innerHTML = '';
+            
+            log('modules-result', '=== VERIFICANDO MÓDULOS ===');
+            log('modules-result', `productsModule: ${typeof productsModule}`);
+            log('modules-result', `getAllProducts: ${typeof getAllProducts}`);
+            log('modules-result', `OrderManager: ${typeof OrderManager}`);
+            log('modules-result', `window.orderManager: ${typeof window.orderManager}`);
+            
+            if (typeof productsModule !== 'undefined') {
+                log('modules-result', `productsModule.addToCart: ${typeof productsModule.addToCart}`, 'success');
+            } else {
+                log('modules-result', 'productsModule não está disponível!', 'error');
+            }
+        }
+
+        function checkOrderManager() {
+            const result = document.getElementById('orderManager-result');
+            result.innerHTML = '';
+            
+            log('orderManager-result', '=== VERIFICANDO ORDER MANAGER ===');
+            
+            if (typeof OrderManager !== 'undefined') {
+                log('orderManager-result', 'OrderManager class disponível', 'success');
+                
+                if (!window.orderManager) {
+                    window.orderManager = new OrderManager();
+                    log('orderManager-result', 'OrderManager instanciado', 'success');
+                }
+                
+                log('orderManager-result', `stockData: ${JSON.stringify(window.orderManager.stockData)}`);
+            } else {
+                log('orderManager-result', 'OrderManager não disponível!', 'error');
+            }
+        }
+
+        async function testAddToCart() {
+            const result = document.getElementById('addToCart-result');
+            result.innerHTML = '';
+            
+            log('addToCart-result', '=== TESTANDO ADIÇÃO AO CARRINHO ===');
+            
+            try {
+                // Primeiro, verificar se temos produtos
+                if (typeof getAllProducts === 'function') {
+                    const products = getAllProducts();
+                    log('addToCart-result', `Produtos disponíveis: ${products.length}`);
+                    
+                    if (products.length > 0) {
+                        const testProduct = products[0];
+                        log('addToCart-result', `Testando com produto: ${testProduct.id} - ${testProduct.title}`);
+                        
+                        // Verificar estoque
+                        if (window.orderManager && window.orderManager.stockData) {
+                            const stock = window.orderManager.stockData[testProduct.id];
+                            log('addToCart-result', `Estoque do produto: ${stock}`);
+                        }
+                        
+                        // Tentar adicionar ao carrinho
+                        if (typeof productsModule !== 'undefined' && productsModule.addToCart) {
+                            const result = await productsModule.addToCart(testProduct.id);
+                            log('addToCart-result', `Resultado: ${result}`, 'success');
+                        } else {
+                            log('addToCart-result', 'productsModule.addToCart não disponível!', 'error');
+                        }
+                    } else {
+                        log('addToCart-result', 'Nenhum produto disponível para teste!', 'error');
+                    }
+                } else {
+                    log('addToCart-result', 'getAllProducts não disponível!', 'error');
+                }
+            } catch (error) {
+                log('addToCart-result', `Erro: ${error.message}`, 'error');
+                console.error('Erro completo:', error);
+            }
+        }
+
+        function checkCart() {
+            const result = document.getElementById('cart-result');
+            result.innerHTML = '';
+            
+            log('cart-result', '=== VERIFICANDO CARRINHO ===');
+            
+            try {
+                if (typeof productsModule !== 'undefined' && productsModule.getUserCart) {
+                    const cart = productsModule.getUserCart();
+                    log('cart-result', `Itens no carrinho: ${cart.length}`);
+                    log('cart-result', `Carrinho: ${JSON.stringify(cart, null, 2)}`);
+                } else {
+                    // Verificar localStorage diretamente
+                    const currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
+                    const cartKey = currentUser.email ? `cart_${currentUser.email}` : 'cart_guest';
+                    const cart = JSON.parse(localStorage.getItem(cartKey) || '[]');
+                    log('cart-result', `Carrinho no localStorage (${cartKey}): ${JSON.stringify(cart, null, 2)}`);
+                }
+            } catch (error) {
+                log('cart-result', `Erro ao verificar carrinho: ${error.message}`, 'error');
+            }
+        }
+
+        // Executar verificações automáticas ao carregar
+        setTimeout(() => {
+            checkModules();
+            checkOrderManager();
+        }, 2000);
+    </script>
+</body>
+</html>
