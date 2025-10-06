@@ -255,25 +255,175 @@
             }
         }
         
-        // Função simples para adicionar ao carrinho (fallback)
-        function addToCart(productId, productName) {
-            console.log(`Adicionando ao carrinho: ${productName} (ID: ${productId})`);
-            
-            // Tentar usar o sistema de carrinho existente
-            if (typeof window.addToCart === 'function') {
-                window.addToCart(productId);
-            } else {
-                // Fallback simples
-                alert(`Produto "${productName}" seria adicionado ao carrinho!\n(ID: ${productId})`);
-                
-                // Atualizar contador do carrinho
-                const cartCount = document.getElementById('cart-count');
-                if (cartCount) {
-                    const currentCount = parseInt(cartCount.textContent) || 0;
-                    cartCount.textContent = currentCount + 1;
-                }
-            }
-        }
+        // Função para adicionar ao carrinho - integrada com o sistema completo
+         async function addToCart(productId, productName) {
+             console.log(`🛒 Adicionando ao carrinho: ${productName} (ID: ${productId})`);
+             
+             try {
+                 // Tentar usar o sistema de carrinho do productsModule primeiro
+                 if (window.productsModule && typeof window.productsModule.addToCart === 'function') {
+                     console.log('✅ Usando productsModule.addToCart');
+                     await window.productsModule.addToCart(productId);
+                     
+                     // Mostrar feedback visual
+                     showAddToCartFeedback(productName, true);
+                     return;
+                 }
+                 
+                 // Fallback: implementação direta
+                 console.log('⚠️ Usando fallback direto para addToCart');
+                 
+                 // Verificar se o produto existe no database
+                 if (typeof productsDatabase === 'undefined') {
+                     throw new Error('Database de produtos não disponível');
+                 }
+                 
+                 let product = null;
+                 
+                 // Procurar produto em todas as categorias
+                 Object.keys(productsDatabase).forEach(category => {
+                     if (Array.isArray(productsDatabase[category])) {
+                         const found = productsDatabase[category].find(p => p.id === productId);
+                         if (found) {
+                             product = found;
+                         }
+                     }
+                 });
+                 
+                 if (!product) {
+                     throw new Error(`Produto ${productId} não encontrado`);
+                 }
+                 
+                 // Obter carrinho atual
+                 let cart = JSON.parse(localStorage.getItem('userCart')) || [];
+                 
+                 // Verificar se produto já está no carrinho
+                 const existingItem = cart.find(item => item.id === productId);
+                 
+                 if (existingItem) {
+                     existingItem.quantity += 1;
+                     console.log('📈 Quantidade incrementada:', existingItem);
+                 } else {
+                     const newItem = {
+                         id: productId,
+                         title: product.title || product.name || productName,
+                         price: parseFloat(product.price) || 0,
+                         image: product.image || 'https://via.placeholder.com/250',
+                         quantity: 1,
+                         description: product.description || '',
+                         brand: product.brand || 'Marca'
+                     };
+                     cart.push(newItem);
+                     console.log('➕ Novo item adicionado:', newItem);
+                 }
+                 
+                 // Salvar carrinho
+                 localStorage.setItem('userCart', JSON.stringify(cart));
+                 
+                 // Atualizar contador do carrinho
+                 updateCartCounter();
+                 
+                 // Mostrar feedback visual
+                 showAddToCartFeedback(productName, true);
+                 
+                 console.log('✅ Produto adicionado ao carrinho com sucesso');
+                 
+             } catch (error) {
+                 console.error('❌ Erro ao adicionar produto ao carrinho:', error);
+                 showAddToCartFeedback(productName, false, error.message);
+             }
+         }
+         
+         // Função para atualizar contador do carrinho
+         function updateCartCounter() {
+             const cart = JSON.parse(localStorage.getItem('userCart')) || [];
+             const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+             
+             const cartCounters = document.querySelectorAll('#cart-count, .cart-count, .cart-counter');
+             cartCounters.forEach(counter => {
+                 counter.textContent = totalItems;
+                 counter.style.display = totalItems > 0 ? 'flex' : 'none';
+             });
+             
+             console.log(`🔢 Contador do carrinho atualizado: ${totalItems} itens`);
+         }
+         
+         // Função para mostrar feedback visual
+         function showAddToCartFeedback(productName, success, errorMessage = '') {
+             // Criar elemento de feedback
+             const feedback = document.createElement('div');
+             feedback.style.cssText = `
+                 position: fixed;
+                 top: 20px;
+                 right: 20px;
+                 padding: 15px 20px;
+                 border-radius: 8px;
+                 color: white;
+                 font-weight: bold;
+                 z-index: 10000;
+                 animation: slideIn 0.3s ease-out;
+                 max-width: 300px;
+                 box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+             `;
+             
+             if (success) {
+                 feedback.style.background = '#27ae60';
+                 feedback.innerHTML = `
+                     <div style="display: flex; align-items: center; gap: 10px;">
+                         <span style="font-size: 20px;">✅</span>
+                         <div>
+                             <div>Produto adicionado!</div>
+                             <div style="font-size: 12px; opacity: 0.9;">${productName}</div>
+                         </div>
+                     </div>
+                 `;
+             } else {
+                 feedback.style.background = '#e74c3c';
+                 feedback.innerHTML = `
+                     <div style="display: flex; align-items: center; gap: 10px;">
+                         <span style="font-size: 20px;">❌</span>
+                         <div>
+                             <div>Erro ao adicionar</div>
+                             <div style="font-size: 12px; opacity: 0.9;">${errorMessage}</div>
+                         </div>
+                     </div>
+                 `;
+             }
+             
+             // Adicionar CSS de animação
+             if (!document.getElementById('feedback-styles')) {
+                 const style = document.createElement('style');
+                 style.id = 'feedback-styles';
+                 style.textContent = `
+                     @keyframes slideIn {
+                         from { transform: translateX(100%); opacity: 0; }
+                         to { transform: translateX(0); opacity: 1; }
+                     }
+                     @keyframes slideOut {
+                         from { transform: translateX(0); opacity: 1; }
+                         to { transform: translateX(100%); opacity: 0; }
+                     }
+                 `;
+                 document.head.appendChild(style);
+             }
+             
+             document.body.appendChild(feedback);
+             
+             // Remover após 3 segundos
+             setTimeout(() => {
+                 feedback.style.animation = 'slideOut 0.3s ease-in';
+                 setTimeout(() => {
+                     if (feedback.parentNode) {
+                         feedback.parentNode.removeChild(feedback);
+                     }
+                 }, 300);
+             }, 3000);
+         }
+         
+         // Inicializar contador do carrinho ao carregar a página
+         document.addEventListener('DOMContentLoaded', () => {
+             updateCartCounter();
+         });
         
         // Executar fallback após 8 segundos se nenhum produto foi carregado
         setTimeout(() => {
