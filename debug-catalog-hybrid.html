@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>🔧 DEBUG HÍBRIDO - Catalog.js V46</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/catalog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .debug-panel {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            max-width: 400px;
+            z-index: 9999;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        .debug-status {
+            margin: 5px 0;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        .status-success { background: #27ae60; }
+        .status-error { background: #e74c3c; }
+        .status-warning { background: #f39c12; }
+        .status-info { background: #3498db; }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+        
+        .product-card {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .product-card img {
+            width: 100%;
+            max-width: 200px;
+            height: auto;
+            border-radius: 4px;
+        }
+        
+        .loading, .empty-catalog {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <!-- Debug Panel -->
+    <div class="debug-panel">
+        <h3>🔧 DEBUG HÍBRIDO V46</h3>
+        <div id="debug-status">Iniciando...</div>
+        <div id="catalog-status"></div>
+        <button onclick="testCatalogSystem()" style="margin-top: 10px; padding: 5px 10px;">🔄 Testar Sistema</button>
+        <button onclick="forceLoadProducts()" style="margin-top: 5px; padding: 5px 10px;">⚡ Forçar Produtos</button>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="index.html">
+                        <div class="logo-icon"></div>
+                        <h1>E2E-Commerce</h1>
+                    </a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar produtos, marcas e muito mais...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-actions">
+                    <a href="pages/cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i> Carrinho 
+                        <span id="cart-count" class="badge">0</span>
+                    </a>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="pages/catalog.html" class="active">Catálogo</a></li>
+                    <li><a href="pages/offers.html">Ofertas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <div class="catalog-header">
+            <h1><i class="fas fa-th-large"></i> 🔧 DEBUG HÍBRIDO - Catalog.js V46</h1>
+            <div class="catalog-filters">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Buscar produtos...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <select id="category-filter">
+                    <option value="">Todas as categorias</option>
+                </select>
+                <select id="sort-filter">
+                    <option value="">Ordenar por</option>
+                    <option value="name-asc">Nome A-Z</option>
+                    <option value="name-desc">Nome Z-A</option>
+                    <option value="price-asc">Menor preço</option>
+                    <option value="price-desc">Maior preço</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="catalog-content">
+            <div class="products-grid" id="products-grid">
+                <!-- Produtos serão carregados via JavaScript -->
+            </div>
+
+            <div class="loading" id="loading" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i>
+                <span>Carregando produtos...</span>
+            </div>
+
+            <div class="empty-catalog" id="empty-catalog" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h2>Nenhum produto encontrado</h2>
+                <p>Tente ajustar os filtros ou fazer uma nova busca.</p>
+            </div>
+
+            <div class="pagination" id="pagination">
+                <!-- Paginação será carregada via JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        console.log('🔧 DEBUG HÍBRIDO V46 iniciado');
+        
+        let debugStatus = document.getElementById('debug-status');
+        let catalogStatus = document.getElementById('catalog-status');
+        let productsGrid = document.getElementById('products-grid');
+        let loading = document.getElementById('loading');
+        let emptyCatalog = document.getElementById('empty-catalog');
+        
+        function updateDebug(message, type = 'info') {
+            console.log(message);
+            debugStatus.innerHTML = `<div class="debug-status status-${type}">${message}</div>`;
+        }
+        
+        function updateCatalogStatus(message, type = 'info') {
+            catalogStatus.innerHTML = `<div class="debug-status status-${type}">${message}</div>`;
+        }
+        
+        // Função para testar o sistema completo
+        async function testCatalogSystem() {
+            updateDebug('Testando sistema...', 'info');
+            
+            // Testar elementos DOM
+            const requiredElements = ['products-grid', 'loading', 'empty-catalog', 'search-input', 'category-filter'];
+            const missingElements = requiredElements.filter(id => !document.getElementById(id));
+            
+            if (missingElements.length > 0) {
+                updateDebug(`❌ Elementos faltando: ${missingElements.join(', ')}`, 'error');
+                return;
+            }
+            
+            updateDebug('✅ Elementos DOM OK', 'success');
+            
+            // Testar database
+            if (typeof productsDatabase === 'undefined') {
+                updateDebug('❌ Database não carregado', 'error');
+                return;
+            }
+            
+            updateDebug('✅ Database carregado', 'success');
+            
+            // Testar catalog.js
+            if (typeof window.initializeCatalog === 'function') {
+                updateCatalogStatus('✅ Catalog.js V46 disponível', 'success');
+                
+                try {
+                    // Tentar inicializar o catálogo
+                    await window.initializeCatalog();
+                    updateCatalogStatus('✅ Catálogo inicializado', 'success');
+                } catch (error) {
+                    updateCatalogStatus(`❌ Erro na inicialização: ${error.message}`, 'error');
+                    console.error('Erro na inicialização:', error);
+                }
+            } else {
+                updateCatalogStatus('❌ Catalog.js não disponível', 'error');
+            }
+        }
+        
+        // Função para forçar carregamento de produtos (fallback)
+        function forceLoadProducts() {
+            updateDebug('Forçando produtos...', 'warning');
+            
+            if (typeof productsDatabase === 'undefined') {
+                updateDebug('❌ Database não disponível', 'error');
+                return;
+            }
+            
+            loading.style.display = 'block';
+            productsGrid.innerHTML = '';
+            
+            let productCount = 0;
+            
+            Object.keys(productsDatabase).forEach(category => {
+                if (Array.isArray(productsDatabase[category]) && productCount < 12) {
+                    productsDatabase[category].slice(0, 12 - productCount).forEach(product => {
+                        if (productCount < 12) {
+                            const productCard = document.createElement('div');
+                            productCard.className = 'product-card';
+                            productCard.innerHTML = `
+                                <img src="${product.image || 'https://via.placeholder.com/200'}" 
+                                     alt="${product.title || product.name}" 
+                                     onerror="this.src='https://via.placeholder.com/200'">
+                                <h3>${product.title || product.name || 'Produto'}</h3>
+                                <p><strong>Categoria:</strong> ${category}</p>
+                                <p><strong>Preço:</strong> R$ ${product.price || 'N/A'}</p>
+                                <p><strong>ID:</strong> ${product.id || 'N/A'}</p>
+                                <button onclick="alert('Produto: ${product.title || product.name}')" 
+                                        style="padding: 8px 16px; background: #27ae60; color: white; border: none; border-radius: 4px; cursor: pointer;">
+                                    Ver Detalhes
+                                </button>
+                            `;
+                            productsGrid.appendChild(productCard);
+                            productCount++;
+                        }
+                    });
+                }
+            });
+            
+            loading.style.display = 'none';
+            
+            if (productCount > 0) {
+                updateDebug(`✅ ${productCount} produtos carregados`, 'success');
+                emptyCatalog.style.display = 'none';
+            } else {
+                updateDebug('❌ Nenhum produto encontrado', 'error');
+                emptyCatalog.style.display = 'block';
+            }
+        }
+        
+        // Carregamento sequencial de scripts
+        const scripts = [
+            'js/session-manager.js',
+            'js/database.js',
+            'js/api-service.js',
+            'js/orders.js',
+            'js/products.js',
+            'js/main.js',
+            'js/catalog.js'
+        ];
+        
+        let currentScriptIndex = 0;
+        
+        function loadNextScript() {
+            if (currentScriptIndex >= scripts.length) {
+                updateDebug('✅ Scripts carregados', 'success');
+                setTimeout(() => {
+                    testCatalogSystem();
+                }, 1000);
+                return;
+            }
+            
+            const script = document.createElement('script');
+            const src = scripts[currentScriptIndex];
+            script.src = `${src}?v=46&t=${Date.now()}&r=${Math.random()}`;
+            
+            script.onload = () => {
+                console.log(`✅ Script carregado: ${src}`);
+                updateDebug(`Scripts: ${currentScriptIndex + 1}/${scripts.length}`, 'info');
+                currentScriptIndex++;
+                loadNextScript();
+            };
+            
+            script.onerror = () => {
+                console.error(`❌ Erro ao carregar script: ${src}`);
+                currentScriptIndex++;
+                loadNextScript();
+            };
+            
+            document.head.appendChild(script);
+        }
+        
+        // Iniciar carregamento
+        updateDebug('Carregando scripts...', 'info');
+        loadNextScript();
+        
+        // Fallback automático após 10 segundos
+        setTimeout(() => {
+            if (productsGrid.children.length === 0) {
+                console.log('🔄 Executando fallback automático...');
+                forceLoadProducts();
+            }
+        }, 10000);
+    </script>
+</body>
+</html>
