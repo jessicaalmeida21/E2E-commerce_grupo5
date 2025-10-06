@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forçar Atualização de Cache</title>
+    <meta http-equiv="refresh" content="3;url=pages/catalog.html">
+</head>
+<body>
+    <h1>Forçando atualização do cache...</h1>
+    <p>Redirecionando para o catálogo em 3 segundos...</p>
+    <p><a href="pages/catalog.html">Clique aqui se não for redirecionado automaticamente</a></p>
+    
+    <script>
+        // Forçar limpeza de cache
+        if ('caches' in window) {
+            caches.keys().then(function(names) {
+                names.forEach(function(name) {
+                    caches.delete(name);
+                });
+            });
+        }
+        
+        // Recarregar com cache limpo
+        setTimeout(() => {
+            window.location.href = 'pages/catalog.html?nocache=' + Date.now();
+        }, 3000);
+    </script>
+</body>
+</html>
