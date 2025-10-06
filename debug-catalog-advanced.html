@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Avançado - Catálogo GitHub Pages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .debug-section {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+        .error { border-left-color: #dc3545; }
+        .success { border-left-color: #28a745; }
+        .warning { border-left-color: #ffc107; }
+        .log-item {
+            padding: 5px;
+            margin: 2px 0;
+            background: #f8f9fa;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        #products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 5px;
+            background: white;
+        }
+    </style>
+</head>
+<body>
+    <h1>🔍 Debug Avançado - Catálogo GitHub Pages</h1>
+    
+    <div class="debug-section">
+        <h3>📊 Status do Sistema</h3>
+        <div id="system-status">Iniciando diagnóstico...</div>
+    </div>
+
+    <div class="debug-section">
+        <h3>📁 Carregamento de Scripts</h3>
+        <div id="script-status">Verificando scripts...</div>
+    </div>
+
+    <div class="debug-section">
+        <h3>🗄️ Status do Banco de Dados</h3>
+        <div id="database-status">Verificando database.js...</div>
+    </div>
+
+    <div class="debug-section">
+        <h3>🔌 Status da API</h3>
+        <div id="api-status">Verificando api-service.js...</div>
+    </div>
+
+    <div class="debug-section">
+        <h3>📦 Produtos Carregados</h3>
+        <div id="products-status">Aguardando carregamento...</div>
+    </div>
+
+    <div class="debug-section">
+        <h3>📋 Log Detalhado</h3>
+        <div id="detailed-log"></div>
+    </div>
+
+    <div class="debug-section">
+        <h3>🛍️ Produtos no Catálogo</h3>
+        <div id="products-container"></div>
+    </div>
+
+    <script>
+        let logContainer = document.getElementById('detailed-log');
+        let systemStatus = document.getElementById('system-status');
+        let scriptStatus = document.getElementById('script-status');
+        let databaseStatus = document.getElementById('database-status');
+        let apiStatus = document.getElementById('api-status');
+        let productsStatus = document.getElementById('products-status');
+        let productsContainer = document.getElementById('products-container');
+
+        function addLog(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logItem = document.createElement('div');
+            logItem.className = 'log-item';
+            logItem.innerHTML = `[${timestamp}] ${message}`;
+            logContainer.appendChild(logItem);
+            console.log(`[DEBUG] ${message}`);
+        }
+
+        function updateStatus(element, message, type = 'info') {
+            element.innerHTML = message;
+            element.className = `debug-section ${type}`;
+        }
+
+        // Interceptar erros
+        window.addEventListener('error', function(e) {
+            addLog(`❌ ERRO: ${e.message} em ${e.filename}:${e.lineno}`, 'error');
+            updateStatus(systemStatus, `❌ Erro detectado: ${e.message}`, 'error');
+        });
+
+        // Verificar se scripts básicos estão disponíveis
+        function checkBasicScripts() {
+            addLog('🔍 Verificando scripts básicos...');
+            
+            const scripts = ['database.js', 'api-service.js', 'products.js', 'catalog.js'];
+            let loadedScripts = 0;
+            
+            scripts.forEach(scriptName => {
+                const script = document.createElement('script');
+                script.src = `../js/${scriptName}?v=${Date.now()}`;
+                
+                script.onload = function() {
+                    addLog(`✅ Script carregado: ${scriptName}`, 'success');
+                    loadedScripts++;
+                    updateScriptStatus(loadedScripts, scripts.length);
+                };
+                
+                script.onerror = function() {
+                    addLog(`❌ Erro ao carregar: ${scriptName}`, 'error');
+                    updateStatus(scriptStatus, `❌ Erro ao carregar ${scriptName}`, 'error');
+                };
+                
+                document.head.appendChild(script);
+            });
+        }
+
+        function updateScriptStatus(loaded, total) {
+            if (loaded === total) {
+                updateStatus(scriptStatus, `✅ Todos os scripts carregados (${loaded}/${total})`, 'success');
+                setTimeout(checkDatabase, 1000);
+            } else {
+                updateStatus(scriptStatus, `⏳ Carregando scripts (${loaded}/${total})`, 'warning');
+            }
+        }
+
+        function checkDatabase() {
+            addLog('🗄️ Verificando banco de dados...');
+            
+            if (typeof window.products !== 'undefined') {
+                const productCount = window.products ? window.products.length : 0;
+                addLog(`✅ Database carregado: ${productCount} produtos encontrados`, 'success');
+                updateStatus(databaseStatus, `✅ Database OK: ${productCount} produtos`, 'success');
+                setTimeout(checkApiService, 500);
+            } else {
+                addLog('❌ Database não encontrado', 'error');
+                updateStatus(databaseStatus, '❌ Database não carregado', 'error');
+                setTimeout(checkDatabase, 1000); // Tentar novamente
+            }
+        }
+
+        function checkApiService() {
+            addLog('🔌 Verificando API Service...');
+            
+            if (typeof window.apiService !== 'undefined') {
+                addLog('✅ ApiService encontrado', 'success');
+                updateStatus(apiStatus, '✅ ApiService OK', 'success');
+                setTimeout(loadProducts, 500);
+            } else {
+                addLog('❌ ApiService não encontrado', 'error');
+                updateStatus(apiStatus, '❌ ApiService não carregado', 'error');
+                setTimeout(checkApiService, 1000); // Tentar novamente
+            }
+        }
+
+        function loadProducts() {
+            addLog('📦 Tentando carregar produtos...');
+            
+            try {
+                if (window.products && window.products.length > 0) {
+                    const productCount = window.products.length;
+                    addLog(`✅ ${productCount} produtos disponíveis`, 'success');
+                    updateStatus(productsStatus, `✅ ${productCount} produtos carregados`, 'success');
+                    displayProducts(window.products.slice(0, 6)); // Mostrar apenas 6 produtos
+                } else {
+                    addLog('❌ Nenhum produto encontrado', 'error');
+                    updateStatus(productsStatus, '❌ Nenhum produto disponível', 'error');
+                }
+            } catch (error) {
+                addLog(`❌ Erro ao carregar produtos: ${error.message}`, 'error');
+                updateStatus(productsStatus, `❌ Erro: ${error.message}`, 'error');
+            }
+        }
+
+        function displayProducts(products) {
+            addLog(`🛍️ Exibindo ${products.length} produtos...`);
+            
+            products.forEach((product, index) => {
+                const productCard = document.createElement('div');
+                productCard.className = 'product-card';
+                productCard.innerHTML = `
+                    <h4>${product.title || 'Sem título'}</h4>
+                    <p>ID: ${product.id || 'N/A'}</p>
+                    <p>Preço: R$ ${product.price || 'N/A'}</p>
+                    <p>Categoria: ${product.category || 'N/A'}</p>
+                    <p>Estoque: ${product.stock || 'N/A'}</p>
+                `;
+                productsContainer.appendChild(productCard);
+            });
+            
+            addLog(`✅ ${products.length} produtos exibidos com sucesso`, 'success');
+        }
+
+        // Iniciar diagnóstico
+        addLog('🚀 Iniciando diagnóstico avançado...');
+        updateStatus(systemStatus, '⏳ Diagnóstico em andamento...', 'warning');
+        
+        setTimeout(() => {
+            checkBasicScripts();
+        }, 500);
+
+        // Verificar a cada 5 segundos se ainda há problemas
+        setInterval(() => {
+            if (productsContainer.children.length === 0) {
+                addLog('⚠️ Verificação periódica: Nenhum produto exibido ainda', 'warning');
+            }
+        }, 5000);
+    </script>
+</body>
+</html>
