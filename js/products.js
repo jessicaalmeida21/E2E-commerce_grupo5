@@ -489,7 +489,16 @@ const productsModule = (() => {
             throw new Error('Produto não encontrado');
         }
         
-        if (product.stock === 0) {
+        // Verificar estoque usando OrderManager como fonte única de verdade
+        let currentStock = 0;
+        if (window.orderManager && window.orderManager.stockData) {
+            currentStock = window.orderManager.stockData[productId] || 0;
+        } else {
+            // Fallback para o estoque do produto se OrderManager não estiver disponível
+            currentStock = product.stock || 0;
+        }
+        
+        if (currentStock <= 0) {
             throw new Error('Produto fora de estoque');
         }
         

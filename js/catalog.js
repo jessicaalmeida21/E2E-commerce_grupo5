@@ -390,17 +390,7 @@ function createProductCard(product) {
         addToCartBtn.addEventListener('click', async function() {
             const productId = this.getAttribute('data-id');
             try {
-                // Verificar estoque novamente antes de adicionar
-                let currentStock = 0;
-                if (window.orderManager && window.orderManager.stockData) {
-                    currentStock = window.orderManager.stockData[productId] || 0;
-                }
-                
-                if (currentStock <= 0) {
-                    showNotification('Produto fora de estoque!', 'error');
-                    return;
-                }
-                
+                // Não fazer verificação dupla de estoque aqui - deixar o products.js fazer
                 const result = await productsModule.addToCart(productId);
                 showNotification('Produto adicionado ao carrinho!', 'success');
                 
@@ -411,7 +401,7 @@ function createProductCard(product) {
                 
             } catch (error) {
                 console.error('Erro ao adicionar ao carrinho:', error);
-                showNotification('Erro: ' + error.message, 'error');
+                showNotification('Erro ao adicionar ao carrinho: ' + error.message, 'error');
             }
         });
     }
