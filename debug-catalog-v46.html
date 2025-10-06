@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>🔧 DEBUG CATALOG V46 - Teste de Correções</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/catalog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        .debug-panel {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            font-size: 12px;
+            max-width: 400px;
+            z-index: 9999;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        }
+        .debug-status {
+            margin: 5px 0;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        .status-success { background: #27ae60; }
+        .status-error { background: #e74c3c; }
+        .status-warning { background: #f39c12; }
+        .status-info { background: #3498db; }
+        
+        .test-results {
+            margin-top: 20px;
+            padding: 15px;
+            background: #ecf0f1;
+            border-radius: 8px;
+        }
+        
+        .element-check {
+            display: flex;
+            justify-content: space-between;
+            margin: 5px 0;
+            padding: 5px;
+            border-radius: 3px;
+        }
+        .element-found { background: #d5f4e6; color: #27ae60; }
+        .element-missing { background: #fadbd8; color: #e74c3c; }
+    </style>
+</head>
+<body>
+    <!-- Debug Panel -->
+    <div class="debug-panel">
+        <h3>🔧 DEBUG CATALOG V46</h3>
+        <div id="debug-status">Iniciando testes...</div>
+        <div id="element-status"></div>
+        <div id="script-status"></div>
+        <button onclick="runTests()" style="margin-top: 10px; padding: 5px 10px;">🔄 Executar Testes</button>
+    </div>
+
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">
+                    <a href="index.html">
+                        <div class="logo-icon"></div>
+                        <h1>E2E-Commerce</h1>
+                    </a>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Buscar produtos, marcas e muito mais...">
+                    <button><i class="fas fa-search"></i></button>
+                </div>
+                <div class="user-actions">
+                    <a href="pages/cart.html" class="cart-link">
+                        <i class="fas fa-shopping-cart"></i> Carrinho 
+                        <span id="cart-count" class="badge">0</span>
+                    </a>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="pages/catalog.html" class="active">Catálogo</a></li>
+                    <li><a href="pages/offers.html">Ofertas</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <div class="catalog-header">
+            <h1><i class="fas fa-th-large"></i> 🔧 DEBUG - Catálogo V46</h1>
+            <div class="catalog-filters">
+                <div class="search-box">
+                    <input type="text" id="search-input" placeholder="Buscar produtos...">
+                    <button id="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <select id="category-filter">
+                    <option value="">Todas as categorias</option>
+                </select>
+                <select id="sort-filter">
+                    <option value="">Ordenar por</option>
+                    <option value="name-asc">Nome A-Z</option>
+                    <option value="name-desc">Nome Z-A</option>
+                    <option value="price-asc">Menor preço</option>
+                    <option value="price-desc">Maior preço</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Resultados dos Testes -->
+        <div class="test-results">
+            <h2>📊 Resultados dos Testes de Elementos DOM</h2>
+            <div id="elements-test-results"></div>
+        </div>
+
+        <div class="catalog-content">
+            <div class="products-grid" id="products-grid">
+                <!-- Produtos serão carregados via JavaScript -->
+            </div>
+
+            <div class="loading" id="loading" style="display: none;">
+                <i class="fas fa-spinner fa-spin"></i>
+                <span>Carregando produtos...</span>
+            </div>
+
+            <div class="empty-catalog" id="empty-catalog" style="display: none;">
+                <i class="fas fa-search"></i>
+                <h2>Nenhum produto encontrado</h2>
+                <p>Tente ajustar os filtros ou fazer uma nova busca.</p>
+            </div>
+
+            <div class="pagination" id="pagination">
+                <!-- Paginação será carregada via JavaScript -->
+            </div>
+        </div>
+    </main>
+
+    <script>
+        console.log('🔧 DEBUG CATALOG V46 - Página iniciada');
+        
+        // Função para testar elementos DOM
+        function testDOMElements() {
+            const requiredElements = [
+                'products-grid',
+                'loading', 
+                'empty-catalog',
+                'search-input',
+                'search-btn',
+                'category-filter',
+                'sort-filter',
+                'pagination'
+            ];
+            
+            const results = [];
+            const resultsContainer = document.getElementById('elements-test-results');
+            
+            requiredElements.forEach(id => {
+                const element = document.getElementById(id);
+                const found = element !== null;
+                
+                results.push({
+                    id: id,
+                    found: found,
+                    element: element
+                });
+                
+                const div = document.createElement('div');
+                div.className = `element-check ${found ? 'element-found' : 'element-missing'}`;
+                div.innerHTML = `
+                    <span>${id}</span>
+                    <span>${found ? '✅ Encontrado' : '❌ Não encontrado'}</span>
+                `;
+                resultsContainer.appendChild(div);
+            });
+            
+            return results;
+        }
+        
+        // Função para executar todos os testes
+        function runTests() {
+            console.log('🔧 Executando testes de elementos DOM...');
+            
+            const debugStatus = document.getElementById('debug-status');
+            debugStatus.innerHTML = 'Executando testes...';
+            
+            // Limpar resultados anteriores
+            const resultsContainer = document.getElementById('elements-test-results');
+            resultsContainer.innerHTML = '';
+            
+            // Testar elementos DOM
+            const domResults = testDOMElements();
+            const foundElements = domResults.filter(r => r.found).length;
+            const totalElements = domResults.length;
+            
+            debugStatus.innerHTML = `
+                <div class="debug-status ${foundElements === totalElements ? 'status-success' : 'status-error'}">
+                    Elementos DOM: ${foundElements}/${totalElements} encontrados
+                </div>
+                <div class="debug-status status-info">
+                    Catalog.js V46: ${typeof window.initializeCatalog !== 'undefined' ? 'Carregado' : 'Não carregado'}
+                </div>
+                <div class="debug-status status-info">
+                    Database: ${typeof productsDatabase !== 'undefined' ? 'Disponível' : 'Não disponível'}
+                </div>
+            `;
+        }
+        
+        // Executar testes quando a página carregar
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                runTests();
+            }, 1000);
+        });
+        
+        // Carregamento sequencial de scripts com cache busting
+        const timestamp = Date.now();
+        const scripts = [
+            'js/session-manager.js',
+            'js/database.js',
+            'js/api-service.js',
+            'js/orders.js',
+            'js/products.js',
+            'js/main.js',
+            'js/catalog.js'
+        ];
+        
+        let currentScriptIndex = 0;
+        
+        function loadNextScript() {
+            if (currentScriptIndex >= scripts.length) {
+                console.log('✅ Todos os scripts carregados com sucesso');
+                setTimeout(() => {
+                    runTests();
+                }, 2000);
+                return;
+            }
+            
+            const script = document.createElement('script');
+            const src = scripts[currentScriptIndex];
+            script.src = `${src}?v=46&t=${timestamp}&r=${Math.random()}`;
+            
+            script.onload = () => {
+                console.log(`✅ Script carregado: ${src}`);
+                currentScriptIndex++;
+                loadNextScript();
+            };
+            
+            script.onerror = () => {
+                console.error(`❌ Erro ao carregar script: ${src}`);
+                currentScriptIndex++;
+                loadNextScript();
+            };
+            
+            document.head.appendChild(script);
+        }
+        
+        // Iniciar carregamento sequencial
+        loadNextScript();
+    </script>
+</body>
+</html>
