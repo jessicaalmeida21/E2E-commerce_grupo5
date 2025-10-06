@@ -118,7 +118,7 @@
             
             scripts.forEach(scriptName => {
                 const script = document.createElement('script');
-                script.src = `../js/${scriptName}?v=${Date.now()}`;
+                script.src = `js/${scriptName}?v=${Date.now()}`;
                 
                 script.onload = function() {
                     addLog(`✅ Script carregado: ${scriptName}`, 'success');
