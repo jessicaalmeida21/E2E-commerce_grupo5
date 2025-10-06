@@ -141,23 +141,42 @@
     </footer>
 
     <script>
-        // Cache busting com carregamento sequencial
+        // Cache busting com carregamento sequencial CORRIGIDO
         const timestamp = Date.now();
         const scripts = [
-            '../js/session-manager.js',
-            '../js/database.js',
-            '../js/api-service.js',
-            '../js/orders.js',
-            '../js/products.js',
-            '../js/main.js',
-            '../js/catalog.js'
+            '../js/database.js',        // PRIMEIRO: Database é essencial
+            '../js/products.js',        // SEGUNDO: Products precisa do database
+            '../js/session-manager.js', // TERCEIRO: Session manager
+            '../js/api-service.js',     // QUARTO: API service
+            '../js/orders.js',          // QUINTO: Orders
+            '../js/main.js',            // SEXTO: Main
+            '../js/catalog.js'          // ÚLTIMO: Catalog
         ];
         
         let currentScriptIndex = 0;
+        let scriptsLoaded = {};
         
         function loadNextScript() {
             if (currentScriptIndex >= scripts.length) {
-                console.log('Todos os scripts carregados com sucesso');
+                console.log('✅ Todos os scripts carregados com sucesso');
+                
+                // Verificar se componentes essenciais estão disponíveis
+                setTimeout(() => {
+                    console.log('🔍 Verificando componentes essenciais...');
+                    console.log('Database disponível:', typeof productsDatabase !== 'undefined');
+                    console.log('ProductsModule disponível:', typeof window.productsModule !== 'undefined');
+                    
+                    if (typeof productsDatabase === 'undefined') {
+                        console.warn('⚠️ Database não carregado, tentando fallback...');
+                        loadDatabaseFallback();
+                    }
+                    
+                    if (typeof window.productsModule === 'undefined') {
+                        console.warn('⚠️ ProductsModule não carregado, definindo globalmente...');
+                        defineGlobalAddToCart();
+                    }
+                }, 500);
+                
                 return;
             }
             
@@ -166,18 +185,66 @@
             script.src = `${src}?v=46&t=${timestamp}&r=${Math.random()}`;
             
             script.onload = () => {
-                console.log(`Script carregado: ${src}`);
+                console.log(`✅ Script carregado: ${src}`);
+                scriptsLoaded[src] = true;
                 currentScriptIndex++;
                 loadNextScript();
             };
             
             script.onerror = () => {
-                console.error(`Erro ao carregar script: ${src}`);
+                console.error(`❌ Erro ao carregar script: ${src}`);
+                scriptsLoaded[src] = false;
                 currentScriptIndex++;
                 loadNextScript();
             };
             
             document.head.appendChild(script);
+        }
+        
+        // Função para carregar database como fallback
+        function loadDatabaseFallback() {
+            console.log('🔄 Tentando carregar database via fallback...');
+            const fallbackScript = document.createElement('script');
+            fallbackScript.src = `../js/database.js?fallback=true&t=${Date.now()}`;
+            fallbackScript.onload = () => {
+                console.log('✅ Database carregado via fallback');
+                if (typeof productsDatabase !== 'undefined') {
+                    console.log(`📊 Database contém ${productsDatabase.length} produtos`);
+                }
+            };
+            fallbackScript.onerror = () => {
+                console.error('❌ Falha no fallback do database');
+            };
+            document.head.appendChild(fallbackScript);
+        }
+        
+        // Função para definir addToCart globalmente
+        function defineGlobalAddToCart() {
+            console.log('🔄 Definindo addToCart globalmente...');
+            
+            // Definir addToCart global que funciona mesmo sem productsModule
+            window.addToCart = function(productId, productName) {
+                console.log(`🛒 AddToCart global chamado: ${productId} - ${productName}`);
+                
+                try {
+                    // Tentar usar productsModule primeiro
+                    if (window.productsModule && typeof window.productsModule.addToCart === 'function') {
+                        console.log('🔄 Usando productsModule.addToCart...');
+                        return window.productsModule.addToCart(productId);
+                    }
+                    
+                    // Fallback direto
+                    console.log('🔄 Usando addToCart fallback direto...');
+                    return addToCartFallback(productId, productName);
+                    
+                } catch (error) {
+                    console.error('❌ Erro no addToCart global:', error);
+                    showAddToCartFeedback(productName, false, error.message);
+                    return false;
+                }
+            };
+            
+            console.log('✅ AddToCart global definido');
         }
         
         // Iniciar carregamento sequencial
