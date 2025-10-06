@@ -144,8 +144,9 @@
         // Cache busting com carregamento sequencial
         const timestamp = Date.now();
         const scripts = [
+            '../js/session-manager.js',
             '../js/database.js',
-            '../js/api-service.js', 
+            '../js/api-service.js',
             '../js/orders.js',
             '../js/products.js',
             '../js/main.js',
@@ -162,7 +163,7 @@
             
             const script = document.createElement('script');
             const src = scripts[currentScriptIndex];
-            script.src = `${src}?v=48&t=${timestamp}&r=${Math.random()}`;
+            script.src = `${src}?v=46&t=${timestamp}&r=${Math.random()}`;
             
             script.onload = () => {
                 console.log(`Script carregado: ${src}`);
@@ -181,6 +182,116 @@
         
         // Iniciar carregamento sequencial
         loadNextScript();
+        
+        // Sistema de fallback para garantir que produtos sempre apareçam
+        function fallbackLoadProducts() {
+            console.log('🔄 Executando fallback para carregamento de produtos...');
+            
+            if (typeof productsDatabase === 'undefined') {
+                console.error('❌ Database não disponível para fallback');
+                return;
+            }
+            
+            const productsGrid = document.getElementById('products-grid');
+            const loading = document.getElementById('loading');
+            const emptyCatalog = document.getElementById('empty-catalog');
+            
+            if (!productsGrid) {
+                console.error('❌ Elemento products-grid não encontrado');
+                return;
+            }
+            
+            loading.style.display = 'block';
+            productsGrid.innerHTML = '';
+            
+            let productCount = 0;
+            
+            Object.keys(productsDatabase).forEach(category => {
+                if (Array.isArray(productsDatabase[category]) && productCount < 12) {
+                    productsDatabase[category].slice(0, 12 - productCount).forEach(product => {
+                        if (productCount < 12) {
+                            const productCard = document.createElement('div');
+                            productCard.className = 'product-card';
+                            productCard.innerHTML = `
+                                <div class="product-image">
+                                    <img src="${product.image || 'https://via.placeholder.com/250'}" 
+                                         alt="${product.title || product.name}" 
+                                         onerror="this.src='https://via.placeholder.com/250'">
+                                    ${product.discount ? `<div class="discount-badge">${product.discount}% OFF</div>` : ''}
+                                </div>
+                                <div class="product-info">
+                                    <h3 class="product-title">${product.title || product.name || 'Produto'}</h3>
+                                    <p class="product-category">${category}</p>
+                                    <div class="product-price">
+                                        <span class="current-price">R$ ${product.price || 'N/A'}</span>
+                                    </div>
+                                    <div class="product-rating">
+                                        <div class="stars">
+                                            ${'★'.repeat(Math.floor(product.rating || 4))}${'☆'.repeat(5 - Math.floor(product.rating || 4))}
+                                        </div>
+                                        <span class="rating-text">(${product.rating || '4.0'})</span>
+                                    </div>
+                                    <button class="add-to-cart-btn" onclick="addToCart('${product.id}', '${(product.title || product.name || 'Produto').replace(/'/g, '\\\'')}')" 
+                                            style="width: 100%; padding: 10px; background: #27ae60; color: white; border: none; border-radius: 4px; cursor: pointer; margin-top: 10px;">
+                                        <i class="fas fa-shopping-cart"></i> Adicionar ao Carrinho
+                                    </button>
+                                </div>
+                            `;
+                            productsGrid.appendChild(productCard);
+                            productCount++;
+                        }
+                    });
+                }
+            });
+            
+            loading.style.display = 'none';
+            
+            if (productCount > 0) {
+                console.log(`✅ Fallback: ${productCount} produtos carregados com sucesso`);
+                emptyCatalog.style.display = 'none';
+            } else {
+                console.log('❌ Fallback: Nenhum produto encontrado');
+                emptyCatalog.style.display = 'block';
+            }
+        }
+        
+        // Função simples para adicionar ao carrinho (fallback)
+        function addToCart(productId, productName) {
+            console.log(`Adicionando ao carrinho: ${productName} (ID: ${productId})`);
+            
+            // Tentar usar o sistema de carrinho existente
+            if (typeof window.addToCart === 'function') {
+                window.addToCart(productId);
+            } else {
+                // Fallback simples
+                alert(`Produto "${productName}" seria adicionado ao carrinho!\n(ID: ${productId})`);
+                
+                // Atualizar contador do carrinho
+                const cartCount = document.getElementById('cart-count');
+                if (cartCount) {
+                    const currentCount = parseInt(cartCount.textContent) || 0;
+                    cartCount.textContent = currentCount + 1;
+                }
+            }
+        }
+        
+        // Executar fallback após 8 segundos se nenhum produto foi carregado
+        setTimeout(() => {
+            const productsGrid = document.getElementById('products-grid');
+            if (productsGrid && productsGrid.children.length === 0) {
+                console.log('⚠️ Nenhum produto carregado após 8 segundos, executando fallback...');
+                fallbackLoadProducts();
+            }
+        }, 8000);
+        
+        // Executar fallback após 15 segundos independentemente (garantia extra)
+        setTimeout(() => {
+            const productsGrid = document.getElementById('products-grid');
+            if (productsGrid && productsGrid.children.length < 3) {
+                console.log('⚠️ Poucos produtos carregados após 15 segundos, reforçando com fallback...');
+                fallbackLoadProducts();
+            }
+        }, 15000);
     </script>
 </body>
 </html>
