@@ -1,8 +1,61 @@
-// Script para gerenciar a página de catálogo - v45 (debug estoque detalhado)
+// Script para gerenciar a página de catálogo - v46 (correção elementos null)
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('=== CATALOG.JS V45 INICIADO ===');
+    console.log('=== CATALOG.JS V46 INICIADO ===');
     console.log('Timestamp:', Date.now());
     console.log('productsDatabase disponível:', typeof productsDatabase);
+    
+    // Verificar se todos os elementos DOM necessários existem
+    function checkRequiredElements() {
+        const requiredElements = [
+            'products-grid',
+            'loading', 
+            'empty-catalog',
+            'search-input',
+            'search-btn',
+            'category-filter',
+            'sort-filter',
+            'pagination'
+        ];
+        
+        const missingElements = [];
+        requiredElements.forEach(id => {
+            if (!document.getElementById(id)) {
+                missingElements.push(id);
+            }
+        });
+        
+        if (missingElements.length > 0) {
+            console.error('Elementos DOM não encontrados:', missingElements);
+            return false;
+        }
+        
+        console.log('Todos os elementos DOM necessários foram encontrados');
+        return true;
+    }
+    
+    // Aguardar elementos DOM estarem disponíveis
+    function waitForElements(callback, maxAttempts = 10) {
+        let attempts = 0;
+        
+        function check() {
+            attempts++;
+            console.log(`Tentativa ${attempts} de verificação dos elementos DOM`);
+            
+            if (checkRequiredElements()) {
+                console.log('Elementos DOM verificados com sucesso, iniciando catálogo...');
+                callback();
+            } else if (attempts < maxAttempts) {
+                console.log('Aguardando elementos DOM... tentativa', attempts);
+                setTimeout(check, 500);
+            } else {
+                console.error('Elementos DOM não carregaram após', maxAttempts, 'tentativas');
+                // Tentar inicializar mesmo assim
+                callback();
+            }
+        }
+        
+        check();
+    }
     
     // Inicializar OrderManager para controle de estoque
     if (typeof OrderManager !== 'undefined' && !window.orderManager) {
@@ -10,11 +63,10 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('OrderManager inicializado para controle de estoque');
     }
     
-    // Aguardar um pouco mais para garantir carregamento completo
-    setTimeout(() => {
-        console.log('Iniciando catálogo após timeout...');
+    // Aguardar elementos DOM e depois inicializar
+    waitForElements(() => {
         initializeCatalog();
-    }, 2000); // Aumentado para 2 segundos
+    });
 });
 
 let currentPage = 1;
@@ -297,18 +349,31 @@ function displayProducts(products) {
     const grid = document.getElementById('products-grid');
     const emptyCatalog = document.getElementById('empty-catalog');
     
-    if (products.length === 0) {
-        if (grid) grid.innerHTML = '';
-        if (emptyCatalog) emptyCatalog.style.display = 'block';
+    // Verificações de segurança mais robustas
+    if (!grid) {
+        console.error('Elemento products-grid não encontrado');
         return;
     }
     
-    if (emptyCatalog) emptyCatalog.style.display = 'none';
-    if (grid) grid.innerHTML = '';
+    if (!emptyCatalog) {
+        console.error('Elemento empty-catalog não encontrado');
+        return;
+    }
+    
+    if (products.length === 0) {
+        grid.innerHTML = '';
+        emptyCatalog.style.display = 'block';
+        return;
+    }
+    
+    emptyCatalog.style.display = 'none';
+    grid.innerHTML = '';
     
     products.forEach(product => {
         const productCard = createProductCard(product);
-        if (grid) grid.appendChild(productCard);
+        if (productCard && grid) {
+            grid.appendChild(productCard);
+        }
     });
 }
 
@@ -427,6 +492,13 @@ function createProductCard(product) {
 // Atualizar paginação
 function updatePagination(meta) {
     const pagination = document.getElementById('pagination');
+    
+    // Verificação de segurança
+    if (!pagination) {
+        console.error('Elemento pagination não encontrado');
+        return;
+    }
+    
     const { page, totalPages, total } = meta;
     
     if (totalPages <= 1) {
@@ -495,6 +567,29 @@ function setupEventListeners() {
     // Busca
     const searchInput = document.getElementById('search-input');
     const searchBtn = document.getElementById('search-btn');
+    const categoryFilter = document.getElementById('category-filter');
+    const sortFilter = document.getElementById('sort-filter');
+    
+    // Verificações de segurança para todos os elementos
+    if (!searchInput) {
+        console.error('Elemento search-input não encontrado');
+        return;
+    }
+    
+    if (!searchBtn) {
+        console.error('Elemento search-btn não encontrado');
+        return;
+    }
+    
+    if (!categoryFilter) {
+        console.error('Elemento category-filter não encontrado');
+        return;
+    }
+    
+    if (!sortFilter) {
+        console.error('Elemento sort-filter não encontrado');
+        return;
+    }
     
     searchBtn.addEventListener('click', performSearch);
     searchInput.addEventListener('keypress', function(e) {
@@ -504,13 +599,13 @@ function setupEventListeners() {
     });
     
     // Filtros
-    document.getElementById('category-filter').addEventListener('change', function() {
+    categoryFilter.addEventListener('change', function() {
         currentCategory = this.value;
         currentPage = 1;
         loadProducts();
     });
     
-    document.getElementById('sort-filter').addEventListener('change', function() {
+    sortFilter.addEventListener('change', function() {
         currentSort = this.value;
         loadProducts(currentPage);
     });
@@ -519,6 +614,13 @@ function setupEventListeners() {
 // Realizar busca
 function performSearch() {
     const searchInput = document.getElementById('search-input');
+    
+    // Verificação de segurança
+    if (!searchInput) {
+        console.error('Elemento search-input não encontrado');
+        return;
+    }
+    
     currentSearch = searchInput.value.trim();
     currentPage = 1;
     loadProducts();
@@ -529,23 +631,28 @@ function showLoading(show) {
     const loading = document.getElementById('loading');
     const grid = document.getElementById('products-grid');
     
+    // Verificações de segurança
+    if (!loading) {
+        console.error('Elemento loading não encontrado');
+        return;
+    }
+    
+    if (!grid) {
+        console.error('Elemento products-grid não encontrado');
+        return;
+    }
+    
     if (show) {
-        if (loading) {
-            loading.style.display = 'flex';
-            loading.style.opacity = '1';
-        }
-        if (grid) grid.style.opacity = '0.5';
+        loading.style.display = 'flex';
+        loading.style.opacity = '1';
+        grid.style.opacity = '0.5';
     } else {
-        if (loading) {
-            loading.style.opacity = '0';
-            setTimeout(() => {
-                if (loading) loading.style.display = 'none';
-            }, 300);
-        }
-        if (grid) {
-            grid.style.display = 'grid';
-            grid.style.opacity = '1';
-        }
+        loading.style.opacity = '0';
+        setTimeout(() => {
+            if (loading) loading.style.display = 'none';
+        }, 300);
+        grid.style.display = 'grid';
+        grid.style.opacity = '1';
     }
 }
 
@@ -554,8 +661,19 @@ function showEmptyCatalog() {
     const grid = document.getElementById('products-grid');
     const emptyCatalog = document.getElementById('empty-catalog');
     
-    if (grid) grid.innerHTML = '';
-    if (emptyCatalog) emptyCatalog.style.display = 'block';
+    // Verificações de segurança
+    if (!grid) {
+        console.error('Elemento products-grid não encontrado');
+        return;
+    }
+    
+    if (!emptyCatalog) {
+        console.error('Elemento empty-catalog não encontrado');
+        return;
+    }
+    
+    grid.innerHTML = '';
+    emptyCatalog.style.display = 'block';
 }
 
 // Carregar produtos diretamente do database.js
