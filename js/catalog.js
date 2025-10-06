@@ -298,17 +298,17 @@ function displayProducts(products) {
     const emptyCatalog = document.getElementById('empty-catalog');
     
     if (products.length === 0) {
-        grid.innerHTML = '';
-        emptyCatalog.style.display = 'block';
+        if (grid) grid.innerHTML = '';
+        if (emptyCatalog) emptyCatalog.style.display = 'block';
         return;
     }
     
-    emptyCatalog.style.display = 'none';
-    grid.innerHTML = '';
+    if (emptyCatalog) emptyCatalog.style.display = 'none';
+    if (grid) grid.innerHTML = '';
     
     products.forEach(product => {
         const productCard = createProductCard(product);
-        grid.appendChild(productCard);
+        if (grid) grid.appendChild(productCard);
     });
 }
 
@@ -524,17 +524,28 @@ function performSearch() {
     loadProducts();
 }
 
-// Mostrar/ocultar loading
+// Mostrar/ocultar loading com melhor UX
 function showLoading(show) {
     const loading = document.getElementById('loading');
     const grid = document.getElementById('products-grid');
     
     if (show) {
-        loading.style.display = 'flex';
-        grid.style.display = 'none';
+        if (loading) {
+            loading.style.display = 'flex';
+            loading.style.opacity = '1';
+        }
+        if (grid) grid.style.opacity = '0.5';
     } else {
-        loading.style.display = 'none';
-        grid.style.display = 'grid';
+        if (loading) {
+            loading.style.opacity = '0';
+            setTimeout(() => {
+                if (loading) loading.style.display = 'none';
+            }, 300);
+        }
+        if (grid) {
+            grid.style.display = 'grid';
+            grid.style.opacity = '1';
+        }
     }
 }
 
@@ -543,8 +554,8 @@ function showEmptyCatalog() {
     const grid = document.getElementById('products-grid');
     const emptyCatalog = document.getElementById('empty-catalog');
     
-    grid.innerHTML = '';
-    emptyCatalog.style.display = 'block';
+    if (grid) grid.innerHTML = '';
+    if (emptyCatalog) emptyCatalog.style.display = 'block';
 }
 
 // Carregar produtos diretamente do database.js
