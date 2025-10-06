@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Catálogo GitHub Pages</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .debug-section { margin: 20px 0; padding: 15px; border: 1px solid #ccc; }
+        .error { color: red; }
+        .success { color: green; }
+        .info { color: blue; }
+        #products-container { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+        .product-card { border: 1px solid #ddd; padding: 15px; border-radius: 8px; }
+    </style>
+</head>
+<body>
+    <h1>Debug do Catálogo - GitHub Pages</h1>
+    
+    <div class="debug-section">
+        <h2>Status de Carregamento</h2>
+        <div id="loading-status">Iniciando debug...</div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>Arquivos JavaScript</h2>
+        <div id="js-status"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>Database Status</h2>
+        <div id="database-status"></div>
+    </div>
+    
+    <div class="debug-section">
+        <h2>Produtos Carregados</h2>
+        <div id="products-count"></div>
+        <div id="products-container"></div>
+    </div>
+
+    <script>
+        let debugLog = [];
+        
+        function log(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            debugLog.push(`[${timestamp}] ${message}`);
+            console.log(`[DEBUG] ${message}`);
+            
+            const statusDiv = document.getElementById('loading-status');
+            statusDiv.innerHTML += `<div class="${type}">[${timestamp}] ${message}</div>`;
+        }
+        
+        function updateJSStatus(file, status) {
+            const jsDiv = document.getElementById('js-status');
+            jsDiv.innerHTML += `<div class="${status ? 'success' : 'error'}">${file}: ${status ? 'OK' : 'ERRO'}</div>`;
+        }
+        
+        // Testar carregamento dos arquivos JS
+        const jsFiles = [
+            'js/database.js',
+            'js/api-service.js', 
+            'js/orders.js',
+            'js/products.js',
+            'js/main.js',
+            'js/catalog.js'
+        ];
+        
+        log('Iniciando teste de carregamento dos arquivos JS...');
+        
+        let loadedFiles = 0;
+        const totalFiles = jsFiles.length;
+        
+        jsFiles.forEach(file => {
+            const script = document.createElement('script');
+            script.src = file + '?v=' + Date.now();
+            
+            script.onload = () => {
+                updateJSStatus(file, true);
+                loadedFiles++;
+                log(`Arquivo carregado: ${file}`);
+                
+                if (loadedFiles === totalFiles) {
+                    setTimeout(checkDatabase, 1000);
+                }
+            };
+            
+            script.onerror = () => {
+                updateJSStatus(file, false);
+                loadedFiles++;
+                log(`ERRO ao carregar: ${file}`, 'error');
+                
+                if (loadedFiles === totalFiles) {
+                    setTimeout(checkDatabase, 1000);
+                }
+            };
+            
+            document.head.appendChild(script);
+        });
+        
+        function checkDatabase() {
+            log('Verificando database...');
+            const dbDiv = document.getElementById('database-status');
+            
+            if (typeof window.products !== 'undefined') {
+                const productCount = window.products ? window.products.length : 0;
+                dbDiv.innerHTML = `<div class="success">Database carregado: ${productCount} produtos</div>`;
+                log(`Database OK: ${productCount} produtos encontrados`, 'success');
+                displayProducts();
+            } else {
+                dbDiv.innerHTML = `<div class="error">Database não encontrado (window.products undefined)</div>`;
+                log('ERRO: Database não carregado', 'error');
+                
+                // Tentar carregar manualmente
+                setTimeout(tryManualLoad, 2000);
+            }
+        }
+        
+        function tryManualLoad() {
+            log('Tentando carregamento manual do database...');
+            
+            fetch('js/database.js?v=' + Date.now())
+                .then(response => response.text())
+                .then(data => {
+                    log('Database.js baixado, tentando executar...');
+                    eval(data);
+                    setTimeout(checkDatabase, 500);
+                })
+                .catch(error => {
+                    log(`Erro no carregamento manual: ${error.message}`, 'error');
+                });
+        }
+        
+        function displayProducts() {
+            const container = document.getElementById('products-container');
+            const countDiv = document.getElementById('products-count');
+            
+            if (window.products && window.products.length > 0) {
+                countDiv.innerHTML = `<div class="success">Exibindo primeiros 6 produtos de ${window.products.length} total</div>`;
+                
+                const firstSix = window.products.slice(0, 6);
+                firstSix.forEach(product => {
+                    const card = document.createElement('div');
+                    card.className = 'product-card';
+                    card.innerHTML = `
+                        <h3>${product.name || 'Nome não definido'}</h3>
+                        <p>ID: ${product.id}</p>
+                        <p>Preço: R$ ${product.price || 'N/A'}</p>
+                        <p>Categoria: ${product.category || 'N/A'}</p>
+                        <p>Estoque: ${product.stock || 0}</p>
+                    `;
+                    container.appendChild(card);
+                });
+                
+                log(`Produtos exibidos com sucesso`, 'success');
+            } else {
+                countDiv.innerHTML = `<div class="error">Nenhum produto encontrado</div>`;
+                log('ERRO: Nenhum produto no array', 'error');
+            }
+        }
+        
+        // Log de erros globais
+        window.addEventListener('error', (e) => {
+            log(`Erro JavaScript: ${e.message} em ${e.filename}:${e.lineno}`, 'error');
+        });
+        
+        // Timeout de segurança
+        setTimeout(() => {
+            if (loadedFiles < totalFiles) {
+                log('TIMEOUT: Nem todos os arquivos foram carregados', 'error');
+            }
+        }, 10000);
+    </script>
+</body>
+</html>
