@@ -254,18 +254,41 @@
             
             function tryCheckDatabase() {
                 attempts++;
-                addLog(`🔍 Tentativa ${attempts}/${maxAttempts} - Verificando window.products...`, 'info');
+                addLog(`🔍 Tentativa ${attempts}/${maxAttempts} - Verificando database...`, 'info');
                 
-                if (typeof window.products !== 'undefined' && window.products) {
-                    const productCount = Array.isArray(window.products) ? window.products.length : 0;
-                    addLog(`✅ Database encontrado: ${productCount} produtos disponíveis`, 'success');
-                    updateStatus(databaseStatus, `✅ Database OK: ${productCount} produtos`, 'success', 'database-indicator');
-                    setTimeout(checkApiService, 500);
-                } else if (attempts < maxAttempts) {
+                // Verificar se productsDatabase existe
+                if (typeof window.productsDatabase !== 'undefined') {
+                    addLog(`✅ window.productsDatabase encontrado`, 'success');
+                }
+                
+                // Verificar se getAllProducts existe
+                if (typeof window.getAllProducts !== 'undefined') {
+                    addLog(`✅ window.getAllProducts encontrado`, 'success');
+                    
+                    try {
+                        const allProducts = window.getAllProducts();
+                        const productCount = Array.isArray(allProducts) ? allProducts.length : 0;
+                        addLog(`✅ Database carregado: ${productCount} produtos disponíveis`, 'success');
+                        updateStatus(databaseStatus, `✅ Database OK: ${productCount} produtos`, 'success', 'database-indicator');
+                        
+                        // Criar window.products para compatibilidade
+                        window.products = allProducts;
+                        addLog(`✅ window.products criado para compatibilidade`, 'success');
+                        
+                        setTimeout(checkApiService, 500);
+                        return;
+                    } catch (error) {
+                        addLog(`❌ Erro ao executar getAllProducts(): ${error.message}`, 'error');
+                    }
+                }
+                
+                if (attempts < maxAttempts) {
                     addLog(`⏳ Database ainda não disponível, tentando novamente em 1s...`, 'warning');
                     setTimeout(tryCheckDatabase, 1000);
                 } else {
                     addLog(`❌ Database não encontrado após ${maxAttempts} tentativas`, 'error');
+                    addLog(`🔍 window.productsDatabase: ${typeof window.productsDatabase}`, 'info');
+                    addLog(`🔍 window.getAllProducts: ${typeof window.getAllProducts}`, 'info');
                     updateStatus(databaseStatus, '❌ Database não carregado', 'error', 'database-indicator');
                 }
             }
