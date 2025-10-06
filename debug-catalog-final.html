@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Debug Final - Catálogo GitHub Pages</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+        }
+        .debug-section {
+            background: white;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border-left: 4px solid #007bff;
+        }
+        .error { border-left-color: #dc3545; background-color: #f8d7da; }
+        .success { border-left-color: #28a745; background-color: #d4edda; }
+        .warning { border-left-color: #ffc107; background-color: #fff3cd; }
+        .log-item {
+            padding: 8px;
+            margin: 3px 0;
+            background: #f8f9fa;
+            border-radius: 3px;
+            font-family: monospace;
+            font-size: 13px;
+            border-left: 3px solid #6c757d;
+        }
+        .log-error { border-left-color: #dc3545; background-color: #f8d7da; }
+        .log-success { border-left-color: #28a745; background-color: #d4edda; }
+        .log-warning { border-left-color: #ffc107; background-color: #fff3cd; }
+        #products-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        .product-card {
+            border: 1px solid #ddd;
+            padding: 15px;
+            border-radius: 8px;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .product-image {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .status-loading { background-color: #ffc107; }
+        .status-success { background-color: #28a745; }
+        .status-error { background-color: #dc3545; }
+        .refresh-btn {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 10px 5px;
+        }
+        .refresh-btn:hover { background: #0056b3; }
+    </style>
+</head>
+<body>
+    <h1>🔍 Debug Final - Catálogo GitHub Pages</h1>
+    
+    <div style="margin-bottom: 20px;">
+        <button class="refresh-btn" onclick="location.reload()">🔄 Recarregar Página</button>
+        <button class="refresh-btn" onclick="clearCacheAndReload()">🗑️ Limpar Cache e Recarregar</button>
+        <button class="refresh-btn" onclick="forceReloadScripts()">⚡ Forçar Reload Scripts</button>
+    </div>
+
+    <div class="debug-section">
+        <h3><span class="status-indicator status-loading" id="system-indicator"></span>📊 Status do Sistema</h3>
+        <div id="system-status">Iniciando diagnóstico completo...</div>
+    </div>
+
+    <div class="debug-section">
+        <h3><span class="status-indicator status-loading" id="scripts-indicator"></span>📁 Carregamento de Scripts</h3>
+        <div id="script-status">Verificando scripts...</div>
+    </div>
+
+    <div class="debug-section">
+        <h3><span class="status-indicator status-loading" id="database-indicator"></span>🗄️ Status do Banco de Dados</h3>
+        <div id="database-status">Verificando database.js...</div>
+    </div>
+
+    <div class="debug-section">
+        <h3><span class="status-indicator status-loading" id="api-indicator"></span>🔌 Status da API</h3>
+        <div id="api-status">Verificando api-service.js...</div>
+    </div>
+
+    <div class="debug-section">
+        <h3><span class="status-indicator status-loading" id="products-indicator"></span>📦 Produtos Carregados</h3>
+        <div id="products-status">Aguardando carregamento...</div>
+    </div>
+
+    <div class="debug-section">
+        <h3>📋 Log Detalhado</h3>
+        <div id="detailed-log"></div>
+    </div>
+
+    <div class="debug-section">
+        <h3>🛍️ Produtos no Catálogo (<span id="product-count">0</span>)</h3>
+        <div id="products-container"></div>
+    </div>
+
+    <script>
+        let logContainer = document.getElementById('detailed-log');
+        let systemStatus = document.getElementById('system-status');
+        let scriptStatus = document.getElementById('script-status');
+        let databaseStatus = document.getElementById('database-status');
+        let apiStatus = document.getElementById('api-status');
+        let productsStatus = document.getElementById('products-status');
+        let productsContainer = document.getElementById('products-container');
+        let productCount = document.getElementById('product-count');
+
+        let scriptsLoaded = 0;
+        let totalScripts = 4;
+        let diagnosticStartTime = Date.now();
+
+        function addLog(message, type = 'info') {
+            const timestamp = new Date().toLocaleTimeString();
+            const logItem = document.createElement('div');
+            logItem.className = `log-item log-${type}`;
+            logItem.innerHTML = `[${timestamp}] ${message}`;
+            logContainer.appendChild(logItem);
+            console.log(`[DEBUG-${type.toUpperCase()}] ${message}`);
+            
+            // Auto-scroll para o último log
+            logContainer.scrollTop = logContainer.scrollHeight;
+        }
+
+        function updateStatus(element, message, type = 'info', indicatorId = null) {
+            element.innerHTML = message;
+            element.className = `debug-section ${type}`;
+            
+            if (indicatorId) {
+                const indicator = document.getElementById(indicatorId);
+                if (indicator) {
+                    indicator.className = `status-indicator status-${type === 'success' ? 'success' : type === 'error' ? 'error' : 'loading'}`;
+                }
+            }
+        }
+
+        function clearCacheAndReload() {
+            addLog('🗑️ Limpando cache e recarregando...', 'warning');
+            if ('caches' in window) {
+                caches.keys().then(names => {
+                    names.forEach(name => {
+                        caches.delete(name);
+                    });
+                    location.reload(true);
+                });
+            } else {
+                location.reload(true);
+            }
+        }
+
+        function forceReloadScripts() {
+            addLog('⚡ Forçando reload de todos os scripts...', 'warning');
+            scriptsLoaded = 0;
+            updateStatus(scriptStatus, '⏳ Recarregando scripts...', 'warning', 'scripts-indicator');
+            checkBasicScripts();
+        }
+
+        // Interceptar todos os erros
+        window.addEventListener('error', function(e) {
+            addLog(`❌ ERRO GLOBAL: ${e.message} em ${e.filename}:${e.lineno}`, 'error');
+            updateStatus(systemStatus, `❌ Erro detectado: ${e.message}`, 'error', 'system-indicator');
+        });
+
+        window.addEventListener('unhandledrejection', function(e) {
+            addLog(`❌ PROMISE REJEITADA: ${e.reason}`, 'error');
+        });
+
+        // Verificar scripts com timeout e retry
+        function checkBasicScripts() {
+            addLog('🔍 Iniciando verificação de scripts básicos...', 'info');
+            
+            const scripts = [
+                { name: 'database.js', path: 'js/database.js' },
+                { name: 'api-service.js', path: 'js/api-service.js' },
+                { name: 'products.js', path: 'js/products.js' },
+                { name: 'catalog.js', path: 'js/catalog.js' }
+            ];
+            
+            scriptsLoaded = 0;
+            
+            scripts.forEach((scriptInfo, index) => {
+                setTimeout(() => {
+                    loadScript(scriptInfo, index);
+                }, index * 500); // Delay entre scripts
+            });
+        }
+
+        function loadScript(scriptInfo, index) {
+            const script = document.createElement('script');
+            const timestamp = Date.now();
+            script.src = `${scriptInfo.path}?v=${timestamp}&debug=true`;
+            
+            addLog(`📥 Carregando: ${scriptInfo.name}...`, 'info');
+            
+            const timeout = setTimeout(() => {
+                addLog(`⏰ TIMEOUT: ${scriptInfo.name} demorou mais de 10s`, 'error');
+                updateScriptStatus();
+            }, 10000);
+            
+            script.onload = function() {
+                clearTimeout(timeout);
+                addLog(`✅ Script carregado com sucesso: ${scriptInfo.name}`, 'success');
+                scriptsLoaded++;
+                updateScriptStatus();
+            };
+            
+            script.onerror = function() {
+                clearTimeout(timeout);
+                addLog(`❌ ERRO ao carregar: ${scriptInfo.name}`, 'error');
+                updateScriptStatus();
+            };
+            
+            document.head.appendChild(script);
+        }
+
+        function updateScriptStatus() {
+            const percentage = Math.round((scriptsLoaded / totalScripts) * 100);
+            
+            if (scriptsLoaded === totalScripts) {
+                updateStatus(scriptStatus, `✅ Todos os scripts carregados (${scriptsLoaded}/${totalScripts})`, 'success', 'scripts-indicator');
+                setTimeout(checkDatabase, 1000);
+            } else {
+                updateStatus(scriptStatus, `⏳ Carregando scripts (${scriptsLoaded}/${totalScripts}) - ${percentage}%`, 'warning', 'scripts-indicator');
+            }
+        }
+
+        function checkDatabase() {
+            addLog('🗄️ Verificando disponibilidade do banco de dados...', 'info');
+            
+            let attempts = 0;
+            const maxAttempts = 10;
+            
+            function tryCheckDatabase() {
+                attempts++;
+                addLog(`🔍 Tentativa ${attempts}/${maxAttempts} - Verificando window.products...`, 'info');
+                
+                if (typeof window.products !== 'undefined' && window.products) {
+                    const productCount = Array.isArray(window.products) ? window.products.length : 0;
+                    addLog(`✅ Database encontrado: ${productCount} produtos disponíveis`, 'success');
+                    updateStatus(databaseStatus, `✅ Database OK: ${productCount} produtos`, 'success', 'database-indicator');
+                    setTimeout(checkApiService, 500);
+                } else if (attempts < maxAttempts) {
+                    addLog(`⏳ Database ainda não disponível, tentando novamente em 1s...`, 'warning');
+                    setTimeout(tryCheckDatabase, 1000);
+                } else {
+                    addLog(`❌ Database não encontrado após ${maxAttempts} tentativas`, 'error');
+                    updateStatus(databaseStatus, '❌ Database não carregado', 'error', 'database-indicator');
+                }
+            }
+            
+            tryCheckDatabase();
+        }
+
+        function checkApiService() {
+            addLog('🔌 Verificando API Service...', 'info');
+            
+            let attempts = 0;
+            const maxAttempts = 10;
+            
+            function tryCheckApiService() {
+                attempts++;
+                addLog(`🔍 Tentativa ${attempts}/${maxAttempts} - Verificando window.apiService...`, 'info');
+                
+                if (typeof window.apiService !== 'undefined' && window.apiService) {
+                    addLog('✅ ApiService encontrado e disponível', 'success');
+                    updateStatus(apiStatus, '✅ ApiService OK', 'success', 'api-indicator');
+                    setTimeout(loadProducts, 500);
+                } else if (attempts < maxAttempts) {
+                    addLog(`⏳ ApiService ainda não disponível, tentando novamente em 1s...`, 'warning');
+                    setTimeout(tryCheckApiService, 1000);
+                } else {
+                    addLog(`❌ ApiService não encontrado após ${maxAttempts} tentativas`, 'error');
+                    updateStatus(apiStatus, '❌ ApiService não carregado', 'error', 'api-indicator');
+                }
+            }
+            
+            tryCheckApiService();
+        }
+
+        function loadProducts() {
+            addLog('📦 Iniciando carregamento de produtos...', 'info');
+            
+            try {
+                if (window.products && Array.isArray(window.products) && window.products.length > 0) {
+                    const count = window.products.length;
+                    addLog(`✅ ${count} produtos encontrados no database`, 'success');
+                    updateStatus(productsStatus, `✅ ${count} produtos carregados`, 'success', 'products-indicator');
+                    displayProducts(window.products.slice(0, 12)); // Mostrar 12 produtos
+                } else {
+                    addLog('❌ Nenhum produto encontrado ou array vazio', 'error');
+                    updateStatus(productsStatus, '❌ Nenhum produto disponível', 'error', 'products-indicator');
+                    
+                    // Tentar diagnóstico adicional
+                    addLog(`🔍 Diagnóstico: window.products = ${typeof window.products}`, 'info');
+                    if (window.products) {
+                        addLog(`🔍 Tipo do products: ${Array.isArray(window.products) ? 'Array' : typeof window.products}`, 'info');
+                        addLog(`🔍 Conteúdo: ${JSON.stringify(window.products).substring(0, 200)}...`, 'info');
+                    }
+                }
+            } catch (error) {
+                addLog(`❌ ERRO ao processar produtos: ${error.message}`, 'error');
+                updateStatus(productsStatus, `❌ Erro: ${error.message}`, 'error', 'products-indicator');
+            }
+        }
+
+        function displayProducts(products) {
+            addLog(`🛍️ Exibindo ${products.length} produtos no catálogo...`, 'info');
+            
+            productsContainer.innerHTML = '';
+            productCount.textContent = products.length;
+            
+            products.forEach((product, index) => {
+                try {
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    productCard.innerHTML = `
+                        <img src="${product.image || 'https://via.placeholder.com/200x150?text=Sem+Imagem'}" 
+                             alt="${product.title || 'Produto'}" 
+                             class="product-image"
+                             onerror="this.src='https://via.placeholder.com/200x150?text=Erro+Imagem'">
+                        <h4>${product.title || 'Sem título'}</h4>
+                        <p><strong>ID:</strong> ${product.id || 'N/A'}</p>
+                        <p><strong>Preço:</strong> R$ ${product.price || 'N/A'}</p>
+                        <p><strong>Categoria:</strong> ${product.category || 'N/A'}</p>
+                        <p><strong>Estoque:</strong> ${product.stock || 'N/A'}</p>
+                        <p><strong>Descrição:</strong> ${(product.description || 'Sem descrição').substring(0, 100)}...</p>
+                    `;
+                    productsContainer.appendChild(productCard);
+                } catch (error) {
+                    addLog(`❌ Erro ao exibir produto ${index}: ${error.message}`, 'error');
+                }
+            });
+            
+            addLog(`✅ ${products.length} produtos exibidos com sucesso no catálogo`, 'success');
+            
+            const totalTime = Date.now() - diagnosticStartTime;
+            addLog(`⏱️ Diagnóstico completo em ${totalTime}ms`, 'success');
+            updateStatus(systemStatus, `✅ Sistema funcionando - ${products.length} produtos carregados`, 'success', 'system-indicator');
+        }
+
+        // Iniciar diagnóstico
+        addLog('🚀 Iniciando diagnóstico final completo...', 'info');
+        updateStatus(systemStatus, '⏳ Diagnóstico em andamento...', 'warning', 'system-indicator');
+        
+        setTimeout(() => {
+            checkBasicScripts();
+        }, 1000);
+
+        // Verificação periódica
+        setInterval(() => {
+            const currentProductCount = productsContainer.children.length;
+            if (currentProductCount === 0) {
+                addLog('⚠️ Verificação periódica: Ainda nenhum produto exibido', 'warning');
+            }
+        }, 10000);
+
+        // Log de informações do navegador
+        addLog(`🌐 Navegador: ${navigator.userAgent}`, 'info');
+        addLog(`📍 URL atual: ${window.location.href}`, 'info');
+        addLog(`🕐 Timestamp: ${new Date().toISOString()}`, 'info');
+    </script>
+</body>
+</html>
